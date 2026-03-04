@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -20,13 +21,18 @@ export default function Navbar() {
       initial={{ y: -28, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl"
+      className="sticky top-0 z-50 border-b border-white/10 bg-[#0f0f2e]/95 backdrop-blur-xl"
     >
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="inline-flex items-center" aria-label="Finlec home">
-          <span className="bg-gradient-to-r from-[#16a34a] via-[#22c55e] to-[#dcfce7] bg-clip-text text-2xl font-semibold tracking-tight text-transparent font-[family-name:var(--font-sora)]">
-            Finlec
-          </span>
+        <Link href="projects/codexuse/finlec/public/images/logo.jpg" className="inline-flex items-center gap-3">
+          <Image
+            src="projects/codexuse/finlec/public/images/logo.jpg"
+            alt="Logo"
+            width={150}
+            height={50}
+            className="object-contain cursor-pointer"
+            priority
+          />
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -35,10 +41,10 @@ export default function Navbar() {
               key={link.label}
               href={link.href}
               whileHover={{ y: -1 }}
-              className="group relative py-2 text-sm font-medium text-gray-400 transition-colors hover:text-white"
+              className="group relative py-2 text-sm font-medium text-gray-400 transition-colors hover:text-[#00C896]"
             >
               {link.label}
-              <span className="absolute -bottom-0.5 left-0 h-0.5 w-full origin-left scale-x-0 bg-[#16a34a] transition-transform duration-300 ease-out group-hover:scale-x-100" />
+              <span className="absolute -bottom-0.5 left-0 h-0.5 w-full origin-left scale-x-0 bg-[#00C896] transition-transform duration-300 ease-out group-hover:scale-x-100" />
             </motion.a>
           ))}
         </div>
@@ -47,7 +53,7 @@ export default function Navbar() {
           <motion.div whileHover={{ y: -1 }}>
             <Link
               href="/login"
-              className="inline-flex items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:bg-white/20"
+              className="inline-flex items-center justify-center rounded-2xl bg-[#7B4FD4] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#6940bd]"
             >
               Login
             </Link>
@@ -55,7 +61,7 @@ export default function Navbar() {
           <motion.div whileHover={{ y: -1 }}>
             <Link
               href="/signup"
-              className="inline-flex items-center rounded-2xl bg-gradient-to-r from-[#16a34a] to-[#15803d] px-4 py-2 text-sm font-semibold text-white shadow-2xl shadow-green-500/50 transition-all hover:from-[#22c55e] hover:to-[#16a34a]"
+              className="inline-flex items-center rounded-2xl bg-[#00C896] px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-[rgba(0,200,150,0.35)] transition-colors hover:bg-[#00b286]"
             >
               New Investor
             </Link>
@@ -80,7 +86,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, height: "auto" }}
             exit={{ opacity: 0, y: -10, height: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="overflow-hidden border-t border-white/10 md:hidden"
+            className="overflow-hidden border-t border-white/10 bg-[#0f0f2e] md:hidden"
           >
             <div className="space-y-3 px-4 py-4">
               {navLinks.map((link) => (
@@ -88,7 +94,7 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-gray-300 backdrop-blur-md transition-colors hover:text-white"
+                  className="block rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-gray-400 transition-colors hover:text-[#00C896]"
                 >
                   {link.label}
                 </a>
@@ -97,14 +103,14 @@ export default function Navbar() {
                 <Link
                   href="/login"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-center text-sm font-semibold text-white backdrop-blur-md"
+                  className="rounded-2xl bg-[#7B4FD4] px-4 py-3 text-center text-sm font-semibold text-white"
                 >
                   Login
                 </Link>
                 <Link
                   href="/signup"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="rounded-2xl bg-gradient-to-r from-[#16a34a] to-[#15803d] px-4 py-3 text-center text-sm font-semibold text-white shadow-2xl shadow-green-500/50"
+                  className="rounded-2xl bg-[#00C896] px-4 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-[rgba(0,200,150,0.35)]"
                 >
                   New Investor
                 </Link>

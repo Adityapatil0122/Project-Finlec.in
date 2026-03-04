@@ -85,9 +85,9 @@ export default function StatsCounter() {
     <section
       ref={sectionRef}
       id="stats"
-      className="bg-gradient-to-r from-green-900 via-green-800 to-emerald-900 px-4 py-20 sm:px-6 lg:px-8"
+      className="bg-white px-4 py-20 sm:px-6 lg:px-8"
     >
-      <div className="mx-auto max-w-7xl rounded-3xl border border-white/20 bg-white/10 p-6 backdrop-blur-md shadow-2xl shadow-green-500/25 sm:p-10">
+      <div className="mx-auto max-w-7xl rounded-3xl bg-[#f8f9fa] p-6 sm:p-10">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -95,10 +95,10 @@ export default function StatsCounter() {
           transition={{ duration: 0.55, ease: "easeOut" }}
           className="text-center"
         >
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#dcfce7]">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#00C896]">
             Performance Snapshot
           </p>
-          <h2 className="mt-3 text-3xl font-semibold text-white font-[family-name:var(--font-sora)] sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-semibold text-[#1a1a3e] font-[family-name:var(--font-sora)] sm:text-4xl">
             Transparent metrics, updated continuously
           </h2>
         </motion.div>
@@ -111,13 +111,13 @@ export default function StatsCounter() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.5, delay: index * 0.07, ease: "easeOut" }}
-              className="rounded-2xl border border-white/20 bg-[#0a0a0a]/25 p-5"
+              className="rounded-2xl bg-white p-5 shadow-sm"
             >
-              <p className="text-4xl font-semibold text-white font-[family-name:var(--font-sora)]">
+              <p className="text-4xl font-semibold text-[#1a1a3e] font-[family-name:var(--font-sora)]">
                 <AnimatedValue value={stat.value} suffix={stat.suffix} start={isInView} />
               </p>
-              <p className="mt-2 text-sm font-semibold text-[#dcfce7]">{stat.label}</p>
-              <p className="mt-2 text-sm text-white/70">{stat.detail}</p>
+              <p className="mt-2 text-sm font-semibold text-[#00C896]">{stat.label}</p>
+              <p className="mt-2 text-sm text-[#4a5568]">{stat.detail}</p>
             </motion.article>
           ))}
         </div>

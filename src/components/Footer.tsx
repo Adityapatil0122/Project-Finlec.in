@@ -27,25 +27,25 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] px-4 pb-10 pt-16 sm:px-6 lg:px-8">
+    <footer className="bg-[#f8f9fa] px-4 pb-10 pt-16 sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="mx-auto max-w-7xl rounded-3xl border border-white/20 bg-white/10 p-6 backdrop-blur-md sm:p-8"
+        className="mx-auto max-w-7xl rounded-3xl bg-white p-6 shadow-sm sm:p-8"
       >
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div>
             <Link href="#home" className="inline-flex items-center gap-3">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-green-900 via-green-800 to-emerald-900">
-                <span className="h-4 w-4 rounded-full bg-[#dcfce7]" />
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#00C896]">
+                <span className="h-4 w-4 rounded-full bg-white" />
               </span>
-              <span className="text-xl font-semibold text-white font-[family-name:var(--font-sora)]">
+              <span className="text-xl font-semibold text-[#1a1a3e] font-[family-name:var(--font-sora)]">
                 Finlec
               </span>
             </Link>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/70">
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-[#4a5568]">
               Premium mutual fund advisory platform for disciplined SIP investing,
               modern portfolio strategy, and long-term wealth confidence.
             </p>
@@ -61,7 +61,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-white/20 bg-white/10 text-[#dcfce7]"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#f8f9fa] text-[#00C896]"
                   >
                     <Icon size={18} />
                   </motion.a>
@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#dcfce7]">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#00C896]">
               Platform
             </h3>
             <ul className="mt-4 space-y-3">
@@ -79,7 +79,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="inline-flex items-center gap-1 text-sm text-white/75 transition-colors hover:text-white"
+                    className="inline-flex items-center gap-1 text-sm text-[#4a5568] transition-colors hover:text-[#00C896]"
                   >
                     {link.label}
                     <ArrowUpRight size={14} />
@@ -90,7 +90,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#dcfce7]">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#00C896]">
               Regulation
             </h3>
             <ul className="mt-4 space-y-3">
@@ -100,7 +100,7 @@ export default function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm text-white/75 transition-colors hover:text-white"
+                    className="inline-flex items-center gap-1 text-sm text-[#4a5568] transition-colors hover:text-[#00C896]"
                   >
                     {link.label}
                     <ArrowUpRight size={14} />
@@ -108,7 +108,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="mt-5 rounded-2xl border border-white/20 bg-[#14532d]/45 p-4 text-sm text-[#dcfce7]">
+            <div className="mt-5 rounded-2xl bg-[#f8f9fa] p-4 text-sm text-[#4a5568]">
               Office 12, Financial District, Pune, Maharashtra, India
               <br />
               investor@finlec.in | 9420151046
@@ -116,22 +116,22 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-white/15 pt-5 text-xs leading-relaxed text-white/60">
+        <div className="mt-8 border-t border-[#e5e7eb] pt-5 text-xs leading-relaxed text-[#4a5568]">
           Mutual fund investments are subject to market risks. Please read all
           scheme related documents carefully before investing. Past performance is
           not indicative of future returns.
         </div>
 
-        <div className="mt-5 flex flex-col gap-3 border-t border-white/15 pt-5 text-sm text-white/65 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-5 flex flex-col gap-3 border-t border-[#e5e7eb] pt-5 text-sm text-[#4a5568] sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright {new Date().getFullYear()} Finlec. All rights reserved.</p>
           <div className="flex items-center gap-5">
-            <Link href="/terms" className="transition-colors hover:text-white">
+            <Link href="/terms" className="transition-colors hover:text-[#00C896]">
               Terms
             </Link>
-            <Link href="/privacy" className="transition-colors hover:text-white">
+            <Link href="/privacy" className="transition-colors hover:text-[#00C896]">
               Privacy
             </Link>
-            <Link href="/cookie-policy" className="transition-colors hover:text-white">
+            <Link href="/cookie-policy" className="transition-colors hover:text-[#00C896]">
               Cookies
             </Link>
           </div>

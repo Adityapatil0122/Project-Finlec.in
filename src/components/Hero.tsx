@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Sparkles, TrendingUp } from "lucide-react";
+import { ArrowRight, Sparkles, TrendingUp } from "lucide-react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -11,91 +11,80 @@ const fadeInUp = {
 };
 
 const marketSignals = [
-  "Equity allocation engine: Active",
-  "Debt risk filters: Stable",
-  "Hybrid rebalancing: Weekly",
+  "Live equity allocation insights",
+  "Debt stability risk checks",
+  "Goal-wise SIP automation",
 ];
 
 export default function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden px-4 pb-20 pt-24 sm:px-6 sm:pt-28 lg:px-8">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-52 left-1/2 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-[#16a34a]/20 blur-3xl" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(22,163,74,0.22),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(20,83,45,0.35),transparent_45%)]" />
-      </div>
-
-      <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+    <section
+      id="home"
+      className="bg-gradient-to-r from-[#00C896] to-[#7B4FD4] px-4 pb-20 pt-24 sm:px-6 sm:pt-28 lg:px-8"
+    >
+      <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
         <motion.div
           initial="hidden"
           animate="visible"
           transition={{ staggerChildren: 0.15 }}
-          className="space-y-6"
+          className="rounded-3xl bg-white p-7 shadow-lg sm:p-9"
         >
           <motion.p
             variants={fadeInUp}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-[#dcfce7] backdrop-blur-md"
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="inline-flex items-center gap-2 rounded-full bg-[#00C896]/10 px-4 py-2 text-sm font-semibold text-[#00C896]"
           >
-            <ShieldCheck size={16} />
-            SEBI-aligned research desk
+            <Sparkles size={16} />
+            Smart mutual fund intelligence
           </motion.p>
 
           <motion.h1
             variants={fadeInUp}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-3xl text-4xl font-semibold leading-tight text-white font-[family-name:var(--font-sora)] sm:text-5xl lg:text-6xl"
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="mt-5 text-4xl font-semibold leading-tight text-[#1a1a3e] font-[family-name:var(--font-sora)] sm:text-5xl"
           >
-            Build wealth with a premium
-            <span className="bg-gradient-to-r from-[#16a34a] via-[#22c55e] to-[#dcfce7] bg-clip-text text-transparent">
-              {" "}
-              fintech investing cockpit
-            </span>
+            Invest with clarity, confidence, and compounding discipline
           </motion.h1>
 
           <motion.p
             variants={fadeInUp}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg"
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="mt-5 max-w-2xl text-base leading-relaxed text-[#4a5568] sm:text-lg"
           >
-            Unified portfolio intelligence for equity, hybrid, and debt funds.
-            Track live allocation shifts, automate SIP discipline, and execute with
-            confidence from one high-trust workspace.
+            One platform for equity, hybrid, and debt funds. Build outcome-driven
+            portfolios with transparent analytics and advisor-backed strategy.
           </motion.p>
 
           <motion.div
             variants={fadeInUp}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex flex-wrap gap-3"
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="mt-7 flex flex-wrap gap-3"
           >
             <motion.div whileHover={{ y: -2 }}>
               <Link
                 href="/signup"
-                className="inline-flex items-center gap-2 rounded-2xl bg-[#16a34a] px-6 py-3 text-sm font-semibold text-white shadow-2xl shadow-green-500/25 transition-colors hover:bg-[#15803d]"
+                className="inline-flex items-center gap-2 rounded-2xl bg-[#00C896] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[rgba(0,200,150,0.35)] transition-colors hover:bg-[#00b286]"
               >
-                Launch Portfolio
+                Start Investing
                 <ArrowRight size={16} />
               </Link>
             </motion.div>
             <motion.a
               whileHover={{ y: -2 }}
               href="#features"
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:bg-white/20"
+              className="inline-flex items-center gap-2 rounded-2xl bg-[#7B4FD4] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#6940bd]"
             >
-              <Sparkles size={16} />
-              Explore Platform
+              Explore Features
             </motion.a>
           </motion.div>
 
           <motion.div
             variants={fadeInUp}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="grid gap-3 sm:grid-cols-3"
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="mt-7 grid gap-3 sm:grid-cols-3"
           >
             {marketSignals.map((item) => (
-              <div
-                key={item}
-                className="rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-[#dcfce7] backdrop-blur-md"
-              >
+              <div key={item} className="rounded-2xl bg-[#f8f9fa] px-4 py-3 text-sm text-[#4a5568]">
                 {item}
               </div>
             ))}
@@ -103,75 +92,52 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 35 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="rounded-3xl border border-white/20 bg-white/10 p-4 backdrop-blur-md shadow-2xl shadow-green-500/25 sm:p-5"
+          transition={{ duration: 0.65, ease: "easeOut" }}
+          className="rounded-3xl bg-white p-4 shadow-lg sm:p-5"
         >
-          <div className="relative overflow-hidden rounded-2xl border border-white/20 bg-[#111827]">
+          <div className="relative overflow-hidden rounded-2xl">
             <Image
               src="/images/hero-bg.jpg"
-              alt="Fintech trading dashboard"
+              alt="Fintech analytics dashboard"
               width={900}
               height={700}
-              className="h-64 w-full object-cover opacity-70"
+              className="h-64 w-full object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#14532d]/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a3e]/70 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-5">
-              <p className="text-sm uppercase tracking-[0.22em] text-[#dcfce7]/80">
-                Live Strategy
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#00C896]">
+                Live Dashboard
               </p>
               <p className="mt-2 text-2xl font-semibold text-white font-[family-name:var(--font-sora)]">
-                Adaptive Wealth Engine
+                Finlec Portfolio Cockpit
               </p>
             </div>
           </div>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-md">
-              <div className="flex items-center gap-2 text-sm text-[#dcfce7]">
+            <div className="rounded-2xl bg-[#f8f9fa] p-4">
+              <div className="flex items-center gap-2 text-sm font-semibold text-[#00C896]">
                 <TrendingUp size={16} />
-                Yield Forecast
+                Forecasted Return
               </div>
-              <p className="mt-2 text-3xl font-semibold text-white font-[family-name:var(--font-sora)]">
+              <p className="mt-2 text-3xl font-semibold text-[#1a1a3e] font-[family-name:var(--font-sora)]">
                 12.4%
               </p>
-              <p className="text-sm text-white/65">Projected annualized range</p>
+              <p className="text-sm text-[#4a5568]">Annualized projection range</p>
             </div>
-            <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-md">
-              <p className="text-sm text-[#dcfce7]">Risk Guardrails</p>
-              <p className="mt-2 text-3xl font-semibold text-white font-[family-name:var(--font-sora)]">
-                AAA
+            <div className="rounded-2xl bg-[#f8f9fa] p-4">
+              <p className="text-sm font-semibold text-[#00C896]">Risk Profile</p>
+              <p className="mt-2 text-3xl font-semibold text-[#1a1a3e] font-[family-name:var(--font-sora)]">
+                Balanced
               </p>
-              <p className="text-sm text-white/65">Stress-tested downside model</p>
+              <p className="text-sm text-[#4a5568]">Adaptive downside protection</p>
             </div>
           </div>
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-        className="relative mx-auto mt-12 max-w-7xl overflow-hidden rounded-3xl border border-white/20 bg-white/10 backdrop-blur-md"
-      >
-        <div className="flex w-max min-w-full items-center gap-6 px-5 py-4">
-          {[
-            "Net worth simulator",
-            "Automated SIP rebalance",
-            "Institutional grade analytics",
-            "Tax-smart harvest insights",
-            "Multi-AMC execution stack",
-          ].map((item) => (
-            <div key={item} className="flex items-center gap-3 text-sm text-white/75">
-              <span className="h-2 w-2 rounded-full bg-[#16a34a]" />
-              <span>{item}</span>
-            </div>
-          ))}
-        </div>
-      </motion.div>
     </section>
   );
 }

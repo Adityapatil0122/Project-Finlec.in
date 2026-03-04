@@ -18,7 +18,7 @@ const workflow = [
 
 export default function AboutSection() {
   return (
-    <section id="approach" className="bg-[#111827] px-4 py-20 sm:px-6 lg:px-8">
+    <section id="approach" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1fr_1.02fr]">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
@@ -27,13 +27,13 @@ export default function AboutSection() {
           transition={{ duration: 0.65, ease: "easeOut" }}
           className="space-y-6"
         >
-          <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-[#dcfce7] backdrop-blur-md">
+          <p className="inline-flex rounded-full bg-[#00C896]/10 px-4 py-2 text-sm font-semibold text-[#00C896]">
             Capital Discipline
           </p>
-          <h2 className="text-3xl font-semibold leading-tight text-white font-[family-name:var(--font-sora)] sm:text-4xl">
+          <h2 className="text-3xl font-semibold leading-tight text-[#1a1a3e] font-[family-name:var(--font-sora)] sm:text-4xl">
             Advisory intelligence built for long-horizon wealth compounding
           </h2>
-          <p className="text-base leading-relaxed text-white/70 sm:text-lg">
+          <p className="text-base leading-relaxed text-[#4a5568] sm:text-lg">
             Finlec merges advisory rigor with elegant execution. Every portfolio
             recommendation is grounded in data, stress-tested for volatility, and
             tuned to the milestones that matter in your life.
@@ -47,9 +47,9 @@ export default function AboutSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.8 }}
                 transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
-                className="flex items-start gap-3 rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white/85 backdrop-blur-md"
+                className="flex items-start gap-3 rounded-2xl bg-white px-4 py-3 text-sm text-[#4a5568] shadow-sm"
               >
-                <CheckCircle2 size={18} className="mt-0.5 text-[#16a34a]" />
+                <CheckCircle2 size={18} className="mt-0.5 text-[#00C896]" />
                 <span>{item}</span>
               </motion.div>
             ))}
@@ -58,7 +58,7 @@ export default function AboutSection() {
           <motion.a
             whileHover={{ y: -2 }}
             href="#strategies"
-            className="inline-flex items-center gap-2 rounded-2xl bg-[#16a34a] px-5 py-3 text-sm font-semibold text-white shadow-2xl shadow-green-500/25"
+            className="inline-flex items-center gap-2 rounded-2xl bg-[#00C896] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[rgba(0,200,150,0.35)] transition-colors hover:bg-[#00b286]"
           >
             See Fund Strategies
             <ArrowUpRight size={16} />
@@ -70,9 +70,9 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-          className="rounded-3xl border border-white/20 bg-white/10 p-5 backdrop-blur-md shadow-2xl shadow-green-500/25"
+          className="rounded-3xl bg-[#f8f9fa] p-5 shadow-sm"
         >
-          <div className="relative overflow-hidden rounded-2xl border border-white/20">
+          <div className="relative overflow-hidden rounded-2xl">
             <Image
               src="/images/advisor.jpg"
               alt="Investment advisor analyzing data"
@@ -80,9 +80,9 @@ export default function AboutSection() {
               height={620}
               className="h-64 w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/90 via-[#111827]/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a3e]/85 via-[#1a1a3e]/15 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-4">
-              <p className="text-sm uppercase tracking-[0.2em] text-[#dcfce7]/80">
+              <p className="text-sm uppercase tracking-[0.2em] text-[#00C896]">
                 Human + Data
               </p>
               <p className="mt-1 text-xl font-semibold text-white font-[family-name:var(--font-sora)]">
@@ -99,14 +99,14 @@ export default function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.9 }}
                 transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
-                className="grid grid-cols-[auto_1fr] gap-4 rounded-2xl border border-white/20 bg-white/10 px-4 py-3 backdrop-blur-md"
+                className="grid grid-cols-[auto_1fr] gap-4 rounded-2xl bg-white px-4 py-3 shadow-sm"
               >
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-green-900 via-green-800 to-emerald-900 text-xs font-bold text-[#dcfce7]">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[#00C896] text-xs font-bold text-white">
                   {index + 1}
                 </span>
                 <div>
-                  <p className="text-sm font-semibold text-white">{step.title}</p>
-                  <p className="mt-1 text-sm text-white/70">{step.detail}</p>
+                  <p className="text-sm font-semibold text-[#1a1a3e]">{step.title}</p>
+                  <p className="mt-1 text-sm text-[#4a5568]">{step.detail}</p>
                 </div>
               </motion.div>
             ))}

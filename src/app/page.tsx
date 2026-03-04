@@ -23,7 +23,7 @@ const sora = Sora({
 export default function Home() {
   return (
     <div
-      className={`${manrope.variable} ${sora.variable} overflow-x-clip bg-[#0a0a0a] text-white font-[family-name:var(--font-manrope)]`}
+      className={`${manrope.variable} ${sora.variable} overflow-x-clip bg-white text-[#1a1a3e] font-[family-name:var(--font-manrope)]`}
     >
       <Navbar />
       <main className="relative">

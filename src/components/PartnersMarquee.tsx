@@ -52,7 +52,7 @@ export default function PartnersMarquee() {
   }, [startMarquee, x]);
 
   return (
-    <section id="partners" className="bg-[#1a1a2e] px-4 py-20 sm:px-6 lg:px-8">
+    <section id="partners" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -61,19 +61,19 @@ export default function PartnersMarquee() {
         className="mx-auto max-w-7xl"
       >
         <div className="mx-auto max-w-3xl text-center">
-          <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-[#dcfce7] backdrop-blur-md">
+          <p className="inline-flex rounded-full bg-[#00C896]/10 px-4 py-2 text-sm font-semibold text-[#00C896]">
             AMC Network
           </p>
-          <h2 className="mt-4 text-3xl font-semibold text-white font-[family-name:var(--font-sora)] sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-semibold text-[#1a1a3e] font-[family-name:var(--font-sora)] sm:text-4xl">
             Trusted by leading fund houses
           </h2>
-          <p className="mt-4 text-base text-white/70 sm:text-lg">
+          <p className="mt-4 text-base text-[#4a5568] sm:text-lg">
             Integrated execution across top-performing asset management companies.
           </p>
         </div>
 
         <div
-          className="mt-10 overflow-hidden rounded-3xl border border-white/20 bg-white/10 py-4 backdrop-blur-md"
+          className="mt-10 overflow-hidden rounded-3xl bg-[#f8f9fa] py-4"
           onMouseEnter={() => controlsRef.current?.stop()}
           onMouseLeave={startMarquee}
         >
@@ -81,7 +81,7 @@ export default function PartnersMarquee() {
             {repeatedPartners.map((partner, index) => (
               <div
                 key={`${partner}-${index}`}
-                className="min-w-40 rounded-2xl border border-white/20 bg-[#0a0a0a]/35 px-4 py-3 text-center text-sm font-semibold text-[#dcfce7]"
+                className="min-w-40 rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold text-[#1a1a3e] shadow-sm"
               >
                 {partner}
               </div>
