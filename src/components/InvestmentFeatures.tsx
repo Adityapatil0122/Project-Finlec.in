@@ -89,8 +89,8 @@ export default function InvestmentFeatures() {
 
           <div className="relative">
             <Image
-              src="/images/ai/hero-investment.png"
-              alt="AI generated investment growth dashboard"
+              src="/images/Powerful tools to optimize every rupee you invest.png"
+              alt="Powerful tools to optimize every rupee you invest"
               width={1200}
               height={900}
               className="h-64 w-full rounded-2xl border border-slate-200 object-cover dark:border-white/10 sm:h-[300px]"

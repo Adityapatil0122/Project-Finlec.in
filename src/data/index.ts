@@ -1,7 +1,7 @@
 /* Central index — re-exports all fund category data */
 import type { FundCategoryInfo, ParentCategory } from "./fundCategoryData";
 export type { FundCategoryInfo, ParentCategory, SampleFund, FAQ } from "./fundCategoryData";
-export { slug } from "./fundCategoryData";
+export { slug, companyLogo } from "./fundCategoryData";
 
 import { equityFunds } from "./fundCategoryData";
 import { debtFunds } from "./debtFunds";

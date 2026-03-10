@@ -18,21 +18,21 @@ const strategies: StrategyCard[] = [
     summary: "Designed for long-term growth with diversified market exposure.",
     risk: "High Growth",
     focus: "Compounding",
-    image: "/images/equity.png",
+    image: "/images/Equity Mutual Funds.png",
   },
   {
     title: "Hybrid Mutual Funds",
     summary: "Balance equity upside with debt stability for smoother journeys.",
     risk: "Balanced",
     focus: "Stability + Growth",
-    image: "/images/hybrid.png",
+    image: "/images/Hybrid Mutual Funds.png",
   },
   {
     title: "Debt Mutual Funds",
     summary: "Prioritize income quality and lower volatility for steady returns.",
     risk: "Conservative",
     focus: "Capital Protection",
-    image: "/images/debt.png",
+    image: "/images/Debt Mutual Funds.png",
   },
 ];
 

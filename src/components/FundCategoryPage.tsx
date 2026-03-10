@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowLeft,
@@ -18,7 +19,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import type { FundCategoryInfo, SampleFund } from "@/data";
-import { getFundsByParent } from "@/data";
+import { getFundsByParent, companyLogo } from "@/data";
 
 /* ── sorting ── */
 type SortKey = "return1Y" | "return3Y" | "return5Y" | "expenseRatio";
@@ -189,19 +190,30 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
             {sortedFunds.map((fund, i) => (
               <div
                 key={fund.scheme}
-                className={`grid items-center gap-4 px-6 py-5 transition-colors hover:bg-[#00C896]/4 dark:hover:bg-white/3 lg:grid-cols-[1fr_100px_100px_100px_100px] ${
-                  i < sortedFunds.length - 1
+                className={`grid items-center gap-4 px-6 py-5 transition-colors hover:bg-[#00C896]/4 dark:hover:bg-white/3 lg:grid-cols-[1fr_100px_100px_100px_100px] ${i < sortedFunds.length - 1
                     ? "border-b border-slate-100 dark:border-white/5"
                     : ""
-                }`}
+                  }`}
               >
-                <div>
-                  <p className="text-sm font-semibold text-[#1a1560] dark:text-white">
-                    {fund.scheme}
-                  </p>
-                  <p className="mt-0.5 text-xs text-[#4a5568] dark:text-slate-400">
-                    {fund.company}
-                  </p>
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-200/80 bg-white p-1 dark:border-white/10 dark:bg-slate-950/75">
+                    <Image
+                      src={fund.logoUrl || companyLogo(fund.company)}
+                      alt={`${fund.company} logo`}
+                      width={32}
+                      height={32}
+                      className="h-8 w-8 object-contain"
+                      unoptimized
+                    />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-[#1a1560] dark:text-white">
+                      {fund.scheme}
+                    </p>
+                    <p className="mt-0.5 text-xs text-[#4a5568] dark:text-slate-400">
+                      {fund.company}
+                    </p>
+                  </div>
                 </div>
                 <div className="text-right">
                   <span className="text-xs text-[#4a5568] dark:text-slate-400 lg:hidden">

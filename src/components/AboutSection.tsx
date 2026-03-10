@@ -103,8 +103,8 @@ export default function AboutSection() {
 
           <div className="relative overflow-hidden rounded-2xl">
             <Image
-              src="/images/ai/advisor-pulse.png"
-              alt="AI generated investment advisory dashboard"
+              src="/images/Advisory intelligence built for long-term wealth outcomes.png"
+              alt="Advisory intelligence built for long-term wealth outcomes"
               width={980}
               height={700}
               className="h-64 w-full object-cover sm:h-[280px]"

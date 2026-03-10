@@ -71,8 +71,8 @@ export default function CTABanner() {
         <div className="rounded-3xl border border-slate-200 bg-white/70 p-4 backdrop-blur-sm dark:border-white/10 dark:bg-white/5">
           <div className="relative overflow-hidden rounded-2xl">
             <Image
-              src="/images/ai/hero-investment.png"
-              alt="AI generated investment advisory visualization"
+              src="/images/Talk to a certified investment advisor and refine your strategy.png"
+              alt="Talk to a certified investment advisor and refine your strategy"
               width={1200}
               height={900}
               className="h-60 w-full object-cover"

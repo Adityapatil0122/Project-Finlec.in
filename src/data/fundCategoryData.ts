@@ -7,11 +7,48 @@ export type ParentCategory = "equity" | "debt" | "hybrid";
 export type SampleFund = {
   scheme: string;
   company: string;
+  logoUrl?: string;
   expenseRatio: string;
   return1Y: string;
   return3Y: string;
   return5Y: string;
 };
+
+/* Map company short-names to local logo files */
+const logoMap: Record<string, string> = {
+  "HDFC MF": "/companylogos/absl.png",
+  "ICICI Prudential MF": "/companylogos/icici.png",
+  "SBI MF": "/companylogos/sbi.png",
+  "Nippon India MF": "/companylogos/nippon.png",
+  "Kotak MF": "/companylogos/kotak.png",
+  "Mirae Asset MF": "/companylogos/mirae.png",
+  "Motilal Oswal MF": "/companylogos/motilal-oswal.png",
+  "Axis MF": "/companylogos/axis.png",
+  "PPFAS MF": "/companylogos/ppfas.png",
+  "Quant MF": "/companylogos/quantum.png",
+  "Edelweiss MF": "/companylogos/edelweiss.png",
+  "Franklin MF": "/companylogos/franklin-templeton.png",
+  "Tata MF": "/companylogos/tata.png",
+  "Invesco MF": "/companylogos/invesco.png",
+  "DSP MF": "/companylogos/edelweiss.png",
+  "ABSL MF": "/companylogos/absl.png",
+  "Sundaram MF": "/companylogos/sundaram.png",
+  "Canara Robeco MF": "/companylogos/canara-robeco.png",
+  "LIC MF": "/companylogos/lic.png",
+  "HSBC MF": "/companylogos/hsbc.png",
+  "UTI MF": "/companylogos/uti.png",
+  "Bandhan MF": "/companylogos/bandhan.png",
+  "Mahindra Manulife MF": "/companylogos/mahindra-manu.png",
+  "Navi MF": "/companylogos/navi.png",
+  "PGIM MF": "/companylogos/pgim-india.png",
+  "JM MF": "/companylogos/jm-financial.png",
+  "IIFL MF": "/companylogos/iifl.png",
+  "Union MF": "/companylogos/union-amc.png",
+};
+
+export function companyLogo(company: string): string {
+  return logoMap[company] || "/companylogos/absl.png";
+}
 
 export type FAQ = { question: string; answer: string };
 

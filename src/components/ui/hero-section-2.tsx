@@ -1,5 +1,7 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element */
+
 import React from 'react';
 import { cn } from "@/lib/utils";
 import { motion } from 'framer-motion';
@@ -29,9 +31,9 @@ const InfoIcon = ({ type }: { type: 'website' | 'phone' | 'address' }) => {
     return <div className="mr-2 flex-shrink-0">{icons[type]}</div>;
 };
 
-
 // Prop types for the HeroSection component
-interface HeroSectionProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface HeroSectionProps {
+    className?: string;
     logo?: {
         url: string;
         alt: string;
@@ -52,8 +54,8 @@ interface HeroSectionProps extends React.HTMLAttributes<HTMLDivElement> {
     };
 }
 
-const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
-    ({ className, logo, slogan, title, subtitle, callToAction, backgroundImage, contactInfo, ...props }, ref) => {
+const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
+    ({ className, logo, slogan, title, subtitle, callToAction, backgroundImage, contactInfo }, ref) => {
 
         // Animation variants for the container to orchestrate children animations
         const containerVariants = {
