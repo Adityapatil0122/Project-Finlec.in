@@ -15,25 +15,25 @@ const stats: Stat[] = [
     label: "Assets Guided",
     value: 500,
     suffix: "Cr+",
-    detail: "Client capital under advisory lens",
+    detail: "Client capital under advisory",
   },
   {
     label: "Active SIP Mandates",
     value: 1200,
     suffix: "+",
-    detail: "Disciplined automated monthly flows",
+    detail: "Disciplined monthly contributions",
   },
   {
     label: "Partner AMCs",
     value: 40,
     suffix: "+",
-    detail: "Top fund houses integrated on platform",
+    detail: "Top fund houses integrated",
   },
   {
     label: "Goal Success Rate",
     value: 93,
     suffix: "%",
-    detail: "Customers on track against financial milestones",
+    detail: "Clients on target trajectory",
   },
 ];
 
@@ -62,7 +62,7 @@ function AnimatedValue({ value, suffix, start }: AnimatedValueProps) {
     }
 
     const controls = animate(motionValue, value, {
-      duration: 1.1,
+      duration: 1.05,
       ease: "easeOut",
     });
 
@@ -82,23 +82,19 @@ export default function StatsCounter() {
   const isInView = useInView(sectionRef, { once: true, amount: 0.35 });
 
   return (
-    <section
-      ref={sectionRef}
-      id="stats"
-      className="bg-white px-4 py-20 sm:px-6 lg:px-8"
-    >
-      <div className="mx-auto max-w-7xl rounded-3xl bg-[#f8f9fa] p-6 sm:p-10">
+    <section ref={sectionRef} id="stats" className="bg-white px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl rounded-3xl border border-slate-200 bg-gradient-to-r from-[#f5fdfb] to-[#f8f7ff] p-7 dark:border-white/10 dark:from-[#09121f] dark:to-[#16122c] sm:p-10">
         <motion.div
-          initial={{ opacity: 0, y: 22 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.55, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-center"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#00C896]">
             Performance Snapshot
           </p>
-          <h2 className="mt-3 text-3xl font-semibold text-[#1a1a3e] font-[family-name:var(--font-sora)] sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
             Transparent metrics, updated continuously
           </h2>
         </motion.div>
@@ -107,17 +103,17 @@ export default function StatsCounter() {
           {stats.map((stat, index) => (
             <motion.article
               key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.5, delay: index * 0.07, ease: "easeOut" }}
-              className="rounded-2xl bg-white p-5 shadow-sm"
+              transition={{ duration: 0.45, delay: index * 0.06, ease: "easeOut" }}
+              className="rounded-2xl border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/5"
             >
-              <p className="text-4xl font-semibold text-[#1a1a3e] font-[family-name:var(--font-sora)]">
+              <p className="text-4xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">
                 <AnimatedValue value={stat.value} suffix={stat.suffix} start={isInView} />
               </p>
               <p className="mt-2 text-sm font-semibold text-[#00C896]">{stat.label}</p>
-              <p className="mt-2 text-sm text-[#4a5568]">{stat.detail}</p>
+              <p className="mt-2 text-sm text-[#4a5568] dark:text-slate-300">{stat.detail}</p>
             </motion.article>
           ))}
         </div>

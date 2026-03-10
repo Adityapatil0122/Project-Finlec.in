@@ -39,29 +39,29 @@ const goals: Goal[] = [
 
 export default function LifeGoals() {
   return (
-    <section id="goals" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+    <section id="goals" className="bg-white px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.55, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="space-y-5"
         >
           <p className="inline-flex rounded-full bg-[#00C896]/10 px-4 py-2 text-sm font-semibold text-[#00C896]">
             Goal Architecture
           </p>
-          <h2 className="text-3xl font-semibold leading-tight text-[#1a1a3e] font-[family-name:var(--font-sora)] sm:text-4xl">
+          <h2 className="text-3xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
             Turn life goals into measurable investment pathways
           </h2>
-          <p className="text-base leading-relaxed text-[#4a5568] sm:text-lg">
-            Each goal gets its own strategy stack, timeline, and monitoring layer.
-            You stay focused on outcomes while the platform maintains discipline.
+          <p className="max-w-xl text-base leading-relaxed text-[#4a5568] dark:text-slate-300 sm:text-lg">
+            Each goal gets a strategy stack, timeline, and progress tracker. You
+            stay focused on outcomes while the platform maintains discipline.
           </p>
           <motion.a
             whileHover={{ y: -2 }}
             href="/signup"
-            className="inline-flex rounded-2xl bg-[#00C896] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[rgba(0,200,150,0.35)] transition-colors hover:bg-[#00b286]"
+            className="inline-flex rounded-2xl bg-[#00C896] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#00b286]"
           >
             Build My Goal Plan
           </motion.a>
@@ -74,12 +74,12 @@ export default function LifeGoals() {
             return (
               <motion.article
                 key={goal.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: index * 0.06, ease: "easeOut" }}
-                whileHover={{ y: -4 }}
-                className="rounded-3xl bg-white p-5 shadow-sm"
+                transition={{ duration: 0.42, delay: index * 0.05, ease: "easeOut" }}
+                whileHover={{ y: -3 }}
+                className="rounded-3xl border border-slate-200 bg-[#f8f9fa] p-5 dark:border-white/10 dark:bg-white/5"
               >
                 <div className="flex items-center justify-between gap-3">
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#00C896]/10 text-[#00C896]">
@@ -89,10 +89,10 @@ export default function LifeGoals() {
                     {goal.target}
                   </span>
                 </div>
-                <h3 className="mt-5 text-xl font-semibold text-[#1a1a3e] font-[family-name:var(--font-sora)]">
+                <h3 className="mt-5 text-xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">
                   {goal.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#4a5568]">{goal.note}</p>
+                <p className="mt-3 text-sm leading-relaxed text-[#4a5568] dark:text-slate-300">{goal.note}</p>
               </motion.article>
             );
           })}

@@ -20,7 +20,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(() => {
+              try {
+                const storageKey = "finlec-theme";
+                const storedTheme = window.localStorage.getItem(storageKey);
+                const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+                  ? "dark"
+                  : "light";
+                const theme = storedTheme === "dark" || storedTheme === "light"
+                  ? storedTheme
+                  : systemTheme;
+                const root = document.documentElement;
+                root.classList.toggle("dark", theme === "dark");
+                root.style.colorScheme = theme;
+              } catch (error) {
+                document.documentElement.style.colorScheme = "light";
+              }
+            })();`,
+          }}
+        />
+      </head>
       <body className={`${inter.className} antialiased`}>
         <SessionProvider>
           <div className="min-h-screen">{children}</div>

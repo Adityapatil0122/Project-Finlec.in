@@ -72,7 +72,7 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-[#f3f4f6] px-4 py-10">
       <div className="w-full max-w-5xl overflow-hidden rounded-2xl bg-white shadow-2xl">
         <div className="grid lg:grid-cols-2">
-          <div className="bg-gradient-to-br from-[#16a34a] via-[#15803d] to-[#14532d] p-8 text-white sm:p-10">
+          <div className="bg-gradient-to-br from-[#00C896] via-[#00b286] to-[#7B4FD4] p-8 text-white sm:p-10">
             <p className="text-sm font-semibold uppercase tracking-wider text-green-100">
               Finlec
             </p>
@@ -96,8 +96,8 @@ export default function LoginPage() {
           </div>
 
           <div className="p-8 sm:p-10">
-            <h2 className="text-3xl font-bold text-gray-900">Welcome Back</h2>
-            <p className="mt-2 text-sm text-gray-500">
+            <h2 className="text-3xl font-bold text-[#1a1560]">Welcome Back</h2>
+            <p className="mt-2 text-sm text-[#4a5568]">
               Login to continue your investment journey.
             </p>
 
@@ -115,7 +115,7 @@ export default function LoginPage() {
                     id="email"
                     type="email"
                     placeholder="you@example.com"
-                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-4 text-sm text-gray-900 outline-none transition-colors focus:border-[#16a34a] focus:ring-2 focus:ring-green-100"
+                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-4 text-sm text-gray-900 outline-none transition-colors focus:border-[#00C896] focus:ring-2 focus:ring-[#00C896]/20"
                     {...register("email")}
                   />
                 </div>
@@ -137,7 +137,7 @@ export default function LoginPage() {
                     id="password"
                     type={showPassword ? "text" : "password"}
                     placeholder="Enter your password"
-                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-11 text-sm text-gray-900 outline-none transition-colors focus:border-[#16a34a] focus:ring-2 focus:ring-green-100"
+                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-11 text-sm text-gray-900 outline-none transition-colors focus:border-[#00C896] focus:ring-2 focus:ring-[#00C896]/20"
                     {...register("password")}
                   />
                   <button
@@ -161,7 +161,7 @@ export default function LoginPage() {
               <div className="flex justify-end">
                 <Link
                   href="/forgot-password"
-                  className="text-sm font-medium text-[#16a34a] hover:underline"
+                  className="text-sm font-medium text-[#00C896] hover:underline"
                 >
                   Forgot Password?
                 </Link>
@@ -170,7 +170,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#16a34a] px-4 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#00C896] px-4 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
                 {isSubmitting ? "Logging in..." : "Login"}
@@ -185,9 +185,9 @@ export default function LoginPage() {
               <span className="h-px flex-1 bg-gray-200" />
             </div>
 
-            <p className="text-center text-sm text-gray-600">
+            <p className="text-center text-sm text-[#4a5568]">
               New to Finlec?{" "}
-              <Link href="/signup" className="font-semibold text-[#16a34a] hover:underline">
+              <Link href="/signup" className="font-semibold text-[#00C896] hover:underline">
                 Create Account
               </Link>
             </p>

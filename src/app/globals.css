@@ -49,6 +49,11 @@
 
 :root {
   --radius: 0.625rem;
+  --finlec-green: #00c896;
+  --finlec-green-dark: #00b286;
+  --finlec-violet: #7b4fd4;
+  --finlec-ink: #1a1560;
+  --finlec-night: #110e3a;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -122,5 +127,133 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-image:
+      radial-gradient(ellipse 70% 50% at 10% 20%, rgba(0, 220, 160, 0.18), transparent),
+      radial-gradient(ellipse 60% 45% at 85% 15%, rgba(180, 140, 255, 0.16), transparent),
+      radial-gradient(ellipse 55% 40% at 50% 80%, rgba(255, 170, 210, 0.12), transparent),
+      radial-gradient(ellipse 80% 60% at 60% 40%, rgba(200, 230, 255, 0.10), transparent),
+      linear-gradient(160deg, #f0faf6 0%, #f5f0ff 30%, #fef6fa 50%, #f0f5ff 70%, #f0fbf7 100%);
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    background-image:
+      radial-gradient(ellipse 70% 50% at 12% 18%, rgba(0, 200, 150, 0.20), transparent),
+      radial-gradient(ellipse 60% 45% at 88% 12%, rgba(123, 79, 212, 0.22), transparent),
+      radial-gradient(ellipse 55% 40% at 50% 75%, rgba(180, 80, 160, 0.10), transparent),
+      linear-gradient(180deg, #0c0a2e 0%, #110e3a 48%, #0a0826 100%);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(3px);
+  }
+}
+
+@keyframes float-reverse {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(12px) translateX(-4px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes marquee-shine {
+  from {
+    background-position: -180% 0;
+  }
+  to {
+    background-position: 180% 0;
+  }
+}
+
+@layer utilities {
+  .finlec-surface {
+    background: linear-gradient(140deg, #ffffff 0%, #fbfffe 38%, #f7f4ff 100%);
+  }
+
+  .dark .finlec-surface {
+    background: linear-gradient(
+      145deg,
+      rgba(7, 14, 26, 0.98) 0%,
+      rgba(8, 20, 34, 0.96) 45%,
+      rgba(26, 16, 48, 0.92) 100%
+    );
+  }
+
+  .finlec-soft-grid {
+    background-image:
+      linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .dark .finlec-soft-grid {
+    background-image:
+      linear-gradient(to right, rgba(71, 85, 105, 0.22) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(71, 85, 105, 0.2) 1px, transparent 1px);
+  }
+
+  .finlec-glass {
+    backdrop-filter: blur(14px);
+    background-color: rgba(255, 255, 255, 0.78);
+  }
+
+  .dark .finlec-glass {
+    background-color: rgba(7, 14, 26, 0.74);
+  }
+
+  .finlec-shine {
+    background:
+      linear-gradient(
+        100deg,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0.5) 44%,
+        rgba(255, 255, 255, 0) 66%
+      );
+    background-size: 220% 100%;
+    animation: marquee-shine 4.8s linear infinite;
+  }
+
+  .dark .finlec-shine {
+    background:
+      linear-gradient(
+        100deg,
+        rgba(255, 255, 255, 0) 18%,
+        rgba(255, 255, 255, 0.18) 44%,
+        rgba(255, 255, 255, 0) 68%
+      );
+    background-size: 220% 100%;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 7.5s ease-in-out infinite;
+  }
+
+  .animate-float-reverse {
+    animation: float-reverse 8.5s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 4.8s ease-in-out infinite;
   }
 }

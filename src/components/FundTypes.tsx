@@ -18,21 +18,21 @@ const strategies: StrategyCard[] = [
     summary: "Designed for long-term growth with diversified market exposure.",
     risk: "High Growth",
     focus: "Compounding",
-    image: "/images/equity.jpg",
+    image: "/images/equity.png",
   },
   {
     title: "Hybrid Mutual Funds",
     summary: "Balance equity upside with debt stability for smoother journeys.",
     risk: "Balanced",
     focus: "Stability + Growth",
-    image: "/images/hybrid.jpg",
+    image: "/images/hybrid.png",
   },
   {
     title: "Debt Mutual Funds",
     summary: "Prioritize income quality and lower volatility for steady returns.",
     risk: "Conservative",
     focus: "Capital Protection",
-    image: "/images/debt.jpg",
+    image: "/images/debt.png",
   },
 ];
 
@@ -40,22 +40,22 @@ const strategyIcons = [TrendingUp, Wallet, ShieldCheck];
 
 export default function FundTypes() {
   return (
-    <section id="strategies" className="bg-[#f8f9fa] px-4 py-20 sm:px-6 lg:px-8">
+    <section id="strategies" className="bg-[#f8f9fa] px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.55, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="mx-auto max-w-3xl text-center"
         >
           <p className="inline-flex rounded-full bg-[#00C896]/10 px-4 py-2 text-sm font-semibold text-[#00C896]">
             Portfolio Strategies
           </p>
-          <h2 className="mt-4 text-3xl font-semibold text-[#1a1a3e] font-[family-name:var(--font-sora)] sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
             Choose the right fund mix for each wealth objective
           </h2>
-          <p className="mt-4 text-base text-[#4a5568] sm:text-lg">
+          <p className="mt-4 text-base text-[#4a5568] dark:text-slate-300 sm:text-lg">
             Explore curated strategy lanes with transparent risk profiles and
             outcome-oriented portfolio design.
           </p>
@@ -68,12 +68,12 @@ export default function FundTypes() {
             return (
               <motion.article
                 key={strategy.title}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.25 }}
-                transition={{ duration: 0.55, delay: index * 0.07, ease: "easeOut" }}
+                transition={{ duration: 0.45, delay: index * 0.06, ease: "easeOut" }}
                 whileHover={{ y: -4 }}
-                className="overflow-hidden rounded-3xl bg-white shadow-sm"
+                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-white/5"
               >
                 <Image
                   src={strategy.image}
@@ -91,16 +91,16 @@ export default function FundTypes() {
                       {strategy.risk}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-semibold text-[#1a1a3e] font-[family-name:var(--font-sora)]">
+                  <h3 className="text-2xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">
                     {strategy.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-[#4a5568]">{strategy.summary}</p>
+                  <p className="text-sm leading-relaxed text-[#4a5568] dark:text-slate-300">{strategy.summary}</p>
                   <div className="flex items-center justify-between gap-4 pt-1">
                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#00C896]">
                       Focus: {strategy.focus}
                     </p>
                     <span className="inline-flex items-center gap-1 text-sm font-semibold text-[#7B4FD4]">
-                      View
+                      View Details
                       <ArrowUpRight size={16} />
                     </span>
                   </div>

@@ -2,10 +2,44 @@
 
 import { useCallback, useEffect, useRef } from "react";
 import { animate, motion, useMotionValue } from "framer-motion";
-import { partnerNames } from "@/lib/constants";
+import Image from "next/image";
 
-const repeatedPartners = [...partnerNames, ...partnerNames];
-const SCROLL_SPEED = 72;
+const partnerLogos = [
+  { name: "SBI Mutual Fund", file: "sbi.png" },
+  { name: "ICICI Prudential", file: "icici.png" },
+  { name: "Kotak Mahindra", file: "kotak.png" },
+  { name: "Axis Mutual Fund", file: "axis.png" },
+  { name: "HDFC / HSBC", file: "hsbc.png" },
+  { name: "Nippon India", file: "nippon.png" },
+  { name: "Mirae Asset", file: "mirae.png" },
+  { name: "Motilal Oswal", file: "motilal-oswal.png" },
+  { name: "Tata Mutual Fund", file: "tata.png" },
+  { name: "Bandhan AMC", file: "bandhan.png" },
+  { name: "Canara Robeco", file: "canara-robeco.png" },
+  { name: "Franklin Templeton", file: "franklin-templeton.png" },
+  { name: "Edelweiss", file: "edelweiss.png" },
+  { name: "Invesco India", file: "invesco.png" },
+  { name: "LIC Mutual Fund", file: "lic.png" },
+  { name: "Mahindra Manulife", file: "mahindra-manu.png" },
+  { name: "ABSL", file: "absl.png" },
+  { name: "Sundaram AMC", file: "sundaram.png" },
+  { name: "UTI Mutual Fund", file: "uti.png" },
+  { name: "PGIM India", file: "pgim-india.png" },
+  { name: "PPFAS", file: "ppfas.png" },
+  { name: "Navi AMC", file: "navi.png" },
+  { name: "JM Financial", file: "jm-financial.png" },
+  { name: "IIFL AMC", file: "iifl.png" },
+  { name: "Quantum AMC", file: "quantum.png" },
+  { name: "Union AMC", file: "union-amc.png" },
+  { name: "Bajaj Finserv", file: "billsinvestmentbajajfinserv.png" },
+  { name: "Samco MF", file: "bills_investment_samco.png" },
+  { name: "Old Bridge MF", file: "bills_investment_oldbridge.png" },
+  { name: "ITI MF", file: "bills_investment_itimf.png" },
+  { name: "Capitalmind", file: "billsinvestment_capitalmind.png" },
+];
+
+const repeatedLogos = [...partnerLogos, ...partnerLogos];
+const SCROLL_SPEED = 55;
 
 export default function PartnersMarquee() {
   const x = useMotionValue(0);
@@ -52,38 +86,44 @@ export default function PartnersMarquee() {
   }, [startMarquee, x]);
 
   return (
-    <section id="partners" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+    <section id="partners" className="bg-white px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.35 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="mx-auto max-w-7xl"
       >
         <div className="mx-auto max-w-3xl text-center">
           <p className="inline-flex rounded-full bg-[#00C896]/10 px-4 py-2 text-sm font-semibold text-[#00C896]">
             AMC Network
           </p>
-          <h2 className="mt-4 text-3xl font-semibold text-[#1a1a3e] font-[family-name:var(--font-sora)] sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
             Trusted by leading fund houses
           </h2>
-          <p className="mt-4 text-base text-[#4a5568] sm:text-lg">
-            Integrated execution across top-performing asset management companies.
+          <p className="mt-4 text-base text-[#4a5568] dark:text-slate-300 sm:text-lg">
+            Unified execution across top-performing asset management companies.
           </p>
         </div>
 
         <div
-          className="mt-10 overflow-hidden rounded-3xl bg-[#f8f9fa] py-4"
+          className="mt-10 overflow-hidden rounded-3xl border border-slate-200 bg-[#f8f9fa] py-5 dark:border-white/10 dark:bg-white/5"
           onMouseEnter={() => controlsRef.current?.stop()}
           onMouseLeave={startMarquee}
         >
-          <motion.div ref={trackRef} style={{ x }} className="flex w-max gap-3 px-4">
-            {repeatedPartners.map((partner, index) => (
+          <motion.div ref={trackRef} style={{ x }} className="flex w-max gap-4 px-4">
+            {repeatedLogos.map((partner, index) => (
               <div
-                key={`${partner}-${index}`}
-                className="min-w-40 rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold text-[#1a1a3e] shadow-sm"
+                key={`${partner.file}-${index}`}
+                className="flex min-w-[160px] items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-4 dark:border-white/10 dark:bg-slate-950/75"
               >
-                {partner}
+                <Image
+                  src={`/companylogos/${partner.file}`}
+                  alt={partner.name}
+                  width={140}
+                  height={48}
+                  className="h-10 w-auto object-contain dark:brightness-0 dark:invert"
+                />
               </div>
             ))}
           </motion.div>

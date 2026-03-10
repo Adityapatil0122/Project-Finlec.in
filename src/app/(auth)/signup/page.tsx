@@ -136,7 +136,7 @@ export default function SignupPage() {
     <div className="relative flex min-h-screen items-center justify-center bg-[#f3f4f6] px-4 py-10">
       <div className="w-full max-w-5xl overflow-hidden rounded-2xl bg-white shadow-2xl">
         <div className="grid lg:grid-cols-2">
-          <div className="bg-gradient-to-br from-[#16a34a] via-[#15803d] to-[#14532d] p-8 text-white sm:p-10">
+          <div className="bg-gradient-to-br from-[#00C896] via-[#00b286] to-[#7B4FD4] p-8 text-white sm:p-10">
             <p className="text-sm font-semibold uppercase tracking-wider text-green-100">
               Finlec
             </p>
@@ -160,8 +160,8 @@ export default function SignupPage() {
           </div>
 
           <div className="p-8 sm:p-10">
-            <h2 className="text-3xl font-bold text-gray-900">Create Your Account</h2>
-            <p className="mt-2 text-sm text-gray-500">
+            <h2 className="text-3xl font-bold text-[#1a1560]">Create Your Account</h2>
+            <p className="mt-2 text-sm text-[#4a5568]">
               Set up your Finlec profile and start investing smarter.
             </p>
 
@@ -176,7 +176,7 @@ export default function SignupPage() {
                     id="name"
                     type="text"
                     placeholder="Enter your full name"
-                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-4 text-sm text-gray-900 outline-none transition-colors focus:border-[#16a34a] focus:ring-2 focus:ring-green-100"
+                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-4 text-sm text-gray-900 outline-none transition-colors focus:border-[#00C896] focus:ring-2 focus:ring-[#00C896]/20"
                     {...register("name")}
                   />
                 </div>
@@ -195,7 +195,7 @@ export default function SignupPage() {
                     id="email"
                     type="email"
                     placeholder="you@example.com"
-                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-4 text-sm text-gray-900 outline-none transition-colors focus:border-[#16a34a] focus:ring-2 focus:ring-green-100"
+                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-4 text-sm text-gray-900 outline-none transition-colors focus:border-[#00C896] focus:ring-2 focus:ring-[#00C896]/20"
                     {...register("email")}
                   />
                 </div>
@@ -216,7 +216,7 @@ export default function SignupPage() {
                     inputMode="numeric"
                     maxLength={10}
                     placeholder="10 digit mobile number"
-                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-4 text-sm text-gray-900 outline-none transition-colors focus:border-[#16a34a] focus:ring-2 focus:ring-green-100"
+                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-4 text-sm text-gray-900 outline-none transition-colors focus:border-[#00C896] focus:ring-2 focus:ring-[#00C896]/20"
                     {...register("phone")}
                   />
                 </div>
@@ -238,7 +238,7 @@ export default function SignupPage() {
                     id="password"
                     type="password"
                     placeholder="Create a strong password"
-                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-4 text-sm text-gray-900 outline-none transition-colors focus:border-[#16a34a] focus:ring-2 focus:ring-green-100"
+                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-4 text-sm text-gray-900 outline-none transition-colors focus:border-[#00C896] focus:ring-2 focus:ring-[#00C896]/20"
                     {...register("password")}
                   />
                 </div>
@@ -248,7 +248,7 @@ export default function SignupPage() {
                       <span
                         key={index}
                         className={`h-1.5 flex-1 rounded-full ${
-                          index < strengthScore ? "bg-[#16a34a]" : "bg-gray-200"
+                          index < strengthScore ? "bg-[#00C896]" : "bg-gray-200"
                         }`}
                       />
                     ))}
@@ -275,7 +275,7 @@ export default function SignupPage() {
                     id="confirmPassword"
                     type="password"
                     placeholder="Re-enter your password"
-                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-4 text-sm text-gray-900 outline-none transition-colors focus:border-[#16a34a] focus:ring-2 focus:ring-green-100"
+                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-4 text-sm text-gray-900 outline-none transition-colors focus:border-[#00C896] focus:ring-2 focus:ring-[#00C896]/20"
                     {...register("confirmPassword")}
                   />
                 </div>
@@ -290,16 +290,16 @@ export default function SignupPage() {
                 <label className="flex items-start gap-3">
                   <input
                     type="checkbox"
-                    className="mt-1 h-4 w-4 rounded border-gray-300 text-[#16a34a] focus:ring-[#16a34a]"
+                    className="mt-1 h-4 w-4 rounded border-gray-300 text-[#00C896] focus:ring-[#00C896]"
                     {...register("agreeToTerms")}
                   />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-[#4a5568]">
                     I agree to{" "}
-                    <Link href="/terms" className="font-medium text-[#16a34a] hover:underline">
+                    <Link href="/terms" className="font-medium text-[#00C896] hover:underline">
                       Terms
                     </Link>{" "}
                     and{" "}
-                    <Link href="/privacy" className="font-medium text-[#16a34a] hover:underline">
+                    <Link href="/privacy" className="font-medium text-[#00C896] hover:underline">
                       Privacy Policy
                     </Link>
                   </span>
@@ -314,16 +314,16 @@ export default function SignupPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#16a34a] px-4 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#00C896] px-4 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
                 {isSubmitting ? "Creating Account..." : "Create Account"}
               </button>
             </form>
 
-            <p className="mt-6 text-center text-sm text-gray-600">
+            <p className="mt-6 text-center text-sm text-[#4a5568]">
               Already have account?{" "}
-              <Link href="/login" className="font-semibold text-[#16a34a] hover:underline">
+              <Link href="/login" className="font-semibold text-[#00C896] hover:underline">
                 Login
               </Link>
             </p>
