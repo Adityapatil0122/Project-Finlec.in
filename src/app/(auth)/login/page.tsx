@@ -72,7 +72,7 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-[#f3f4f6] px-4 py-10">
       <div className="w-full max-w-5xl overflow-hidden rounded-2xl bg-white shadow-2xl">
         <div className="grid lg:grid-cols-2">
-          <div className="bg-gradient-to-br from-[#00C896] via-[#00b286] to-[#7B4FD4] p-8 text-white sm:p-10">
+          <div className="bg-gradient-to-br from-[#04b488] via-[#00b286] to-[#7B4FD4] p-8 text-white sm:p-10">
             <p className="text-sm font-semibold uppercase tracking-wider text-green-100">
               Finlec
             </p>
@@ -115,7 +115,7 @@ export default function LoginPage() {
                     id="email"
                     type="email"
                     placeholder="you@example.com"
-                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-4 text-sm text-gray-900 outline-none transition-colors focus:border-[#00C896] focus:ring-2 focus:ring-[#00C896]/20"
+                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-4 text-sm text-gray-900 outline-none transition-colors focus:border-[#04b488] focus:ring-2 focus:ring-[#04b488]/20"
                     {...register("email")}
                   />
                 </div>
@@ -137,7 +137,7 @@ export default function LoginPage() {
                     id="password"
                     type={showPassword ? "text" : "password"}
                     placeholder="Enter your password"
-                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-11 text-sm text-gray-900 outline-none transition-colors focus:border-[#00C896] focus:ring-2 focus:ring-[#00C896]/20"
+                    className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-11 text-sm text-gray-900 outline-none transition-colors focus:border-[#04b488] focus:ring-2 focus:ring-[#04b488]/20"
                     {...register("password")}
                   />
                   <button
@@ -161,7 +161,7 @@ export default function LoginPage() {
               <div className="flex justify-end">
                 <Link
                   href="/forgot-password"
-                  className="text-sm font-medium text-[#00C896] hover:underline"
+                  className="text-sm font-medium text-[#04b488] hover:underline"
                 >
                   Forgot Password?
                 </Link>
@@ -170,7 +170,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#00C896] px-4 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#04b488] px-4 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
                 {isSubmitting ? "Logging in..." : "Login"}
@@ -187,7 +187,7 @@ export default function LoginPage() {
 
             <p className="text-center text-sm text-[#4a5568]">
               New to Finlec?{" "}
-              <Link href="/signup" className="font-semibold text-[#00C896] hover:underline">
+              <Link href="/signup" className="font-semibold text-[#04b488] hover:underline">
                 Create Account
               </Link>
             </p>

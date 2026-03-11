@@ -95,7 +95,7 @@ export default function PartnersMarquee() {
         className="mx-auto max-w-7xl"
       >
         <div className="mx-auto max-w-3xl text-center">
-          <p className="inline-flex rounded-full bg-[#00C896]/10 px-4 py-2 text-sm font-semibold text-[#00C896]">
+          <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             AMC Network
           </p>
           <h2 className="mt-4 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
@@ -115,14 +115,14 @@ export default function PartnersMarquee() {
             {repeatedLogos.map((partner, index) => (
               <div
                 key={`${partner.file}-${index}`}
-                className="flex min-w-[160px] items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-4 dark:border-white/10 dark:bg-slate-950/75"
+                className="flex h-24 min-w-[180px] items-center justify-center rounded-2xl border border-slate-200 bg-white p-4 dark:border-white/10 dark:bg-slate-950/75"
               >
                 <Image
                   src={`/companylogos/${partner.file}`}
                   alt={partner.name}
-                  width={140}
-                  height={48}
-                  className="h-10 w-auto object-contain dark:brightness-0 dark:invert"
+                  width={160}
+                  height={80}
+                  className="max-h-14 w-auto max-w-[130px] object-contain"
                 />
               </div>
             ))}

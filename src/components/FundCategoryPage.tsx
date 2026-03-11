@@ -55,7 +55,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
 
   const riskColor =
     data.riskLevel === "Very Low" || data.riskLevel === "Low"
-      ? "#00C896"
+      ? "#04b488"
       : data.riskLevel === "Moderate" || data.riskLevel === "Low to Moderate"
         ? "#7B4FD4"
         : "#e85d5d";
@@ -64,24 +64,24 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
     <div className="min-h-screen">
       {/* ─── HERO BANNER ─── */}
       <section className="relative overflow-hidden px-4 pb-16 pt-28 sm:px-6 sm:pt-32 lg:px-8">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(0,200,150,0.18),transparent_30%),radial-gradient(circle_at_90%_10%,rgba(123,79,212,0.2),transparent_34%)]" />
-        <div className="pointer-events-none absolute left-[8%] top-20 h-36 w-36 rounded-full bg-[#00C896]/12 blur-3xl" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(4,180,136,0.18),transparent_30%),radial-gradient(circle_at_90%_10%,rgba(123,79,212,0.2),transparent_34%)]" />
+        <div className="pointer-events-none absolute left-[8%] top-20 h-36 w-36 rounded-full bg-[#04b488]/12 blur-3xl" />
         <div className="pointer-events-none absolute right-[6%] top-12 h-40 w-40 rounded-full bg-[#7B4FD4]/14 blur-3xl" />
 
         <div className="relative mx-auto max-w-6xl">
           <Link
             href="/explore-mutual-funds"
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/70 px-4 py-2 text-sm font-medium text-[#4a5568] backdrop-blur-sm transition-colors hover:border-[#00C896]/30 hover:text-[#00C896] dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/70 px-4 py-2 text-sm font-medium text-[#4a5568] backdrop-blur-sm transition-colors hover:border-[#04b488]/30 hover:text-[#04b488] dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
           >
             <ArrowLeft size={14} />
             Back to Explore Funds
           </Link>
 
           <div className="mt-4 overflow-hidden rounded-[28px] border border-white/75 bg-white/85 p-8 shadow-[0_24px_60px_-36px_rgba(14,23,40,0.4)] backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/70 sm:p-10">
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(0,200,150,0.05),rgba(123,79,212,0.05))] dark:bg-[linear-gradient(135deg,rgba(0,200,150,0.06),rgba(123,79,212,0.1))]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(4,180,136,0.05),rgba(123,79,212,0.05))] dark:bg-[linear-gradient(135deg,rgba(4,180,136,0.06),rgba(123,79,212,0.1))]" />
 
             <div className="relative">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#00C896]/20 bg-[#00C896]/8 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#00C896]">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#04b488]/20 bg-[#04b488]/8 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#04b488]">
                 <Sparkles size={12} />
                 {data.parentCategory} Fund
               </span>
@@ -100,7 +100,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
                     icon: TrendingUp,
                     label: "Avg. Return (5Y)",
                     value: data.avgReturn,
-                    accent: "#00C896",
+                    accent: "#04b488",
                   },
                   {
                     icon: BarChart3,
@@ -173,13 +173,13 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
                   key={key}
                   type="button"
                   onClick={() => handleSort(key)}
-                  className="flex items-center justify-end gap-1 text-xs font-semibold uppercase tracking-wider text-[#4a5568] transition-colors hover:text-[#00C896] dark:text-slate-400"
+                  className="flex items-center justify-end gap-1 text-xs font-semibold uppercase tracking-wider text-[#4a5568] transition-colors hover:text-[#04b488] dark:text-slate-400"
                 >
                   {label}
                   <ArrowUpDown
                     size={12}
                     className={
-                      sortKey === key ? "text-[#00C896]" : "opacity-40"
+                      sortKey === key ? "text-[#04b488]" : "opacity-40"
                     }
                   />
                 </button>
@@ -190,7 +190,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
             {sortedFunds.map((fund, i) => (
               <div
                 key={fund.scheme}
-                className={`grid items-center gap-4 px-6 py-5 transition-colors hover:bg-[#00C896]/4 dark:hover:bg-white/3 lg:grid-cols-[1fr_100px_100px_100px_100px] ${i < sortedFunds.length - 1
+                className={`grid items-center gap-4 px-6 py-5 transition-colors hover:bg-[#04b488]/4 dark:hover:bg-white/3 lg:grid-cols-[1fr_100px_100px_100px_100px] ${i < sortedFunds.length - 1
                     ? "border-b border-slate-100 dark:border-white/5"
                     : ""
                   }`}
@@ -227,7 +227,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
                   <span className="text-xs text-[#4a5568] dark:text-slate-400 lg:hidden">
                     1Y:{" "}
                   </span>
-                  <span className="text-sm font-semibold text-[#00C896]">
+                  <span className="text-sm font-semibold text-[#04b488]">
                     {fund.return1Y}
                   </span>
                 </div>
@@ -265,7 +265,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
           <InfoCard
             icon={Info}
             title={`What is a ${data.title.replace(" Mutual Funds", "").replace(" Funds", "")} Fund?`}
-            accent="#00C896"
+            accent="#04b488"
           >
             <p className="text-sm leading-relaxed text-[#4a5568] dark:text-slate-300">
               {data.whatIs}
@@ -280,7 +280,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
                   key={a}
                   className="flex items-start gap-2 text-sm text-[#4a5568] dark:text-slate-300"
                 >
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00C896]" />
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#04b488]" />
                   {a}
                 </li>
               ))}
@@ -302,7 +302,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
           <InfoCard
             icon={Shield}
             title="Who Should Invest?"
-            accent="#00C896"
+            accent="#04b488"
           >
             <ul className="space-y-2">
               {data.whoShouldInvest.map((w) => (
@@ -398,9 +398,9 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
                 <Link
                   key={rf.slug}
                   href={`/explore-mutual-funds/${rf.parentCategory}/${rf.slug}`}
-                  className="group rounded-2xl border border-slate-200/80 bg-white/80 p-5 backdrop-blur-xl transition-all hover:border-[#00C896]/30 hover:shadow-md dark:border-white/10 dark:bg-slate-950/60 dark:hover:border-[#00C896]/25"
+                  className="group rounded-2xl border border-slate-200/80 bg-white/80 p-5 backdrop-blur-xl transition-all hover:border-[#04b488]/30 hover:shadow-md dark:border-white/10 dark:bg-slate-950/60 dark:hover:border-[#04b488]/25"
                 >
-                  <p className="text-sm font-semibold text-[#1a1560] transition-colors group-hover:text-[#00C896] dark:text-white">
+                  <p className="text-sm font-semibold text-[#1a1560] transition-colors group-hover:text-[#04b488] dark:text-white">
                     {rf.title}
                   </p>
                   <p className="mt-1 text-xs text-[#4a5568] dark:text-slate-400">
@@ -432,7 +432,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
 
 /* ── Helpers ── */
 function riskColorForLevel(level: string): string {
-  if (level === "Very Low" || level === "Low") return "#00C896";
+  if (level === "Very Low" || level === "Low") return "#04b488";
   if (level === "Moderate" || level === "Low to Moderate") return "#7B4FD4";
   return "#e85d5d";
 }

@@ -54,7 +54,7 @@ export default function InvestmentFeatures() {
       id="investment-features"
       className="relative overflow-hidden bg-white px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8"
     >
-      <div className="pointer-events-none absolute left-[-170px] top-24 h-80 w-80 rounded-full bg-[#00C896]/12 blur-3xl" />
+      <div className="pointer-events-none absolute left-[-170px] top-24 h-80 w-80 rounded-full bg-[#04b488]/12 blur-3xl" />
       <div className="pointer-events-none absolute right-[-160px] top-6 h-80 w-80 rounded-full bg-[#7B4FD4]/14 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
@@ -66,7 +66,7 @@ export default function InvestmentFeatures() {
           className="grid items-center gap-10 rounded-3xl border border-slate-200 finlec-surface p-6 dark:border-white/10 sm:p-8 lg:grid-cols-[1fr_0.95fr]"
         >
           <div>
-            <p className="inline-flex rounded-full bg-[#00C896]/10 px-4 py-2 text-sm font-semibold text-[#00C896]">
+            <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
               Investment Intelligence
             </p>
             <h2 className="mt-4 max-w-2xl text-3xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
@@ -78,7 +78,7 @@ export default function InvestmentFeatures() {
               downside control.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <span className="rounded-full border border-[#00C896]/25 bg-[#00C896]/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#069f7b]">
+              <span className="rounded-full border border-[#04b488]/25 bg-[#04b488]/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#069f7b]">
                 Predictive analytics
               </span>
               <span className="rounded-full border border-[#7B4FD4]/25 bg-[#7B4FD4]/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#6d41ca]">
@@ -103,7 +103,7 @@ export default function InvestmentFeatures() {
               className="animate-float-slow absolute -bottom-3 right-4 rounded-xl border border-slate-200 bg-white px-3 py-2 shadow-sm dark:border-white/10 dark:bg-slate-950/80"
             >
               <p className="text-xs font-semibold text-[#4a5568] dark:text-slate-300">SIP Efficiency</p>
-              <p className="text-sm font-bold text-[#00C896]">+17.9% projected</p>
+              <p className="text-sm font-bold text-[#04b488]">+17.9% projected</p>
             </motion.div>
           </div>
         </motion.div>
@@ -120,9 +120,9 @@ export default function InvestmentFeatures() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.42, delay: index * 0.06, ease: "easeOut" }}
                 whileHover={{ y: -5 }}
-                className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-colors hover:border-[#00C896]/30 dark:border-white/10 dark:bg-white/5"
+                className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all hover:-translate-y-1.5 hover:shadow-[0_8px_30px_rgba(4,180,136,0.12)] hover:border-[#04b488]/40 dark:border-white/10 dark:bg-white/5 dark:shadow-none"
               >
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#00C896]/10 text-[#00C896]">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#04b488]/10 text-[#04b488]">
                   <Icon size={20} />
                 </span>
                 <h3 className="mt-4 text-lg font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">

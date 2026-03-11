@@ -31,7 +31,7 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-[#f8f9fa] px-4 pb-10 pt-16 dark:bg-transparent sm:px-6 lg:px-8">
-      <div className="pointer-events-none absolute left-[-160px] top-20 h-80 w-80 rounded-full bg-[#00C896]/12 blur-3xl" />
+      <div className="pointer-events-none absolute left-[-160px] top-20 h-80 w-80 rounded-full bg-[#04b488]/12 blur-3xl" />
       <div className="pointer-events-none absolute right-[-160px] bottom-10 h-72 w-72 rounded-full bg-[#7B4FD4]/12 blur-3xl" />
 
       <motion.div
@@ -43,14 +43,30 @@ export default function Footer() {
       >
         <div className="pointer-events-none absolute left-0 top-0 h-1 w-full finlec-shine" />
 
-        <div className="mb-8 rounded-2xl border border-[#00C896]/20 bg-white/70 p-4 backdrop-blur-sm dark:border-[#00C896]/20 dark:bg-white/6 sm:p-5">
-          <p className="text-sm font-semibold text-[#1a1560] dark:text-white">
-            Want monthly investment insights?
-          </p>
-          <p className="mt-1 text-sm text-[#4a5568] dark:text-slate-300">
-            Get model portfolio notes, SIP strategy tips, and market volatility
-            playbooks from the Finlec advisory team.
-          </p>
+        <div className="mb-12 flex flex-col items-start justify-between gap-6 rounded-3xl border border-[#04b488]/20 bg-[#04b488]/5 p-6 md:flex-row md:items-center md:p-8 dark:border-white/10 dark:bg-slate-900/50">
+          <div className="max-w-md">
+            <h3 className="text-xl font-semibold text-[#1a1560] dark:text-white font-[family-name:var(--font-sora)]">
+              Join our weekly newsletter
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-[#4a5568] dark:text-slate-300">
+              Get model portfolio notes, SIP strategy tips, and market volatility
+              playbooks from the Finlec advisory team. No spam, ever.
+            </p>
+          </div>
+          <form className="flex w-full max-w-sm flex-col gap-3 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
+            <input 
+              type="email" 
+              placeholder="Enter your email address" 
+              className="w-full flex-1 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-[#04b488] focus:ring-1 focus:ring-[#04b488] dark:border-white/10 dark:bg-slate-950/50 dark:text-white dark:focus:border-[#04b488]"
+              required
+            />
+            <button 
+              type="submit"
+              className="inline-flex items-center justify-center rounded-xl bg-[#04b488] px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#039e76] focus:outline-none focus:ring-2 focus:ring-[#04b488] focus:ring-offset-2 dark:focus:ring-offset-slate-950 sm:w-auto"
+            >
+              Subscribe
+            </button>
+          </form>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
@@ -59,7 +75,7 @@ export default function Footer() {
               href="/"
               className="relative inline-flex items-center rounded-full border border-white/70 bg-white/78 px-3 py-2 shadow-[0_18px_40px_-28px_rgba(14,23,40,0.45)] dark:border-white/10 dark:bg-slate-950/70"
             >
-              <span className="pointer-events-none absolute inset-0 rounded-full bg-[linear-gradient(90deg,rgba(0,200,150,0.08),rgba(123,79,212,0.1))]" />
+              <span className="pointer-events-none absolute inset-0 rounded-full bg-[linear-gradient(90deg,rgba(4,180,136,0.08),rgba(123,79,212,0.1))]" />
               <Image
                 src="/images/logo.jpg"
                 alt="Logo"
@@ -84,7 +100,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-slate-200 bg-white text-[#00C896] transition-colors hover:border-[#00C896]/35 dark:border-white/10 dark:bg-slate-950/72 dark:text-[#7ff7cc]"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-slate-200 bg-white text-[#04b488] transition-colors hover:border-[#04b488]/35 dark:border-white/10 dark:bg-slate-950/72 dark:text-[#7ff7cc]"
                   >
                     <Icon size={18} />
                   </motion.a>
@@ -94,7 +110,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#00C896]">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#04b488]">
               Platform
             </h3>
             <ul className="mt-4 space-y-3">
@@ -102,7 +118,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="inline-flex items-center gap-1 text-sm text-[#4a5568] transition-colors hover:text-[#00C896] dark:text-slate-300 dark:hover:text-[#7ff7cc]"
+                    className="inline-flex items-center gap-1 text-sm text-[#4a5568] transition-colors hover:text-[#04b488] dark:text-slate-300 dark:hover:text-[#7ff7cc]"
                   >
                     {link.label}
                     <ArrowUpRight size={14} />
@@ -113,7 +129,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#00C896]">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#04b488]">
               Regulation
             </h3>
             <ul className="mt-4 space-y-3">
@@ -123,7 +139,7 @@ export default function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm text-[#4a5568] transition-colors hover:text-[#00C896] dark:text-slate-300 dark:hover:text-[#7ff7cc]"
+                    className="inline-flex items-center gap-1 text-sm text-[#4a5568] transition-colors hover:text-[#04b488] dark:text-slate-300 dark:hover:text-[#7ff7cc]"
                   >
                     {link.label}
                     <ArrowUpRight size={14} />
@@ -148,13 +164,13 @@ export default function Footer() {
         <div className="mt-5 flex flex-col gap-3 border-t border-slate-200 pt-5 text-sm text-[#4a5568] dark:border-white/10 dark:text-slate-400 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright {new Date().getFullYear()} Finlec. All rights reserved.</p>
           <div className="flex items-center gap-5">
-            <Link href="/terms" className="transition-colors hover:text-[#00C896] dark:hover:text-[#7ff7cc]">
+            <Link href="/terms" className="transition-colors hover:text-[#04b488] dark:hover:text-[#7ff7cc]">
               Terms
             </Link>
-            <Link href="/privacy" className="transition-colors hover:text-[#00C896] dark:hover:text-[#7ff7cc]">
+            <Link href="/privacy" className="transition-colors hover:text-[#04b488] dark:hover:text-[#7ff7cc]">
               Privacy
             </Link>
-            <Link href="/cookie-policy" className="transition-colors hover:text-[#00C896] dark:hover:text-[#7ff7cc]">
+            <Link href="/cookie-policy" className="transition-colors hover:text-[#04b488] dark:hover:text-[#7ff7cc]">
               Cookies
             </Link>
           </div>

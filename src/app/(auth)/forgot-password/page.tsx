@@ -58,7 +58,7 @@ export default function ForgotPasswordPage() {
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   placeholder="you@example.com"
-                  className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-4 text-sm text-gray-900 outline-none transition-colors focus:border-[#00C896] focus:ring-2 focus:ring-[#00C896]/20"
+                  className="w-full rounded-md border border-gray-200 py-3 pl-10 pr-4 text-sm text-gray-900 outline-none transition-colors focus:border-[#04b488] focus:ring-2 focus:ring-[#04b488]/20"
                 />
               </div>
             </div>
@@ -66,7 +66,7 @@ export default function ForgotPasswordPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#00C896] px-4 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#04b488] px-4 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
             >
               {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
               {isSubmitting ? "Sending..." : "Send Reset Link"}
@@ -75,7 +75,7 @@ export default function ForgotPasswordPage() {
         )}
 
         <p className="mt-6 text-center text-sm text-[#4a5568]">
-          <Link href="/login" className="font-semibold text-[#00C896] hover:underline">
+          <Link href="/login" className="font-semibold text-[#04b488] hover:underline">
             Back to login
           </Link>
         </p>

@@ -91,7 +91,7 @@ export default function StatsCounter() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-center"
         >
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#00C896]">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#04b488]">
             Performance Snapshot
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
@@ -112,7 +112,7 @@ export default function StatsCounter() {
               <p className="text-4xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">
                 <AnimatedValue value={stat.value} suffix={stat.suffix} start={isInView} />
               </p>
-              <p className="mt-2 text-sm font-semibold text-[#00C896]">{stat.label}</p>
+              <p className="mt-2 text-sm font-semibold text-[#04b488]">{stat.label}</p>
               <p className="mt-2 text-sm text-[#4a5568] dark:text-slate-300">{stat.detail}</p>
             </motion.article>
           ))}

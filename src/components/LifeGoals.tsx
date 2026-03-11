@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Baby, Building2, Flag, ReceiptText, type LucideIcon } from "lucide-react";
+import { TrendingUp, Building2, Flag, ReceiptText, type LucideIcon } from "lucide-react";
 
 type Goal = {
   title: string;
@@ -12,10 +12,10 @@ type Goal = {
 
 const goals: Goal[] = [
   {
-    title: "Child Education",
-    note: "Build milestone-based SIPs for school and higher education.",
-    target: "14y Horizon",
-    icon: Baby,
+    title: "Wealth Creation",
+    note: "Build a flexible corpus for your long-term wealth targets.",
+    target: "Wealth Builder",
+    icon: TrendingUp,
   },
   {
     title: "Retirement Freedom",
@@ -48,7 +48,7 @@ export default function LifeGoals() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="space-y-5"
         >
-          <p className="inline-flex rounded-full bg-[#00C896]/10 px-4 py-2 text-sm font-semibold text-[#00C896]">
+          <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             Goal Architecture
           </p>
           <h2 className="text-3xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
@@ -61,7 +61,7 @@ export default function LifeGoals() {
           <motion.a
             whileHover={{ y: -2 }}
             href="/signup"
-            className="inline-flex rounded-2xl bg-[#00C896] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#00b286]"
+            className="inline-flex rounded-2xl bg-[#04b488] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#00b286]"
           >
             Build My Goal Plan
           </motion.a>
@@ -82,7 +82,7 @@ export default function LifeGoals() {
                 className="rounded-3xl border border-slate-200 bg-[#f8f9fa] p-5 dark:border-white/10 dark:bg-white/5"
               >
                 <div className="flex items-center justify-between gap-3">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#00C896]/10 text-[#00C896]">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#04b488]/10 text-[#04b488]">
                     <Icon size={19} />
                   </span>
                   <span className="rounded-full bg-[#7B4FD4]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#7B4FD4]">

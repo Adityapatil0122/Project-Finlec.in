@@ -19,11 +19,7 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0 },
 };
 
-const trustPoints = [
-  "SEBI-aligned recommendations",
-  "40+ AMCs onboarded",
-  "Goal-based SIP workflows",
-];
+
 
 const stats = [
   { value: "40+", label: "Partner AMCs", icon: Shield },
@@ -63,7 +59,7 @@ export default function Hero() {
           <>
             India&apos;s Leading All-in-One{" "}
             <br />
-            <span className="bg-[linear-gradient(135deg,#00C896,#7B4FD4)] bg-clip-text text-transparent">
+            <span className="bg-[linear-gradient(135deg,#04b488,#7B4FD4)] bg-clip-text text-transparent">
               Mutual Funds
             </span>{" "}
             Platform
@@ -74,106 +70,63 @@ export default function Hero() {
           text: "START INVESTING FREE →",
           href: "/signup",
         }}
-        backgroundImage="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&auto=format&fit=crop&q=80"
-        contactInfo={{
-          website: "finlec.in",
-          phone: "+91 98765 43210",
-          address: "Mumbai, Maharashtra, India",
-        }}
+        backgroundImage="/images/Untitled-design-3.png"
       />
 
-      {/* ──── STATS + HIGHLIGHTS (existing sections, below the hero) ──── */}
-      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        {/* Trust points */}
+      {/* ──── STATS + HIGHLIGHTS (Clean minimalist layout) ──── */}
+      <div className="relative mx-auto mt-12 max-w-6xl px-4 sm:px-6 lg:px-8">
+        
+        {/* Minimalist Stats Row */}
         <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUp}
-          transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
-          className="relative mt-10 flex flex-wrap items-center justify-center gap-4"
-        >
-          {trustPoints.map((item) => (
-            <span
-              key={item}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/78 px-4 py-2 text-sm text-[#4a5568] backdrop-blur-sm dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
-            >
-              <CheckCircle2 size={14} className="text-[#00C896]" />
-              {item}
-            </span>
-          ))}
-        </motion.div>
-
-        {/* Stats row */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.5, ease: "easeOut" }}
-          className="relative mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="flex flex-wrap items-center justify-center gap-12 border-b border-slate-200/50 pb-12 dark:border-white/5 md:gap-24"
         >
           {stats.map((stat, index) => {
             const Icon = stat.icon;
-
             return (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.45,
-                  delay: 0.55 + index * 0.08,
-                  ease: "easeOut",
-                }}
-                whileHover={{ y: -4 }}
-                className="group rounded-[24px] border border-slate-200/80 bg-white/82 p-5 text-center shadow-[0_16px_40px_-32px_rgba(15,23,42,0.4)] backdrop-blur-xl transition-colors hover:border-[#00C896]/30 dark:border-white/10 dark:bg-slate-950/65 dark:shadow-[0_16px_40px_-28px_rgba(0,0,0,0.7)]"
-              >
-                <div className="mx-auto mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(0,200,150,0.12),rgba(123,79,212,0.1))] text-[#00C896] transition-colors group-hover:bg-[#00C896]/16">
-                  <Icon size={20} />
+              <div key={stat.label} className="flex flex-col items-center">
+                <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-[#04b488]/10 text-[#04b488]">
+                  <Icon size={18} />
                 </div>
-                <p className="text-3xl font-bold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">
+                <p className="text-3xl font-bold tracking-tight text-[#1a1560] dark:text-white">
                   {stat.value}
                 </p>
-                <p className="mt-1 text-sm text-[#4a5568] dark:text-slate-300">
+                <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[#4a5568] dark:text-slate-400">
                   {stat.label}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
         </motion.div>
 
-        {/* Highlights row */}
+        {/* Clean Highlights Row */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.85, ease: "easeOut" }}
-          className="relative mt-6 grid gap-4 lg:grid-cols-3"
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="mt-12 grid gap-6 md:grid-cols-3"
         >
-          {highlights.map((item, index) => {
+          {highlights.map((item) => {
             const Icon = item.icon;
-
             return (
-              <motion.div
+              <div
                 key={item.title}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.42,
-                  delay: 0.9 + index * 0.1,
-                  ease: "easeOut",
-                }}
-                className="flex items-start gap-4 rounded-[24px] border border-slate-200/80 bg-white/82 p-5 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/65"
+                className="group rounded-3xl bg-white/40 p-6 backdrop-blur-md transition-all hover:bg-white/70 dark:bg-slate-900/40 dark:hover:bg-slate-900/60"
               >
-                <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#7B4FD4]/10 text-[#7B4FD4]">
-                  <Icon size={18} />
-                </span>
-                <div>
-                  <p className="text-sm font-semibold text-[#1a1560] dark:text-white">
+                <div className="mb-4 inline-flex items-center gap-3">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#7B4FD4]/10 text-[#7B4FD4]">
+                    <Icon size={16} />
+                  </span>
+                  <h3 className="text-base font-semibold text-[#1a1560] dark:text-white">
                     {item.title}
-                  </p>
-                  <p className="mt-1 text-sm leading-relaxed text-[#4a5568] dark:text-slate-300">
-                    {item.description}
-                  </p>
+                  </h3>
                 </div>
-              </motion.div>
+                <p className="text-sm leading-relaxed text-[#4a5568] dark:text-slate-300">
+                  {item.description}
+                </p>
+              </div>
             );
           })}
         </motion.div>

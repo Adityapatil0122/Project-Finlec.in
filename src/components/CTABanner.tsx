@@ -7,7 +7,7 @@ import { ArrowRight, Headset, PhoneCall, ShieldCheck, Sparkles } from "lucide-re
 export default function CTABanner() {
   return (
     <section className="relative overflow-hidden bg-[#f8f9fa] px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8">
-      <div className="pointer-events-none absolute left-[-150px] top-16 h-72 w-72 rounded-full bg-[#00C896]/14 blur-3xl" />
+      <div className="pointer-events-none absolute left-[-150px] top-16 h-72 w-72 rounded-full bg-[#04b488]/14 blur-3xl" />
       <div className="pointer-events-none absolute right-[-170px] bottom-10 h-72 w-72 rounded-full bg-[#7B4FD4]/15 blur-3xl" />
 
       <motion.div
@@ -18,10 +18,10 @@ export default function CTABanner() {
         className="relative mx-auto grid max-w-7xl gap-8 overflow-hidden rounded-3xl border border-slate-200 finlec-surface p-6 shadow-sm dark:border-white/10 lg:grid-cols-[1fr_0.9fr] lg:p-8"
       >
         <div className="pointer-events-none absolute right-[-120px] top-[-120px] h-56 w-56 rounded-full bg-[#7B4FD4]/12 blur-3xl" />
-        <div className="pointer-events-none absolute left-[-100px] bottom-[-120px] h-56 w-56 rounded-full bg-[#00C896]/10 blur-3xl" />
+        <div className="pointer-events-none absolute left-[-100px] bottom-[-120px] h-56 w-56 rounded-full bg-[#04b488]/10 blur-3xl" />
 
         <div className="space-y-5">
-          <p className="inline-flex items-center gap-2 rounded-full bg-[#00C896]/10 px-4 py-2 text-sm font-semibold text-[#00C896]">
+          <p className="inline-flex items-center gap-2 rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             <Headset size={16} />
             Premium Advisory Access
           </p>
@@ -47,7 +47,7 @@ export default function CTABanner() {
             <motion.a
               whileHover={{ y: -2 }}
               href="tel:9420151046"
-              className="inline-flex items-center gap-2 rounded-2xl bg-[#00C896] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#00b286]"
+              className="inline-flex items-center gap-2 rounded-2xl bg-[#04b488] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#00b286]"
             >
               <PhoneCall size={16} />
               Call 9420151046
@@ -79,7 +79,7 @@ export default function CTABanner() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#1a1560]/80 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#00C896]">
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#04b488]">
                 Senior Advisory Desk
               </p>
               <p className="mt-1 text-lg font-semibold text-white font-[family-name:var(--font-sora)]">
@@ -88,7 +88,7 @@ export default function CTABanner() {
             </div>
           </div>
           <div className="mt-4 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-[#4a5568] dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-300">
-            <p className="inline-flex items-center gap-2 font-semibold text-[#00C896]">
+            <p className="inline-flex items-center gap-2 font-semibold text-[#04b488]">
               <ShieldCheck size={16} />
               Compliance-first recommendations
             </p>

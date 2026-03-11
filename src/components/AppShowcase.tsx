@@ -45,10 +45,10 @@ function Testimonial({
 }) {
   return (
     <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-5 dark:border-white/10 dark:bg-white/5">
-      <p className="text-3xl leading-none text-[#00C896]">&quot;</p>
+      <p className="text-3xl leading-none text-[#04b488]">&quot;</p>
       <p className="mt-2 text-sm italic text-[#4a5568] dark:text-slate-400">{quote}</p>
       <div className="mt-4 flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#00C896]/10 text-sm font-semibold text-[#1a1560] dark:bg-white/10 dark:text-slate-200">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#04b488]/10 text-sm font-semibold text-[#1a1560] dark:bg-white/10 dark:text-slate-200">
           {initials}
         </div>
         <div>
@@ -82,7 +82,7 @@ export default function AppShowcase() {
             </p>
             <button
               type="button"
-              className="mt-6 rounded-full border border-[#00C896]/20 bg-[#00C896]/10 px-6 py-2.5 text-sm font-semibold text-[#00C896] dark:bg-[#00C896]/14 dark:text-[#7ff7cc]"
+              className="mt-6 rounded-full border border-[#04b488]/20 bg-[#04b488]/10 px-6 py-2.5 text-sm font-semibold text-[#04b488] dark:bg-[#04b488]/14 dark:text-[#7ff7cc]"
             >
               Get Started
             </button>
@@ -134,13 +134,13 @@ export default function AppShowcase() {
                 <p className="text-xs font-semibold">Your Required SIP</p>
                 <button
                   type="button"
-                  className="mt-3 w-full rounded-xl bg-[#00C896] px-3 py-2 text-xs font-semibold text-white"
+                  className="mt-3 w-full rounded-xl bg-[#04b488] px-3 py-2 text-xs font-semibold text-white"
                 >
                   Required 5,000
                 </button>
                 <button
                   type="button"
-                  className="mt-2 w-full rounded-xl bg-[#00C896]/10 px-3 py-2 text-xs font-semibold text-[#1a1560] dark:bg-white/10 dark:text-slate-200"
+                  className="mt-2 w-full rounded-xl bg-[#04b488]/10 px-3 py-2 text-xs font-semibold text-[#1a1560] dark:bg-white/10 dark:text-slate-200"
                 >
                   Start Small 2,500
                 </button>
@@ -167,7 +167,7 @@ export default function AppShowcase() {
             </p>
             <button
               type="button"
-              className="mt-6 rounded-full border border-[#00C896]/20 bg-[#00C896]/10 px-6 py-2.5 text-sm font-semibold text-[#00C896] dark:bg-[#00C896]/14 dark:text-[#7ff7cc]"
+              className="mt-6 rounded-full border border-[#04b488]/20 bg-[#04b488]/10 px-6 py-2.5 text-sm font-semibold text-[#04b488] dark:bg-[#04b488]/14 dark:text-[#7ff7cc]"
             >
               Start Investing
             </button>
@@ -180,7 +180,7 @@ export default function AppShowcase() {
           </div>
 
           <PhoneShell tiltClassName="lg:rotate-1">
-            <div className="flex h-full flex-col rounded-[2.25rem] bg-white p-4 dark:bg-[radial-gradient(circle_at_20%_15%,rgba(0,200,150,0.14),rgba(10,15,27,1)_42%,rgba(8,12,22,1)_100%)]">
+            <div className="flex h-full flex-col rounded-[2.25rem] bg-white p-4 dark:bg-[radial-gradient(circle_at_20%_15%,rgba(4,180,136,0.14),rgba(10,15,27,1)_42%,rgba(8,12,22,1)_100%)]">
               <div className="flex items-center justify-between text-[10px] text-[#4a5568] dark:text-slate-400">
                 <p className="font-medium">9:41</p>
                 <p>5G 92%</p>
@@ -199,13 +199,13 @@ export default function AppShowcase() {
                   />
                   <path
                     d="M10 112 L60 96 L110 88 L160 68 L210 44 L250 24 L250 130 L10 130 Z"
-                    fill="#00C896"
+                    fill="#04b488"
                     opacity="0.2"
                   />
                   <path
                     d="M10 112 L60 96 L110 88 L160 68 L210 44 L250 24"
                     fill="none"
-                    stroke="#00C896"
+                    stroke="#04b488"
                     strokeWidth="3"
                   />
                 </svg>
@@ -221,7 +221,7 @@ export default function AppShowcase() {
               <div className="mt-4 space-y-3 rounded-2xl border border-slate-200 bg-white p-3 text-xs shadow-sm dark:border-white/10 dark:bg-slate-950/75">
                 <div className="flex items-center justify-between border-b border-slate-200 pb-2 dark:border-white/10">
                   <p className="text-[#4a5568] dark:text-slate-400">Total Returns</p>
-                  <p className="font-semibold text-[#00C896]">4.2 Cr (67%)</p>
+                  <p className="font-semibold text-[#04b488]">4.2 Cr (67%)</p>
                 </div>
                 <div className="flex items-center justify-between border-b border-slate-200 pb-2 dark:border-white/10">
                   <p className="text-[#4a5568] dark:text-slate-400">Amount Invested</p>
@@ -229,7 +229,7 @@ export default function AppShowcase() {
                 </div>
                 <div className="flex items-center justify-between">
                   <p className="text-[#4a5568] dark:text-slate-400">XIRR</p>
-                  <p className="font-semibold text-[#00C896]">15.42%</p>
+                  <p className="font-semibold text-[#04b488]">15.42%</p>
                 </div>
               </div>
             </div>

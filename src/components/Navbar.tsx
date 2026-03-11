@@ -4,15 +4,12 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import { Menu, MoonStar, SunMedium, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Features", href: "/features" },
-  { label: "Strategies", href: "/strategies" },
-  { label: "Invest Tools", href: "/investment-tools" },
-  { label: "Goals", href: "/goals" },
-  { label: "Partners", href: "/partners" },
+  { label: "Home", href: "/" },
+  { label: "Calculators", href: "/calculators" },
 ];
 
 const exploreRoute = "/explore-mutual-funds";
@@ -22,6 +19,13 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);
@@ -49,7 +53,11 @@ export default function Navbar() {
           : "border-b border-transparent bg-white/58 backdrop-blur-md dark:bg-[#1a1560]/60"
       }`}
     >
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-[linear-gradient(90deg,rgba(0,200,150,0),rgba(0,200,150,0.9),rgba(123,79,212,0.9),rgba(123,79,212,0))]" />
+      {/* Scroll Progress Bar replacing the static top border */}
+      <motion.div
+        style={{ scaleX }}
+        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#04b488] via-[#04b488] to-[#7B4FD4] origin-left z-[60]"
+      />
 
       <nav
         className={`mx-auto flex w-full max-w-7xl items-center justify-between px-4 transition-[height] sm:px-6 lg:px-8 ${
@@ -61,7 +69,7 @@ export default function Navbar() {
           className="group relative inline-flex items-center rounded-full border border-white/70 bg-white/82 px-3 py-2 shadow-[0_18px_40px_-28px_rgba(14,23,40,0.45)] transition-colors dark:border-white/10 dark:bg-slate-950/70"
           aria-label="Finlec home"
         >
-          <span className="pointer-events-none absolute inset-0 rounded-full bg-[linear-gradient(90deg,rgba(0,200,150,0.08),rgba(123,79,212,0.1))]" />
+          <span className="pointer-events-none absolute inset-0 rounded-full bg-[linear-gradient(90deg,rgba(4,180,136,0.08),rgba(123,79,212,0.1))]" />
           <Image
             src="/images/logo.jpg"
             alt="Logo"
@@ -85,7 +93,7 @@ export default function Navbar() {
               >
                 {link.label}
                 <span
-                  className={`absolute -bottom-1 left-0 h-[2px] w-full origin-left bg-gradient-to-r from-[#00C896] to-[#7B4FD4] transition-transform duration-300 ${
+                  className={`absolute -bottom-1 left-0 h-[2px] w-full origin-left bg-gradient-to-r from-[#04b488] to-[#7B4FD4] transition-transform duration-300 ${
                     pathname === link.href
                       ? "scale-x-100"
                       : "scale-x-0 group-hover:scale-x-100"
@@ -100,7 +108,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={toggleTheme}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white/90 text-slate-700 shadow-sm transition-colors hover:border-[#00C896]/35 hover:text-[#00a57d] dark:border-white/10 dark:bg-slate-950/75 dark:text-slate-200 dark:hover:border-[#7B4FD4]/40 dark:hover:text-white"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white/90 text-slate-700 shadow-sm transition-colors hover:border-[#04b488]/35 hover:text-[#00a57d] dark:border-white/10 dark:bg-slate-950/75 dark:text-slate-200 dark:hover:border-[#7B4FD4]/40 dark:hover:text-white"
             aria-label="Toggle day and night mode"
             title="Toggle day and night mode"
           >
@@ -109,32 +117,49 @@ export default function Navbar() {
           </button>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <motion.div whileHover={{ y: -1 }}>
-              <Link
-                href={exploreRoute}
-                className={`inline-flex items-center rounded-full border px-5 py-2 text-sm font-semibold transition-colors ${
-                  pathname === exploreRoute
-                    ? "border-[#7B4FD4]/35 bg-[#7B4FD4]/10 text-[#5e36b3] dark:border-[#7B4FD4]/45 dark:bg-[#7B4FD4]/18 dark:text-[#e1d6ff]"
-                    : "border-[#7B4FD4]/30 bg-white text-[#5e36b3] hover:bg-[#7B4FD4]/10 dark:border-[#7B4FD4]/25 dark:bg-slate-950/70 dark:text-[#d8cbff] dark:hover:bg-[#7B4FD4]/12"
-                }`}
-              >
-                Explore Mutual Funds
-              </Link>
-            </motion.div>
+            <div className="group relative">
+              <motion.div whileHover={{ y: -1 }}>
+                <Link
+                  href={exploreRoute}
+                  className={`inline-flex items-center rounded-full border px-5 py-2 text-sm font-semibold transition-colors ${
+                    pathname === exploreRoute
+                      ? "border-[#7B4FD4]/35 bg-[#7B4FD4]/10 text-[#5e36b3] dark:border-[#7B4FD4]/45 dark:bg-[#7B4FD4]/18 dark:text-[#e1d6ff]"
+                      : "border-[#7B4FD4]/30 bg-white text-[#5e36b3] hover:bg-[#7B4FD4]/10 dark:border-[#7B4FD4]/25 dark:bg-slate-950/70 dark:text-[#d8cbff] dark:hover:bg-[#7B4FD4]/12"
+                  }`}
+                >
+                  Explore Mutual Funds
+                </Link>
+              </motion.div>
+              
+              {/* Megamenu Dropdown */}
+              <div className="absolute top-full right-0 mt-4 w-[500px] opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 rounded-2xl bg-white dark:bg-[#1a1560] shadow-[0_18px_40px_-15px_rgba(14,23,40,0.2)] dark:shadow-[0_18px_40px_-15px_rgba(0,0,0,0.6)] border border-slate-200 dark:border-white/10 p-6 hidden lg:flex gap-8 z-[60]">
+                {/* Invisible bridge to keep hover active */}
+                <div className="absolute -top-4 left-0 right-0 h-4 bg-transparent" />
+                
+                <div className="flex-1">
+                  <h3 className="text-[11px] font-bold uppercase tracking-widest text-[#04b488] mb-4">Top Categories</h3>
+                  <ul className="space-y-4">
+                    <li><Link href="/explore-mutual-funds" className="block text-sm font-semibold text-[#1a1560] dark:text-white hover:text-[#04b488] dark:hover:text-[#04b488] transition-colors">Large Cap Funds</Link></li>
+                    <li><Link href="/explore-mutual-funds" className="block text-sm font-semibold text-[#1a1560] dark:text-white hover:text-[#04b488] dark:hover:text-[#04b488] transition-colors">Mid Cap Funds</Link></li>
+                    <li><Link href="/explore-mutual-funds" className="block text-sm font-semibold text-[#1a1560] dark:text-white hover:text-[#04b488] dark:hover:text-[#04b488] transition-colors">Small Cap Funds</Link></li>
+                  </ul>
+                </div>
+                <div className="flex-1 border-l border-slate-100 dark:border-white/10 pl-8">
+                  <h3 className="text-[11px] font-bold uppercase tracking-widest text-[#7B4FD4] mb-4">Specialized</h3>
+                  <ul className="space-y-4">
+                    <li><Link href="/explore-mutual-funds" className="block text-sm font-semibold text-[#1a1560] dark:text-white hover:text-[#7B4FD4] dark:hover:text-[#7B4FD4] transition-colors">Tax Saver (ELSS)</Link></li>
+                    <li><Link href="/explore-mutual-funds" className="block text-sm font-semibold text-[#1a1560] dark:text-white hover:text-[#7B4FD4] dark:hover:text-[#7B4FD4] transition-colors">Index Funds</Link></li>
+                    <li><Link href="/explore-mutual-funds" className="block text-sm font-semibold text-[#1a1560] dark:text-white hover:text-[#7B4FD4] dark:hover:text-[#7B4FD4] transition-colors">Debt Funds</Link></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
             <motion.div whileHover={{ y: -1 }}>
               <Link
                 href="/login"
-                className="inline-flex items-center justify-center rounded-full border border-[#00C896]/25 bg-white px-5 py-2 text-sm font-semibold text-[#00C896] transition-colors hover:border-[#00C896]/40 hover:bg-[#00C896]/8 dark:border-[#00C896]/20 dark:bg-slate-950/72 dark:text-[#7ff7cc] dark:hover:border-[#00C896]/35 dark:hover:bg-[#00C896]/10"
+                className="inline-flex items-center justify-center rounded-full border border-[#04b488]/25 bg-white px-5 py-2 text-sm font-semibold text-[#04b488] transition-colors hover:border-[#04b488]/40 hover:bg-[#04b488]/8 dark:border-[#04b488]/20 dark:bg-slate-950/72 dark:text-[#7ff7cc] dark:hover:border-[#04b488]/35 dark:hover:bg-[#04b488]/10"
               >
                 Login
-              </Link>
-            </motion.div>
-            <motion.div whileHover={{ y: -1 }}>
-              <Link
-                href="/signup"
-                className="inline-flex items-center rounded-full bg-[linear-gradient(135deg,#00C896,#19d0b3)] px-5 py-2 text-sm font-semibold text-white shadow-[0_14px_30px_-18px_rgba(0,200,150,0.9)] transition-all hover:shadow-[0_18px_34px_-18px_rgba(0,200,150,0.95)] dark:shadow-[0_20px_40px_-22px_rgba(0,200,150,0.65)]"
-              >
-                New Investor
               </Link>
             </motion.div>
           </div>
@@ -178,20 +203,13 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <div className="grid grid-cols-2 gap-3 pt-1">
+              <div className="grid grid-cols-1 gap-3 pt-1">
                 <Link
                   href="/login"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="rounded-xl border border-[#00C896]/25 bg-white px-4 py-3 text-center text-sm font-semibold text-[#00C896] dark:border-[#00C896]/20 dark:bg-slate-950/75 dark:text-[#7ff7cc]"
+                  className="rounded-xl border border-[#04b488]/25 bg-white px-4 py-3 text-center text-sm font-semibold text-[#04b488] dark:border-[#04b488]/20 dark:bg-slate-950/75 dark:text-[#7ff7cc]"
                 >
                   Login
-                </Link>
-                <Link
-                  href="/signup"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="rounded-xl bg-[linear-gradient(135deg,#00C896,#19d0b3)] px-4 py-3 text-center text-sm font-semibold text-white"
-                >
-                  New Investor
                 </Link>
               </div>
             </div>

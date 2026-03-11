@@ -1,9 +1,9 @@
 export const theme = {
   colors: {
     navbar: "#0f0f2e",
-    heroStart: "#00C896",
+    heroStart: "#04b488",
     heroEnd: "#7B4FD4",
-    primary: "#00C896",
+    primary: "#04b488",
     primaryDark: "#00b286",
     secondary: "#7B4FD4",
     secondaryDark: "#6940bd",
@@ -11,6 +11,6 @@ export const theme = {
     card: "#ffffff",
     heading: "#1a1a3e",
     body: "#4a5568",
-    accent: "#00C896",
+    accent: "#04b488",
   },
 };
