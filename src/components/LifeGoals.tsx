@@ -51,10 +51,10 @@ export default function LifeGoals() {
           <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             Goal Architecture
           </p>
-          <h2 className="text-3xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
+          <h2 className="text-3xl font-semibold leading-tight text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
             Turn life goals into measurable investment pathways
           </h2>
-          <p className="max-w-xl text-base leading-relaxed text-[#4a5568] dark:text-slate-300 sm:text-lg">
+          <p className="max-w-xl text-base leading-relaxed text-[#475569] dark:text-slate-300 sm:text-lg">
             Each goal gets a strategy stack, timeline, and progress tracker. You
             stay focused on outcomes while the platform maintains discipline.
           </p>
@@ -79,7 +79,7 @@ export default function LifeGoals() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.42, delay: index * 0.05, ease: "easeOut" }}
                 whileHover={{ y: -3 }}
-                className="rounded-3xl border border-slate-200 bg-[#f8f9fa] p-5 dark:border-white/10 dark:bg-white/5"
+                className="finlec-card p-5"
               >
                 <div className="flex items-center justify-between gap-3">
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#04b488]/10 text-[#04b488]">
@@ -89,10 +89,10 @@ export default function LifeGoals() {
                     {goal.target}
                   </span>
                 </div>
-                <h3 className="mt-5 text-xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">
+                <h3 className="mt-5 text-xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white">
                   {goal.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#4a5568] dark:text-slate-300">{goal.note}</p>
+                <p className="mt-3 text-sm leading-relaxed text-[#475569] dark:text-slate-300">{goal.note}</p>
               </motion.article>
             );
           })}

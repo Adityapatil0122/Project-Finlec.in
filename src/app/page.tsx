@@ -15,11 +15,11 @@ export default function Home() {
     <MarketingShell>
       <Hero />
       <AboutSection />
+      <FundTypes />
       <FeaturesSection />
-      <TestimonialsSection />
       <InvestmentFeatures />
       <StatsCounter />
-      <FundTypes />
+      <TestimonialsSection />
       <AppShowcase />
       <LifeGoals />
       <PartnersMarquee />

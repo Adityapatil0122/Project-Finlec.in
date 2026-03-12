@@ -46,14 +46,14 @@ function Testimonial({
   return (
     <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-5 dark:border-white/10 dark:bg-white/5">
       <p className="text-3xl leading-none text-[#04b488]">&quot;</p>
-      <p className="mt-2 text-sm italic text-[#4a5568] dark:text-slate-400">{quote}</p>
+      <p className="mt-2 text-sm italic text-[#475569] dark:text-slate-400">{quote}</p>
       <div className="mt-4 flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#04b488]/10 text-sm font-semibold text-[#1a1560] dark:bg-white/10 dark:text-slate-200">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#04b488]/10 text-sm font-semibold text-[#0f172a] dark:bg-white/10 dark:text-slate-200">
           {initials}
         </div>
         <div>
-          <p className="text-sm font-semibold text-[#1a1560] dark:text-white">{name}</p>
-          <p className="text-xs text-[#4a5568] dark:text-slate-400">{subtitle}</p>
+          <p className="text-sm font-semibold text-[#0f172a] dark:text-white">{name}</p>
+          <p className="text-xs text-[#475569] dark:text-slate-400">{subtitle}</p>
         </div>
       </div>
     </div>
@@ -62,27 +62,27 @@ function Testimonial({
 
 export default function AppShowcase() {
   return (
-    <section className="bg-[#f5f5f5] px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8">
+    <section className="bg-white px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl space-y-10">
         <motion.article
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="grid gap-10 rounded-3xl border border-slate-200 bg-white p-7 shadow-sm dark:border-white/10 dark:bg-white/5 lg:grid-cols-2 lg:items-center lg:p-10"
+          className="grid gap-10 finlec-card p-7 lg:grid-cols-2 lg:items-center lg:p-10"
         >
           <div>
-            <h2 className="text-3xl font-bold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
+            <h2 className="text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
               Achieve Your Goals.
             </h2>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-[#4a5568] dark:text-slate-300">
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-[#475569] dark:text-slate-300">
               Finlec makes it easy to plan for your family&apos;s goals, get
               personalised investment recommendations, track progress and take
               corrective action.
             </p>
             <button
               type="button"
-              className="mt-6 rounded-full border border-[#04b488]/20 bg-[#04b488]/10 px-6 py-2.5 text-sm font-semibold text-[#04b488] dark:bg-[#04b488]/14 dark:text-[#7ff7cc]"
+              className="mt-6 rounded-full border border-[#04b488]/20 bg-[#04b488]/10 px-6 py-2.5 text-sm font-semibold text-[#04b488] transition-colors hover:bg-[#04b488]/15 dark:bg-[#04b488]/14 dark:text-[#7ff7cc]"
             >
               Get Started
             </button>
@@ -154,20 +154,20 @@ export default function AppShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="grid gap-10 rounded-3xl border border-slate-200 bg-white p-7 shadow-sm dark:border-white/10 dark:bg-white/5 lg:grid-cols-2 lg:items-center lg:p-10"
+          className="grid gap-10 finlec-card p-7 lg:grid-cols-2 lg:items-center lg:p-10"
         >
           <div>
-            <h2 className="text-3xl font-bold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
+            <h2 className="text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
               Grow Your Wealth.
             </h2>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-[#4a5568] dark:text-slate-300">
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-[#475569] dark:text-slate-300">
               Clients who started investing with Finlec have been able to build
               meaningful long-term wealth through disciplined and consistent
               investing.
             </p>
             <button
               type="button"
-              className="mt-6 rounded-full border border-[#04b488]/20 bg-[#04b488]/10 px-6 py-2.5 text-sm font-semibold text-[#04b488] dark:bg-[#04b488]/14 dark:text-[#7ff7cc]"
+              className="mt-6 rounded-full border border-[#04b488]/20 bg-[#04b488]/10 px-6 py-2.5 text-sm font-semibold text-[#04b488] transition-colors hover:bg-[#04b488]/15 dark:bg-[#04b488]/14 dark:text-[#7ff7cc]"
             >
               Start Investing
             </button>

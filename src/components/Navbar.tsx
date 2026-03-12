@@ -13,6 +13,7 @@ const navLinks = [
 ];
 
 const exploreRoute = "/explore-mutual-funds";
+const guideRoute = "/mutual-funds-guide";
 const themeStorageKey = "finlec-theme";
 
 export default function Navbar() {
@@ -49,8 +50,8 @@ export default function Navbar() {
       transition={{ duration: 0.45, ease: "easeOut" }}
       className={`fixed inset-x-0 top-0 z-50 transition-all ${
         isScrolled
-          ? "border-b border-slate-200/85 bg-white/82 shadow-[0_14px_36px_-24px_rgba(14,23,40,0.35)] backdrop-blur-xl dark:border-white/10 dark:bg-[#1a1560]/86 dark:shadow-[0_18px_48px_-28px_rgba(0,0,0,0.7)]"
-          : "border-b border-transparent bg-white/58 backdrop-blur-md dark:bg-[#1a1560]/60"
+          ? "border-b border-slate-200/80 bg-white/95 shadow-[0_12px_30px_-22px_rgba(15,23,42,0.35)] backdrop-blur-xl dark:border-white/10 dark:bg-[#0f1424]/92 dark:shadow-[0_18px_40px_-30px_rgba(0,0,0,0.7)]"
+          : "border-b border-transparent bg-white/80 backdrop-blur-md dark:bg-[#0f1424]/70"
       }`}
     >
       {/* Scroll Progress Bar replacing the static top border */}
@@ -64,18 +65,13 @@ export default function Navbar() {
           isScrolled ? "h-[74px]" : "h-20"
         }`}
       >
-        <Link
-          href="/"
-          className="group relative inline-flex items-center rounded-full border border-white/70 bg-white/82 px-3 py-2 shadow-[0_18px_40px_-28px_rgba(14,23,40,0.45)] transition-colors dark:border-white/10 dark:bg-slate-950/70"
-          aria-label="Finlec home"
-        >
-          <span className="pointer-events-none absolute inset-0 rounded-full bg-[linear-gradient(90deg,rgba(4,180,136,0.08),rgba(123,79,212,0.1))]" />
+        <Link href="/" className="inline-flex items-center" aria-label="Finlec home">
           <Image
             src="/images/logo.jpg"
             alt="Logo"
             width={150}
             height={50}
-            className="relative h-auto w-[130px] cursor-pointer object-contain transition-transform duration-300 group-hover:scale-[1.01] sm:w-[150px]"
+            className="h-auto w-[130px] object-contain transition-transform duration-300 hover:scale-[1.01] sm:w-[150px]"
             priority
           />
         </Link>
@@ -108,7 +104,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={toggleTheme}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white/90 text-slate-700 shadow-sm transition-colors hover:border-[#04b488]/35 hover:text-[#00a57d] dark:border-white/10 dark:bg-slate-950/75 dark:text-slate-200 dark:hover:border-[#7B4FD4]/40 dark:hover:text-white"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 shadow-sm transition-colors hover:border-[#04b488]/35 hover:text-[#00a57d] dark:border-white/10 dark:bg-slate-950/75 dark:text-slate-200 dark:hover:border-[#7B4FD4]/40 dark:hover:text-white"
             aria-label="Toggle day and night mode"
             title="Toggle day and night mode"
           >
@@ -156,6 +152,18 @@ export default function Navbar() {
             </div>
             <motion.div whileHover={{ y: -1 }}>
               <Link
+                href={guideRoute}
+                className={`inline-flex items-center rounded-full border px-5 py-2 text-sm font-semibold transition-colors ${
+                  pathname === guideRoute
+                    ? "border-[#04b488]/40 bg-[#04b488]/12 text-[#047a5d] dark:border-[#04b488]/50 dark:bg-[#04b488]/20 dark:text-[#7ff7cc]"
+                    : "border-[#04b488]/25 bg-white text-[#047a5d] hover:bg-[#04b488]/10 dark:border-[#04b488]/25 dark:bg-slate-950/70 dark:text-[#7ff7cc] dark:hover:bg-[#04b488]/15"
+                }`}
+              >
+                Mutual Funds Guide
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ y: -1 }}>
+              <Link
                 href="/login"
                 className="inline-flex items-center justify-center rounded-full border border-[#04b488]/25 bg-white px-5 py-2 text-sm font-semibold text-[#04b488] transition-colors hover:border-[#04b488]/40 hover:bg-[#04b488]/8 dark:border-[#04b488]/20 dark:bg-slate-950/72 dark:text-[#7ff7cc] dark:hover:border-[#04b488]/35 dark:hover:bg-[#04b488]/10"
               >
@@ -192,6 +200,13 @@ export default function Navbar() {
                 className="block rounded-xl border border-[#7B4FD4]/30 bg-[#7B4FD4]/10 px-4 py-3 text-sm font-semibold text-[#5e36b3] dark:border-[#7B4FD4]/40 dark:bg-[#7B4FD4]/16 dark:text-[#e1d6ff]"
               >
                 Explore Mutual Funds
+              </Link>
+              <Link
+                href={guideRoute}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block rounded-xl border border-[#04b488]/25 bg-white px-4 py-3 text-sm font-semibold text-[#047a5d] dark:border-[#04b488]/30 dark:bg-slate-950/75 dark:text-[#7ff7cc]"
+              >
+                Mutual Funds Guide
               </Link>
               {navLinks.map((link) => (
                 <Link

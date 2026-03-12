@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Activity,
-  CandlestickChart,
   CircleDollarSign,
   PiggyBank,
   RefreshCcw,
@@ -20,6 +19,8 @@ type Feature = {
   description: string;
   signal: string;
   metric: string;
+  image: string;
+  imageAlt: string;
   icon: LucideIcon;
 };
 
@@ -29,20 +30,17 @@ const features: Feature[] = [
     description: "Dynamic model portfolios tuned to your risk and return corridor.",
     signal: "Volatility-aware",
     metric: "12 risk buckets",
+    image: "/images/mutualfunds.png",
+    imageAlt: "Allocation intelligence illustration",
     icon: SlidersHorizontal,
-  },
-  {
-    title: "Live Market Lens",
-    description: "Monitor macro shifts and fund behavior without leaving your dashboard.",
-    signal: "Real-time feed",
-    metric: "Minute-level updates",
-    icon: CandlestickChart,
   },
   {
     title: "Automated Rebalancing",
     description: "Rule-based rebalance nudges keep strategy drift under control.",
     signal: "SIP synchronized",
     metric: "Quarterly checks",
+    image: "/images/investment.jpg",
+    imageAlt: "Automated rebalancing illustration",
     icon: RefreshCcw,
   },
   {
@@ -50,6 +48,8 @@ const features: Feature[] = [
     description: "Visualize how every goal is tracking against target outcomes.",
     signal: "Outcome-led",
     metric: "Live trajectory",
+    image: "/images/investingman.webp",
+    imageAlt: "Goal progress illustration",
     icon: Activity,
   },
   {
@@ -57,6 +57,8 @@ const features: Feature[] = [
     description: "Simulate yearly SIP increments and lock in faster corpus growth.",
     signal: "Compounding boost",
     metric: "Scenario engine",
+    image: "/images/mutualfunds2.jpeg",
+    imageAlt: "SIP step-up illustration",
     icon: PiggyBank,
   },
   {
@@ -64,6 +66,8 @@ const features: Feature[] = [
     description: "Track ELSS lock-in and tax-saving opportunities inside one timeline.",
     signal: "Tax optimized",
     metric: "80C mapped",
+    image: "/images/types of mutual funds.jpeg",
+    imageAlt: "Tax planning illustration",
     icon: CircleDollarSign,
   },
 ];
@@ -72,10 +76,7 @@ export default function FeaturesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="features" className="relative overflow-hidden bg-[#f8f9fa] px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white to-transparent dark:from-[#0c0a2e]" />
-      <div className="pointer-events-none absolute right-[-170px] top-16 h-80 w-80 rounded-full bg-[#7B4FD4]/15 blur-3xl" />
-      <div className="pointer-events-none absolute left-[-140px] top-44 h-72 w-72 rounded-full bg-[#04b488]/12 blur-3xl" />
+    <section id="features" className="relative overflow-hidden bg-white px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8">
 
       <div className="relative mx-auto max-w-7xl">
         <motion.div
@@ -88,10 +89,10 @@ export default function FeaturesSection() {
           <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             Platform Capabilities
           </p>
-          <h2 className="mt-4 mx-auto max-w-3xl text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
+          <h2 className="mt-4 mx-auto max-w-3xl text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
             Everything needed to run a modern investment journey
           </h2>
-          <p className="mt-4 mx-auto max-w-2xl text-base text-[#4a5568] dark:text-slate-300 sm:text-lg">
+          <p className="mt-4 mx-auto max-w-2xl text-base text-[#475569] dark:text-slate-300 sm:text-lg">
             Designed for first-time and experienced investors with clear workflows,
             measurable insights, and faster execution.
           </p>
@@ -112,8 +113,8 @@ export default function FeaturesSection() {
                    className={cn(
                      "flex items-start gap-4 p-5 text-left rounded-3xl transition-all duration-300 border",
                      isActive 
-                       ? "bg-white dark:bg-slate-900 border-[#04b488]/30 shadow-[0_8px_30px_rgb(4,180,136,0.08)] transform scale-[1.02]" 
-                       : "bg-transparent border-transparent hover:bg-white/50 dark:hover:bg-slate-900/50"
+                       ? "finlec-card border-[#04b488]/30 shadow-[0_18px_50px_-40px_rgba(4,180,136,0.4)]" 
+                       : "bg-transparent border-transparent hover:border-slate-200 hover:bg-white dark:hover:border-white/10 dark:hover:bg-white/5"
                    )}
                  >
                     <div className={cn(
@@ -125,7 +126,7 @@ export default function FeaturesSection() {
                     <div>
                       <h3 className={cn(
                         "text-lg font-semibold font-[family-name:var(--font-sora)] transition-colors",
-                        isActive ? "text-[#1a1560] dark:text-white" : "text-[#1a1560]/70 dark:text-slate-300"
+                        isActive ? "text-[#0f172a] dark:text-white" : "text-[#0f172a]/70 dark:text-slate-300"
                       )}>
                         {feature.title}
                       </h3>
@@ -142,7 +143,7 @@ export default function FeaturesSection() {
           </div>
 
           {/* Right Column: Dynamic Preview Window */}
-          <div className="relative h-[500px] w-full rounded-[2.5rem] border border-slate-200/60 bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] dark:border-white/10 dark:bg-slate-950/80 overflow-hidden">
+          <div className="relative h-[500px] w-full rounded-[2.5rem] border border-slate-200 bg-white shadow-[0_18px_55px_-35px_rgba(15,23,42,0.35)] dark:border-white/10 dark:bg-slate-950/80 overflow-hidden">
              
              {/* Mock Browser Header */}
              <div className="flex items-center px-6 py-4 border-b border-slate-100 dark:border-white/5">
@@ -157,7 +158,7 @@ export default function FeaturesSection() {
              </div>
 
              {/* Dynamic Content Body */}
-             <div className="relative w-full h-full p-8 flex items-center justify-center bg-slate-50/50 dark:bg-[#0c0a2e]/20">
+             <div className="relative w-full h-full p-8 flex items-center justify-center bg-[#f8fafc] dark:bg-[#0c0a2e]/20">
                 <AnimatePresence mode="wait">
                    <motion.div
                      key={activeIndex}
@@ -167,55 +168,105 @@ export default function FeaturesSection() {
                      transition={{ duration: 0.4, ease: "easeOut" }}
                      className="w-full max-w-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-3xl p-6 shadow-xl"
                    >
-                     {/* Dynamic Header */}
-                     <div className="flex items-center gap-4 mb-8 pb-6 border-b border-slate-100 dark:border-white/5">
-                        <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-[#04b488]/10 text-[#04b488]">
-                           {(() => {
-                             const ActiveIcon = features[activeIndex].icon;
-                             return <ActiveIcon size={28} />;
-                           })()}
-                        </div>
-                        <div>
-                           <p className="text-xs font-bold uppercase tracking-widest text-[#7B4FD4] mb-1">
-                             {features[activeIndex].signal}
-                           </p>
-                           <h4 className="text-xl font-bold text-[#1a1560] dark:text-white font-[family-name:var(--font-sora)]">
-                             {features[activeIndex].title}
-                           </h4>
-                        </div>
-                     </div>
+                     <div className="space-y-5">
+                       <div className="flex items-start justify-between gap-4 border-b border-slate-100 pb-5 dark:border-white/5">
+                         <div className="flex items-start gap-4">
+                           <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-[#04b488]/10 text-[#04b488]">
+                             {(() => {
+                               const ActiveIcon = features[activeIndex].icon;
+                               return <ActiveIcon size={28} />;
+                             })()}
+                           </div>
+                           <div>
+                             <p className="text-xs font-bold uppercase tracking-widest text-[#7B4FD4] mb-1">
+                               {features[activeIndex].signal}
+                             </p>
+                             <h4 className="text-xl font-bold text-[#0f172a] dark:text-white font-[family-name:var(--font-sora)]">
+                               {features[activeIndex].title}
+                             </h4>
+                             <p className="mt-2 text-sm text-slate-500 dark:text-slate-300">
+                               {features[activeIndex].description}
+                             </p>
+                           </div>
+                         </div>
+                         <span className="rounded-full bg-[#04b488]/10 px-3 py-1 text-xs font-semibold text-[#04b488]">
+                           {features[activeIndex].metric}
+                         </span>
+                       </div>
 
-                     {/* Mock Data Visualization Base */}
-                     <div className="space-y-4">
-                       <div className="flex justify-between items-end mb-2">
-                          <div>
-                            <p className="text-sm text-slate-500 mb-1">Primary Metric</p>
-                            <p className="text-2xl font-bold text-[#1a1560] dark:text-white">{features[activeIndex].metric}</p>
-                          </div>
-                          <div className="flex items-center gap-1 text-xs font-bold text-[#04b488] bg-[#04b488]/10 px-2 py-1 rounded-md">
-                             <CheckCircle2 size={12} /> Active
-                          </div>
+                       <div className="grid gap-4">
+                         <div className="relative h-40 overflow-hidden rounded-2xl border border-slate-200 bg-white/80 p-3 dark:border-white/10 dark:bg-slate-950/70">
+                           <Image
+                             src={features[activeIndex].image}
+                             alt={features[activeIndex].imageAlt}
+                             fill
+                             className="object-contain"
+                           />
+                         </div>
+
+                         <div className="grid gap-3 sm:grid-cols-2">
+                         {[
+                           { label: "Goal progress", value: "78%", tone: "#04b488" },
+                           { label: "Risk band", value: "Moderate", tone: "#7B4FD4" },
+                         ].map((item) => (
+                           <div
+                             key={item.label}
+                             className="rounded-2xl border border-slate-200 bg-white/80 p-4 text-sm text-slate-600 shadow-sm dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-300"
+                           >
+                             <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                               {item.label}
+                             </p>
+                             <p className="mt-2 text-lg font-semibold" style={{ color: item.tone }}>
+                               {item.value}
+                             </p>
+                             <div className="mt-3 h-2 w-full rounded-full bg-slate-100 dark:bg-slate-800">
+                               <div
+                                 className="h-full rounded-full"
+                                 style={{
+                                   width: item.label === "Goal progress" ? "78%" : "62%",
+                                   backgroundColor: item.tone,
+                                 }}
+                               />
+                             </div>
+                           </div>
+                         ))}
+                         </div>
+
+                       <div className="rounded-2xl border border-slate-200 bg-white/85 p-4 text-sm text-slate-600 shadow-sm dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-300">
+                         <div className="flex items-center justify-between text-xs font-semibold text-slate-400">
+                           <span>Momentum (30 days)</span>
+                           <span className="text-[#04b488]">+1.8%</span>
+                         </div>
+                         <svg viewBox="0 0 260 90" className="mt-3 h-20 w-full">
+                           <path
+                             d="M10 70 L60 60 L110 56 L160 42 L210 30 L250 22"
+                             fill="none"
+                             stroke="#04b488"
+                             strokeWidth="3"
+                           />
+                           <path
+                             d="M10 70 L60 60 L110 56 L160 42 L210 30 L250 22 L250 85 L10 85 Z"
+                             fill="#04b488"
+                             opacity="0.12"
+                           />
+                         </svg>
                        </div>
-                       
-                       {/* Animated Skeleton Lines */}
-                       <div className="h-24 w-full rounded-xl bg-slate-100 dark:bg-slate-800 overflow-hidden relative border border-slate-200/50 dark:border-white/5">
-                          <motion.div 
-                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 dark:via-white/10 to-transparent"
-                            animate={{ x: ["-100%", "200%"] }}
-                            transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-                          />
-                          <div className="absolute bottom-0 left-0 w-full h-1/2 bg-[linear-gradient(180deg,transparent,rgba(4,180,136,0.1))] border-t-2 border-[#04b488] transform translate-y-2 opacity-50" />
-                          <div className="absolute top-4 left-4 right-4 flex gap-2">
-                             <div className="h-2 rounded-full w-1/3 bg-slate-200 dark:bg-slate-700" />
-                             <div className="h-2 rounded-full w-1/4 bg-slate-200 dark:bg-slate-700" />
-                          </div>
-                          <div className="absolute bottom-4 left-4 right-4 flex gap-2">
-                             <div className="h-2 rounded-full w-1/4 bg-slate-200 dark:bg-slate-700" />
-                             <div className="h-2 rounded-full w-1/2 bg-slate-200 dark:bg-slate-700" />
-                          </div>
+
+                       <div className="space-y-2 text-xs text-slate-500 dark:text-slate-400">
+                         {[
+                           "Auto-rebalanced 2 funds in the last 30 days",
+                           "SIP step-up suggestion ready for next cycle",
+                           "Tax-saver window opens in 18 days",
+                         ].map((text) => (
+                           <div key={text} className="flex items-center gap-2">
+                             <CheckCircle2 size={14} className="text-[#04b488]" />
+                             <span>{text}</span>
+                           </div>
+                         ))}
                        </div>
-                     </div>
-                   </motion.div>
+                      </div>
+                    </div>
+                  </motion.div>
                 </AnimatePresence>
              </div>
           </div>

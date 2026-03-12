@@ -122,7 +122,7 @@ const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
                             <motion.p className="mb-8 max-w-md text-base text-[#4a5568] dark:text-slate-300" variants={itemVariants}>
                                 {subtitle}
                             </motion.p>
-                            
+
                             <motion.div variants={itemVariants} className="flex flex-col gap-6">
                                 <motion.a href={callToAction.href} className="pointer-events-auto inline-flex w-fit items-center gap-2 rounded-2xl bg-[linear-gradient(135deg,#04b488,#18d1b1)] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_20px_40px_-24px_rgba(4,180,136,0.9)] transition-all hover:translate-y-[-1px] hover:shadow-[0_24px_48px_-24px_rgba(4,180,136,0.95)]">
                                     {callToAction.text}
@@ -135,19 +135,19 @@ const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
                                         <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-900 object-cover" />
                                         <img src="https://randomuser.me/api/portraits/women/26.jpg" alt="User" className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-900 object-cover" />
                                         <div className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-900 object-cover bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xs font-bold text-slate-600 dark:text-slate-300">
-                                          1M+
+                                            1M+
                                         </div>
                                     </div>
                                     <div>
                                         <div className="flex gap-1 text-amber-400 mb-1">
-                                            {[1,2,3,4,5].map((star) => (
-                                              <svg key={star} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                                                <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clipRule="evenodd" />
-                                              </svg>
+                                            {[1, 2, 3, 4, 5].map((star) => (
+                                                <svg key={star} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                                                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clipRule="evenodd" />
+                                                </svg>
                                             ))}
                                         </div>
                                         <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 font-[family-name:var(--font-sora)]">
-                                          from 10k+ reviews
+                                            from 10k+ reviews
                                         </p>
                                     </div>
                                 </div>
@@ -183,7 +183,7 @@ const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
                         backgroundImage: `url(${backgroundImage})`,
                     }}
                     initial={{ clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }}
-                    animate={{ clipPath: 'polygon(25% 0, 100% 0, 100% 100%, 0% 100%)' }}
+                    animate={{ clipPath: 'polygon(1% 0, 100% 0, 100% 100%, 0% 100%)' }}
                     transition={{ duration: 1.2, ease: "circOut" as any }}
                 >
                 </motion.div>

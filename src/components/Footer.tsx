@@ -3,125 +3,80 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Facebook, Instagram, Youtube, Mail, Phone } from "lucide-react";
 
-const platformLinks = [
-  { label: "Explore Mutual Funds", href: "/explore-mutual-funds" },
-  { label: "Feature Stack", href: "/features" },
-  { label: "Investment Tools", href: "/investment-tools" },
-  { label: "Fund Strategies", href: "/strategies" },
-  { label: "Goal Planning", href: "/goals" },
-  { label: "Partner AMCs", href: "/partners" },
-];
-
-const regulatoryLinks = [
+const quickLinks = [
   { label: "NSE", href: "https://www.nseindia.com/" },
   { label: "BSE", href: "https://www.bseindia.com/" },
   { label: "SEBI Scores", href: "https://scores.sebi.gov.in/" },
-  { label: "KFintech", href: "https://www.kfintech.com/" },
+  { label: "CAMS", href: "https://www.camsonline.com/" },
+  { label: "Karvy", href: "https://mfs.kfintech.com/" },
+];
+
+const exploreLinks = [
+  { label: "Home", href: "/" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact us", href: "mailto:investor@finlec.in" },
 ];
 
 const socialLinks = [
   { label: "Facebook", href: "https://www.facebook.com/", icon: Facebook },
   { label: "Instagram", href: "https://www.instagram.com/", icon: Instagram },
   { label: "YouTube", href: "https://www.youtube.com/", icon: Youtube },
-  { label: "LinkedIn", href: "https://www.linkedin.com/", icon: Linkedin },
 ];
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#f8f9fa] px-4 pb-10 pt-16 dark:bg-transparent sm:px-6 lg:px-8">
-      <div className="pointer-events-none absolute left-[-160px] top-20 h-80 w-80 rounded-full bg-[#04b488]/12 blur-3xl" />
-      <div className="pointer-events-none absolute right-[-160px] bottom-10 h-72 w-72 rounded-full bg-[#7B4FD4]/12 blur-3xl" />
-
+    <footer className="bg-[#063d52] px-4 pb-12 pt-12 text-white sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="relative mx-auto max-w-7xl overflow-hidden rounded-[32px] border border-slate-200 finlec-surface p-6 shadow-[0_24px_70px_-48px_rgba(15,23,42,0.45)] dark:border-white/10 dark:shadow-[0_22px_70px_-42px_rgba(0,0,0,0.85)] sm:p-8"
+        className="mx-auto max-w-7xl"
       >
-        <div className="pointer-events-none absolute left-0 top-0 h-1 w-full finlec-shine" />
-
-        <div className="mb-12 flex flex-col items-start justify-between gap-6 rounded-3xl border border-[#04b488]/20 bg-[#04b488]/5 p-6 md:flex-row md:items-center md:p-8 dark:border-white/10 dark:bg-slate-900/50">
-          <div className="max-w-md">
-            <h3 className="text-xl font-semibold text-[#1a1560] dark:text-white font-[family-name:var(--font-sora)]">
-              Join our weekly newsletter
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-[#4a5568] dark:text-slate-300">
-              Get model portfolio notes, SIP strategy tips, and market volatility
-              playbooks from the Finlec advisory team. No spam, ever.
-            </p>
-          </div>
-          <form className="flex w-full max-w-sm flex-col gap-3 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
-            <input 
-              type="email" 
-              placeholder="Enter your email address" 
-              className="w-full flex-1 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-[#04b488] focus:ring-1 focus:ring-[#04b488] dark:border-white/10 dark:bg-slate-950/50 dark:text-white dark:focus:border-[#04b488]"
-              required
-            />
-            <button 
-              type="submit"
-              className="inline-flex items-center justify-center rounded-xl bg-[#04b488] px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#039e76] focus:outline-none focus:ring-2 focus:ring-[#04b488] focus:ring-offset-2 dark:focus:ring-offset-slate-950 sm:w-auto"
-            >
-              Subscribe
-            </button>
-          </form>
-        </div>
-
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
+        <div className="grid gap-10 rounded-[32px] bg-[#063d52] px-8 py-10 sm:px-10 lg:grid-cols-[1.1fr_0.7fr_0.7fr_0.8fr]">
           <div>
-            <Link
-              href="/"
-              className="relative inline-flex items-center rounded-full border border-white/70 bg-white/78 px-3 py-2 shadow-[0_18px_40px_-28px_rgba(14,23,40,0.45)] dark:border-white/10 dark:bg-slate-950/70"
-            >
-              <span className="pointer-events-none absolute inset-0 rounded-full bg-[linear-gradient(90deg,rgba(4,180,136,0.08),rgba(123,79,212,0.1))]" />
+            <Link href="/" className="inline-flex items-center">
               <Image
                 src="/images/logo.jpg"
-                alt="Logo"
-                width={150}
-                height={50}
-                className="relative h-auto w-[140px] object-contain"
+                alt="Finlec"
+                width={160}
+                height={56}
+                className="h-auto w-[150px] object-contain"
               />
             </Link>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-[#4a5568] dark:text-slate-300">
-              Finlec is a goal-first mutual fund platform for disciplined SIP
-              investing, smart portfolio decisions, and long-term wealth growth.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-
-                return (
-                  <motion.a
-                    key={social.label}
-                    whileHover={{ y: -2 }}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-slate-200 bg-white text-[#04b488] transition-colors hover:border-[#04b488]/35 dark:border-white/10 dark:bg-slate-950/72 dark:text-[#7ff7cc]"
-                  >
-                    <Icon size={18} />
-                  </motion.a>
-                );
-              })}
-            </div>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#04b488]">
-              Platform
+            <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-[#21d0a3]">
+              Quick Links
             </h3>
-            <ul className="mt-4 space-y-3">
-              {platformLinks.map((link) => (
+            <ul className="mt-4 space-y-2 text-sm text-white/80">
+              {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <Link
+                  <a
                     href={link.href}
-                    className="inline-flex items-center gap-1 text-sm text-[#4a5568] transition-colors hover:text-[#04b488] dark:text-slate-300 dark:hover:text-[#7ff7cc]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-white"
                   >
                     {link.label}
-                    <ArrowUpRight size={14} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-[#21d0a3]">
+              Explore
+            </h3>
+            <ul className="mt-4 space-y-2 text-sm text-white/80">
+              {exploreLinks.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="transition-colors hover:text-white">
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -129,49 +84,143 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#04b488]">
-              Regulation
+            <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-[#21d0a3]">
+              Get in touch
             </h3>
-            <ul className="mt-4 space-y-3">
-              {regulatoryLinks.map((link) => (
-                <li key={link.label}>
+            <div className="mt-4 space-y-2 text-sm text-white/80">
+              <p>2nd Floor, Saikripa Building,</p>
+              <p>Trimurti Chowk, Pune-46</p>
+              <a
+                href="mailto:investor@finlec.in"
+                className="flex items-center gap-2 transition-colors hover:text-white"
+              >
+                <Mail size={14} /> investor@finlec.in
+              </a>
+              <a
+                href="tel:+919420151046"
+                className="flex items-center gap-2 transition-colors hover:text-white"
+              >
+                <Phone size={14} /> 9420151046
+              </a>
+            </div>
+            <div className="mt-5 flex gap-3">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
                   <a
-                    href={link.href}
+                    key={social.label}
+                    href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm text-[#4a5568] transition-colors hover:text-[#04b488] dark:text-slate-300 dark:hover:text-[#7ff7cc]"
+                    aria-label={social.label}
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-[#21d0a3] text-[#063d52] transition-colors hover:bg-white"
                   >
-                    {link.label}
-                    <ArrowUpRight size={14} />
+                    <Icon size={16} />
                   </a>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-5 rounded-2xl border border-slate-200 bg-[#f8f9fa] p-4 text-sm text-[#4a5568] dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
-              Office 12, Financial District, Pune, Maharashtra, India
-              <br />
-              investor@finlec.in | 9420151046
+                );
+              })}
             </div>
           </div>
         </div>
 
-        <div className="mt-8 border-t border-slate-200 pt-5 text-xs leading-relaxed text-[#4a5568] dark:border-white/10 dark:text-slate-400">
-          Mutual fund investments are subject to market risks. Please read all
-          scheme related documents carefully before investing. Past performance is
-          not indicative of future returns.
+        <div className="mt-10 border-t border-white/10 pt-8 text-sm text-white/80">
+          <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-white">
+            INVESTING IN MUTUAL FUND PORTFOLIOS
+          </h4>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
+            Portfolio is collection of mutual funds designed to meet your investment goals.
+            Investing in mutual fund portfolios helps you in diversifying your investments and
+            reduces the risk. Portfolios also help you in assigning an investment goals and make
+            it easy for you to save for and achieve your goals. You can create a portfolio yourself
+            or ask an expert to build it for you.
+          </p>
         </div>
 
-        <div className="mt-5 flex flex-col gap-3 border-t border-slate-200 pt-5 text-sm text-[#4a5568] dark:border-white/10 dark:text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-          <p>Copyright {new Date().getFullYear()} Finlec. All rights reserved.</p>
-          <div className="flex items-center gap-5">
-            <Link href="/terms" className="transition-colors hover:text-[#04b488] dark:hover:text-[#7ff7cc]">
-              Terms
+        <div className="mt-6 text-sm text-white/80">
+          <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-white">
+            DISCLAIMER
+          </h4>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
+            Finlec India is a member of BSE Star MF (with Member code 55269) as transaction platform
+            & Mutual Fund distributor with AMFI Registration No: ARN-225204 Registered office and
+            Correspondence office - 2nd Floor, Saikripa Building, Trimurti Chowk, Pune-46.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
+            Finlec India makes no warranties or representations, express or implied, on products offered
+            through the platform. It accepts no liability for any damages or losses, however caused, in
+            connection with the use of, or on the reliance of its product or related services. Unless
+            otherwise specified, all returns, expense ratio, NAV, etc are historical and for illustrative
+            purposes only. Future will vary greatly and depends on personal and market circumstances.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
+            The information provided by our blog is educational only and is not investment or tax advice.
+          </p>
+        </div>
+
+        <div className="mt-6 text-sm text-white/80">
+          <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-white">
+            ABOUT FINLEC
+          </h4>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
+            FINLEC is an investing platform where users can find the best mutual funds to invest in and can
+            invest their money without any hassles. FINLEC provides objective evaluation of mutual funds.
+            Investor shall invest with their own descretion. FINLEC does not guarantee any returns and safety
+            of capital.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
+            FINLEC helps investors in the following way
+          </p>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-white/70">
+            <li>By providing objective evaluation of products available on FINLEC</li>
+            <li>By clearly representing the risk associated with buying a product</li>
+          </ul>
+        </div>
+
+        <div className="mt-6 text-sm text-white/80">
+          <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-white">
+            SECURE TRANSACTIONS ON FINLEC
+          </h4>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
+            All transactions on FINLEC are safe and secure. Users can invest through SIP or Lumpsum using
+            Netbanking through all supported banks. It uses BSE Star MF (with Member code 55269) as transaction
+            platform.
+          </p>
+        </div>
+
+        <div className="mt-6 text-sm text-white/80">
+          <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-white">
+            MUTUAL FUNDS SAHI HAI
+          </h4>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
+            Mutual fund investments are very popular with individual investors because of the benefits they
+            provide. Among the many advantages, the most important factor that drive investors to mutual funds
+            are that Investors can - Start with any amount (as low as 100)
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
+            All type of mutual funds are available on FINLEC.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
+            Mutual fund investments are subject to market risks. Please read all scheme related documents carefully
+            before investing.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
+            Past performance of the schemes is neither an indicator nor a guarantee of future performance.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
+            Terms and conditions of the website/app are applicable. Privacy policy of the website is applicable.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
+            Copyright (c) 2022 Finlec, All rights reserved. Developed by Finlec Technologies
+          </p>
+          <div className="mt-4 flex flex-wrap gap-6 text-sm text-white/80">
+            <Link href="/terms" className="transition-colors hover:text-white">
+              Terms of use
             </Link>
-            <Link href="/privacy" className="transition-colors hover:text-[#04b488] dark:hover:text-[#7ff7cc]">
-              Privacy
+            <Link href="/privacy" className="transition-colors hover:text-white">
+              Privacy Policy
             </Link>
-            <Link href="/cookie-policy" className="transition-colors hover:text-[#04b488] dark:hover:text-[#7ff7cc]">
-              Cookies
+            <Link href="/cookie-policy" className="transition-colors hover:text-white">
+              Cookie Policy
             </Link>
           </div>
         </div>

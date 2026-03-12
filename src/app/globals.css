@@ -127,21 +127,11 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-image:
-      radial-gradient(ellipse 70% 50% at 10% 20%, rgba(0, 220, 160, 0.18), transparent),
-      radial-gradient(ellipse 60% 45% at 85% 15%, rgba(180, 140, 255, 0.16), transparent),
-      radial-gradient(ellipse 55% 40% at 50% 80%, rgba(255, 170, 210, 0.12), transparent),
-      radial-gradient(ellipse 80% 60% at 60% 40%, rgba(200, 230, 255, 0.10), transparent),
-      linear-gradient(160deg, #f0faf6 0%, #f5f0ff 30%, #fef6fa 50%, #f0f5ff 70%, #f0fbf7 100%);
-    background-attachment: fixed;
+    background-color: #ffffff;
   }
 
   .dark body {
-    background-image:
-      radial-gradient(ellipse 70% 50% at 12% 18%, rgba(0, 200, 150, 0.20), transparent),
-      radial-gradient(ellipse 60% 45% at 88% 12%, rgba(123, 79, 212, 0.22), transparent),
-      radial-gradient(ellipse 55% 40% at 50% 75%, rgba(180, 80, 160, 0.10), transparent),
-      linear-gradient(180deg, #0c0a2e 0%, #110e3a 48%, #0a0826 100%);
+    background-color: #0b0d17;
   }
 }
 
@@ -187,17 +177,47 @@
 }
 
 @layer utilities {
+  .finlec-hero {
+    background:
+      radial-gradient(ellipse 70% 50% at 12% 8%, rgba(4, 180, 136, 0.14), transparent),
+      radial-gradient(ellipse 60% 45% at 88% 8%, rgba(123, 79, 212, 0.14), transparent),
+      linear-gradient(180deg, #ffffff 0%, #ffffff 35%, #f8fafc 100%);
+  }
+
+  .dark .finlec-hero {
+    background:
+      radial-gradient(ellipse 70% 50% at 12% 8%, rgba(4, 180, 136, 0.18), transparent),
+      radial-gradient(ellipse 60% 45% at 88% 8%, rgba(123, 79, 212, 0.2), transparent),
+      linear-gradient(180deg, #0b0d17 0%, #0b0d17 40%, #101524 100%);
+  }
+
+  .finlec-section-muted {
+    background-color: #f8fafc;
+  }
+
+  .dark .finlec-section-muted {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+
+  .finlec-card {
+    border-radius: 24px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: #ffffff;
+    box-shadow: 0 20px 55px -45px rgba(15, 23, 42, 0.5);
+  }
+
+  .dark .finlec-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: none;
+  }
+
   .finlec-surface {
-    background: linear-gradient(140deg, #ffffff 0%, #fbfffe 38%, #f7f4ff 100%);
+    background: #ffffff;
   }
 
   .dark .finlec-surface {
-    background: linear-gradient(
-      145deg,
-      rgba(7, 14, 26, 0.98) 0%,
-      rgba(8, 20, 34, 0.96) 45%,
-      rgba(26, 16, 48, 0.92) 100%
-    );
+    background: rgba(12, 16, 28, 0.94);
   }
 
   .finlec-soft-grid {

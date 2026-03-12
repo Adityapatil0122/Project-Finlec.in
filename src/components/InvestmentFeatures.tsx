@@ -54,8 +54,6 @@ export default function InvestmentFeatures() {
       id="investment-features"
       className="relative overflow-hidden bg-white px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8"
     >
-      <div className="pointer-events-none absolute left-[-170px] top-24 h-80 w-80 rounded-full bg-[#04b488]/12 blur-3xl" />
-      <div className="pointer-events-none absolute right-[-160px] top-6 h-80 w-80 rounded-full bg-[#7B4FD4]/14 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
         <motion.div
@@ -63,25 +61,25 @@ export default function InvestmentFeatures() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="grid items-center gap-10 rounded-3xl border border-slate-200 finlec-surface p-6 dark:border-white/10 sm:p-8 lg:grid-cols-[1fr_0.95fr]"
+          className="grid items-center gap-10 finlec-card p-6 sm:p-8 lg:grid-cols-[1fr_0.95fr]"
         >
           <div>
             <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
               Investment Intelligence
             </p>
-            <h2 className="mt-4 max-w-2xl text-3xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
+            <h2 className="mt-4 max-w-2xl text-3xl font-semibold leading-tight text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
               Powerful tools to optimize every rupee you invest
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#4a5568] dark:text-slate-300 sm:text-lg">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#475569] dark:text-slate-300 sm:text-lg">
               From step-up SIP planning to drawdown alerts, Finlec helps you
               invest with sharper timing, better tax efficiency, and stronger
               downside control.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <span className="rounded-full border border-[#04b488]/25 bg-[#04b488]/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#069f7b]">
+              <span className="rounded-full border border-[#04b488]/25 bg-[#04b488]/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#069f7b]">
                 Predictive analytics
               </span>
-              <span className="rounded-full border border-[#7B4FD4]/25 bg-[#7B4FD4]/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#6d41ca]">
+              <span className="rounded-full border border-[#7B4FD4]/25 bg-[#7B4FD4]/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#6d41ca]">
                 SIP + Lumpsum ready
               </span>
             </div>
@@ -120,15 +118,15 @@ export default function InvestmentFeatures() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.42, delay: index * 0.06, ease: "easeOut" }}
                 whileHover={{ y: -5 }}
-                className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all hover:-translate-y-1.5 hover:shadow-[0_8px_30px_rgba(4,180,136,0.12)] hover:border-[#04b488]/40 dark:border-white/10 dark:bg-white/5 dark:shadow-none"
+                className="group finlec-card p-5 transition-all hover:-translate-y-1 hover:border-[#04b488]/35"
               >
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#04b488]/10 text-[#04b488]">
                   <Icon size={20} />
                 </span>
-                <h3 className="mt-4 text-lg font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">
+                <h3 className="mt-4 text-lg font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white">
                   {feature.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#4a5568] dark:text-slate-300">
+                <p className="mt-2 text-sm leading-relaxed text-[#475569] dark:text-slate-300">
                   {feature.description}
                 </p>
                 <p className="mt-4 inline-flex rounded-full bg-[#7B4FD4]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.13em] text-[#7B4FD4]">
