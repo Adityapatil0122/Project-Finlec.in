@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
-import { Menu, MoonStar, SunMedium, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -14,8 +14,6 @@ const navLinks = [
 
 const exploreRoute = "/explore-mutual-funds";
 const guideRoute = "/mutual-funds-guide";
-const themeStorageKey = "finlec-theme";
-
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,14 +32,6 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const toggleTheme = () => {
-    const isDark = document.documentElement.classList.contains("dark");
-    const nextTheme = isDark ? "light" : "dark";
-    document.documentElement.classList.toggle("dark", nextTheme === "dark");
-    document.documentElement.style.colorScheme = nextTheme;
-    window.localStorage.setItem(themeStorageKey, nextTheme);
-  };
 
   return (
     <motion.header
@@ -76,51 +66,30 @@ export default function Navbar() {
           />
         </Link>
 
-        <div className="hidden items-center gap-7 lg:flex">
-          {navLinks.map((link) => (
-            <motion.div key={link.label} whileHover={{ y: -1 }} className="group relative">
-              <Link
-                href={link.href}
-                className={`relative text-sm font-medium tracking-tight transition-colors ${
-                  pathname === link.href
-                    ? "text-slate-950 dark:text-white"
-                    : "text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white"
-                }`}
-              >
-                {link.label}
-                <span
-                  className={`absolute -bottom-1 left-0 h-[2px] w-full origin-left bg-gradient-to-r from-[#04b488] to-[#7B4FD4] transition-transform duration-300 ${
-                    pathname === link.href
-                      ? "scale-x-100"
-                      : "scale-x-0 group-hover:scale-x-100"
-                  }`}
-                />
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-
         <div className="flex items-center gap-3">
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 shadow-sm transition-colors hover:border-[#04b488]/35 hover:text-[#00a57d] dark:border-white/10 dark:bg-slate-950/75 dark:text-slate-200 dark:hover:border-[#7B4FD4]/40 dark:hover:text-white"
-            aria-label="Toggle day and night mode"
-            title="Toggle day and night mode"
-          >
-            <SunMedium size={18} className="hidden dark:block" />
-            <MoonStar size={18} className="block dark:hidden" />
-          </button>
-
           <div className="hidden items-center gap-3 lg:flex">
+            {navLinks.map((link) => (
+              <motion.div key={link.label} whileHover={{ y: -1 }}>
+                <Link
+                  href={link.href}
+                  className={`inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+                    pathname === link.href
+                      ? "bg-slate-100 text-slate-900 dark:bg-white/10 dark:text-white"
+                      : "bg-white text-slate-600 hover:bg-slate-50 dark:bg-slate-950/70 dark:text-slate-200 dark:hover:bg-white/5"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </motion.div>
+            ))}
             <div className="group relative">
               <motion.div whileHover={{ y: -1 }}>
                 <Link
                   href={exploreRoute}
-                  className={`inline-flex items-center rounded-full border px-5 py-2 text-sm font-semibold transition-colors ${
+                  className={`inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
                     pathname === exploreRoute
-                      ? "border-[#7B4FD4]/35 bg-[#7B4FD4]/10 text-[#5e36b3] dark:border-[#7B4FD4]/45 dark:bg-[#7B4FD4]/18 dark:text-[#e1d6ff]"
-                      : "border-[#7B4FD4]/30 bg-white text-[#5e36b3] hover:bg-[#7B4FD4]/10 dark:border-[#7B4FD4]/25 dark:bg-slate-950/70 dark:text-[#d8cbff] dark:hover:bg-[#7B4FD4]/12"
+                      ? "bg-[#7B4FD4]/10 text-[#5e36b3] dark:bg-[#7B4FD4]/18 dark:text-[#e1d6ff]"
+                      : "bg-white text-[#5e36b3] hover:bg-[#7B4FD4]/10 dark:bg-slate-950/70 dark:text-[#d8cbff] dark:hover:bg-[#7B4FD4]/12"
                   }`}
                 >
                   Explore Mutual Funds
@@ -153,10 +122,10 @@ export default function Navbar() {
             <motion.div whileHover={{ y: -1 }}>
               <Link
                 href={guideRoute}
-                className={`inline-flex items-center rounded-full border px-5 py-2 text-sm font-semibold transition-colors ${
+                className={`inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
                   pathname === guideRoute
-                    ? "border-[#04b488]/40 bg-[#04b488]/12 text-[#047a5d] dark:border-[#04b488]/50 dark:bg-[#04b488]/20 dark:text-[#7ff7cc]"
-                    : "border-[#04b488]/25 bg-white text-[#047a5d] hover:bg-[#04b488]/10 dark:border-[#04b488]/25 dark:bg-slate-950/70 dark:text-[#7ff7cc] dark:hover:bg-[#04b488]/15"
+                    ? "bg-[#04b488]/12 text-[#047a5d] dark:bg-[#04b488]/20 dark:text-[#7ff7cc]"
+                    : "bg-white text-[#047a5d] hover:bg-[#04b488]/10 dark:bg-slate-950/70 dark:text-[#7ff7cc] dark:hover:bg-[#04b488]/15"
                 }`}
               >
                 Mutual Funds Guide
@@ -165,7 +134,7 @@ export default function Navbar() {
             <motion.div whileHover={{ y: -1 }}>
               <Link
                 href="/login"
-                className="inline-flex items-center justify-center rounded-full border border-[#04b488]/25 bg-white px-5 py-2 text-sm font-semibold text-[#04b488] transition-colors hover:border-[#04b488]/40 hover:bg-[#04b488]/8 dark:border-[#04b488]/20 dark:bg-slate-950/72 dark:text-[#7ff7cc] dark:hover:border-[#04b488]/35 dark:hover:bg-[#04b488]/10"
+                className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2 text-sm font-semibold text-[#04b488] transition-colors hover:bg-[#04b488]/8 dark:bg-slate-950/72 dark:text-[#7ff7cc] dark:hover:bg-[#04b488]/10"
               >
                 Login
               </Link>
@@ -194,6 +163,16 @@ export default function Navbar() {
             className="overflow-hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl dark:border-white/10 dark:bg-[#1a1560]/96 lg:hidden"
           >
             <div className="space-y-3 px-4 py-4 finlec-soft-grid">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-slate-950/75 dark:text-slate-200"
+                >
+                  {link.label}
+                </Link>
+              ))}
               <Link
                 href={exploreRoute}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -208,16 +187,6 @@ export default function Navbar() {
               >
                 Mutual Funds Guide
               </Link>
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-slate-950/75 dark:text-slate-200"
-                >
-                  {link.label}
-                </Link>
-              ))}
               <div className="grid grid-cols-1 gap-3 pt-1">
                 <Link
                   href="/login"

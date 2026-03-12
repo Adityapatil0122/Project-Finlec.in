@@ -133,6 +133,10 @@
   .dark body {
     background-color: #0b0d17;
   }
+
+  .finlec-fonts {
+    --font-sora: var(--font-manrope);
+  }
 }
 
 @keyframes float-slow {

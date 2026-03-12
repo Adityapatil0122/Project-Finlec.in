@@ -9,7 +9,7 @@ import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 
 export default function AboutSection() {
   return (
-    <section id="approach" className="relative overflow-hidden bg-white px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8">
+    <section id="approach" className="relative overflow-hidden bg-white px-4 py-12 dark:bg-transparent sm:px-6 lg:px-8">
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1fr_1fr]">
         <motion.div
@@ -70,8 +70,8 @@ export default function AboutSection() {
 
           <div className="relative overflow-hidden rounded-2xl">
             <Image
-              src="/images/Advisory intelligence built for long-term wealth outcomes.png"
-              alt="Advisory intelligence built for long-term wealth outcomes"
+              src="/images/Advisory intelligence built for long-term wealth outcomes2.png"
+              alt="Advisory intelligence built for long-term wealth outcomes2"
               width={980}
               height={700}
               className="h-64 w-full object-cover sm:h-[280px]"
