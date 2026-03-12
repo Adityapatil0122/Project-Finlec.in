@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import type { FundCategoryInfo, SampleFund } from "@/data";
 import { getFundsByParent, companyLogo } from "@/data";
+import type { FundSnapshot } from "@/types/mfapi";
 
 /* ── sorting ── */
 type SortKey = "return1Y" | "return3Y" | "return5Y" | "expenseRatio";
@@ -37,8 +38,22 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
   const [sortKey, setSortKey] = useState<SortKey>("return5Y");
   const [sortAsc, setSortAsc] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [liveReturns, setLiveReturns] = useState<Record<string, FundSnapshot>>({});
 
-  const sortedFunds = sortFunds(data.topFunds, sortKey, sortAsc);
+  const mergedFunds: SampleFund[] = data.topFunds.map((fund) => {
+    const live = liveReturns[fund.scheme];
+    return {
+      ...fund,
+      return1Y:
+        live?.return1Y !== undefined ? `${live.return1Y.toFixed(2)}%` : fund.return1Y,
+      return3Y:
+        live?.return3Y !== undefined ? `${live.return3Y.toFixed(2)}%` : fund.return3Y,
+      return5Y:
+        live?.return5Y !== undefined ? `${live.return5Y.toFixed(2)}%` : fund.return5Y,
+    };
+  });
+
+  const sortedFunds = sortFunds(mergedFunds, sortKey, sortAsc);
 
   const relatedFunds = getFundsByParent(data.parentCategory).filter(
     (f) => f.slug !== data.slug
@@ -52,6 +67,36 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
       setSortAsc(false);
     }
   };
+
+  useEffect(() => {
+    let isMounted = true;
+    const fetchReturns = async () => {
+      try {
+        const response = await fetch("/api/mf/batch", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            funds: data.topFunds.map((fund) => fund.scheme),
+          }),
+        });
+        if (!response.ok) return;
+        const payload = (await response.json()) as { data?: FundSnapshot[] };
+        if (!payload?.data || !isMounted) return;
+        const nextMap: Record<string, FundSnapshot> = {};
+        payload.data.forEach((snapshot) => {
+          nextMap[snapshot.name] = snapshot;
+        });
+        setLiveReturns(nextMap);
+      } catch {
+        // keep static values if API fails
+      }
+    };
+
+    fetchReturns();
+    return () => {
+      isMounted = false;
+    };
+  }, [data.topFunds]);
 
   const riskColor =
     data.riskLevel === "Very Low" || data.riskLevel === "Low"

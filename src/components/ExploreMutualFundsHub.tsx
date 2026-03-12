@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -20,6 +20,7 @@ import {
   TrendingUp,
   type LucideIcon,
 } from "lucide-react";
+import type { FundSnapshot } from "@/types/mfapi";
 
 type AssetClass = "equity" | "debt" | "hybrid";
 type FundTab = "equity" | "taxSaving" | "hybrid" | "debt";
@@ -364,6 +365,7 @@ export default function ExploreMutualFundsHub() {
   const [activeAsset, setActiveAsset] = useState<AssetClass>("equity");
   const [activeTab, setActiveTab] = useState<FundTab>("equity");
   const [failedLogos, setFailedLogos] = useState<Record<string, boolean>>({});
+  const [liveReturns, setLiveReturns] = useState<Record<string, FundSnapshot>>({});
 
   const markLogoAsFailed = (key: string) => {
     setFailedLogos((previous) => ({ ...previous, [key]: true }));
@@ -375,6 +377,39 @@ export default function ExploreMutualFundsHub() {
       setActiveTab(asset);
     }
   };
+
+  useEffect(() => {
+    let isMounted = true;
+    const fetchReturns = async () => {
+      try {
+        const response = await fetch("/api/mf/batch", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            funds: topPerformingFunds[activeTab].map((fund) => fund.scheme),
+          }),
+        });
+        if (!response.ok) return;
+        const payload = (await response.json()) as { data?: FundSnapshot[] };
+        if (!payload?.data || !isMounted) return;
+
+        setLiveReturns((previous) => {
+          const next = { ...previous };
+          payload.data.forEach((snapshot) => {
+            next[snapshot.name] = snapshot;
+          });
+          return next;
+        });
+      } catch {
+        // keep static values if API fails
+      }
+    };
+
+    fetchReturns();
+    return () => {
+      isMounted = false;
+    };
+  }, [activeTab]);
 
   const getInitials = (company: string) => {
     return company
@@ -485,12 +520,12 @@ export default function ExploreMutualFundsHub() {
                 {column.map((group) => (
                   <div
                     key={group.title}
-                    className="rounded-[28px] border border-slate-200 bg-[linear-gradient(180deg,rgba(255,255,255,0.86),rgba(248,250,252,0.96))] p-5 dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.03))]"
+                    className="rounded-[26px] bg-[#f8fffe] p-5 shadow-[0_18px_40px_-34px_rgba(14,23,40,0.35)] dark:bg-white/5"
                   >
                     <h3 className="text-2xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">
                       {group.title}
                     </h3>
-                    <div className="mt-5 space-y-4">
+                    <div className="mt-4 divide-y divide-slate-200/60 dark:divide-white/10">
                       {group.items.map((item, index) => {
                         const Icon = item.icon;
                         const itemSlug = item.name.toLowerCase().replace(/[&\s]+/g, "-").replace(/-+/g, "-");
@@ -506,9 +541,9 @@ export default function ExploreMutualFundsHub() {
                               viewport={{ once: true, amount: 0.5 }}
                               transition={{ duration: 0.3, delay: index * 0.04, ease: "easeOut" }}
                               whileHover={{ y: -2, scale: 1.01 }}
-                              className="grid cursor-pointer grid-cols-[auto_1fr_auto] items-center gap-3 rounded-2xl border border-slate-200/80 bg-white/80 px-4 py-3 transition-colors hover:border-[#04b488]/30 hover:shadow-md dark:border-white/8 dark:bg-white/4 dark:hover:border-[#04b488]/25"
+                              className="group grid cursor-pointer grid-cols-[auto_1fr_auto] items-center gap-3 px-2 py-4 transition-colors hover:bg-white/70 dark:hover:bg-white/5"
                             >
-                              <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#04b488]/12 text-[#04b488]">
+                              <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#04b488] shadow-sm dark:bg-slate-950/70">
                                 <Icon size={20} />
                               </span>
                               <div>
@@ -570,7 +605,12 @@ export default function ExploreMutualFundsHub() {
               <p />
             </div>
 
-            {topPerformingFunds[activeTab].map((fund) => (
+            {topPerformingFunds[activeTab].map((fund) => {
+              const live = liveReturns[fund.scheme];
+              const liveReturn5Y =
+                live?.return5Y !== undefined ? `${live.return5Y.toFixed(2)}% p.a.` : fund.return5Y;
+
+              return (
               <div
                 key={fund.scheme}
                 className="grid gap-3 border-b border-slate-200 px-4 py-4 last:border-b-0 dark:border-white/10 md:grid-cols-[1.6fr_0.5fr_0.5fr_0.36fr] md:items-center md:gap-6 md:px-6"
@@ -601,7 +641,7 @@ export default function ExploreMutualFundsHub() {
                   </div>
                 </div>
                 <p className="text-sm text-[#4a5568] dark:text-slate-300">{fund.expenseRatio}</p>
-                <p className="text-sm font-semibold text-[#00a761] dark:text-[#7ff7cc]">{fund.return5Y}</p>
+                <p className="text-sm font-semibold text-[#00a761] dark:text-[#7ff7cc]">{liveReturn5Y}</p>
                 <div className="pt-1 md:pt-0">
                   <Link
                     href="/signup"
@@ -611,7 +651,8 @@ export default function ExploreMutualFundsHub() {
                   </Link>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="mt-8 text-center">

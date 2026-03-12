@@ -13,6 +13,7 @@ const trendingFunds = [
     risk: "High",
   },
   {
+    schemeCode: "100236",
     name: "HDFC Flexi Cap Fund",
     plan: "Regular - Growth",
     returnPct: "9%",
@@ -85,11 +86,10 @@ export default function Hero() {
           <span className="text-sm font-semibold text-[#04b488]">{fund.navChange}</span>
         </div>
         <span
-          className={`rounded-full px-3 py-1 text-[11px] font-semibold ${
-            fund.risk === "High"
-              ? "bg-[#f97316]/10 text-[#f97316]"
-              : "bg-[#7B4FD4]/10 text-[#7B4FD4]"
-          }`}
+          className={`rounded-full px-3 py-1 text-[11px] font-semibold ${fund.risk === "High"
+            ? "bg-[#f97316]/10 text-[#f97316]"
+            : "bg-[#7B4FD4]/10 text-[#7B4FD4]"
+            }`}
         >
           {fund.risk} Risk
         </span>
@@ -149,7 +149,7 @@ export default function Hero() {
           }
         }
         .finlec-marquee {
-          animation: finlec-marquee 26s linear infinite;
+          animation: finlec-marquee 36s linear infinite;
         }
       `}</style>
     </section>
