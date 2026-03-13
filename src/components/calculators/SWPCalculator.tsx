@@ -11,7 +11,7 @@ export default function SWPCalculator() {
   const [expectedReturn, setExpectedReturn] = useState(8);
   const [timePeriod, setTimePeriod] = useState(10); // 10 years
 
-  const calculateSWP = () => {
+  const { totalInvested, totalWithdrawn, finalValue } = useMemo(() => {
     let balance = totalInvestment;
     const r = expectedReturn / 12 / 100;
     const n = timePeriod * 12;
@@ -32,9 +32,7 @@ export default function SWPCalculator() {
       totalWithdrawn,
       finalValue: Math.max(0, balance),
     };
-  };
-
-  const { totalInvested, totalWithdrawn, finalValue } = useMemo(() => calculateSWP(), [totalInvestment, withdrawalPerMonth, expectedReturn, timePeriod]);
+  }, [totalInvestment, withdrawalPerMonth, expectedReturn, timePeriod]);
 
   const data = [
     { name: "Total Invested", value: totalInvested },
@@ -52,21 +50,21 @@ export default function SWPCalculator() {
   return (
     <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
       <div className="flex flex-col gap-10 rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:border-white/10 dark:bg-slate-950/60 sm:p-10">
-        
+
         {/* Total Investment Slider */}
         <div>
           <div className="mb-4 flex items-center justify-between">
             <label className="text-sm font-semibold text-[#4a5568] dark:text-slate-300">Total investment</label>
             <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#f59e0b] font-bold dark:bg-slate-900 border border-slate-200 dark:border-white/10">
               <span className="text-sm">₹</span>
-              <input 
-                 type="number" 
-                 className="w-24 bg-transparent outline-none text-right appearance-none" 
-                 value={totalInvestment}
-                 onChange={(e) => setTotalInvestment(Number(e.target.value))}
-                 min={50000} 
-                 max={50000000}
-                 step={10000}
+              <input
+                type="number"
+                className="w-24 bg-transparent outline-none text-right appearance-none"
+                value={totalInvestment}
+                onChange={(e) => setTotalInvestment(Number(e.target.value))}
+                min={50000}
+                max={50000000}
+                step={10000}
               />
             </div>
           </div>
@@ -87,14 +85,14 @@ export default function SWPCalculator() {
             <label className="text-sm font-semibold text-[#4a5568] dark:text-slate-300">Withdrawal per month</label>
             <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#f59e0b] font-bold dark:bg-slate-900 border border-slate-200 dark:border-white/10">
               <span className="text-sm">₹</span>
-              <input 
-                 type="number" 
-                 className="w-24 bg-transparent outline-none text-right appearance-none" 
-                 value={withdrawalPerMonth}
-                 onChange={(e) => setWithdrawalPerMonth(Number(e.target.value))}
-                 min={500} 
-                 max={500000}
-                 step={1000}
+              <input
+                type="number"
+                className="w-24 bg-transparent outline-none text-right appearance-none"
+                value={withdrawalPerMonth}
+                onChange={(e) => setWithdrawalPerMonth(Number(e.target.value))}
+                min={500}
+                max={500000}
+                step={1000}
               />
             </div>
           </div>
@@ -114,14 +112,14 @@ export default function SWPCalculator() {
           <div className="mb-4 flex items-center justify-between">
             <label className="text-sm font-semibold text-[#4a5568] dark:text-slate-300">Expected return rate (p.a)</label>
             <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#f59e0b] font-bold dark:bg-slate-900 border border-slate-200 dark:border-white/10">
-              <input 
-                 type="number" 
-                 className="w-12 bg-transparent outline-none text-right appearance-none" 
-                 value={expectedReturn}
-                 onChange={(e) => setExpectedReturn(Number(e.target.value))}
-                 min={1} 
-                 max={30}
-                 step={0.1}
+              <input
+                type="number"
+                className="w-12 bg-transparent outline-none text-right appearance-none"
+                value={expectedReturn}
+                onChange={(e) => setExpectedReturn(Number(e.target.value))}
+                min={1}
+                max={30}
+                step={0.1}
               />
               <span className="text-sm">%</span>
             </div>
@@ -142,14 +140,14 @@ export default function SWPCalculator() {
           <div className="mb-4 flex items-center justify-between">
             <label className="text-sm font-semibold text-[#4a5568] dark:text-slate-300">Time period</label>
             <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#f59e0b] font-bold dark:bg-slate-900 border border-slate-200 dark:border-white/10">
-              <input 
-                 type="number" 
-                 className="w-12 bg-transparent outline-none text-right appearance-none" 
-                 value={timePeriod}
-                 onChange={(e) => setTimePeriod(Number(e.target.value))}
-                 min={1} 
-                 max={40}
-                 step={1}
+              <input
+                type="number"
+                className="w-12 bg-transparent outline-none text-right appearance-none"
+                value={timePeriod}
+                onChange={(e) => setTimePeriod(Number(e.target.value))}
+                min={1}
+                max={40}
+                step={1}
               />
               <span className="text-sm">Yr</span>
             </div>
@@ -167,51 +165,51 @@ export default function SWPCalculator() {
       </div>
 
       <div className="flex flex-col rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:border-white/10 dark:bg-slate-950/60 sm:p-10 justify-center">
-         <div className="h-[240px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-               <PieChart>
-                  <Pie
-                     data={data}
-                     cx="50%"
-                     cy="50%"
-                     innerRadius={70}
-                     outerRadius={95}
-                     paddingAngle={2}
-                     dataKey="value"
-                     stroke="none"
-                  >
-                     {data.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                     ))}
-                  </Pie>
-                  <RechartsTooltip 
-                     formatter={(value: number) => formatCurrency(value)}
-                     contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)' }}
-                  />
-               </PieChart>
-            </ResponsiveContainer>
-         </div>
-         
-         <div className="mt-10 space-y-5">
-            <div className="flex items-center justify-between">
-               <div className="flex items-center gap-2">
-                 <span className="h-3 w-3 rounded-full bg-slate-200 dark:bg-slate-700"></span>
-                 <p className="text-sm font-medium text-[#4a5568] dark:text-slate-400">Total Investment</p>
-               </div>
-               <p className="font-semibold text-[#1a1560] dark:text-white">{formatCurrency(totalInvested)}</p>
+        <div className="h-[240px] w-full">
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={data}
+                cx="50%"
+                cy="50%"
+                innerRadius={70}
+                outerRadius={95}
+                paddingAngle={2}
+                dataKey="value"
+                stroke="none"
+              >
+                {data.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
+              <RechartsTooltip
+                formatter={(value: any) => formatCurrency(Number(value))}
+                contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)' }}
+              />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="mt-10 space-y-5">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="h-3 w-3 rounded-full bg-slate-200 dark:bg-slate-700"></span>
+              <p className="text-sm font-medium text-[#4a5568] dark:text-slate-400">Total Investment</p>
             </div>
-            <div className="flex items-center justify-between">
-               <div className="flex items-center gap-2">
-                 <span className="h-3 w-3 rounded-full bg-[#f59e0b]"></span>
-                 <p className="text-sm font-medium text-[#4a5568] dark:text-slate-400">Total Withdrawal</p>
-               </div>
-               <p className="font-semibold text-[#1a1560] dark:text-white">{formatCurrency(totalWithdrawn)}</p>
+            <p className="font-semibold text-[#1a1560] dark:text-white">{formatCurrency(totalInvested)}</p>
+          </div>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="h-3 w-3 rounded-full bg-[#f59e0b]"></span>
+              <p className="text-sm font-medium text-[#4a5568] dark:text-slate-400">Total Withdrawal</p>
             </div>
-            <div className="pt-5 mt-2 border-t border-slate-200 dark:border-white/10 flex items-center justify-between">
-               <p className="text-base font-semibold text-[#4a5568] dark:text-slate-300">Final Value</p>
-               <p className="text-2xl font-bold text-[#1a1560] dark:text-white font-[family-name:var(--font-sora)]">{formatCurrency(finalValue)}</p>
-            </div>
-         </div>
+            <p className="font-semibold text-[#1a1560] dark:text-white">{formatCurrency(totalWithdrawn)}</p>
+          </div>
+          <div className="pt-5 mt-2 border-t border-slate-200 dark:border-white/10 flex items-center justify-between">
+            <p className="text-base font-semibold text-[#4a5568] dark:text-slate-300">Final Value</p>
+            <p className="text-2xl font-bold text-[#1a1560] dark:text-white font-[family-name:var(--font-sora)]">{formatCurrency(finalValue)}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

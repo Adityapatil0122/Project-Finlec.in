@@ -10,7 +10,7 @@ export default function LumpsumCalculator() {
   const [expectedReturn, setExpectedReturn] = useState(12);
   const [timePeriod, setTimePeriod] = useState(10);
 
-  const calculateLumpsum = () => {
+  const { totalInvested, estReturns, maturityAmount } = useMemo(() => {
     const P = totalInvestment;
     const n = timePeriod;
     const r = expectedReturn / 100;
@@ -26,9 +26,7 @@ export default function LumpsumCalculator() {
       estReturns,
       maturityAmount,
     };
-  };
-
-  const { totalInvested, estReturns, maturityAmount } = useMemo(() => calculateLumpsum(), [totalInvestment, expectedReturn, timePeriod]);
+  }, [totalInvestment, expectedReturn, timePeriod]);
 
   const data = [
     { name: "Invested amount", value: totalInvested },

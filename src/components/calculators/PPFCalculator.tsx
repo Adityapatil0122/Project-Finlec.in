@@ -10,7 +10,7 @@ export default function PPFCalculator() {
   const [timePeriod, setTimePeriod] = useState(15);
   const interestRate = 7.1; // Currently fixed for PPF
 
-  const calculatePPF = () => {
+  const { totalInvested, estReturns, maturityAmount } = useMemo(() => {
     let maturityAmount = 0;
     const r = interestRate / 100;
 
@@ -29,9 +29,7 @@ export default function PPFCalculator() {
       estReturns,
       maturityAmount,
     };
-  };
-
-  const { totalInvested, estReturns, maturityAmount } = useMemo(() => calculatePPF(), [yearlyInvestment, timePeriod]);
+  }, [yearlyInvestment, timePeriod]);
 
   const data = [
     { name: "Total Invested", value: totalInvested },
@@ -140,7 +138,7 @@ export default function PPFCalculator() {
                      ))}
                   </Pie>
                   <RechartsTooltip 
-                     formatter={(value: any) => formatCurrency(Number(value))}
+                     formatter={(value: number | string) => formatCurrency(Number(value))}
                      contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)' }}
                   />
                </PieChart>

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ShieldCheck, TrendingUp, Wallet } from "lucide-react";
 
@@ -10,6 +11,7 @@ type StrategyCard = {
   risk: string;
   focus: string;
   image: string;
+  href: string;
 };
 
 const strategies: StrategyCard[] = [
@@ -19,6 +21,7 @@ const strategies: StrategyCard[] = [
     risk: "High Growth",
     focus: "Compounding",
     image: "/images/equity-3.jpg",
+    href: "/explore-mutual-funds?asset=equity#category-breakdown",
   },
   {
     title: "Hybrid Mutual Funds",
@@ -26,6 +29,7 @@ const strategies: StrategyCard[] = [
     risk: "Balanced",
     focus: "Stability + Growth",
     image: "/images/hybrid-funds.jpg",
+    href: "/explore-mutual-funds?asset=hybrid#category-breakdown",
   },
   {
     title: "Debt Mutual Funds",
@@ -33,6 +37,7 @@ const strategies: StrategyCard[] = [
     risk: "Conservative",
     focus: "Capital Protection",
     image: "/images/mutualfunds2.jpeg",
+    href: "/explore-mutual-funds?asset=debt#category-breakdown",
   },
 ];
 
@@ -66,46 +71,47 @@ export default function FundTypes() {
             const Icon = strategyIcons[index];
 
             return (
-              <motion.article
-                key={strategy.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{ duration: 0.45, delay: index * 0.06, ease: "easeOut" }}
-                whileHover={{ y: -4 }}
-                className="group finlec-card overflow-hidden transition-all hover:-translate-y-1 hover:border-[#04b488]/35"
-              >
-                <Image
-                  src={strategy.image}
-                  alt={strategy.title}
-                  width={820}
-                  height={920}
-                  className="h-56 w-full object-cover"
-                />
-                <div className="space-y-3 p-6">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#04b488]/10 text-[#04b488]">
-                      <Icon size={18} />
+              <Link key={strategy.title} href={strategy.href} className="block">
+                <motion.article
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ duration: 0.45, delay: index * 0.06, ease: "easeOut" }}
+                  whileHover={{ y: -4 }}
+                  className="group finlec-card overflow-hidden transition-all hover:-translate-y-1 hover:border-[#04b488]/35"
+                >
+                  <Image
+                    src={strategy.image}
+                    alt={strategy.title}
+                    width={820}
+                    height={920}
+                    className="h-56 w-full object-cover"
+                  />
+                  <div className="space-y-3 p-6">
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#04b488]/10 text-[#04b488]">
+                        <Icon size={18} />
+                      </div>
+                      <span className="rounded-full bg-[#7B4FD4]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#7B4FD4]">
+                        {strategy.risk}
+                      </span>
                     </div>
-                    <span className="rounded-full bg-[#7B4FD4]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#7B4FD4]">
-                      {strategy.risk}
-                    </span>
+                    <h3 className="text-2xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white">
+                      {strategy.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-[#475569] dark:text-slate-300">{strategy.summary}</p>
+                    <div className="flex items-center justify-between gap-4 pt-1">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#04b488]">
+                        Focus: {strategy.focus}
+                      </p>
+                      <span className="inline-flex items-center gap-1 text-sm font-semibold text-[#7B4FD4]">
+                        View Details
+                        <ArrowUpRight size={16} />
+                      </span>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white">
-                    {strategy.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-[#475569] dark:text-slate-300">{strategy.summary}</p>
-                  <div className="flex items-center justify-between gap-4 pt-1">
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#04b488]">
-                      Focus: {strategy.focus}
-                    </p>
-                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-[#7B4FD4]">
-                      View Details
-                      <ArrowUpRight size={16} />
-                    </span>
-                  </div>
-                </div>
-              </motion.article>
+                </motion.article>
+              </Link>
             );
           })}
         </div>

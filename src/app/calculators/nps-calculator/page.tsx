@@ -33,7 +33,7 @@ export default function NPSCalculatorPage() {
               <h2 className="text-2xl font-semibold text-[#1a1560] mb-4 dark:text-white">How does the NPS Calculator work?</h2>
               <div className="space-y-4 text-[#4a5568] dark:text-slate-300 leading-relaxed">
                  <p>
-                    The National Pension System (NPS) is a voluntary, defined contribution retirement savings scheme designed to enable systematic savings during a subscriber's working life. In India, your NPS corpus fully matures when you reach the age of 60.
+                    The National Pension System (NPS) is a voluntary, defined contribution retirement savings scheme designed to enable systematic savings during a subscriber&apos;s working life. In India, your NPS corpus fully matures when you reach the age of 60.
                  </p>
                  <p>
                     This NPS calculator works exactly like a goal-oriented SIP calculator bound by a 60-year maturity period. By determining your current age, the calculator determines the number of months remaining until your 60th birthday, and calculates the compound growth of your monthly contributions based on your expected return rate (usually blended between equity and debt instruments).

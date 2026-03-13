@@ -12,7 +12,7 @@ export default function SIPCalculator() {
   const [expectedReturn, setExpectedReturn] = useState(12);
   const [timePeriod, setTimePeriod] = useState(10);
 
-  const calculateSIP = () => {
+  const { totalInvested, estReturns, maturityAmount } = useMemo(() => {
     const P = monthlyInvestment;
     const n = timePeriod * 12;
     // Standard SIP formula r = (expectedReturn/100)/12
@@ -29,9 +29,7 @@ export default function SIPCalculator() {
       estReturns,
       maturityAmount,
     };
-  };
-
-  const { totalInvested, estReturns, maturityAmount } = useMemo(() => calculateSIP(), [monthlyInvestment, expectedReturn, timePeriod]);
+  }, [monthlyInvestment, expectedReturn, timePeriod]);
 
   const data = [
     { name: "Invested amount", value: totalInvested },

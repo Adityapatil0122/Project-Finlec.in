@@ -46,7 +46,7 @@ export default function SIPCalculatorPage() {
 
               <h2 className="text-2xl font-semibold text-[#1a1560] mt-8 mb-4 dark:text-white">How can a SIP return calculator help you?</h2>
               <ul className="list-disc pl-5 space-y-2 text-[#4a5568] dark:text-slate-300">
-                 <li>Answers the question: "How much should I invest every month to reach my goal?"</li>
+                 <li>Answers the question: &quot;How much should I invest every month to reach my goal?&quot;</li>
                  <li>Shows you the total amount you have invested over the timeline.</li>
                  <li>Gives an estimated value of the returns earned and maturity corpus.</li>
                  <li>Guides you on making course-correcting step-ups during the tenure.</li>

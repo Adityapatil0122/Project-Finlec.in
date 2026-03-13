@@ -10,6 +10,7 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Calculators", href: "/calculators" },
+  { label: "Daily SIP", href: "/calculators/daily-sip-calculator" },
 ];
 
 const exploreRoute = "/explore-mutual-funds";
@@ -67,7 +68,7 @@ export default function Navbar() {
         </Link>
 
         <div className="flex items-center gap-3">
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden items-center gap-3 lg:flex lg:ml-8">
             {navLinks.map((link) => (
               <motion.div key={link.label} whileHover={{ y: -1 }}>
                 <Link
@@ -134,7 +135,7 @@ export default function Navbar() {
             <motion.div whileHover={{ y: -1 }}>
               <Link
                 href="/login"
-                className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2 text-sm font-semibold text-[#04b488] transition-colors hover:bg-[#04b488]/8 dark:bg-slate-950/72 dark:text-[#7ff7cc] dark:hover:bg-[#04b488]/10"
+                className="inline-flex items-center justify-center rounded-full bg-[#0b3d3b] px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0f4a46] hover:shadow-[0_12px_24px_-14px_rgba(15,74,70,0.75)] active:translate-y-0 dark:bg-[#0f3a35] dark:text-white dark:hover:bg-[#14554f]"
               >
                 Login
               </Link>
@@ -191,7 +192,7 @@ export default function Navbar() {
                 <Link
                   href="/login"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="rounded-xl border border-[#04b488]/25 bg-white px-4 py-3 text-center text-sm font-semibold text-[#04b488] dark:border-[#04b488]/20 dark:bg-slate-950/75 dark:text-[#7ff7cc]"
+                  className="rounded-xl border border-[#0b3d3b]/40 bg-[#0b3d3b] px-4 py-3 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#0f4a46] dark:border-[#14554f]/40 dark:bg-[#0f3a35] dark:text-white dark:hover:bg-[#14554f]"
                 >
                   Login
                 </Link>

@@ -23,7 +23,7 @@ export default function EPFCalculatorPage() {
                EPF Calculator
              </h1>
              <p className="mt-4 max-w-3xl text-lg text-[#4a5568] dark:text-slate-300">
-               Calculate your Employee's Provident Fund (EPF) balance at retirement.
+               Calculate your Employee&apos;s Provident Fund (EPF) balance at retirement.
              </p>
            </div>
 
@@ -33,7 +33,7 @@ export default function EPFCalculatorPage() {
               <h2 className="text-2xl font-semibold text-[#1a1560] mb-4 dark:text-white">What is the EPF Calculator?</h2>
               <div className="space-y-4 text-[#4a5568] dark:text-slate-300 leading-relaxed">
                  <p>
-                    An EPF calculator simulates how much your provident fund account balance will be at the time of your retirement. Both the employee and employer contribute 12% of the employee’s basic salary and dearness allowance to the EPF. Note that out of the employer's 12%, 8.33% goes to the Employee Pension Scheme (EPS) and 3.67% goes to the EPF.
+                    An EPF calculator simulates how much your provident fund account balance will be at the time of your retirement. Both the employee and employer contribute 12% of the employee&apos;s basic salary and dearness allowance to the EPF. Note that out of the employer&apos;s 12%, 8.33% goes to the Employee Pension Scheme (EPS) and 3.67% goes to the EPF.
                  </p>
               </div>
            </div>

@@ -11,7 +11,7 @@ export default function EPFCalculator() {
   const [epfContribution, setEpfContribution] = useState(12);
   const [currentBalance, setCurrentBalance] = useState(0);
 
-  const calculateEPF = () => {
+  const { totalInvested, estReturns, maturityAmount } = useMemo(() => {
     const retirementAge = 58;
     const yearsLeft = retirementAge - currentAge;
     
@@ -26,24 +26,22 @@ export default function EPFCalculator() {
     const returnRate = 8.1 / 100; // Standard EPF rate
 
     let balance = currentBalance;
-    let totalInvested = currentBalance;
+    let invested = currentBalance;
 
     for (let i = 0; i < yearsLeft; i++) {
-        totalInvested += yearlyContrib;
+        invested += yearlyContrib;
         const interest = (balance + yearlyContrib / 2) * returnRate; // Approx average balance interest
         balance += yearlyContrib + interest;
     }
 
-    const estReturns = balance - totalInvested;
+    const estReturns = balance - invested;
 
     return {
-      totalInvested,
+      totalInvested: invested,
       estReturns,
       maturityAmount: balance,
     };
-  };
-
-  const { totalInvested, estReturns, maturityAmount } = useMemo(() => calculateEPF(), [monthlySalary, currentAge, epfContribution, currentBalance]);
+  }, [monthlySalary, currentAge, epfContribution, currentBalance]);
 
   const data = [
     { name: "Total Invested", value: totalInvested },

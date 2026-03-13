@@ -33,10 +33,10 @@ export default function CarLoanEMICalculatorPage() {
               <h2 className="text-2xl font-semibold text-[#1a1560] mb-4 dark:text-white">How does a Car Loan EMI calculator help?</h2>
               <div className="space-y-4 text-[#4a5568] dark:text-slate-300 leading-relaxed">
                  <p>
-                    When taking out a car loan to purchase your favorite vehicle, knowing your EMI obligations before committing is highly beneficial. A car EMI calculator computes the monthly amount you will need to pay based on your total loan amount, the bank's interest rate, and your repayment tenure.
+                    When taking out a car loan to purchase your favorite vehicle, knowing your EMI obligations before committing is highly beneficial. A car EMI calculator computes the monthly amount you will need to pay based on your total loan amount, the bank&apos;s interest rate, and your repayment tenure.
                  </p>
                  <p>
-                    Understanding this breakdown also lets you discover the total interest you'll be paying. The shorter the loan tenure, the higher your EMI will be, but your overall interest payout remains lower. Adjusting the ranges helps you discover an EMI amount that is comfortable for your monthly income.
+                    Understanding this breakdown also lets you discover the total interest you&apos;ll be paying. The shorter the loan tenure, the higher your EMI will be, but your overall interest payout remains lower. Adjusting the ranges helps you discover an EMI amount that is comfortable for your monthly income.
                  </p>
               </div>
            </div>

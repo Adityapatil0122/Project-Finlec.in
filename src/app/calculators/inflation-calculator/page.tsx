@@ -36,7 +36,7 @@ export default function InflationCalculatorPage() {
                     Inflation is the steady rise in the price of goods and services over time. While it might seem small year-over-year, compounding inflation significantly reduces the purchasing power of your money stored in regular saving accounts. What costs ₹1 Lakh today could cost ₹1.8 Lakhs in 10 years at a 6% inflation rate.
                  </p>
                  <p>
-                    The free Finlec inflation calculator helps you evaluate the exact future equivalent of the money you have today. It's an indispensable tool when doing long-term financial planning for life goals like retirement, children's education, or buying a house — ensuring you aim for the future cost of the objective, not its current price tag.
+                    The free Finlec inflation calculator helps you evaluate the exact future equivalent of the money you have today. It&apos;s an indispensable tool when doing long-term financial planning for life goals like retirement, children&apos;s education, or buying a house — ensuring you aim for the future cost of the objective, not its current price tag.
                  </p>
               </div>
            </div>

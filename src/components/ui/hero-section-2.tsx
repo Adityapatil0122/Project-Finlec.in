@@ -76,9 +76,9 @@ const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
             visible: {
                 y: 0,
                 opacity: 1,
-                transition: {
+                    transition: {
                     duration: 0.5,
-                    ease: "easeOut" as any,
+                    ease: "easeOut",
                 },
             },
         };
@@ -184,7 +184,7 @@ const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
                     }}
                     initial={{ clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }}
                     animate={{ clipPath: 'polygon(1% 0, 100% 0, 100% 100%, 0% 100%)' }}
-                    transition={{ duration: 1.2, ease: "circOut" as any }}
+                    transition={{ duration: 1.2, ease: "circOut" }}
                 >
                 </motion.div>
             </motion.section>

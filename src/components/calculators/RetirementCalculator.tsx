@@ -13,7 +13,7 @@ export default function RetirementCalculator() {
   const [inflation, setInflation] = useState(6);
   const [postRetirementReturns, setPostRetirementReturns] = useState(8);
 
-  const calculateRetirement = () => {
+  const { monthlyExpAtRetirement, requiredCorpus } = useMemo(() => {
     const yearsToRetire = Math.max(0, retirementAge - currentAge);
     const yearsInRetirement = Math.max(0, lifeExpectancy - retirementAge);
 
@@ -42,9 +42,7 @@ export default function RetirementCalculator() {
       monthlyExpAtRetirement: expAtRetirement,
       requiredCorpus: corpus,
     };
-  };
-
-  const { monthlyExpAtRetirement, requiredCorpus } = useMemo(() => calculateRetirement(), [currentAge, retirementAge, lifeExpectancy, monthlyExpenses, inflation, postRetirementReturns]);
+  }, [currentAge, retirementAge, lifeExpectancy, monthlyExpenses, inflation, postRetirementReturns]);
 
   // Just showing a simple split that doesn't mean much mathematically, but fits the UI theme
   // We can show something like 100% Corpus

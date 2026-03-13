@@ -10,18 +10,15 @@ export default function InflationCalculator() {
   const [inflationRate, setInflationRate] = useState(6);
   const [timePeriod, setTimePeriod] = useState(10);
 
-  const calculateInflation = () => {
+  const { futureAmount, difference } = useMemo(() => {
     const futureAmount = currentAmount * Math.pow(1 + inflationRate / 100, timePeriod);
     const difference = futureAmount - currentAmount;
 
     return {
-      currentAmount,
       futureAmount,
       difference,
     };
-  };
-
-  const { futureAmount, difference } = useMemo(() => calculateInflation(), [currentAmount, inflationRate, timePeriod]);
+  }, [currentAmount, inflationRate, timePeriod]);
 
   const data = [
     { name: "Current Cost", value: currentAmount },
@@ -132,7 +129,7 @@ export default function InflationCalculator() {
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" opacity={0.5} />
                   <XAxis dataKey="name" tick={{fill: '#94a3b8', fontSize: 12}} axisLine={false} tickLine={false} />
                   <RechartsTooltip 
-                     formatter={(value: any) => formatCurrency(Number(value))}
+                     formatter={(value: number | string) => formatCurrency(Number(value))}
                      contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)' }}
                      cursor={{fill: 'var(--tw-colors-slate-100)', opacity: 0.1}} // for dark mode support if needed
                   />

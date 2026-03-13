@@ -15,8 +15,12 @@ const quickLinks = [
 
 const exploreLinks = [
   { label: "Home", href: "/" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact us", href: "mailto:investor@finlec.in" },
+  { label: "Calculators", href: "/calculators" },
+  { label: "Daily SIP", href: "/calculators/daily-sip-calculator" },
+  { label: "Explore Mutual Funds", href: "/explore-mutual-funds" },
+  { label: "Mutual Funds Guide", href: "/mutual-funds-guide" },
+  { label: "Login", href: "/login" },
+  { label: "Contact us", href: "/contact" },
 ];
 
 const socialLinks = [
@@ -37,15 +41,18 @@ export default function Footer() {
       >
         <div className="grid gap-10 rounded-[32px] bg-[#063d52] px-8 py-10 sm:px-10 lg:grid-cols-[1.1fr_0.7fr_0.7fr_0.8fr]">
           <div>
-            <Link href="/" className="inline-flex items-center">
+            <Link href="/" className="inline-flex items-center rounded-lg overflow-hidden shrink-0">
               <Image
                 src="/images/logo.jpg"
                 alt="Finlec"
                 width={160}
                 height={56}
-                className="h-auto w-[150px] object-contain"
+                className="h-[48px] w-auto object-contain"
               />
             </Link>
+            <p className="mt-6 pr-10 text-sm leading-relaxed text-white/70">
+              Finlec is India&apos;s all-in-one SIP platform, streamlining mutual fund investments with ease and efficiency. Discover top-performing funds effortlessly and invest seamlessly, hassle-free.
+            </p>
           </div>
 
           <div>

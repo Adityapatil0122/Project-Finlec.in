@@ -10,7 +10,7 @@ export default function FDCalculator() {
   const [interestRate, setInterestRate] = useState(7);
   const [timePeriod, setTimePeriod] = useState(5);
 
-  const calculateFD = () => {
+  const { totalInvested, estReturns, maturityAmount } = useMemo(() => {
     const P = totalInvestment;
     const r = interestRate / 100;
     const t = timePeriod;
@@ -25,9 +25,7 @@ export default function FDCalculator() {
       estReturns,
       maturityAmount,
     };
-  };
-
-  const { totalInvested, estReturns, maturityAmount } = useMemo(() => calculateFD(), [totalInvestment, interestRate, timePeriod]);
+  }, [totalInvestment, interestRate, timePeriod]);
 
   const data = [
     { name: "Total Investment", value: totalInvested },

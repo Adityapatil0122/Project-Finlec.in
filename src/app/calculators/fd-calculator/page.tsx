@@ -36,7 +36,7 @@ export default function FDCalculatorPage() {
                     A Fixed Deposit (FD) is a secure financial instrument offered by banks, non-banking financial companies (NBFCs), and post offices, providing investors with a higher rate of interest than a regular savings account until a given maturity date.
                  </p>
                  <p>
-                    The FD return calculator is a simple tool designed to find out the maturity amount and the interest you'll earn on your Fixed Deposit. Since fixed deposits are considered one of the safest saving avenues in India, projecting exactly what you'll earn gives clarity in capital planning for predictable expenses.
+                    The FD return calculator is a simple tool designed to find out the maturity amount and the interest you&apos;ll earn on your Fixed Deposit. Since fixed deposits are considered one of the safest saving avenues in India, projecting exactly what you&apos;ll earn gives clarity in capital planning for predictable expenses.
                  </p>
               </div>
            </div>

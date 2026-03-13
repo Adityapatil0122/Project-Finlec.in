@@ -10,7 +10,7 @@ export default function CarLoanEMICalculator() {
   const [interestRate, setInterestRate] = useState(9.5);
   const [loanTenure, setLoanTenure] = useState(5);
 
-  const calculateEMI = () => {
+  const { emi, totalInterest, totalAmount } = useMemo(() => {
     const P = loanAmount;
     const r = interestRate / 12 / 100;
     const n = loanTenure * 12;
@@ -24,9 +24,7 @@ export default function CarLoanEMICalculator() {
       totalInterest: isNaN(totalInterest) ? 0 : totalInterest,
       totalAmount: isNaN(totalAmount) ? 0 : totalAmount,
     };
-  };
-
-  const { emi, totalInterest, totalAmount } = useMemo(() => calculateEMI(), [loanAmount, interestRate, loanTenure]);
+  }, [loanAmount, interestRate, loanTenure]);
 
   const data = [
     { name: "Principal Amount", value: loanAmount },

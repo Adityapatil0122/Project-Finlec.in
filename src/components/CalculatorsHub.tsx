@@ -4,9 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  Calculator, Banknote, Briefcase, Activity, CalendarClock, 
+  Calculator, Banknote, Briefcase, Activity, CalendarClock, CalendarDays,
   HandCoins, Building2, Car, Home, PiggyBank, Landmark, 
-  ShieldCheck, TrendingDown 
+  ShieldCheck, TrendingDown, Coins, SquarePercent
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -20,6 +20,13 @@ export const calculatorGroups = [
         description: "Calculate how much you need to save or how much you will accumulate with your SIP",
         link: "/calculators/sip-calculator",
         color: "#04b488",
+      },
+      {
+        icon: CalendarDays,
+        title: "Daily SIP Calculator",
+        description: "Estimate outcomes when you invest a fixed amount every day",
+        link: "/calculators/daily-sip-calculator",
+        color: "#0ea5e9",
       },
       {
         icon: HandCoins,
@@ -36,6 +43,13 @@ export const calculatorGroups = [
         color: "#3b82f6",
       },
       {
+        icon: SquarePercent,
+        title: "XIRR Calculator",
+        description: "Calculate annualized returns for irregular cash flows",
+        link: "/calculators/xirr-calculator",
+        color: "#0f172a",
+      },
+      {
         icon: Banknote,
         title: "FD Calculator",
         description: "Check returns on your fixed deposits (FDs) without any hassle",
@@ -43,11 +57,11 @@ export const calculatorGroups = [
         color: "#f97316",
       },
       {
-        icon: PiggyBank,
-        title: "RD Calculator",
-        description: "Check returns on your recurring deposits (RDs)",
-        link: "/calculators/rd-calculator",
-        color: "#ef4444",
+        icon: Coins,
+        title: "Pigmy Deposit Calculator",
+        description: "Plan small daily/weekly deposits and estimate maturity value",
+        link: "/calculators/pigmy-deposit-calculator",
+        color: "#f97316",
       },
       {
         icon: Landmark,

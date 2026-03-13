@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
@@ -362,8 +363,14 @@ const tabLabels: Record<FundTab, string> = {
 };
 
 export default function ExploreMutualFundsHub() {
-  const [activeAsset, setActiveAsset] = useState<AssetClass>("equity");
-  const [activeTab, setActiveTab] = useState<FundTab>("equity");
+  const searchParams = useSearchParams();
+  const assetParam = searchParams.get("asset");
+  const initialAsset: AssetClass =
+    assetParam === "equity" || assetParam === "debt" || assetParam === "hybrid"
+      ? assetParam
+      : "equity";
+  const [activeAsset, setActiveAsset] = useState<AssetClass>(initialAsset);
+  const [activeTab, setActiveTab] = useState<FundTab>(initialAsset);
   const [failedLogos, setFailedLogos] = useState<Record<string, boolean>>({});
   const [liveReturns, setLiveReturns] = useState<Record<string, FundSnapshot>>({});
 
@@ -498,7 +505,7 @@ export default function ExploreMutualFundsHub() {
         </div>
       </section>
 
-      <section className="px-4 pb-10 pt-4 sm:px-6 lg:px-8">
+      <section id="category-breakdown" className="px-4 pb-10 pt-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl rounded-[34px] border border-slate-200 bg-white/84 p-6 shadow-[0_24px_70px_-46px_rgba(15,23,42,0.45)] backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/72 dark:shadow-[0_24px_70px_-42px_rgba(0,0,0,0.85)] sm:p-8">
           <div className="flex flex-col gap-3 border-b border-slate-200 pb-6 dark:border-white/10 md:flex-row md:items-end md:justify-between">
             <div>

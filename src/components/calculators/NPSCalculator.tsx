@@ -10,7 +10,7 @@ export default function NPSCalculator() {
   const [expectedReturn, setExpectedReturn] = useState(10);
   const [currentAge, setCurrentAge] = useState(30);
 
-  const calculateNPS = () => {
+  const { totalInvested, estReturns, maturityAmount } = useMemo(() => {
     const retirementAge = 60;
     const yearsInvested = Math.max(0, retirementAge - currentAge);
     const months = yearsInvested * 12;
@@ -32,9 +32,7 @@ export default function NPSCalculator() {
       estReturns: estReturns > 0 ? estReturns : 0,
       maturityAmount: maturityAmount > 0 ? maturityAmount : 0,
     };
-  };
-
-  const { totalInvested, estReturns, maturityAmount } = useMemo(() => calculateNPS(), [monthlyInvestment, expectedReturn, currentAge]);
+  }, [monthlyInvestment, expectedReturn, currentAge]);
 
   const data = [
     { name: "Total Invested", value: totalInvested },
@@ -157,7 +155,7 @@ export default function NPSCalculator() {
                      ))}
                   </Pie>
                   <RechartsTooltip 
-                     formatter={(value: any) => formatCurrency(Number(value))}
+                     formatter={(value: number | string) => formatCurrency(Number(value))}
                      contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)' }}
                   />
                </PieChart>

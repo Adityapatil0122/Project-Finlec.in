@@ -10,7 +10,7 @@ export default function HomeLoanEMICalculator() {
   const [interestRate, setInterestRate] = useState(8.5);
   const [loanTenure, setLoanTenure] = useState(20);
 
-  const calculateEMI = () => {
+  const { emi, totalInterest, totalAmount } = useMemo(() => {
     const P = loanAmount;
     const r = interestRate / 12 / 100;
     const n = loanTenure * 12;
@@ -26,9 +26,7 @@ export default function HomeLoanEMICalculator() {
       totalInterest,
       totalAmount,
     };
-  };
-
-  const { emi, totalInterest, totalAmount } = useMemo(() => calculateEMI(), [loanAmount, interestRate, loanTenure]);
+  }, [loanAmount, interestRate, loanTenure]);
 
   const data = [
     { name: "Principal Amount", value: loanAmount },
