@@ -71,11 +71,6 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    setIsMobileMenuOpen(false);
-    setIsProfileMenuOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
     if (!isProfileMenuOpen) return;
 
     const handlePointerDown = (event: MouseEvent) => {
@@ -246,6 +241,7 @@ export default function Navbar() {
                         <div className="p-2.5">
                           <Link
                             href="/dashboard"
+                            onClick={() => setIsProfileMenuOpen(false)}
                             className="flex items-center justify-between rounded-2xl px-3 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 hover:text-[#0f172a]"
                           >
                             <span className="flex items-center gap-3">
@@ -256,6 +252,7 @@ export default function Navbar() {
                           </Link>
                           <Link
                             href="/dashboard/profile"
+                            onClick={() => setIsProfileMenuOpen(false)}
                             className="flex items-center justify-between rounded-2xl px-3 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 hover:text-[#0f172a]"
                           >
                             <span className="flex items-center gap-3">
