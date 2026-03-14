@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useCallback, useEffect, useRef } from "react";
 import { animate, motion, useMotionValue } from "framer-motion";
@@ -86,7 +86,7 @@ export default function PartnersMarquee() {
   }, [startMarquee, x]);
 
   return (
-    <section id="partners" className="bg-white px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8">
+    <section id="partners" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -98,16 +98,16 @@ export default function PartnersMarquee() {
           <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             AMC Network
           </p>
-          <h2 className="mt-4 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-4xl">
             Trusted by leading fund houses
           </h2>
-          <p className="mt-4 text-base text-[#4a5568] dark:text-slate-300 sm:text-lg">
+          <p className="mt-4 text-base text-[#4a5568] sm:text-lg">
             Unified execution across top-performing asset management companies.
           </p>
         </div>
 
         <div
-          className="mt-10 overflow-hidden rounded-3xl border border-slate-200 bg-[#f8f9fa] py-5 dark:border-white/10 dark:bg-white/5"
+          className="mt-10 overflow-hidden rounded-3xl border border-slate-200 bg-[#f8f9fa] py-5"
           onMouseEnter={() => controlsRef.current?.stop()}
           onMouseLeave={startMarquee}
         >
@@ -115,7 +115,7 @@ export default function PartnersMarquee() {
             {repeatedLogos.map((partner, index) => (
               <div
                 key={`${partner.file}-${index}`}
-                className="flex h-24 min-w-[180px] items-center justify-center rounded-2xl border border-slate-200 bg-white p-4 dark:border-white/10 dark:bg-slate-950/75"
+                className="flex h-24 min-w-[180px] items-center justify-center rounded-2xl border border-slate-200 bg-white p-4"
               >
                 <Image
                   src={`/companylogos/${partner.file}`}
@@ -132,3 +132,4 @@ export default function PartnersMarquee() {
     </section>
   );
 }
+

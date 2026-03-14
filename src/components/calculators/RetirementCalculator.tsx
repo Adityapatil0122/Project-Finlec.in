@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useMemo } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip as RechartsTooltip } from "recharts";
@@ -60,13 +60,13 @@ export default function RetirementCalculator() {
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
-      <div className="flex flex-col gap-8 rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:border-white/10 dark:bg-slate-950/60 sm:p-10">
+      <div className="flex flex-col gap-8 rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10">
         
         {/* Current Age */}
         <div>
           <div className="mb-4 flex items-center justify-between">
-            <label className="text-sm font-semibold text-[#4a5568] dark:text-slate-300">Current Age</label>
-            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#ec4899] font-bold dark:bg-slate-900 border border-slate-200 dark:border-white/10">
+            <label className="text-sm font-semibold text-[#4a5568]">Current Age</label>
+            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#ec4899] font-bold border border-slate-200">
               <input 
                  type="number" 
                  className="w-12 bg-transparent outline-none text-right appearance-none" 
@@ -86,15 +86,15 @@ export default function RetirementCalculator() {
             step={1}
             value={currentAge}
             onChange={(e) => setCurrentAge(Number(e.target.value))}
-            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#ec4899] dark:bg-slate-800"
+            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#ec4899]"
           />
         </div>
 
         {/* Retirement Age */}
         <div>
           <div className="mb-4 flex items-center justify-between">
-            <label className="text-sm font-semibold text-[#4a5568] dark:text-slate-300">Retirement Age</label>
-            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#ec4899] font-bold dark:bg-slate-900 border border-slate-200 dark:border-white/10">
+            <label className="text-sm font-semibold text-[#4a5568]">Retirement Age</label>
+            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#ec4899] font-bold border border-slate-200">
               <input 
                  type="number" 
                  className="w-12 bg-transparent outline-none text-right appearance-none" 
@@ -114,16 +114,16 @@ export default function RetirementCalculator() {
             step={1}
             value={retirementAge}
             onChange={(e) => setRetirementAge(Number(e.target.value))}
-            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#ec4899] dark:bg-slate-800"
+            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#ec4899]"
           />
         </div>
 
         {/* Current Monthly Expenses */}
         <div>
           <div className="mb-4 flex items-center justify-between">
-            <label className="text-sm font-semibold text-[#4a5568] dark:text-slate-300">Current Monthly Expenses</label>
-            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#ec4899] font-bold dark:bg-slate-900 border border-slate-200 dark:border-white/10">
-              <span className="text-sm">₹</span>
+            <label className="text-sm font-semibold text-[#4a5568]">Current Monthly Expenses</label>
+            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#ec4899] font-bold border border-slate-200">
+              <span className="text-sm">â‚¹</span>
               <input 
                  type="number" 
                  className="w-24 bg-transparent outline-none text-right appearance-none" 
@@ -142,28 +142,29 @@ export default function RetirementCalculator() {
             step={5000}
             value={monthlyExpenses}
             onChange={(e) => setMonthlyExpenses(Number(e.target.value))}
-            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#ec4899] dark:bg-slate-800"
+            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#ec4899]"
           />
         </div>
       </div>
 
-      <div className="flex flex-col rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:border-white/10 dark:bg-slate-950/60 sm:p-10 justify-center">
+      <div className="flex flex-col rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10 justify-center">
          
          <div className="space-y-6">
-            <h3 className="text-xl font-bold text-[#1a1560] dark:text-white font-[family-name:var(--font-sora)]">Retirement Check</h3>
+            <h3 className="text-xl font-bold text-[#1a1560] font-[family-name:var(--font-sora)]">Retirement Check</h3>
             
             <div className="rounded-2xl border border-[#ec4899]/20 bg-[#ec4899]/5 p-5">
-               <p className="text-sm font-medium text-[#4a5568] dark:text-slate-400">Monthly Expenses at Retirement (inflated)</p>
+               <p className="text-sm font-medium text-[#4a5568]">Monthly Expenses at Retirement (inflated)</p>
                <p className="mt-2 text-3xl font-bold text-[#ec4899]">{formatCurrency(monthlyExpAtRetirement)}</p>
             </div>
 
-            <div className="pt-5 border-t border-slate-200 dark:border-white/10 flex flex-col gap-2">
-               <p className="text-base font-semibold text-[#4a5568] dark:text-slate-300">Total Corpus Required to Retire</p>
-               <p className="text-4xl font-bold text-[#1a1560] dark:text-white font-[family-name:var(--font-sora)]">{formatCurrency(requiredCorpus)}</p>
-               <p className="text-xs text-[#4a5568] dark:text-slate-400 mt-2">Assuming {inflation}% inflation and {postRetirementReturns}% return post-retirement, until age {lifeExpectancy}.</p>
+            <div className="pt-5 border-t border-slate-200 flex flex-col gap-2">
+               <p className="text-base font-semibold text-[#4a5568]">Total Corpus Required to Retire</p>
+               <p className="text-4xl font-bold text-[#1a1560] font-[family-name:var(--font-sora)]">{formatCurrency(requiredCorpus)}</p>
+               <p className="text-xs text-[#4a5568] mt-2">Assuming {inflation}% inflation and {postRetirementReturns}% return post-retirement, until age {lifeExpectancy}.</p>
             </div>
          </div>
       </div>
     </div>
   );
 }
+

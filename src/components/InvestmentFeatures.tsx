@@ -52,9 +52,8 @@ export default function InvestmentFeatures() {
   return (
     <section
       id="investment-features"
-      className="relative overflow-hidden bg-white px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8"
+      className="relative overflow-hidden bg-white px-4 py-20 sm:px-6 lg:px-8"
     >
-
       <div className="relative mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -67,10 +66,10 @@ export default function InvestmentFeatures() {
             <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
               Investment Intelligence
             </p>
-            <h2 className="mt-4 max-w-2xl text-3xl font-semibold leading-tight text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
+            <h2 className="mt-4 max-w-2xl text-3xl font-semibold leading-tight text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
               Powerful tools to optimize every rupee you invest
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#475569] dark:text-slate-300 sm:text-lg">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#475569] sm:text-lg">
               From step-up SIP planning to drawdown alerts, Finlec helps you
               invest with sharper timing, better tax efficiency, and stronger
               downside control.
@@ -87,22 +86,12 @@ export default function InvestmentFeatures() {
 
           <div className="relative">
             <Image
-              src="/images/Powerful tools to optimize every rupee you invest.png"
-              alt="Powerful tools to optimize every rupee you invest"
+              src="/images/investment.jpg"
+              alt="Simple investment growth visual"
               width={1200}
               height={900}
-              className="h-64 w-full rounded-2xl border border-slate-200 object-cover dark:border-white/10 sm:h-[300px]"
+              className="h-64 w-full rounded-2xl border border-slate-200 object-cover sm:h-[300px]"
             />
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: 0.12 }}
-              className="animate-float-slow absolute -bottom-3 right-4 rounded-xl border border-slate-200 bg-white px-3 py-2 shadow-sm dark:border-white/10 dark:bg-slate-950/80"
-            >
-              <p className="text-xs font-semibold text-[#4a5568] dark:text-slate-300">SIP Efficiency</p>
-              <p className="text-sm font-bold text-[#04b488]">+17.9% projected</p>
-            </motion.div>
           </div>
         </motion.div>
 
@@ -123,10 +112,10 @@ export default function InvestmentFeatures() {
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#04b488]/10 text-[#04b488]">
                   <Icon size={20} />
                 </span>
-                <h3 className="mt-4 text-lg font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white">
+                <h3 className="mt-4 text-lg font-semibold text-[#0f172a] font-[family-name:var(--font-sora)]">
                   {feature.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#475569] dark:text-slate-300">
+                <p className="mt-2 text-sm leading-relaxed text-[#475569]">
                   {feature.description}
                 </p>
                 <p className="mt-4 inline-flex rounded-full bg-[#7B4FD4]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.13em] text-[#7B4FD4]">

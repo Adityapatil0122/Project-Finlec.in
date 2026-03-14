@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 
@@ -28,7 +28,7 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="relative overflow-hidden bg-white px-4 py-24 dark:bg-transparent sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-white px-4 py-24 sm:px-6 lg:px-8">
       <div className="relative mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -40,10 +40,10 @@ export default function TestimonialsSection() {
           <p className="inline-flex rounded-full bg-[#7B4FD4]/10 px-4 py-2 text-sm font-semibold text-[#7B4FD4]">
             Investor Stories
           </p>
-          <h2 className="mt-4 mx-auto max-w-3xl text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
+          <h2 className="mt-4 mx-auto max-w-3xl text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
             Trusted by disciplined investors across India
           </h2>
-          <p className="mt-4 mx-auto max-w-2xl text-base text-[#475569] dark:text-slate-300 sm:text-lg">
+          <p className="mt-4 mx-auto max-w-2xl text-base text-[#475569] sm:text-lg">
             Clear portfolios, consistent SIP discipline, and measurable outcomes.
           </p>
         </motion.div>
@@ -58,11 +58,11 @@ export default function TestimonialsSection() {
               transition={{ duration: 0.4, delay: index * 0.06, ease: "easeOut" }}
               className="finlec-card flex h-full flex-col justify-between p-6"
             >
-              <p className="text-sm leading-relaxed text-[#475569] dark:text-slate-300">
+              <p className="text-sm leading-relaxed text-[#475569]">
                 &quot;{testimonial.content}&quot;
               </p>
-              <div className="mt-6 flex items-center gap-4 border-t border-slate-200/70 pt-5 dark:border-white/10">
-                <div className="h-11 w-11 overflow-hidden rounded-full border border-slate-200 dark:border-white/10">
+              <div className="mt-6 flex items-center gap-4 border-t border-slate-200/70 pt-5">
+                <div className="h-11 w-11 overflow-hidden rounded-full border border-slate-200">
                   <img
                     src={testimonial.image}
                     alt={testimonial.author}
@@ -70,10 +70,10 @@ export default function TestimonialsSection() {
                   />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-[#0f172a] dark:text-white font-[family-name:var(--font-sora)]">
+                  <p className="text-sm font-semibold text-[#0f172a] font-[family-name:var(--font-sora)]">
                     {testimonial.author}
                   </p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-xs text-slate-500">
                     {testimonial.role}
                   </p>
                 </div>
@@ -85,3 +85,4 @@ export default function TestimonialsSection() {
     </section>
   );
 }
+

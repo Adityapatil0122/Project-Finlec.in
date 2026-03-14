@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -26,7 +26,7 @@ const benefits = [
   {
     id: "flexibility",
     title: "Absolute Flexibility",
-    desc: "Traditional methods like Pigmy deposits are locked. Daily SIPs offer true flexibility—you can pause, modify, or withdraw money anytime without rigid banking constraints or penalties.",
+    desc: "Traditional methods like Pigmy deposits are locked. Daily SIPs offer true flexibilityâ€”you can pause, modify, or withdraw money anytime without rigid banking constraints or penalties.",
     icon: Unlock,
     color: "from-teal-400 to-emerald-500",
     textClass: "text-emerald-500",
@@ -54,17 +54,17 @@ export default function AnimatedDailySipBenefits() {
   }, []);
 
   return (
-    <div className="mt-20 rounded-[2.5rem] bg-gradient-to-br from-[#0ea5e9]/5 to-[#7B4FD4]/5 p-8 sm:p-12 border border-slate-200 dark:border-white/5 relative overflow-hidden bg-white/40 dark:bg-slate-900/40 backdrop-blur-3xl shadow-xl shadow-slate-200/40 dark:shadow-none">
+    <div className="mt-20 rounded-[2.5rem] bg-gradient-to-br from-[#0ea5e9]/5 to-[#7B4FD4]/5 p-8 sm:p-12 border border-slate-200 relative overflow-hidden bg-white/40 backdrop-blur-3xl shadow-xl shadow-slate-200/40">
       <div className="absolute -top-24 -right-24 p-8 opacity-5 pointer-events-none text-[#0ea5e9]">
         <Trophy size={360} />
       </div>
 
       <div className="relative z-10 mx-auto max-w-5xl">
         <div className="text-center mb-12">
-          <h3 className="text-3xl font-bold text-[#1a1560] dark:text-white mb-4 lg:text-4xl">
+          <h3 className="text-3xl font-bold text-[#1a1560] mb-4 lg:text-4xl">
             Why Daily SIP Overpowers the Traditional World?
           </h3>
-          <p className="text-lg text-[#4a5568] dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-[#4a5568] max-w-2xl mx-auto leading-relaxed">
             While Pigmy deposits were historically useful, they belong to an era before digital automation. Daily SIP is an optimized wealth creation engine.
           </p>
         </div>
@@ -81,14 +81,14 @@ export default function AnimatedDailySipBenefits() {
                   onClick={() => setActiveIndex(idx)}
                   className={`relative flex items-center gap-4 p-4 rounded-2xl text-left transition-all duration-300 ${
                     isActive
-                      ? "bg-white dark:bg-slate-800 shadow-lg border border-slate-200 dark:border-white/10 scale-105 z-10"
-                      : "hover:bg-white/50 dark:hover:bg-slate-800/50 opacity-70 hover:opacity-100"
+                      ? "bg-white shadow-lg border border-slate-200 scale-105 z-10"
+                      : "hover:bg-white/50 opacity-70 hover:opacity-100"
                   }`}
                 >
-                  <div className={`p-2 rounded-xl transition-colors duration-300 ${isActive ? benefit.bgClass : "bg-slate-100 dark:bg-slate-800"}`}>
-                    <Icon className={`w-6 h-6 transition-colors duration-300 ${isActive ? benefit.textClass : "text-slate-500 dark:text-slate-400"}`} />
+                  <div className={`p-2 rounded-xl transition-colors duration-300 ${isActive ? benefit.bgClass : "bg-slate-100"}`}>
+                    <Icon className={`w-6 h-6 transition-colors duration-300 ${isActive ? benefit.textClass : "text-slate-500"}`} />
                   </div>
-                  <span className={`font-semibold transition-colors duration-300 ${isActive ? "text-[#1a1560] dark:text-white" : "text-slate-600 dark:text-slate-400"}`}>
+                  <span className={`font-semibold transition-colors duration-300 ${isActive ? "text-[#1a1560]" : "text-slate-600"}`}>
                     {benefit.title}
                   </span>
                 </button>
@@ -105,7 +105,7 @@ export default function AnimatedDailySipBenefits() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -20, scale: 0.95 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="absolute inset-0 rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-2xl p-8 lg:p-12 flex flex-col justify-center overflow-hidden"
+                className="absolute inset-0 rounded-[2rem] bg-white border border-slate-200 shadow-2xl p-8 lg:p-12 flex flex-col justify-center overflow-hidden"
               >
                 <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl ${benefits[activeIndex].color} rounded-full blur-3xl opacity-20 transform translate-x-1/3 -translate-y-1/3`} />
                 
@@ -119,11 +119,11 @@ export default function AnimatedDailySipBenefits() {
                         </div>
                       );
                     })()}
-                    <h4 className="text-3xl font-bold text-[#1a1560] dark:text-white">
+                    <h4 className="text-3xl font-bold text-[#1a1560]">
                       {benefits[activeIndex].title}
                     </h4>
                   </div>
-                  <p className="text-[#4a5568] dark:text-slate-300 text-lg leading-relaxed">
+                  <p className="text-[#4a5568] text-lg leading-relaxed">
                     {benefits[activeIndex].desc}
                   </p>
                 </div>
@@ -135,3 +135,4 @@ export default function AnimatedDailySipBenefits() {
     </div>
   );
 }
+

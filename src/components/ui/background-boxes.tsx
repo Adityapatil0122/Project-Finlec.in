@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -31,7 +31,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
       {rows.map((_, i) => (
         <motion.div
           key={`row` + i}
-          className="w-24 h-16 border-l border-slate-200/60 dark:border-slate-800/80 relative"
+          className="w-24 h-16 border-l border-slate-200/60 relative"
         >
           {cols.map((_, j) => {
              // Create a deterministic pseudo-random index based on row and col
@@ -41,10 +41,10 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
             return (
               <motion.div
                 key={`col` + j}
-                className="w-24 h-16 border-r border-t border-slate-200/60 dark:border-slate-800/80 relative flex items-center justify-center overflow-hidden bg-transparent"
+                className="w-24 h-16 border-r border-t border-slate-200/60 relative flex items-center justify-center overflow-hidden bg-transparent"
               >
                 <motion.div
-                  className="absolute inset-0 flex items-center justify-center p-3 opacity-0 bg-[#f8f9fa] dark:bg-slate-900 border border-[#04b488]/30 dark:border-white/10 z-10"
+                  className="absolute inset-0 flex items-center justify-center p-3 opacity-0 bg-[#f8f9fa] border border-[#04b488]/30 z-10"
                   whileHover={{
                     opacity: 1,
                     transition: { duration: 0 },
@@ -69,7 +69,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="absolute h-6 w-10 -top-[14px] -left-[22px] text-slate-300 dark:text-slate-800/80 stroke-[1px] pointer-events-none z-0"
+                    className="absolute h-6 w-10 -top-[14px] -left-[22px] text-slate-300 stroke-[1px] pointer-events-none z-0"
                   >
                     <path
                       strokeLinecap="round"
@@ -88,3 +88,4 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
 };
 
 export const Boxes = React.memo(BoxesCore);
+

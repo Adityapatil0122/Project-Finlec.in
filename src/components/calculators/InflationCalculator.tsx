@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Tooltip as RechartsTooltip, Cell } from "recharts";
@@ -35,14 +35,14 @@ export default function InflationCalculator() {
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
-      <div className="flex flex-col gap-10 rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:border-white/10 dark:bg-slate-950/60 sm:p-10">
+      <div className="flex flex-col gap-10 rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10">
         
         {/* Current Expense */}
         <div>
           <div className="mb-4 flex items-center justify-between">
-            <label className="text-sm font-semibold text-[#4a5568] dark:text-slate-300">Current Cost / Expense</label>
-            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#ec4899] font-bold dark:bg-slate-900 border border-slate-200 dark:border-white/10">
-              <span className="text-sm">₹</span>
+            <label className="text-sm font-semibold text-[#4a5568]">Current Cost / Expense</label>
+            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#ec4899] font-bold border border-slate-200">
+              <span className="text-sm">â‚¹</span>
               <input 
                  type="number" 
                  className="w-24 bg-transparent outline-none text-right appearance-none" 
@@ -61,15 +61,15 @@ export default function InflationCalculator() {
             step={10000}
             value={currentAmount}
             onChange={(e) => setCurrentAmount(Number(e.target.value))}
-            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#ec4899] dark:bg-slate-800"
+            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#ec4899]"
           />
         </div>
 
         {/* Inflation Rate */}
         <div>
           <div className="mb-4 flex items-center justify-between">
-            <label className="text-sm font-semibold text-[#4a5568] dark:text-slate-300">Expected Inflation Rate (p.a)</label>
-            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#ec4899] font-bold dark:bg-slate-900 border border-slate-200 dark:border-white/10">
+            <label className="text-sm font-semibold text-[#4a5568]">Expected Inflation Rate (p.a)</label>
+            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#ec4899] font-bold border border-slate-200">
               <input 
                  type="number" 
                  className="w-12 bg-transparent outline-none text-right appearance-none" 
@@ -89,15 +89,15 @@ export default function InflationCalculator() {
             step={0.1}
             value={inflationRate}
             onChange={(e) => setInflationRate(Number(e.target.value))}
-            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#ec4899] dark:bg-slate-800"
+            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#ec4899]"
           />
         </div>
 
         {/* Time period */}
         <div>
           <div className="mb-4 flex items-center justify-between">
-            <label className="text-sm font-semibold text-[#4a5568] dark:text-slate-300">Time period</label>
-            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#ec4899] font-bold dark:bg-slate-900 border border-slate-200 dark:border-white/10">
+            <label className="text-sm font-semibold text-[#4a5568]">Time period</label>
+            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#ec4899] font-bold border border-slate-200">
               <input 
                  type="number" 
                  className="w-12 bg-transparent outline-none text-right appearance-none" 
@@ -117,12 +117,12 @@ export default function InflationCalculator() {
             step={1}
             value={timePeriod}
             onChange={(e) => setTimePeriod(Number(e.target.value))}
-            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#ec4899] dark:bg-slate-800"
+            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#ec4899]"
           />
         </div>
       </div>
 
-      <div className="flex flex-col rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:border-white/10 dark:bg-slate-950/60 sm:p-10 justify-center">
+      <div className="flex flex-col rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10 justify-center">
          <div className="h-[240px] w-full">
             <ResponsiveContainer width="100%" height="100%">
                <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
@@ -131,7 +131,7 @@ export default function InflationCalculator() {
                   <RechartsTooltip 
                      formatter={(value: number | string) => formatCurrency(Number(value))}
                      contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)' }}
-                     cursor={{fill: 'var(--tw-colors-slate-100)', opacity: 0.1}} // for dark mode support if needed
+                     cursor={{fill: 'var(--tw-colors-slate-100)', opacity: 0.1}}
                   />
                   <Bar dataKey="value" radius={[6, 6, 0, 0]} maxBarSize={60}>
                      {data.map((entry, index) => (
@@ -145,27 +145,29 @@ export default function InflationCalculator() {
          <div className="mt-10 space-y-5">
             <div className="flex items-center justify-between">
                <div className="flex items-center gap-2">
-                 <span className="h-3 w-3 rounded-full bg-slate-200 dark:bg-slate-700"></span>
-                 <p className="text-sm font-medium text-[#4a5568] dark:text-slate-400">Current Cost</p>
+                 <span className="h-3 w-3 rounded-full bg-slate-200"></span>
+                 <p className="text-sm font-medium text-[#4a5568]">Current Cost</p>
                </div>
-               <p className="font-semibold text-[#1a1560] dark:text-white">{formatCurrency(currentAmount)}</p>
+               <p className="font-semibold text-[#1a1560]">{formatCurrency(currentAmount)}</p>
             </div>
             <div className="flex items-center justify-between">
                <div className="flex items-center gap-2">
-                 <span className="h-3 w-3 rounded-full bg-slate-200 dark:bg-slate-700"></span>
-                 <p className="text-sm font-medium text-[#4a5568] dark:text-slate-400">Extra Needed</p>
+                 <span className="h-3 w-3 rounded-full bg-slate-200"></span>
+                 <p className="text-sm font-medium text-[#4a5568]">Extra Needed</p>
                </div>
-               <p className="font-semibold text-[#1a1560] dark:text-white">{formatCurrency(difference)}</p>
+               <p className="font-semibold text-[#1a1560]">{formatCurrency(difference)}</p>
             </div>
-            <div className="pt-5 mt-2 border-t border-slate-200 dark:border-white/10 flex items-center justify-between">
+            <div className="pt-5 mt-2 border-t border-slate-200 flex items-center justify-between">
                <div className="flex items-center gap-2">
                  <span className="h-3 w-3 rounded-full bg-[#ec4899]"></span>
-                 <p className="text-base font-semibold text-[#4a5568] dark:text-slate-300">Future Cost</p>
+                 <p className="text-base font-semibold text-[#4a5568]">Future Cost</p>
                </div>
-               <p className="text-2xl font-bold text-[#1a1560] dark:text-white font-[family-name:var(--font-sora)]">{formatCurrency(futureAmount)}</p>
+               <p className="text-2xl font-bold text-[#1a1560] font-[family-name:var(--font-sora)]">{formatCurrency(futureAmount)}</p>
             </div>
          </div>
       </div>
     </div>
   );
 }
+
+

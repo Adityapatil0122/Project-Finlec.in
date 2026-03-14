@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo, useState } from "react";
 import { Plus, Trash2 } from "lucide-react";
@@ -127,12 +127,12 @@ export default function XIRRCalculator() {
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
-      <div className="flex flex-col gap-6 rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:border-white/10 dark:bg-slate-950/60 sm:p-10">
+      <div className="flex flex-col gap-6 rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10">
         <div>
-          <p className="text-sm font-semibold text-[#4a5568] dark:text-slate-300">
+          <p className="text-sm font-semibold text-[#4a5568]">
             Enter cash flows (negative for investments, positive for withdrawals).
           </p>
-          <p className="mt-1 text-xs text-[#94a3b8] dark:text-slate-500">
+          <p className="mt-1 text-xs text-[#94a3b8]">
             Example: -100000 on 2024-04-01, +240000 on 2026-03-01
           </p>
         </div>
@@ -141,7 +141,7 @@ export default function XIRRCalculator() {
           {cashFlows.map((flow, index) => (
             <div
               key={flow.id}
-              className="grid gap-3 rounded-2xl border border-slate-200/70 px-4 py-3 dark:border-white/10 sm:grid-cols-[1fr_1fr_auto]"
+              className="grid gap-3 rounded-2xl border border-slate-200/70 px-4 py-3 sm:grid-cols-[1fr_1fr_auto]"
             >
               <div className="flex flex-col gap-1">
                 <label className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
@@ -151,7 +151,7 @@ export default function XIRRCalculator() {
                   type="date"
                   value={flow.date}
                   onChange={(e) => updateFlow(flow.id, "date", e.target.value)}
-                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-sm outline-none focus:border-[#0ea5e9] dark:border-white/10 dark:bg-slate-950 dark:text-slate-200"
+                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-sm outline-none focus:border-[#0ea5e9]"
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -162,14 +162,14 @@ export default function XIRRCalculator() {
                   type="number"
                   value={flow.amount}
                   onChange={(e) => updateFlow(flow.id, "amount", e.target.value)}
-                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-sm outline-none focus:border-[#0ea5e9] dark:border-white/10 dark:bg-slate-950 dark:text-slate-200"
+                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-sm outline-none focus:border-[#0ea5e9]"
                 />
               </div>
               <div className="flex items-end justify-end">
                 <button
                   type="button"
                   onClick={() => removeFlow(flow.id)}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-400 transition-colors hover:border-[#ef4444] hover:text-[#ef4444] dark:border-white/10 dark:hover:border-[#ef4444]/60"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-400 transition-colors hover:border-[#ef4444] hover:text-[#ef4444]"
                   aria-label="Remove cash flow"
                 >
                   <Trash2 size={16} />
@@ -189,30 +189,30 @@ export default function XIRRCalculator() {
         </button>
       </div>
 
-      <div className="flex flex-col justify-between rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:border-white/10 dark:bg-slate-950/60 sm:p-10">
+      <div className="flex flex-col justify-between rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10">
         <div className="space-y-6">
           <div>
-            <p className="text-sm font-semibold text-[#4a5568] dark:text-slate-300">Estimated XIRR</p>
-            <p className="mt-2 text-4xl font-semibold text-[#1a1560] dark:text-white">
+            <p className="text-sm font-semibold text-[#4a5568]">Estimated XIRR</p>
+            <p className="mt-2 text-4xl font-semibold text-[#1a1560]">
               {xirrValue !== null ? `${(xirrValue * 100).toFixed(2)}%` : "--"}
             </p>
-            <p className="mt-2 text-xs text-[#94a3b8] dark:text-slate-500">
+            <p className="mt-2 text-xs text-[#94a3b8]">
               Add at least one negative and one positive cash flow to calculate XIRR.
             </p>
           </div>
 
-          <div className="space-y-3 border-t border-slate-200 pt-4 text-sm dark:border-white/10">
+          <div className="space-y-3 border-t border-slate-200 pt-4 text-sm">
             <div className="flex items-center justify-between">
-              <span className="text-[#4a5568] dark:text-slate-400">Total invested</span>
-              <span className="font-semibold text-[#1a1560] dark:text-white">{formatCurrency(totalInvested)}</span>
+              <span className="text-[#4a5568]">Total invested</span>
+              <span className="font-semibold text-[#1a1560]">{formatCurrency(totalInvested)}</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-[#4a5568] dark:text-slate-400">Total received</span>
-              <span className="font-semibold text-[#1a1560] dark:text-white">{formatCurrency(totalReceived)}</span>
+              <span className="text-[#4a5568]">Total received</span>
+              <span className="font-semibold text-[#1a1560]">{formatCurrency(totalReceived)}</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-[#4a5568] dark:text-slate-400">Net gain</span>
-              <span className="font-semibold text-[#1a1560] dark:text-white">{formatCurrency(netGain)}</span>
+              <span className="text-[#4a5568]">Net gain</span>
+              <span className="font-semibold text-[#1a1560]">{formatCurrency(netGain)}</span>
             </div>
           </div>
         </div>
@@ -220,3 +220,4 @@ export default function XIRRCalculator() {
     </div>
   );
 }
+

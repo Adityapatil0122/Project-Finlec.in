@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useMemo } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip as RechartsTooltip } from "recharts";
@@ -41,14 +41,14 @@ export default function CarLoanEMICalculator() {
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
-      <div className="flex flex-col gap-10 rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:border-white/10 dark:bg-slate-950/60 sm:p-10">
+      <div className="flex flex-col gap-10 rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10">
         
         {/* Loan Amount */}
         <div>
           <div className="mb-4 flex items-center justify-between">
-            <label className="text-sm font-semibold text-[#4a5568] dark:text-slate-300">Loan Amount</label>
-            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#14b8a6] font-bold dark:bg-slate-900 border border-slate-200 dark:border-white/10">
-              <span className="text-sm">₹</span>
+            <label className="text-sm font-semibold text-[#4a5568]">Loan Amount</label>
+            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#14b8a6] font-bold border border-slate-200">
+              <span className="text-sm">â‚¹</span>
               <input 
                  type="number" 
                  className="w-24 bg-transparent outline-none text-right appearance-none" 
@@ -67,15 +67,15 @@ export default function CarLoanEMICalculator() {
             step={50000}
             value={loanAmount}
             onChange={(e) => setLoanAmount(Number(e.target.value))}
-            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#14b8a6] dark:bg-slate-800"
+            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#14b8a6]"
           />
         </div>
 
         {/* Interest Rate */}
         <div>
           <div className="mb-4 flex items-center justify-between">
-            <label className="text-sm font-semibold text-[#4a5568] dark:text-slate-300">Rate of Interest (p.a)</label>
-            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#14b8a6] font-bold dark:bg-slate-900 border border-slate-200 dark:border-white/10">
+            <label className="text-sm font-semibold text-[#4a5568]">Rate of Interest (p.a)</label>
+            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#14b8a6] font-bold border border-slate-200">
               <input 
                  type="number" 
                  className="w-12 bg-transparent outline-none text-right appearance-none" 
@@ -95,15 +95,15 @@ export default function CarLoanEMICalculator() {
             step={0.1}
             value={interestRate}
             onChange={(e) => setInterestRate(Number(e.target.value))}
-            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#14b8a6] dark:bg-slate-800"
+            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#14b8a6]"
           />
         </div>
 
         {/* Loan Tenure */}
         <div>
           <div className="mb-4 flex items-center justify-between">
-            <label className="text-sm font-semibold text-[#4a5568] dark:text-slate-300">Loan Tenure</label>
-            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#14b8a6] font-bold dark:bg-slate-900 border border-slate-200 dark:border-white/10">
+            <label className="text-sm font-semibold text-[#4a5568]">Loan Tenure</label>
+            <div className="flex items-center gap-1 rounded-xl bg-[#f8f9fa] px-4 py-2 text-[#14b8a6] font-bold border border-slate-200">
               <input 
                  type="number" 
                  className="w-12 bg-transparent outline-none text-right appearance-none" 
@@ -123,12 +123,12 @@ export default function CarLoanEMICalculator() {
             step={1}
             value={loanTenure}
             onChange={(e) => setLoanTenure(Number(e.target.value))}
-            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#14b8a6] dark:bg-slate-800"
+            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#14b8a6]"
           />
         </div>
       </div>
 
-      <div className="flex flex-col rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:border-white/10 dark:bg-slate-950/60 sm:p-10 justify-center">
+      <div className="flex flex-col rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10 justify-center">
          <div className="h-[240px] w-full">
             <ResponsiveContainer width="100%" height="100%">
                <PieChart>
@@ -157,24 +157,25 @@ export default function CarLoanEMICalculator() {
          <div className="mt-10 space-y-5">
             <div className="flex items-center justify-between">
                <div className="flex items-center gap-2">
-                 <span className="h-3 w-3 rounded-full bg-slate-200 dark:bg-slate-700"></span>
-                 <p className="text-sm font-medium text-[#4a5568] dark:text-slate-400">Principal Amount</p>
+                 <span className="h-3 w-3 rounded-full bg-slate-200"></span>
+                 <p className="text-sm font-medium text-[#4a5568]">Principal Amount</p>
                </div>
-               <p className="font-semibold text-[#1a1560] dark:text-white">{formatCurrency(loanAmount)}</p>
+               <p className="font-semibold text-[#1a1560]">{formatCurrency(loanAmount)}</p>
             </div>
             <div className="flex items-center justify-between">
                <div className="flex items-center gap-2">
                  <span className="h-3 w-3 rounded-full bg-[#14b8a6]"></span>
-                 <p className="text-sm font-medium text-[#4a5568] dark:text-slate-400">Total Interest</p>
+                 <p className="text-sm font-medium text-[#4a5568]">Total Interest</p>
                </div>
-               <p className="font-semibold text-[#1a1560] dark:text-white">{formatCurrency(totalInterest)}</p>
+               <p className="font-semibold text-[#1a1560]">{formatCurrency(totalInterest)}</p>
             </div>
-            <div className="pt-5 mt-2 border-t border-slate-200 dark:border-white/10 flex items-center justify-between">
-               <p className="text-base font-semibold text-[#4a5568] dark:text-slate-300">Total payable</p>
-               <p className="text-2xl font-bold text-[#1a1560] dark:text-white font-[family-name:var(--font-sora)]">{formatCurrency(totalAmount)}</p>
+            <div className="pt-5 mt-2 border-t border-slate-200 flex items-center justify-between">
+               <p className="text-base font-semibold text-[#4a5568]">Total payable</p>
+               <p className="text-2xl font-bold text-[#1a1560] font-[family-name:var(--font-sora)]">{formatCurrency(totalAmount)}</p>
             </div>
          </div>
       </div>
     </div>
   );
 }
+

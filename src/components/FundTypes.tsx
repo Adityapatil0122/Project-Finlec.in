@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -45,7 +45,7 @@ const strategyIcons = [TrendingUp, Wallet, ShieldCheck];
 
 export default function FundTypes() {
   return (
-    <section id="strategies" className="bg-white px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8">
+    <section id="strategies" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -57,10 +57,10 @@ export default function FundTypes() {
           <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             Portfolio Strategies
           </p>
-          <h2 className="mt-4 text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
             Choose the right fund mix for each wealth objective
           </h2>
-          <p className="mt-4 text-base text-[#475569] dark:text-slate-300 sm:text-lg">
+          <p className="mt-4 text-base text-[#475569] sm:text-lg">
             Explore curated strategy lanes with transparent risk profiles and
             outcome-oriented portfolio design.
           </p>
@@ -96,10 +96,10 @@ export default function FundTypes() {
                         {strategy.risk}
                       </span>
                     </div>
-                    <h3 className="text-2xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white">
+                    <h3 className="text-2xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)]">
                       {strategy.title}
                     </h3>
-                    <p className="text-sm leading-relaxed text-[#475569] dark:text-slate-300">{strategy.summary}</p>
+                    <p className="text-sm leading-relaxed text-[#475569]">{strategy.summary}</p>
                     <div className="flex items-center justify-between gap-4 pt-1">
                       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#04b488]">
                         Focus: {strategy.focus}
@@ -119,3 +119,4 @@ export default function FundTypes() {
     </section>
   );
 }
+

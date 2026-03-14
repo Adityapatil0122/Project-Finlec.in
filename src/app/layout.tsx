@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
+import Navbar from "@/components/Navbar";
 import SessionProvider from "@/components/providers/SessionProvider";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
@@ -22,33 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(() => {
-              try {
-                const storageKey = "finlec-theme";
-                const storedTheme = window.localStorage.getItem(storageKey);
-                const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-                  ? "dark"
-                  : "light";
-                const theme = storedTheme === "dark" || storedTheme === "light"
-                  ? storedTheme
-                  : systemTheme;
-                const root = document.documentElement;
-                root.classList.toggle("dark", theme === "dark");
-                root.style.colorScheme = theme;
-              } catch (error) {
-                document.documentElement.style.colorScheme = "light";
-              }
-            })();`,
-          }}
-        />
-      </head>
+    <html lang="en" className="scroll-smooth">
       <body className={`${ibmPlex.className} ${ibmPlex.variable} antialiased`}>
         <SessionProvider>
-          <div className="min-h-screen">{children}</div>
+          <Navbar />
+          <div className="pt-20 sm:pt-24">{children}</div>
           <Toaster
             position="top-right"
             toastOptions={{

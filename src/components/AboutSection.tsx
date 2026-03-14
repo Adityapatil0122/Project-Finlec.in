@@ -5,12 +5,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 
-
-
 export default function AboutSection() {
   return (
-    <section id="approach" className="relative overflow-hidden bg-white px-4 py-12 dark:bg-transparent sm:px-6 lg:px-8">
-
+    <section id="approach" className="relative overflow-hidden bg-white px-4 py-12 sm:px-6 lg:px-8">
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1fr_1fr]">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
@@ -19,21 +16,21 @@ export default function AboutSection() {
           transition={{ duration: 0.55, ease: "easeOut" }}
           className="space-y-6"
         >
-          <h2 className="max-w-2xl text-3xl font-semibold leading-tight text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
+          <h2 className="max-w-2xl text-3xl font-semibold leading-tight text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
             Advisory intelligence built for long-term wealth outcomes
           </h2>
-          <p className="max-w-2xl text-base leading-relaxed text-[#475569] dark:text-slate-300 sm:text-lg">
+          <p className="max-w-2xl text-base leading-relaxed text-[#475569] sm:text-lg">
             Finlec blends human advisory discipline with modern execution. Every
             recommendation is benchmarked, risk-calibrated, and aligned with the
             outcomes that matter most to your family.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-2">
-            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-[#475569] shadow-sm dark:border-white/10 dark:bg-slate-900 dark:text-slate-300">
+            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-[#475569] shadow-sm">
               <CheckCircle2 size={16} className="text-[#04b488]" />
               SEBI Aligned Processing
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-[#475569] shadow-sm dark:border-white/10 dark:bg-slate-900 dark:text-slate-300">
+            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-[#475569] shadow-sm">
               <CheckCircle2 size={16} className="text-[#7B4FD4]" />
               Goal-First Allocations
             </span>
@@ -57,17 +54,6 @@ export default function AboutSection() {
           transition={{ duration: 0.55, delay: 0.08, ease: "easeOut" }}
           className="relative finlec-card p-5"
         >
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="animate-float-slow absolute -left-3 top-7 z-10 rounded-2xl border border-slate-200 bg-white px-3 py-2 shadow-sm dark:border-white/10 dark:bg-slate-950/80"
-          >
-            <p className="text-xs font-semibold text-[#00a57d]">Portfolio Confidence</p>
-            <p className="text-sm font-bold text-[#1a1560] dark:text-white">91 / 100</p>
-          </motion.div>
-
           <div className="relative overflow-hidden rounded-2xl">
             <Image
               src="/images/Advisory intelligence built for long-term wealth outcomes2.png"
@@ -77,7 +63,6 @@ export default function AboutSection() {
               className="h-64 w-full object-cover sm:h-[280px]"
             />
           </div>
-
         </motion.div>
       </div>
     </section>

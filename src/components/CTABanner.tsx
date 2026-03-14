@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -6,7 +6,7 @@ import { ArrowRight, Headset, PhoneCall, ShieldCheck, Sparkles } from "lucide-re
 
 export default function CTABanner() {
   return (
-    <section className="relative overflow-hidden bg-[#f8f9fa] px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-[#f8f9fa] px-4 py-20 sm:px-6 lg:px-8">
       <div className="pointer-events-none absolute left-[-150px] top-16 h-72 w-72 rounded-full bg-[#04b488]/14 blur-3xl" />
       <div className="pointer-events-none absolute right-[-170px] bottom-10 h-72 w-72 rounded-full bg-[#7B4FD4]/15 blur-3xl" />
 
@@ -15,7 +15,7 @@ export default function CTABanner() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="relative mx-auto grid max-w-7xl gap-8 overflow-hidden rounded-3xl border border-slate-200 finlec-surface p-6 shadow-sm dark:border-white/10 lg:grid-cols-[1fr_0.9fr] lg:p-8"
+        className="relative mx-auto grid max-w-7xl gap-8 overflow-hidden rounded-3xl border border-slate-200 finlec-surface p-6 shadow-sm lg:grid-cols-[1fr_0.9fr] lg:p-8"
       >
         <div className="pointer-events-none absolute right-[-120px] top-[-120px] h-56 w-56 rounded-full bg-[#7B4FD4]/12 blur-3xl" />
         <div className="pointer-events-none absolute left-[-100px] bottom-[-120px] h-56 w-56 rounded-full bg-[#04b488]/10 blur-3xl" />
@@ -25,10 +25,10 @@ export default function CTABanner() {
             <Headset size={16} />
             Premium Advisory Access
           </p>
-          <h2 className="max-w-2xl text-3xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
+          <h2 className="max-w-2xl text-3xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-4xl">
             Talk to a certified investment advisor and refine your strategy
           </h2>
-          <p className="max-w-2xl text-base leading-relaxed text-[#4a5568] dark:text-slate-300 sm:text-lg">
+          <p className="max-w-2xl text-base leading-relaxed text-[#4a5568] sm:text-lg">
             Get free guidance on SIP sizing, fund selection, and risk balance in one
             focused consultation.
           </p>
@@ -38,7 +38,7 @@ export default function CTABanner() {
               <Sparkles size={13} />
               Personalized model portfolio
             </span>
-            <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-[#4a5568] dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
+            <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-[#4a5568]">
               Free first consultation
             </span>
           </div>
@@ -55,20 +55,20 @@ export default function CTABanner() {
             <motion.a
               whileHover={{ y: -2 }}
               href="/signup"
-              className="inline-flex items-center gap-2 rounded-2xl border border-[#7B4FD4]/25 bg-[#7B4FD4]/10 px-5 py-3 text-sm font-semibold text-[#5e36b3] transition-colors hover:bg-[#7B4FD4]/15 dark:border-[#7B4FD4]/30 dark:bg-[#7B4FD4]/14 dark:text-[#dfd2ff]"
+              className="inline-flex items-center gap-2 rounded-2xl border border-[#7B4FD4]/25 bg-[#7B4FD4]/10 px-5 py-3 text-sm font-semibold text-[#5e36b3] transition-colors hover:bg-[#7B4FD4]/15"
             >
               Start Investing
               <ArrowRight size={16} />
             </motion.a>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-[#f8f9fa] px-4 py-3 text-sm text-[#4a5568] dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
+          <div className="rounded-2xl border border-slate-200 bg-[#f8f9fa] px-4 py-3 text-sm text-[#4a5568]">
             Monday to Saturday, 9:00 AM to 7:00 PM | Typical response in under 30
             minutes
           </div>
         </div>
 
-        <div className="rounded-3xl border border-slate-200 bg-white/70 p-4 backdrop-blur-sm dark:border-white/10 dark:bg-white/5">
+        <div className="rounded-3xl border border-slate-200 bg-white/70 p-4 backdrop-blur-sm">
           <div className="relative overflow-hidden rounded-2xl">
             <Image
               src="/images/Talk to a certified investment advisor and refine your strategy.png"
@@ -87,7 +87,7 @@ export default function CTABanner() {
               </p>
             </div>
           </div>
-          <div className="mt-4 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-[#4a5568] dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-300">
+          <div className="mt-4 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-[#4a5568]">
             <p className="inline-flex items-center gap-2 font-semibold text-[#04b488]">
               <ShieldCheck size={16} />
               Compliance-first recommendations
@@ -101,3 +101,4 @@ export default function CTABanner() {
     </section>
   );
 }
+

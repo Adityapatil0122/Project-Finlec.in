@@ -1,7 +1,6 @@
 import MarketingShell from "@/components/MarketingShell";
 import HeroCarousel from "@/components/HeroCarousel";
 import Hero from "@/components/Hero";
-import AboutSection from "@/components/AboutSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import InvestmentFeatures from "@/components/InvestmentFeatures";
@@ -16,7 +15,6 @@ export default function Home() {
     <MarketingShell>
       <HeroCarousel />
       <Hero />
-      <AboutSection />
       <FundTypes />
       <FeaturesSection />
       <InvestmentFeatures />

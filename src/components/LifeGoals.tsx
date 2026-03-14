@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { TrendingUp, Building2, Flag, ReceiptText, type LucideIcon } from "lucide-react";
@@ -39,7 +39,7 @@ const goals: Goal[] = [
 
 export default function LifeGoals() {
   return (
-    <section id="goals" className="bg-white px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8">
+    <section id="goals" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -51,10 +51,10 @@ export default function LifeGoals() {
           <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             Goal Architecture
           </p>
-          <h2 className="text-3xl font-semibold leading-tight text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
+          <h2 className="text-3xl font-semibold leading-tight text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
             Turn life goals into measurable investment pathways
           </h2>
-          <p className="max-w-xl text-base leading-relaxed text-[#475569] dark:text-slate-300 sm:text-lg">
+          <p className="max-w-xl text-base leading-relaxed text-[#475569] sm:text-lg">
             Each goal gets a strategy stack, timeline, and progress tracker. You
             stay focused on outcomes while the platform maintains discipline.
           </p>
@@ -89,10 +89,10 @@ export default function LifeGoals() {
                     {goal.target}
                   </span>
                 </div>
-                <h3 className="mt-5 text-xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white">
+                <h3 className="mt-5 text-xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)]">
                   {goal.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#475569] dark:text-slate-300">{goal.note}</p>
+                <p className="mt-3 text-sm leading-relaxed text-[#475569]">{goal.note}</p>
               </motion.article>
             );
           })}
@@ -101,3 +101,4 @@ export default function LifeGoals() {
     </section>
   );
 }
+

@@ -5,12 +5,12 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Activity,
+  ArrowUpRight,
   CircleDollarSign,
   PiggyBank,
   RefreshCcw,
   SlidersHorizontal,
   type LucideIcon,
-  CheckCircle2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -22,6 +22,13 @@ type Feature = {
   image: string;
   imageAlt: string;
   icon: LucideIcon;
+  accent: string;
+  progress: number;
+  riskBand: string;
+  journey: string[];
+  sparkline: string;
+  sparklineArea: string;
+  sparkPointY: number;
 };
 
 const features: Feature[] = [
@@ -33,6 +40,18 @@ const features: Feature[] = [
     image: "/images/mutualfunds.png",
     imageAlt: "Allocation intelligence illustration",
     icon: SlidersHorizontal,
+    accent: "#04b488",
+    progress: 78,
+    riskBand: "Moderate",
+    journey: [
+      "Risk profile calibrated against market regimes",
+      "Model mix aligned with timeline and return goals",
+      "Execution drift alerts active for this quarter",
+    ],
+    sparkline: "M10 76 L54 68 L98 62 L142 52 L186 38 L230 30 L280 22",
+    sparklineArea:
+      "M10 76 L54 68 L98 62 L142 52 L186 38 L230 30 L280 22 L280 90 L10 90 Z",
+    sparkPointY: 22,
   },
   {
     title: "Automated Rebalancing",
@@ -42,6 +61,18 @@ const features: Feature[] = [
     image: "/images/investment.jpg",
     imageAlt: "Automated rebalancing illustration",
     icon: RefreshCcw,
+    accent: "#0ea5e9",
+    progress: 82,
+    riskBand: "Balanced",
+    journey: [
+      "Allocation drift scanner runs every market close",
+      "Threshold breach creates suggested trade packets",
+      "Auto-reminders triggered before SIP debit windows",
+    ],
+    sparkline: "M10 74 L54 66 L98 64 L142 55 L186 49 L230 34 L280 24",
+    sparklineArea:
+      "M10 74 L54 66 L98 64 L142 55 L186 49 L230 34 L280 24 L280 90 L10 90 Z",
+    sparkPointY: 24,
   },
   {
     title: "Goal Progress Heatmap",
@@ -51,6 +82,18 @@ const features: Feature[] = [
     image: "/images/investingman.webp",
     imageAlt: "Goal progress illustration",
     icon: Activity,
+    accent: "#7b4fd4",
+    progress: 74,
+    riskBand: "Goal-led",
+    journey: [
+      "Education, retirement, and wealth goals mapped",
+      "Gap-to-target tracking recalculated on each update",
+      "Intervention suggestions queued for low-momentum goals",
+    ],
+    sparkline: "M10 78 L54 72 L98 62 L142 58 L186 46 L230 36 L280 28",
+    sparklineArea:
+      "M10 78 L54 72 L98 62 L142 58 L186 46 L230 36 L280 28 L280 90 L10 90 Z",
+    sparkPointY: 28,
   },
   {
     title: "SIP Step-Up Planner",
@@ -60,6 +103,18 @@ const features: Feature[] = [
     image: "/images/mutualfunds2.jpeg",
     imageAlt: "SIP step-up illustration",
     icon: PiggyBank,
+    accent: "#f59e0b",
+    progress: 69,
+    riskBand: "Growth",
+    journey: [
+      "Step-up ladder generated from salary growth bands",
+      "Corpus projections benchmarked across 3 scenarios",
+      "Preferred schedule exported to SIP calendar",
+    ],
+    sparkline: "M10 79 L54 74 L98 68 L142 57 L186 52 L230 39 L280 30",
+    sparklineArea:
+      "M10 79 L54 74 L98 68 L142 57 L186 52 L230 39 L280 30 L280 90 L10 90 Z",
+    sparkPointY: 30,
   },
   {
     title: "Tax Smart Investing",
@@ -69,206 +124,292 @@ const features: Feature[] = [
     image: "/images/types of mutual funds.jpeg",
     imageAlt: "Tax planning illustration",
     icon: CircleDollarSign,
+    accent: "#16a34a",
+    progress: 84,
+    riskBand: "Compliant",
+    journey: [
+      "ELSS lock-in milestones synced to financial year",
+      "Remaining 80C room highlighted for smart allocation",
+      "Tax filing snapshots prepared for advisor review",
+    ],
+    sparkline: "M10 74 L54 70 L98 62 L142 50 L186 43 L230 32 L280 20",
+    sparklineArea:
+      "M10 74 L54 70 L98 62 L142 50 L186 43 L230 32 L280 20 L280 90 L10 90 Z",
+    sparkPointY: 20,
   },
 ];
 
+const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 export default function FeaturesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const activeFeature = features[activeIndex];
+  const ActiveIcon = activeFeature.icon;
 
   return (
-    <section id="features" className="relative overflow-hidden bg-white px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8">
-
+    <section id="features" className="relative overflow-hidden bg-white px-4 py-20 sm:px-6 lg:px-8">
       <div className="relative mx-auto max-w-7xl">
         <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true, amount: 0.35 }}
-           transition={{ duration: 0.5, ease: "easeOut" }}
-           className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="mb-16 text-center"
         >
           <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             Platform Capabilities
           </p>
-          <h2 className="mt-4 mx-auto max-w-3xl text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
+          <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
             Everything needed to run a modern investment journey
           </h2>
-          <p className="mt-4 mx-auto max-w-2xl text-base text-[#475569] dark:text-slate-300 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-base text-[#475569] sm:text-lg">
             Designed for first-time and experienced investors with clear workflows,
             measurable insights, and faster execution.
           </p>
         </motion.div>
 
-        <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_1.2fr] items-center">
-          
-          {/* Left Column: Interactive Tab List */}
+        <div className="mt-12 grid items-center gap-12 lg:grid-cols-[1fr_1.2fr]">
           <div className="flex flex-col space-y-3">
-             {features.map((feature, index) => {
-               const Icon = feature.icon;
-               const isActive = activeIndex === index;
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              const isActive = activeIndex === index;
 
-               return (
-                 <button
-                   key={feature.title}
-                   onClick={() => setActiveIndex(index)}
-                   className={cn(
-                     "flex items-start gap-4 p-5 text-left rounded-3xl transition-all duration-300 border",
-                     isActive 
-                       ? "finlec-card border-[#04b488]/30 shadow-[0_18px_50px_-40px_rgba(4,180,136,0.4)]" 
-                       : "bg-transparent border-transparent hover:border-slate-200 hover:bg-white dark:hover:border-white/10 dark:hover:bg-white/5"
-                   )}
-                 >
-                    <div className={cn(
-                      "flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-2xl transition-colors duration-300",
+              return (
+                <button
+                  key={feature.title}
+                  onClick={() => setActiveIndex(index)}
+                  className={cn(
+                    "flex items-start gap-4 rounded-3xl border p-5 text-left transition-all duration-300",
+                    isActive
+                      ? "finlec-card border-[#04b488]/30 shadow-[0_18px_50px_-40px_rgba(4,180,136,0.4)]"
+                      : "border-transparent bg-transparent hover:border-slate-200 hover:bg-white"
+                  )}
+                >
+                  <div
+                    className={cn(
+                      "flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl transition-colors duration-300",
                       isActive ? "bg-[#04b488] text-white" : "bg-[#04b488]/10 text-[#04b488]"
-                    )}>
-                      <Icon size={22} />
-                    </div>
-                    <div>
-                      <h3 className={cn(
+                    )}
+                  >
+                    <Icon size={22} />
+                  </div>
+                  <div>
+                    <h3
+                      className={cn(
                         "text-lg font-semibold font-[family-name:var(--font-sora)] transition-colors",
-                        isActive ? "text-[#0f172a] dark:text-white" : "text-[#0f172a]/70 dark:text-slate-300"
-                      )}>
-                        {feature.title}
-                      </h3>
-                      <p className={cn(
-                         "mt-1 text-sm leading-relaxed transition-all duration-300 overflow-hidden",
-                         isActive ? "text-[#4a5568] dark:text-slate-400 max-h-20 opacity-100" : "max-h-0 opacity-0"
-                      )}>
-                         {feature.description}
-                      </p>
-                    </div>
-                 </button>
-               )
-             })}
+                        isActive ? "text-[#0f172a]" : "text-[#0f172a]/70"
+                      )}
+                    >
+                      {feature.title}
+                    </h3>
+                    <p
+                      className={cn(
+                        "mt-1 overflow-hidden text-sm leading-relaxed transition-all duration-300",
+                        isActive ? "max-h-20 text-[#4a5568] opacity-100" : "max-h-0 opacity-0"
+                      )}
+                    >
+                      {feature.description}
+                    </p>
+                  </div>
+                </button>
+              );
+            })}
           </div>
 
-          {/* Right Column: Dynamic Preview Window */}
-          <div className="relative h-[500px] w-full rounded-[2.5rem] border border-slate-200 bg-white shadow-[0_18px_55px_-35px_rgba(15,23,42,0.35)] dark:border-white/10 dark:bg-slate-950/80 overflow-hidden">
-             
-             {/* Mock Browser Header */}
-             <div className="flex items-center px-6 py-4 border-b border-slate-100 dark:border-white/5">
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-400" />
-                  <div className="w-3 h-3 rounded-full bg-amber-400" />
-                  <div className="w-3 h-3 rounded-full bg-green-400" />
+          <div className="relative min-h-[560px] w-full overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white shadow-[0_20px_60px_-35px_rgba(15,23,42,0.38)]">
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)]" />
+            <div
+              className="pointer-events-none absolute inset-0 opacity-35"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to right, rgba(148,163,184,0.14) 1px, transparent 1px), linear-gradient(to bottom, rgba(148,163,184,0.14) 1px, transparent 1px)",
+                backgroundSize: "28px 28px",
+              }}
+            />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`glow-${activeIndex}`}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 0.85, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.1 }}
+                transition={{ duration: 0.45, ease: easeOut }}
+                className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full blur-3xl"
+                style={{ backgroundColor: `${activeFeature.accent}30` }}
+              />
+            </AnimatePresence>
+
+            <div className="relative z-[2] p-6 sm:p-7">
+              <div className="flex items-center gap-3 border-b border-slate-200/80 pb-4">
+                <div className="flex gap-1.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
                 </div>
-                <div className="mx-auto px-4 py-1.5 rounded-full bg-slate-50 dark:bg-slate-900 text-[10px] font-semibold text-slate-400 tracking-wider">
-                   FINLEC.IN / {features[activeIndex].title.toUpperCase().replace(/\s+/g, '-')}
-                </div>
-             </div>
+                <p className="ml-2 rounded-full bg-white px-3 py-1 text-[10px] font-semibold tracking-[0.16em] text-slate-400">
+                  FINLEC CONTROL / {activeFeature.title.toUpperCase().replace(/\s+/g, "-")}
+                </p>
+                <span
+                  className="ml-auto rounded-full px-3 py-1 text-[11px] font-semibold"
+                  style={{ backgroundColor: `${activeFeature.accent}18`, color: activeFeature.accent }}
+                >
+                  {activeFeature.signal}
+                </span>
+              </div>
 
-             {/* Dynamic Content Body */}
-             <div className="relative w-full h-full p-8 flex items-center justify-center bg-[#f8fafc] dark:bg-[#0c0a2e]/20">
-                <AnimatePresence mode="wait">
-                   <motion.div
-                     key={activeIndex}
-                     initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                     animate={{ opacity: 1, scale: 1, y: 0 }}
-                     exit={{ opacity: 0, scale: 1.05, filter: "blur(4px)" }}
-                     transition={{ duration: 0.4, ease: "easeOut" }}
-                     className="w-full max-w-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-3xl p-6 shadow-xl"
-                   >
-                     <div className="space-y-5">
-                       <div className="flex items-start justify-between gap-4 border-b border-slate-100 pb-5 dark:border-white/5">
-                         <div className="flex items-start gap-4">
-                           <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-[#04b488]/10 text-[#04b488]">
-                             {(() => {
-                               const ActiveIcon = features[activeIndex].icon;
-                               return <ActiveIcon size={28} />;
-                             })()}
-                           </div>
-                           <div>
-                             <p className="text-xs font-bold uppercase tracking-widest text-[#7B4FD4] mb-1">
-                               {features[activeIndex].signal}
-                             </p>
-                             <h4 className="text-xl font-bold text-[#0f172a] dark:text-white font-[family-name:var(--font-sora)]">
-                               {features[activeIndex].title}
-                             </h4>
-                             <p className="mt-2 text-sm text-slate-500 dark:text-slate-300">
-                               {features[activeIndex].description}
-                             </p>
-                           </div>
-                         </div>
-                         <span className="rounded-full bg-[#04b488]/10 px-3 py-1 text-xs font-semibold text-[#04b488]">
-                           {features[activeIndex].metric}
-                         </span>
-                       </div>
-
-                       <div className="grid gap-4">
-                         <div className="relative h-40 overflow-hidden rounded-2xl border border-slate-200 bg-white/80 p-3 dark:border-white/10 dark:bg-slate-950/70">
-                           <Image
-                             src={features[activeIndex].image}
-                             alt={features[activeIndex].imageAlt}
-                             fill
-                             className="object-contain"
-                           />
-                         </div>
-
-                         <div className="grid gap-3 sm:grid-cols-2">
-                         {[
-                           { label: "Goal progress", value: "78%", tone: "#04b488" },
-                           { label: "Risk band", value: "Moderate", tone: "#7B4FD4" },
-                         ].map((item) => (
-                           <div
-                             key={item.label}
-                             className="rounded-2xl border border-slate-200 bg-white/80 p-4 text-sm text-slate-600 shadow-sm dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-300"
-                           >
-                             <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                               {item.label}
-                             </p>
-                             <p className="mt-2 text-lg font-semibold" style={{ color: item.tone }}>
-                               {item.value}
-                             </p>
-                             <div className="mt-3 h-2 w-full rounded-full bg-slate-100 dark:bg-slate-800">
-                               <div
-                                 className="h-full rounded-full"
-                                 style={{
-                                   width: item.label === "Goal progress" ? "78%" : "62%",
-                                   backgroundColor: item.tone,
-                                 }}
-                               />
-                             </div>
-                           </div>
-                         ))}
-                         </div>
-
-                       <div className="rounded-2xl border border-slate-200 bg-white/85 p-4 text-sm text-slate-600 shadow-sm dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-300">
-                         <div className="flex items-center justify-between text-xs font-semibold text-slate-400">
-                           <span>Momentum (30 days)</span>
-                           <span className="text-[#04b488]">+1.8%</span>
-                         </div>
-                         <svg viewBox="0 0 260 90" className="mt-3 h-20 w-full">
-                           <path
-                             d="M10 70 L60 60 L110 56 L160 42 L210 30 L250 22"
-                             fill="none"
-                             stroke="#04b488"
-                             strokeWidth="3"
-                           />
-                           <path
-                             d="M10 70 L60 60 L110 56 L160 42 L210 30 L250 22 L250 85 L10 85 Z"
-                             fill="#04b488"
-                             opacity="0.12"
-                           />
-                         </svg>
-                       </div>
-
-                       <div className="space-y-2 text-xs text-slate-500 dark:text-slate-400">
-                         {[
-                           "Auto-rebalanced 2 funds in the last 30 days",
-                           "SIP step-up suggestion ready for next cycle",
-                           "Tax-saver window opens in 18 days",
-                         ].map((text) => (
-                           <div key={text} className="flex items-center gap-2">
-                             <CheckCircle2 size={14} className="text-[#04b488]" />
-                             <span>{text}</span>
-                           </div>
-                         ))}
-                       </div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeFeature.title}
+                  initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                  transition={{ duration: 0.42, ease: easeOut }}
+                  className="mt-6 space-y-4"
+                >
+                  <div className="grid gap-3 sm:grid-cols-[1.25fr_0.75fr]">
+                    <div className="rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-sm">
+                      <div className="flex items-start gap-3">
+                        <div
+                          className="flex h-12 w-12 items-center justify-center rounded-2xl"
+                          style={{ backgroundColor: `${activeFeature.accent}15`, color: activeFeature.accent }}
+                        >
+                          <ActiveIcon size={24} />
+                        </div>
+                        <div>
+                          <h4 className="text-lg font-semibold text-[#0f172a] font-[family-name:var(--font-sora)]">
+                            {activeFeature.title}
+                          </h4>
+                          <p className="mt-1 text-sm text-slate-600">{activeFeature.description}</p>
+                        </div>
                       </div>
                     </div>
-                  </motion.div>
-                </AnimatePresence>
-             </div>
+
+                    <div className="rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-sm">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                        Execution Status
+                      </p>
+                      <p className="mt-2 text-xl font-semibold text-[#0f172a]">{activeFeature.metric}</p>
+                      <div className="mt-3 h-2 w-full rounded-full bg-slate-100">
+                        <motion.div
+                          className="h-full rounded-full"
+                          style={{ backgroundColor: activeFeature.accent }}
+                          initial={{ width: 0 }}
+                          animate={{ width: `${activeFeature.progress}%` }}
+                          transition={{ duration: 0.55, ease: easeOut }}
+                        />
+                      </div>
+                      <p className="mt-2 text-xs text-slate-500">System confidence: {activeFeature.progress}%</p>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-3 lg:grid-cols-[0.92fr_1.08fr]">
+                    <div className="rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-sm">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                        Journey Flow
+                      </p>
+                      <div className="mt-4 space-y-3">
+                        {activeFeature.journey.map((step, stepIndex) => (
+                          <div key={step} className="relative pl-6">
+                            {stepIndex < activeFeature.journey.length - 1 ? (
+                              <span className="absolute left-[8px] top-5 h-8 w-px bg-slate-200" />
+                            ) : null}
+                            <motion.span
+                              className="absolute left-0 top-1.5 h-4 w-4 rounded-full border-2 bg-white"
+                              style={{ borderColor: activeFeature.accent }}
+                              animate={{ scale: [1, 1.16, 1] }}
+                              transition={{
+                                duration: 1.3,
+                                repeat: Number.POSITIVE_INFINITY,
+                                delay: stepIndex * 0.2,
+                                ease: easeOut,
+                              }}
+                            />
+                            <p className="text-sm text-slate-600">{step}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-sm">
+                      <div className="flex items-center justify-between">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                          Signal Momentum
+                        </p>
+                        <span className="text-sm font-semibold" style={{ color: activeFeature.accent }}>
+                          +{Math.max(8, activeFeature.progress - 62)}%
+                        </span>
+                      </div>
+                      <svg viewBox="0 0 290 96" className="mt-3 h-24 w-full">
+                        <path d="M8 82 H282 M8 58 H282 M8 34 H282" stroke="#e2e8f0" strokeWidth="1" fill="none" />
+                        <motion.path
+                          d={activeFeature.sparklineArea}
+                          fill={activeFeature.accent}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 0.14 }}
+                          transition={{ duration: 0.45, ease: easeOut }}
+                        />
+                        <motion.path
+                          d={activeFeature.sparkline}
+                          fill="none"
+                          stroke={activeFeature.accent}
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          initial={{ pathLength: 0, opacity: 0.5 }}
+                          animate={{ pathLength: 1, opacity: 1 }}
+                          transition={{ duration: 0.8, ease: easeOut }}
+                        />
+                        <motion.circle
+                          cx="280"
+                          cy={activeFeature.sparkPointY}
+                          r="4"
+                          fill={activeFeature.accent}
+                          animate={{ r: [4, 5.6, 4], opacity: [0.85, 1, 0.85] }}
+                          transition={{ duration: 1.2, repeat: Number.POSITIVE_INFINITY, ease: easeOut }}
+                        />
+                      </svg>
+
+                      <div className="mt-2 grid grid-cols-3 gap-2 text-xs">
+                        <div className="rounded-xl bg-slate-50 px-2 py-1.5 text-slate-500">
+                          30D: <span className="font-semibold text-slate-700">+1.8%</span>
+                        </div>
+                        <div className="rounded-xl bg-slate-50 px-2 py-1.5 text-slate-500">
+                          Risk: <span className="font-semibold text-slate-700">{activeFeature.riskBand}</span>
+                        </div>
+                        <div className="rounded-xl bg-slate-50 px-2 py-1.5 text-slate-500">
+                          Goal: <span className="font-semibold text-slate-700">{activeFeature.progress}%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-3 sm:grid-cols-[1fr_0.9fr]">
+                    <div className="relative h-36 overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm">
+                      <Image src={activeFeature.image} alt={activeFeature.imageAlt} fill className="object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/38 to-transparent" />
+                      <div className="absolute bottom-3 left-3 rounded-full bg-white/85 px-3 py-1 text-xs font-semibold text-slate-700">
+                        {activeFeature.signal}
+                      </div>
+                    </div>
+
+                    <div className="rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-sm">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                        Next Action
+                      </p>
+                      <p className="mt-2 text-sm text-slate-600">
+                        Ready to apply the latest recommendation for this capability and improve outcome stability.
+                      </p>
+                      <button
+                        type="button"
+                        className="mt-4 inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-sm font-semibold text-white"
+                        style={{ backgroundColor: activeFeature.accent }}
+                      >
+                        Review Plan
+                        <ArrowUpRight size={15} />
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </div>

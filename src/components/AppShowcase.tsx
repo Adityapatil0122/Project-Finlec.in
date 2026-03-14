@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 function PhoneShell({
@@ -35,25 +36,37 @@ function PhoneShell({
 function Testimonial({
   quote,
   initials,
+  avatarSrc,
   name,
   subtitle,
 }: {
   quote: string;
   initials: string;
+  avatarSrc?: string;
   name: string;
   subtitle: string;
 }) {
   return (
-    <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-5 dark:border-white/10 dark:bg-white/5">
+    <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-5">
       <p className="text-3xl leading-none text-[#04b488]">&quot;</p>
-      <p className="mt-2 text-sm italic text-[#475569] dark:text-slate-400">{quote}</p>
+      <p className="mt-2 text-sm italic text-[#475569]">{quote}</p>
       <div className="mt-4 flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#04b488]/10 text-sm font-semibold text-[#0f172a] dark:bg-white/10 dark:text-slate-200">
-          {initials}
-        </div>
+        {avatarSrc ? (
+          <Image
+            src={avatarSrc}
+            alt={`${name} profile`}
+            width={40}
+            height={40}
+            className="h-10 w-10 rounded-full border border-slate-200 object-cover"
+          />
+        ) : (
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#04b488]/10 text-sm font-semibold text-[#0f172a]">
+            {initials}
+          </div>
+        )}
         <div>
-          <p className="text-sm font-semibold text-[#0f172a] dark:text-white">{name}</p>
-          <p className="text-xs text-[#475569] dark:text-slate-400">{subtitle}</p>
+          <p className="text-sm font-semibold text-[#0f172a]">{name}</p>
+          <p className="text-xs text-[#475569]">{subtitle}</p>
         </div>
       </div>
     </div>
@@ -62,7 +75,7 @@ function Testimonial({
 
 export default function AppShowcase() {
   return (
-    <section className="bg-white px-4 py-20 dark:bg-transparent sm:px-6 lg:px-8">
+    <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl space-y-10">
         <motion.article
           initial={{ opacity: 0, y: 20 }}
@@ -72,23 +85,24 @@ export default function AppShowcase() {
           className="grid gap-10 finlec-card p-7 lg:grid-cols-2 lg:items-center lg:p-10"
         >
           <div>
-            <h2 className="text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
+            <h2 className="text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
               Achieve Your Goals.
             </h2>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-[#475569] dark:text-slate-300">
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-[#475569]">
               Finlec makes it easy to plan for your family&apos;s goals, get
               personalised investment recommendations, track progress and take
               corrective action.
             </p>
             <button
               type="button"
-              className="mt-6 rounded-full border border-[#04b488]/20 bg-[#04b488]/10 px-6 py-2.5 text-sm font-semibold text-[#04b488] transition-colors hover:bg-[#04b488]/15 dark:bg-[#04b488]/14 dark:text-[#7ff7cc]"
+              className="mt-6 rounded-full border border-[#04b488]/20 bg-[#04b488]/10 px-6 py-2.5 text-sm font-semibold text-[#04b488] transition-colors hover:bg-[#04b488]/15"
             >
               Get Started
             </button>
             <Testimonial
               quote="Investing with Finlec has helped me dream bigger for my family."
               initials="RK"
+              avatarSrc="/images/rahul-avatar.svg"
               name="Rahul Kumar"
               subtitle="Software Engineer, Pune"
             />
@@ -130,7 +144,7 @@ export default function AppShowcase() {
                 </div>
               </div>
 
-              <div className="mt-auto rounded-2xl bg-white p-4 text-[#1a1560] shadow-lg shadow-black/20 dark:bg-slate-950/85 dark:text-white">
+              <div className="mt-auto rounded-2xl bg-white p-4 text-[#1a1560] shadow-lg shadow-black/20">
                 <p className="text-xs font-semibold">Your Required SIP</p>
                 <button
                   type="button"
@@ -140,7 +154,7 @@ export default function AppShowcase() {
                 </button>
                 <button
                   type="button"
-                  className="mt-2 w-full rounded-xl bg-[#04b488]/10 px-3 py-2 text-xs font-semibold text-[#1a1560] dark:bg-white/10 dark:text-slate-200"
+                  className="mt-2 w-full rounded-xl bg-[#04b488]/10 px-3 py-2 text-xs font-semibold text-[#1a1560]"
                 >
                   Start Small 2,500
                 </button>
@@ -157,39 +171,40 @@ export default function AppShowcase() {
           className="grid gap-10 finlec-card p-7 lg:grid-cols-2 lg:items-center lg:p-10"
         >
           <div>
-            <h2 className="text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] dark:text-white sm:text-4xl">
+            <h2 className="text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
               Grow Your Wealth.
             </h2>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-[#475569] dark:text-slate-300">
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-[#475569]">
               Clients who started investing with Finlec have been able to build
               meaningful long-term wealth through disciplined and consistent
               investing.
             </p>
             <button
               type="button"
-              className="mt-6 rounded-full border border-[#04b488]/20 bg-[#04b488]/10 px-6 py-2.5 text-sm font-semibold text-[#04b488] transition-colors hover:bg-[#04b488]/15 dark:bg-[#04b488]/14 dark:text-[#7ff7cc]"
+              className="mt-6 rounded-full border border-[#04b488]/20 bg-[#04b488]/10 px-6 py-2.5 text-sm font-semibold text-[#04b488] transition-colors hover:bg-[#04b488]/15"
             >
               Start Investing
             </button>
             <Testimonial
               quote="I've accumulated my first 10 Lakh in mutual fund savings thanks to Finlec. Simple and effective platform."
               initials="SP"
+              avatarSrc="/images/sneha-avatar.svg"
               name="Sneha Patil"
               subtitle="Investor since 2022"
             />
           </div>
 
           <PhoneShell tiltClassName="lg:rotate-1">
-            <div className="flex h-full flex-col rounded-[2.25rem] bg-white p-4 dark:bg-[radial-gradient(circle_at_20%_15%,rgba(4,180,136,0.14),rgba(10,15,27,1)_42%,rgba(8,12,22,1)_100%)]">
-              <div className="flex items-center justify-between text-[10px] text-[#4a5568] dark:text-slate-400">
+            <div className="flex h-full flex-col rounded-[2.25rem] bg-white p-4">
+              <div className="flex items-center justify-between text-[10px] text-[#4a5568]">
                 <p className="font-medium">9:41</p>
                 <p>5G 92%</p>
               </div>
-              <p className="mt-4 text-sm font-semibold text-[#1a1560] dark:text-white">Finlec Investments</p>
-              <p className="mt-4 text-4xl font-bold text-[#1a1560] dark:text-white">10.5 Cr</p>
-              <p className="mt-1 text-xs text-[#4a5568] dark:text-slate-400">Current Value</p>
+              <p className="mt-4 text-sm font-semibold text-[#1a1560]">Finlec Investments</p>
+              <p className="mt-4 text-4xl font-bold text-[#1a1560]">10.5 Cr</p>
+              <p className="mt-1 text-xs text-[#4a5568]">Current Value</p>
 
-              <div className="mt-5 rounded-2xl border border-slate-200 bg-[#fbfcfd] p-3 dark:border-white/10 dark:bg-slate-950/70">
+              <div className="mt-5 rounded-2xl border border-slate-200 bg-[#fbfcfd] p-3">
                 <svg viewBox="0 0 260 140" className="h-32 w-full">
                   <path
                     d="M10 115 H250 M10 90 H250 M10 65 H250 M10 40 H250"
@@ -209,7 +224,7 @@ export default function AppShowcase() {
                     strokeWidth="3"
                   />
                 </svg>
-                <div className="mt-1 grid grid-cols-5 text-[10px] text-[#4a5568] dark:text-slate-400">
+                <div className="mt-1 grid grid-cols-5 text-[10px] text-[#4a5568]">
                   <span>2020</span>
                   <span className="text-center">2021</span>
                   <span className="text-center">2022</span>
@@ -218,17 +233,17 @@ export default function AppShowcase() {
                 </div>
               </div>
 
-              <div className="mt-4 space-y-3 rounded-2xl border border-slate-200 bg-white p-3 text-xs shadow-sm dark:border-white/10 dark:bg-slate-950/75">
-                <div className="flex items-center justify-between border-b border-slate-200 pb-2 dark:border-white/10">
-                  <p className="text-[#4a5568] dark:text-slate-400">Total Returns</p>
+              <div className="mt-4 space-y-3 rounded-2xl border border-slate-200 bg-white p-3 text-xs shadow-sm">
+                <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+                  <p className="text-[#4a5568]">Total Returns</p>
                   <p className="font-semibold text-[#04b488]">4.2 Cr (67%)</p>
                 </div>
-                <div className="flex items-center justify-between border-b border-slate-200 pb-2 dark:border-white/10">
-                  <p className="text-[#4a5568] dark:text-slate-400">Amount Invested</p>
-                  <p className="font-semibold text-[#1a1560] dark:text-white">6.3 Cr</p>
+                <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+                  <p className="text-[#4a5568]">Amount Invested</p>
+                  <p className="font-semibold text-[#1a1560]">6.3 Cr</p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <p className="text-[#4a5568] dark:text-slate-400">XIRR</p>
+                  <p className="text-[#4a5568]">XIRR</p>
                   <p className="font-semibold text-[#04b488]">15.42%</p>
                 </div>
               </div>

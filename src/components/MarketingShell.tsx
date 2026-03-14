@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+﻿import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +14,7 @@ export default function MarketingShell({
   return (
     <div
       className={cn(
-        "finlec-fonts relative overflow-x-clip bg-white text-[#0f172a] font-[family-name:var(--font-ibm-plex)] transition-colors dark:bg-[#0b0d17] dark:text-slate-100"
+        "finlec-fonts relative overflow-x-clip bg-white text-[#0f172a] font-[family-name:var(--font-ibm-plex)] transition-colors"
       )}
     >
       <Navbar />
@@ -23,3 +23,4 @@ export default function MarketingShell({
     </div>
   );
 }
+

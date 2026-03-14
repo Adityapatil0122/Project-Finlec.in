@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -9,7 +9,6 @@ import {
   BarChart,
   BookOpen,
   Briefcase,
-  CheckCircle2,
   Clock,
   FileText,
   HelpCircle,
@@ -245,15 +244,15 @@ export default function MutualFundsGuide() {
       <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-16">
         <motion.div {...fadeUp} className="text-center">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#04b488]/20 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#047a5d] shadow-sm dark:border-[#04b488]/30 dark:bg-slate-950/70 dark:text-[#7ff7cc]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#04b488]/20 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#047a5d] shadow-sm">
               <ShieldCheck className="h-4 w-4" />
               Beginner Guide
             </span>
-            <h1 className="mt-5 text-4xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white sm:text-5xl">
+            <h1 className="mt-5 text-4xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-5xl">
               Mutual Fund
               <span className="block">Beginner&apos;s Guide</span>
             </h1>
-            <p className="mt-4 mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-300">
+            <p className="mt-4 mx-auto max-w-2xl text-lg text-slate-600">
               Learn what mutual funds are, how they work, and how to start
               investing with confidence. Clear, practical, and beginner-first.
             </p>
@@ -267,7 +266,7 @@ export default function MutualFundsGuide() {
               </Link>
               <Link
                 href="/explore-mutual-funds"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:border-[#7B4FD4]/40 hover:text-[#5e36b3] dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-200 dark:hover:border-[#7B4FD4]/50 dark:hover:text-[#e1d6ff]"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:border-[#7B4FD4]/40 hover:text-[#5e36b3]"
               >
                 Explore mutual funds
               </Link>
@@ -293,7 +292,7 @@ export default function MutualFundsGuide() {
                   variants={staggerItem}
                   key={item.title}
                   className={cn(
-                    "relative overflow-hidden rounded-2xl border border-slate-100 bg-white/80 p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1 dark:border-white/10 dark:bg-slate-950/60",
+                    "relative overflow-hidden rounded-2xl border border-slate-100 bg-white/80 p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1",
                     idx === 2 && "sm:col-span-2"
                   )}
                 >
@@ -308,11 +307,11 @@ export default function MutualFundsGuide() {
                     >
                       <Icon className="h-5 w-5" />
                     </span>
-                    <h3 className="text-base font-semibold text-[#1a1560] dark:text-white">
+                    <h3 className="text-base font-semibold text-[#1a1560]">
                       {item.title}
                     </h3>
                   </div>
-                  <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                  <p className="mt-3 text-sm text-slate-600">
                     {item.description}
                   </p>
                 </motion.div>
@@ -325,7 +324,7 @@ export default function MutualFundsGuide() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
-            className="relative overflow-hidden rounded-3xl border border-white/70 bg-white/80 p-6 shadow-[0_18px_40px_-25px_rgba(15,23,42,0.35)] backdrop-blur dark:border-white/10 dark:bg-slate-950/70"
+            className="relative overflow-hidden rounded-3xl border border-white/70 bg-white/80 p-6 shadow-[0_18px_40px_-25px_rgba(15,23,42,0.35)] backdrop-blur"
           >
             <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#7B4FD4]/15 blur-2xl" />
             <div className="relative space-y-4">
@@ -337,7 +336,7 @@ export default function MutualFundsGuide() {
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#7B4FD4]">
                     Guide snapshot
                   </p>
-                  <p className="text-sm font-semibold text-[#1a1560] dark:text-white">
+                  <p className="text-sm font-semibold text-[#1a1560]">
                     Designed for first-time investors
                   </p>
                 </div>
@@ -350,12 +349,12 @@ export default function MutualFundsGuide() {
                   className="object-cover"
                 />
               </div>
-              <div className="grid gap-3 text-xs text-slate-600 dark:text-slate-300">
-                <div className="flex items-center justify-between rounded-2xl border border-slate-100 bg-white/80 px-4 py-3 dark:border-white/10 dark:bg-slate-950/70">
+              <div className="grid gap-3 text-xs text-slate-600">
+                <div className="flex items-center justify-between rounded-2xl border border-slate-100 bg-white/80 px-4 py-3">
                   <span>Risk explained</span>
                   <span className="font-semibold text-[#047a5d]">Easy</span>
                 </div>
-                <div className="flex items-center justify-between rounded-2xl border border-slate-100 bg-white/80 px-4 py-3 dark:border-white/10 dark:bg-slate-950/70">
+                <div className="flex items-center justify-between rounded-2xl border border-slate-100 bg-white/80 px-4 py-3">
                   <span>Action checklist</span>
                   <span className="font-semibold text-[#5e36b3]">Included</span>
                 </div>
@@ -370,11 +369,11 @@ export default function MutualFundsGuide() {
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#7B4FD4]">
                 Start with the basics
               </p>
-              <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">
+              <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
                 What is a mutual fund?
               </h2>
             </div>
-            <p className="text-lg text-slate-600 dark:text-slate-300">
+            <p className="text-lg text-slate-600">
               A mutual fund pools money from many investors and invests it in a
               diversified basket of assets like stocks or bonds. You own units
               of the fund, and the unit price (NAV) changes with the portfolio.
@@ -401,10 +400,10 @@ export default function MutualFundsGuide() {
                 return (
                   <div
                     key={item.title}
-                    className="rounded-2xl border border-slate-200 bg-white/80 p-4 text-sm text-slate-600 shadow-sm dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-300"
+                    className="rounded-2xl border border-slate-200 bg-white/80 p-4 text-sm text-slate-600 shadow-sm"
                   >
                     <Icon className="h-5 w-5 text-[#04b488]" />
-                    <h3 className="mt-3 text-base font-semibold text-[#1a1560] dark:text-white">
+                    <h3 className="mt-3 text-base font-semibold text-[#1a1560]">
                       {item.title}
                     </h3>
                     <p className="mt-2 text-sm">{item.description}</p>
@@ -416,7 +415,7 @@ export default function MutualFundsGuide() {
 
           <motion.div
             {...fadeUp}
-            className="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-[0_18px_50px_-35px_rgba(15,23,42,0.4)] dark:border-white/10 dark:bg-slate-950/70"
+            className="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-[0_18px_50px_-35px_rgba(15,23,42,0.4)]"
           >
             <div className="relative mb-5 h-40 overflow-hidden rounded-2xl">
               <Image
@@ -432,10 +431,10 @@ export default function MutualFundsGuide() {
                 <Target className="h-6 w-6" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-[#1a1560] dark:text-white">
+                <p className="text-sm font-semibold text-[#1a1560]">
                   How mutual funds work
                 </p>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
+                <p className="text-xs text-slate-500">
                   A simple 4-step flow
                 </p>
               </div>
@@ -451,7 +450,7 @@ export default function MutualFundsGuide() {
                   <span className="mt-0.5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#7B4FD4]/15 text-xs font-semibold text-[#5e36b3]">
                     {idx + 1}
                   </span>
-                  <p className="text-sm text-slate-600 dark:text-slate-300">
+                  <p className="text-sm text-slate-600">
                     {text}
                   </p>
                 </div>
@@ -465,7 +464,7 @@ export default function MutualFundsGuide() {
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#04b488]">
               Fund categories
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">
+            <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
               Common types beginners start with
             </h2>
           </div>
@@ -481,11 +480,11 @@ export default function MutualFundsGuide() {
                 key={fund.title}
                 variants={staggerItem}
                 className={cn(
-                  "flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1 dark:border-white/10 dark:bg-slate-950/70 lg:flex-row lg:items-center",
+                  "flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1 lg:flex-row lg:items-center",
                   idx % 2 === 1 && "lg:flex-row-reverse"
                 )}
               >
-                <div className="relative h-48 overflow-hidden rounded-2xl border border-white/70 bg-white/80 p-3 shadow-sm dark:border-white/10 dark:bg-slate-950/70 lg:h-56 lg:w-5/12">
+                <div className="relative h-48 overflow-hidden rounded-2xl border border-white/70 bg-white/80 p-3 shadow-sm lg:h-56 lg:w-5/12">
                   <Image
                     src={fund.image}
                     alt={`${fund.title} illustration`}
@@ -502,7 +501,7 @@ export default function MutualFundsGuide() {
                 </div>
                 <div className="flex-1 space-y-3">
                   <div className="flex flex-wrap items-center gap-3">
-                    <h3 className="text-xl font-semibold text-[#1a1560] dark:text-white">
+                    <h3 className="text-xl font-semibold text-[#1a1560]">
                       {fund.title}
                     </h3>
                     <span
@@ -515,10 +514,10 @@ export default function MutualFundsGuide() {
                       {fund.tag}
                     </span>
                   </div>
-                  <p className="text-sm text-slate-600 dark:text-slate-300">
+                  <p className="text-sm text-slate-600">
                     {fund.description}
                   </p>
-                  <div className="rounded-2xl border border-slate-100 bg-white/70 px-4 py-3 text-xs text-slate-600 dark:border-white/10 dark:bg-slate-950/60 dark:text-slate-300">
+                  <div className="rounded-2xl border border-slate-100 bg-white/70 px-4 py-3 text-xs text-slate-600">
                     Good for: {fund.note}
                   </div>
                 </div>
@@ -533,14 +532,14 @@ export default function MutualFundsGuide() {
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#7B4FD4]">
                 Choose your path
               </p>
-              <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">
+              <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
                 SIP vs Lump Sum
               </h2>
-              <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
+              <p className="mt-3 text-sm text-slate-600">
                 Select a style to see when it works best.
               </p>
             </div>
-            <div className="flex gap-2 rounded-full border border-slate-200 bg-white p-1 dark:border-white/10 dark:bg-slate-950/70">
+            <div className="flex gap-2 rounded-full border border-slate-200 bg-white p-1">
               {(["sip", "lumpsum"] as const).map((key) => (
                 <button
                   key={key}
@@ -550,7 +549,7 @@ export default function MutualFundsGuide() {
                     "rounded-full px-5 py-2 text-sm font-semibold transition-colors",
                     mode === key
                       ? "bg-[#04b488] text-white shadow-sm"
-                      : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+                      : "text-slate-600 hover:text-slate-900"
                   )}
                 >
                   {key === "sip" ? "SIP" : "Lump Sum"}
@@ -563,10 +562,10 @@ export default function MutualFundsGuide() {
             <div className="inline-flex items-center gap-2 rounded-full bg-[#04b488]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#047a5d]">
               {mode === "sip" ? "SIP route" : "Lump sum route"}
             </div>
-            <h3 className="text-2xl font-semibold text-[#1a1560] dark:text-white">
+            <h3 className="text-2xl font-semibold text-[#1a1560]">
               {activeMode.title}
             </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-300">
+            <p className="text-sm text-slate-600">
               {activeMode.summary}
             </p>
             <div>
@@ -577,7 +576,7 @@ export default function MutualFundsGuide() {
                 {activeMode.bestFor.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-[#04b488]/20 bg-white px-4 py-2 text-xs font-semibold text-[#1a1560] shadow-sm dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-200"
+                    className="rounded-full border border-[#04b488]/20 bg-white px-4 py-2 text-xs font-semibold text-[#1a1560] shadow-sm"
                   >
                     {item}
                   </span>
@@ -592,7 +591,7 @@ export default function MutualFundsGuide() {
                 <span>Review</span>
               </div>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-500">
               This is educational guidance, not investment advice.
             </p>
           </div>
@@ -603,19 +602,19 @@ export default function MutualFundsGuide() {
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#04b488]">
               The compounding effect
             </p>
-            <h2 className="text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">
+            <h2 className="text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
               Money grows on money.
             </h2>
-            <p className="text-sm text-slate-600 dark:text-slate-300">
+            <p className="text-sm text-slate-600">
               Compounding means your returns start earning returns. The longer
               you stay invested, the more powerful the effect becomes.
             </p>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-500">
               Example below is illustrative only, not a forecast.
             </p>
           </div>
-          <div className="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-sm dark:border-white/10 dark:bg-slate-950/70">
-            <div className="relative mb-4 h-32 overflow-hidden rounded-2xl bg-white p-3 dark:bg-slate-950/70">
+          <div className="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-sm">
+            <div className="relative mb-4 h-32 overflow-hidden rounded-2xl bg-white p-3">
               <Image
                 src="/images/mutualfunds.png"
                 alt="Compounding illustration"
@@ -631,16 +630,16 @@ export default function MutualFundsGuide() {
                 { year: "Year 3", amount: "121 grows to 133.1" },
               ].map((row) => (
                 <div key={row.year} className="flex items-center justify-between">
-                  <span className="text-sm font-semibold text-[#1a1560] dark:text-white">
+                  <span className="text-sm font-semibold text-[#1a1560]">
                     {row.year}
                   </span>
-                  <span className="text-sm text-slate-600 dark:text-slate-300">
+                  <span className="text-sm text-slate-600">
                     {row.amount}
                   </span>
                 </div>
               ))}
             </div>
-            <div className="mt-6 rounded-2xl bg-[#7B4FD4]/10 px-4 py-3 text-xs text-[#5e36b3] dark:bg-[#7B4FD4]/20 dark:text-[#e1d6ff]">
+            <div className="mt-6 rounded-2xl bg-[#7B4FD4]/10 px-4 py-3 text-xs text-[#5e36b3]">
               Even small, consistent investments can grow meaningfully over long
               periods.
             </div>
@@ -652,10 +651,10 @@ export default function MutualFundsGuide() {
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#7B4FD4]">
               How to choose
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">
+            <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
               How to Start Investing
             </h2>
-            <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
+            <p className="mt-3 text-sm text-slate-600">
               Six clear steps
             </p>
           </div>
@@ -683,14 +682,14 @@ export default function MutualFundsGuide() {
                   </div>
                   <div
                     className={cn(
-                      "rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-sm dark:border-white/10 dark:bg-slate-950/70",
-                      idx % 2 === 1 && "bg-[#7B4FD4]/5 dark:bg-[#7B4FD4]/10"
+                      "rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-sm",
+                      idx % 2 === 1 && "bg-[#7B4FD4]/5"
                     )}
                   >
-                    <h3 className="text-lg font-semibold text-[#1a1560] dark:text-white">
+                    <h3 className="text-lg font-semibold text-[#1a1560]">
                       {step.title}
                     </h3>
-                    <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                    <p className="mt-3 text-sm text-slate-600">
                       {step.description}
                     </p>
                   </div>
@@ -705,14 +704,14 @@ export default function MutualFundsGuide() {
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#04b488]">
               Glossary
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">
+            <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
               Six terms every beginner must understand before investing
             </h2>
           </div>
           <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div className="grid gap-4">
-              <div className="rounded-3xl border border-slate-200 bg-white/85 p-5 shadow-sm dark:border-white/10 dark:bg-slate-950/70">
-                <div className="relative h-40 overflow-hidden rounded-2xl bg-white p-3 dark:bg-slate-950/70">
+              <div className="rounded-3xl border border-slate-200 bg-white/85 p-5 shadow-sm">
+                <div className="relative h-40 overflow-hidden rounded-2xl bg-white p-3">
                   <Image
                     src="/images/download.webp"
                     alt="Glossary card illustration"
@@ -721,17 +720,17 @@ export default function MutualFundsGuide() {
                   />
                 </div>
                 <div className="mt-4 space-y-1">
-                  <p className="text-sm font-semibold text-[#1a1560] dark:text-white">
+                  <p className="text-sm font-semibold text-[#1a1560]">
                     Quick, clear explanations
                   </p>
-                  <p className="text-xs text-slate-600 dark:text-slate-300">
+                  <p className="text-xs text-slate-600">
                     Straightforward meaning in everyday language.
                   </p>
                 </div>
               </div>
 
-              <div className="rounded-3xl border border-slate-200 bg-white/85 p-5 shadow-sm dark:border-white/10 dark:bg-slate-950/70">
-                <div className="relative h-40 overflow-hidden rounded-2xl bg-white p-3 dark:bg-slate-950/70">
+              <div className="rounded-3xl border border-slate-200 bg-white/85 p-5 shadow-sm">
+                <div className="relative h-40 overflow-hidden rounded-2xl bg-white p-3">
                   <Image
                     src="/images/relaxedthinking.webp"
                     alt="Glossary helper illustration"
@@ -740,17 +739,17 @@ export default function MutualFundsGuide() {
                   />
                 </div>
                 <div className="mt-4 space-y-1">
-                  <p className="text-sm font-semibold text-[#1a1560] dark:text-white">
+                  <p className="text-sm font-semibold text-[#1a1560]">
                     Quick glossary helper
                   </p>
-                  <p className="text-xs text-slate-600 dark:text-slate-300">
+                  <p className="text-xs text-slate-600">
                     Use this as a fast refresher before investing.
                   </p>
                 </div>
               </div>
 
-              <div className="rounded-3xl border border-slate-200 bg-white/85 p-5 shadow-sm dark:border-white/10 dark:bg-slate-950/70">
-                <div className="relative h-40 overflow-hidden rounded-2xl bg-white p-3 dark:bg-slate-950/70">
+              <div className="rounded-3xl border border-slate-200 bg-white/85 p-5 shadow-sm">
+                <div className="relative h-40 overflow-hidden rounded-2xl bg-white p-3">
                   <Image
                     src="/images/download (1).webp"
                     alt="Glossary examples illustration"
@@ -759,33 +758,33 @@ export default function MutualFundsGuide() {
                   />
                 </div>
                 <div className="mt-4 space-y-1">
-                  <p className="text-sm font-semibold text-[#1a1560] dark:text-white">
+                  <p className="text-sm font-semibold text-[#1a1560]">
                     Examples + why it matters
                   </p>
-                  <p className="text-xs text-slate-600 dark:text-slate-300">
+                  <p className="text-xs text-slate-600">
                     See how each term impacts real decisions.
                   </p>
                 </div>
               </div>
             </div>
             <div className="relative space-y-6 pl-6">
-              <div className="absolute left-2 top-0 h-full w-px bg-slate-200 dark:bg-white/10" />
+              <div className="absolute left-2 top-0 h-full w-px bg-slate-200" />
               {terms.map((term, index) => (
                 <div key={term.title} className="relative">
                   <span className="absolute -left-6 top-2 h-3 w-3 rounded-full bg-[#04b488]" />
                   <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-[#7B4FD4]">
                     Term {String(index + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="mt-2 text-base font-semibold text-[#1a1560] dark:text-white">
+                  <h3 className="mt-2 text-base font-semibold text-[#1a1560]">
                     {term.title}
                   </h3>
-                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                  <p className="mt-2 text-sm text-slate-600">
                     {term.description}
                   </p>
-                  <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
+                  <p className="mt-2 text-xs text-slate-500">
                     Example: {term.example}
                   </p>
-                  <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
+                  <p className="mt-2 text-xs text-slate-500">
                     Why it matters: {term.why}
                   </p>
                 </div>
@@ -799,7 +798,7 @@ export default function MutualFundsGuide() {
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#7B4FD4]">
               Risks and costs
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">
+            <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
               Understand the trade-offs
             </h2>
           </div>
@@ -834,24 +833,24 @@ export default function MutualFundsGuide() {
               return (
                 <div
                   key={item.title}
-                  className="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-sm dark:border-white/10 dark:bg-slate-950/70"
+                  className="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-sm"
                 >
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#7B4FD4]/12 text-[#5e36b3]">
                       <Icon className="h-5 w-5" />
                     </span>
-                    <h3 className="text-lg font-semibold text-[#1a1560] dark:text-white">
+                    <h3 className="text-lg font-semibold text-[#1a1560]">
                       {item.title}
                     </h3>
                   </div>
-                  <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                  <p className="mt-3 text-sm text-slate-600">
                     {item.description}
                   </p>
                 </div>
               );
             })}
           </div>
-          <div className="rounded-2xl border border-[#04b488]/20 bg-[#04b488]/5 px-6 py-4 text-xs text-[#047a5d] dark:border-[#04b488]/30 dark:bg-[#04b488]/10 dark:text-[#7ff7cc]">
+          <div className="rounded-2xl border border-[#04b488]/20 bg-[#04b488]/5 px-6 py-4 text-xs text-[#047a5d]">
             Mutual fund investments are subject to market risk. Read scheme
             documents carefully before investing.
           </div>
@@ -862,7 +861,7 @@ export default function MutualFundsGuide() {
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#04b488]">
               FAQs
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] dark:text-white">
+            <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
               Beginner questions, answered
             </h2>
           </div>
@@ -870,9 +869,9 @@ export default function MutualFundsGuide() {
             {faqs.map((faq) => (
               <details
                 key={faq.question}
-                className="group rounded-2xl border border-slate-200 bg-white/85 p-5 transition-all duration-300 open:border-[#7B4FD4]/40 dark:border-white/10 dark:bg-slate-950/70"
+                className="group rounded-2xl border border-slate-200 bg-white/85 p-5 transition-all duration-300 open:border-[#7B4FD4]/40"
               >
-                <summary className="flex cursor-pointer list-none items-start justify-between text-sm font-semibold text-[#1a1560] dark:text-white">
+                <summary className="flex cursor-pointer list-none items-start justify-between text-sm font-semibold text-[#1a1560]">
                   <span className="flex items-center gap-2">
                     <HelpCircle className="mt-0.5 h-4 w-4 text-[#7B4FD4]" />
                     {faq.question}
@@ -881,7 +880,7 @@ export default function MutualFundsGuide() {
                     +
                   </span>
                 </summary>
-                <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                <p className="mt-3 text-sm text-slate-600">
                   {faq.answer}
                 </p>
               </details>
@@ -891,16 +890,16 @@ export default function MutualFundsGuide() {
 
         <motion.div
           {...fadeUp}
-          className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-slate-200 bg-white/85 p-8 text-center shadow-sm dark:border-white/10 dark:bg-slate-950/70 lg:flex-row lg:text-left"
+          className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-slate-200 bg-white/85 p-8 text-center shadow-sm lg:flex-row lg:text-left"
         >
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#7B4FD4]">
               Next steps
             </p>
-            <h3 className="text-2xl font-semibold text-[#1a1560] dark:text-white">
+            <h3 className="text-2xl font-semibold text-[#1a1560]">
               Ready to plan your first investment?
             </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-300">
+            <p className="text-sm text-slate-600">
               Use our calculators to estimate SIP and lump sum outcomes.
             </p>
           </div>
@@ -914,7 +913,7 @@ export default function MutualFundsGuide() {
             </Link>
             <Link
               href="/calculators/lumpsum-calculator"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 hover:border-[#04b488]/40 hover:text-[#047a5d] dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-200 dark:hover:border-[#04b488]/50 dark:hover:text-[#7ff7cc]"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 hover:border-[#04b488]/40 hover:text-[#047a5d]"
             >
               Lumpsum calculator
             </Link>
@@ -924,3 +923,4 @@ export default function MutualFundsGuide() {
     </section>
   );
 }
+

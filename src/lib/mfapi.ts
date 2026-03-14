@@ -56,16 +56,18 @@ function scoreMatch(query: string, candidate: string) {
   return score;
 }
 
-function pickBestMatch(query: string, results: MfSearchResult[]) {
+function pickBestMatch(query: string, results: MfSearchResult[]): MfSearchResult | null {
   let best: MfSearchResult | null = null;
   let bestScore = -1;
-  results.forEach((result) => {
+
+  for (const result of results) {
     const score = scoreMatch(query, result.schemeName);
     if (score > bestScore) {
       bestScore = score;
       best = result;
     }
-  });
+  }
+
   return best;
 }
 
