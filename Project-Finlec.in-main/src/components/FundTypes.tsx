@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +9,6 @@ type StrategyCard = {
   title: string;
   summary: string;
   risk: string;
-  focus: string;
   image: string;
   href: string;
 };
@@ -19,7 +18,6 @@ const strategies: StrategyCard[] = [
     title: "Equity Mutual Funds",
     summary: "Designed for long-term growth with diversified market exposure.",
     risk: "High Growth",
-    focus: "Compounding",
     image: "/images/equity-3.jpg",
     href: "/explore-mutual-funds?asset=equity#category-breakdown",
   },
@@ -27,7 +25,6 @@ const strategies: StrategyCard[] = [
     title: "Hybrid Mutual Funds",
     summary: "Balance equity upside with debt stability for smoother journeys.",
     risk: "Balanced",
-    focus: "Stability + Growth",
     image: "/images/hybrid-funds.jpg",
     href: "/explore-mutual-funds?asset=hybrid#category-breakdown",
   },
@@ -35,7 +32,6 @@ const strategies: StrategyCard[] = [
     title: "Debt Mutual Funds",
     summary: "Prioritize income quality and lower volatility for steady returns.",
     risk: "Conservative",
-    focus: "Capital Protection",
     image: "/images/mutualfunds2.jpeg",
     href: "/explore-mutual-funds?asset=debt#category-breakdown",
   },
@@ -100,10 +96,7 @@ export default function FundTypes() {
                       {strategy.title}
                     </h3>
                     <p className="text-sm leading-relaxed text-[#475569]">{strategy.summary}</p>
-                    <div className="flex items-center justify-between gap-4 pt-1">
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#04b488]">
-                        Focus: {strategy.focus}
-                      </p>
+                    <div className="flex items-center justify-end gap-4 pt-1">
                       <span className="inline-flex items-center gap-1 text-sm font-semibold text-[#7B4FD4]">
                         View Details
                         <ArrowUpRight size={16} />

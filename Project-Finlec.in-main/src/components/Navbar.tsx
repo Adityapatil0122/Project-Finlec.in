@@ -94,8 +94,8 @@ export default function Navbar() {
     };
   }, [isProfileMenuOpen]);
 
-  const guestHref = pathname === "/login" ? "/signup" : "/login";
-  const guestLabel = pathname === "/login" ? "Create Account" : "Login";
+  const guestHref = "https://finlec.my-portfolio.co.in/app/#/login";
+  const guestLabel = "Login";
 
   return (
     <motion.header

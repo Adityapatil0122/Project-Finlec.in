@@ -14,7 +14,7 @@ type SignOutButtonProps = {
 export default function SignOutButton({
   label = "Logout",
   className,
-  callbackUrl = "/login",
+  callbackUrl = "https://finlec.my-portfolio.co.in/app/#/login",
 }: SignOutButtonProps) {
   const [isPending, setIsPending] = useState(false);
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 function PhoneShell({
@@ -93,12 +94,12 @@ export default function AppShowcase() {
               personalised investment recommendations, track progress and take
               corrective action.
             </p>
-            <button
-              type="button"
-              className="mt-6 rounded-full border border-[#04b488]/20 bg-[#04b488]/10 px-6 py-2.5 text-sm font-semibold text-[#04b488] transition-colors hover:bg-[#04b488]/15"
+            <Link
+              href="https://finlec.my-portfolio.co.in/app/#/login"
+              className="mt-6 inline-block rounded-full border border-[#04b488]/20 bg-[#04b488]/10 px-6 py-2.5 text-sm font-semibold text-[#04b488] transition-colors hover:bg-[#04b488]/15"
             >
               Get Started
-            </button>
+            </Link>
             <Testimonial
               quote="Investing with Finlec has helped me dream bigger for my family."
               initials="RK"
@@ -179,12 +180,12 @@ export default function AppShowcase() {
               meaningful long-term wealth through disciplined and consistent
               investing.
             </p>
-            <button
-              type="button"
-              className="mt-6 rounded-full border border-[#04b488]/20 bg-[#04b488]/10 px-6 py-2.5 text-sm font-semibold text-[#04b488] transition-colors hover:bg-[#04b488]/15"
+            <Link
+              href="https://finlec.my-portfolio.co.in/app/#/login"
+              className="mt-6 inline-block rounded-full border border-[#04b488]/20 bg-[#04b488]/10 px-6 py-2.5 text-sm font-semibold text-[#04b488] transition-colors hover:bg-[#04b488]/15"
             >
               Start Investing
-            </button>
+            </Link>
             <Testimonial
               quote="I've accumulated my first 10 Lakh in mutual fund savings thanks to Finlec. Simple and effective platform."
               initials="SP"

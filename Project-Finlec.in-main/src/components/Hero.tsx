@@ -23,7 +23,7 @@ export default function Hero() {
         subtitle="Streamline your SIP investments, discover top-performing funds, and build long-term wealth - all from one beautifully simple platform."
         callToAction={{
           text: "START INVESTING FREE ->",
-          href: "/signup",
+          href: "https://finlec.my-portfolio.co.in/app/#/login",
         }}
         backgroundImage="/images/Untitled-design-3.png"
       />

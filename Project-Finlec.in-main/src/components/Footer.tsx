@@ -19,7 +19,7 @@ const exploreLinks = [
   { label: "Daily SIP", href: "/calculators/daily-sip-calculator" },
   { label: "Explore Mutual Funds", href: "/explore-mutual-funds" },
   { label: "Mutual Funds Guide", href: "/mutual-funds-guide" },
-  { label: "Login", href: "/login" },
+  { label: "Login", href: "https://finlec.my-portfolio.co.in/app/#/login" },
   { label: "Contact us", href: "/contact" },
 ];
 

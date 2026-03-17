@@ -1,6 +1,6 @@
 import MarketingShell from "@/components/MarketingShell";
 import AnimatedDailySipBenefits from "@/components/calculators/AnimatedDailySipBenefits";
-import CompoundingWidget from "@/components/calculators/CompoundingWidget";
+
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -88,10 +88,7 @@ export default function DailySIPCalculatorPage() {
         </div>
       </section>
 
-      {/* NEW SECTION: COMPOUNDING WIDGET */}
-      <section className="bg-white px-4 py-20 sm:px-6 lg:px-8 border-y border-slate-200">
-        <CompoundingWidget />
-      </section>
+
 
       {/* NEW SECTION: WHY DAILY SIP */}
       <section id="why-daily-sip" className="bg-[#f8f9fa] px-4 py-24 sm:px-6 lg:px-8 border-y border-slate-200">
@@ -184,12 +181,7 @@ export default function DailySIPCalculatorPage() {
                 >
                   Use SIP Calculator
                 </Link>
-                <Link
-                  href="/calculators/xirr-calculator"
-                  className="inline-flex items-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:border-[#0ea5e9]/40 hover:text-[#0ea5e9]"
-                >
-                  Check XIRR
-                </Link>
+
               </div>
             </div>
           </div>
@@ -197,19 +189,19 @@ export default function DailySIPCalculatorPage() {
           <div className="space-y-6 rounded-3xl bg-white p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
             <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 border-b border-slate-100 pb-5">
               <p className="min-w-32 text-xs font-semibold uppercase tracking-[0.2em] text-[#0ea5e9]">Why it works</p>
-              <p className="text-[#4a5568]">By automating daily micro-investments, it completely removes the inertia and emotional friction of investing. You effortlessly average your entry price and shield yourself from daily market fluctuations.</p>
+              <p className="text-[#4a5568]">Automates micro-investments to remove emotional friction and average purchase costs over daily volatility.</p>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 border-b border-slate-100 pb-5">
               <p className="min-w-32 text-xs font-semibold uppercase tracking-[0.2em] text-[#0ea5e9]">Ideal Profile</p>
-              <p className="text-[#4a5568]">Excellent for entrepreneurs, freelancers, gig workers, and anyone with a daily cash flow. It matches your income frequency with your investing frequency perfectly.</p>
+              <p className="text-[#4a5568]">Perfect for entrepreneurs, freelancers, and anyone with daily income or cash flows.</p>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 border-b border-slate-100 pb-5">
               <p className="min-w-32 text-xs font-semibold uppercase tracking-[0.2em] text-[#0ea5e9]">Horizon Profile</p>
-              <p className="text-[#4a5568]">Minimum 12+ months for stability. To see the true magic of compounding wealth and beating inflation, a 3-5+ year horizon is heavily recommended.</p>
+              <p className="text-[#4a5568]">12+ months for stability; 3-5+ years recommended to maximize compounding benefits.</p>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5">
               <p className="min-w-32 text-xs font-semibold uppercase tracking-[0.2em] text-[#0ea5e9]">How to Track</p>
-              <p className="text-[#4a5568]">Always use the XIRR (Extended Internal Rate of Return) method. Since your cash flows are scattered across different dates, XIRR is the only accurate way to measure annualized returns.</p>
+              <p className="text-[#4a5568]">Use XIRR to accurately measure annualized returns for staggered daily investments.</p>
             </div>
           </div>
         </div>
@@ -221,15 +213,15 @@ export default function DailySIPCalculatorPage() {
           <div className="order-2 lg:order-1 space-y-6 rounded-3xl bg-white p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
             <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 border-b border-slate-100 pb-5">
               <p className="min-w-32 text-xs font-bold uppercase tracking-[0.2em] text-[#f97316]">Concept</p>
-              <p className="text-[#4a5568]">It is a micro-deposit scheme where very small amounts are systematically deposited daily or weekly, often directly collected by agents. It ensures zero market exposure.</p>
+              <p className="text-[#4a5568]">Micro-savings scheme where small amounts are collected daily or weekly, ensuring zero market risk.</p>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 border-b border-slate-100 pb-5">
               <p className="min-w-32 text-xs font-bold uppercase tracking-[0.2em] text-[#f97316]">Core Goal</p>
-              <p className="text-[#4a5568]">To build absolute foundational savings habits for complete beginners. It transforms spare loose change into a solid, tangible lump sum over a few months.</p>
+              <p className="text-[#4a5568]">Building basic savings habits by turning loose change into a tangible lump sum over time.</p>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5">
               <p className="min-w-32 text-xs font-bold uppercase tracking-[0.2em] text-[#f97316]">Considerations</p>
-              <p className="text-[#4a5568]">Pigmy deposits usually yield lower interest than SIPs. Additionally, agent collection fees can eat into your returns. If you have a bank account with auto-debit, a Daily SIP might be more efficient financially.</p>
+              <p className="text-[#4a5568]">Lower returns than SIPs and potential agent fees; digital auto-debits are usually more efficient.</p>
             </div>
           </div>
 

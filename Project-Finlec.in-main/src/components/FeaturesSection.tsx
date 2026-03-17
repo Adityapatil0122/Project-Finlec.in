@@ -4,14 +4,14 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Activity,
   ArrowUpRight,
-  CircleDollarSign,
-  PiggyBank,
-  RefreshCcw,
-  SlidersHorizontal,
+  CalendarClock,
+  Layers,
+  MonitorSmartphone,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 type Feature = {
@@ -33,20 +33,20 @@ type Feature = {
 
 const features: Feature[] = [
   {
-    title: "Allocation Intelligence",
-    description: "Dynamic model portfolios tuned to your risk and return corridor.",
-    signal: "Volatility-aware",
-    metric: "12 risk buckets",
+    title: "Simple & Convenient",
+    description: "Our mutual fund investment services are designed to be simple and convenient, making it easy for you to grow your wealth without the hassle of complex financial management.",
+    signal: "Hassle-free investing",
+    metric: "1-Click Setup",
     image: "/images/mutualfunds.png",
-    imageAlt: "Allocation intelligence illustration",
-    icon: SlidersHorizontal,
+    imageAlt: "Simple & Convenient illustration",
+    icon: Sparkles,
     accent: "#04b488",
-    progress: 78,
-    riskBand: "Moderate",
+    progress: 95,
+    riskBand: "Low",
     journey: [
-      "Risk profile calibrated against market regimes",
-      "Model mix aligned with timeline and return goals",
-      "Execution drift alerts active for this quarter",
+      "Zero-paperwork KYC in under 5 minutes",
+      "One-click execution for SIPs and lumpsums",
+      "Automated tracking of portfolio health",
     ],
     sparkline: "M10 76 L54 68 L98 62 L142 52 L186 38 L230 30 L280 22",
     sparklineArea:
@@ -54,20 +54,20 @@ const features: Feature[] = [
     sparkPointY: 22,
   },
   {
-    title: "Automated Rebalancing",
-    description: "Rule-based rebalance nudges keep strategy drift under control.",
-    signal: "SIP synchronized",
-    metric: "Quarterly checks",
+    title: "All Mutual Funds",
+    description: "Access a diverse range of mutual funds across various categories and sectors, allowing you to create a well-balanced and tailored investment portfolio.",
+    signal: "45+ AMCs available",
+    metric: "Diverse Portfolio",
     image: "/images/investment.jpg",
-    imageAlt: "Automated rebalancing illustration",
-    icon: RefreshCcw,
+    imageAlt: "All Mutual Funds illustration",
+    icon: Layers,
     accent: "#0ea5e9",
-    progress: 82,
-    riskBand: "Balanced",
+    progress: 100,
+    riskBand: "Diversified",
     journey: [
-      "Allocation drift scanner runs every market close",
-      "Threshold breach creates suggested trade packets",
-      "Auto-reminders triggered before SIP debit windows",
+      "Compare top funds across all AMCs",
+      "Filter by equity, debt, or hybrid strategies",
+      "Build a well-balanced custom portfolio",
     ],
     sparkline: "M10 74 L54 66 L98 64 L142 55 L186 49 L230 34 L280 24",
     sparklineArea:
@@ -75,20 +75,20 @@ const features: Feature[] = [
     sparkPointY: 24,
   },
   {
-    title: "Goal Progress Heatmap",
-    description: "Visualize how every goal is tracking against target outcomes.",
-    signal: "Outcome-led",
-    metric: "Live trajectory",
+    title: "Daily, Weekly, Monthly SIP",
+    description: "Enjoy the Systematic Investment Plan (SIP) with options for daily, weekly, monthly contributions, helping you invest consistently and build your wealth over time.",
+    signal: "Flexible SIP frequency",
+    metric: "Custom frequency",
     image: "/images/investingman.webp",
-    imageAlt: "Goal progress illustration",
-    icon: Activity,
+    imageAlt: "Daily, Weekly, Monthly SIP illustration",
+    icon: CalendarClock,
     accent: "#7b4fd4",
-    progress: 74,
-    riskBand: "Goal-led",
+    progress: 88,
+    riskBand: "Disciplined",
     journey: [
-      "Education, retirement, and wealth goals mapped",
-      "Gap-to-target tracking recalculated on each update",
-      "Intervention suggestions queued for low-momentum goals",
+      "Set your preferred SIP frequency",
+      "Automate bank mandates for regular deductions",
+      "Harness the power of rupee-cost averaging",
     ],
     sparkline: "M10 78 L54 72 L98 62 L142 58 L186 46 L230 36 L280 28",
     sparklineArea:
@@ -96,46 +96,25 @@ const features: Feature[] = [
     sparkPointY: 28,
   },
   {
-    title: "SIP Step-Up Planner",
-    description: "Simulate yearly SIP increments and lock in faster corpus growth.",
-    signal: "Compounding boost",
-    metric: "Scenario engine",
+    title: "Easy Access",
+    description: "Manage your investments effortlessly through our user-friendly platform, providing you with easy access to track, review, and adjust your mutual fund investments anytime, anywhere.",
+    signal: "Invest on the go",
+    metric: "24/7 Access",
     image: "/images/mutualfunds2.jpeg",
-    imageAlt: "SIP step-up illustration",
-    icon: PiggyBank,
+    imageAlt: "Easy Access illustration",
+    icon: MonitorSmartphone,
     accent: "#f59e0b",
-    progress: 69,
-    riskBand: "Growth",
+    progress: 99,
+    riskBand: "Monitored",
     journey: [
-      "Step-up ladder generated from salary growth bands",
-      "Corpus projections benchmarked across 3 scenarios",
-      "Preferred schedule exported to SIP calendar",
+      "Track daily NAV updates and portfolio returns",
+      "Access your investments from mobile or desktop",
+      "Review and adjust allocations on the fly",
     ],
     sparkline: "M10 79 L54 74 L98 68 L142 57 L186 52 L230 39 L280 30",
     sparklineArea:
       "M10 79 L54 74 L98 68 L142 57 L186 52 L230 39 L280 30 L280 90 L10 90 Z",
     sparkPointY: 30,
-  },
-  {
-    title: "Tax Smart Investing",
-    description: "Track ELSS lock-in and tax-saving opportunities inside one timeline.",
-    signal: "Tax optimized",
-    metric: "80C mapped",
-    image: "/images/types of mutual funds.jpeg",
-    imageAlt: "Tax planning illustration",
-    icon: CircleDollarSign,
-    accent: "#16a34a",
-    progress: 84,
-    riskBand: "Compliant",
-    journey: [
-      "ELSS lock-in milestones synced to financial year",
-      "Remaining 80C room highlighted for smart allocation",
-      "Tax filing snapshots prepared for advisor review",
-    ],
-    sparkline: "M10 74 L54 70 L98 62 L142 50 L186 43 L230 32 L280 20",
-    sparklineArea:
-      "M10 74 L54 70 L98 62 L142 50 L186 43 L230 32 L280 20 L280 90 L10 90 Z",
-    sparkPointY: 20,
   },
 ];
 
@@ -157,14 +136,13 @@ export default function FeaturesSection() {
           className="mb-16 text-center"
         >
           <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
-            Platform Capabilities
+            Features
           </p>
           <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
-            Everything needed to run a modern investment journey
+            Everything you need for a seamless investing experience
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base text-[#475569] sm:text-lg">
-            Designed for first-time and experienced investors with clear workflows,
-            measurable insights, and faster execution.
+            Explore what makes our platform the right choice to grow and manage your wealth effortlessly.
           </p>
         </motion.div>
 
@@ -397,14 +375,14 @@ export default function FeaturesSection() {
                       <p className="mt-2 text-sm text-slate-600">
                         Ready to apply the latest recommendation for this capability and improve outcome stability.
                       </p>
-                      <button
-                        type="button"
+                      <Link
+                        href="https://finlec.my-portfolio.co.in/app/#/login"
                         className="mt-4 inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-sm font-semibold text-white"
                         style={{ backgroundColor: activeFeature.accent }}
                       >
                         Review Plan
                         <ArrowUpRight size={15} />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </motion.div>
