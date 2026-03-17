@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 
@@ -8,21 +8,21 @@ const testimonials = [
       "The allocation intelligence in Finlec is incredible. My portfolio has been rebalanced automatically twice this year, keeping me exactly on track for my goals.",
     author: "Rohan M.",
     role: "Retail Investor",
-    image: "https://randomuser.me/api/portraits/men/43.jpg",
+    image: "/images/avatar_rohan.png",
   },
   {
     content:
       "I've tried multiple investment apps, but Finlec's interface is the cleanest. The goal progress heatmap explicitly shows me where I stand and what I need to do next.",
     author: "Priya S.",
     role: "Marketing Director",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    image: "/images/avatar_priya.png",
   },
   {
     content:
       "The SIP Step-Up planner completely changed my retirement projections. Setting up a 10% yearly increment was seamless, and the transparency is unmatched.",
     author: "Anand V.",
     role: "Software Engineer",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    image: "/images/avatar_anand.png",
   },
 ];
 

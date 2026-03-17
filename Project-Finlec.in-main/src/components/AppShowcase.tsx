@@ -102,7 +102,7 @@ export default function AppShowcase() {
             <Testimonial
               quote="Investing with Finlec has helped me dream bigger for my family."
               initials="RK"
-              avatarSrc="/images/rahul-avatar.svg"
+              avatarSrc="/images/avatar_rahul.png"
               name="Rahul Kumar"
               subtitle="Software Engineer, Pune"
             />
@@ -188,7 +188,7 @@ export default function AppShowcase() {
             <Testimonial
               quote="I've accumulated my first 10 Lakh in mutual fund savings thanks to Finlec. Simple and effective platform."
               initials="SP"
-              avatarSrc="/images/sneha-avatar.svg"
+              avatarSrc="/images/avatar_sneha.png"
               name="Sneha Patil"
               subtitle="Investor since 2022"
             />
