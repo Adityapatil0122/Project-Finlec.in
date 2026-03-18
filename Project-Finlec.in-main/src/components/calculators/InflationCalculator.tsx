@@ -129,7 +129,7 @@ export default function InflationCalculator() {
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" opacity={0.5} />
                   <XAxis dataKey="name" tick={{fill: '#94a3b8', fontSize: 12}} axisLine={false} tickLine={false} />
                   <RechartsTooltip 
-                     formatter={(value: number | string) => formatCurrency(Number(value))}
+                     formatter={(value) => formatCurrency(Number(value))}
                      contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)' }}
                      cursor={{fill: 'var(--tw-colors-slate-100)', opacity: 0.1}}
                   />

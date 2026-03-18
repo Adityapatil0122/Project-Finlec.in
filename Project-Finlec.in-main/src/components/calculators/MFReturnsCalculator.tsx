@@ -147,7 +147,7 @@ export default function MFReturnsCalculator() {
                      ))}
                   </Pie>
                   <RechartsTooltip 
-                     formatter={(value: number) => formatCurrency(value)}
+                     formatter={(value) => formatCurrency(Number(value))}
                      contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)' }}
                   />
                </PieChart>

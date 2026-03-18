@@ -25,24 +25,28 @@ export async function GET() {
 }
 
 export async function PUT(request: Request) {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.id) {
-    return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
-  }
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    }
 
-  const body = await request.json();
-  const parsed = investorProfileSchema.safeParse(body);
-  if (!parsed.success) {
-    return NextResponse.json(
-      { message: parsed.error.issues[0]?.message ?? "Invalid profile payload." },
-      { status: 400 }
-    );
-  }
+    const body = await request.json();
+    const parsed = investorProfileSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        { message: parsed.error.issues[0]?.message ?? "Invalid profile payload." },
+        { status: 400 }
+      );
+    }
 
-  const state = updateInvestorProfile(session.user.id, parsed.data);
-  if (!state) {
-    return NextResponse.json({ message: "Profile not found." }, { status: 404 });
-  }
+    const state = updateInvestorProfile(session.user.id, parsed.data);
+    if (!state) {
+      return NextResponse.json({ message: "Profile not found." }, { status: 404 });
+    }
 
-  return NextResponse.json({ message: "Profile updated successfully.", profile: state.profile, onboarding: state.onboarding });
+    return NextResponse.json({ message: "Profile updated successfully.", profile: state.profile, onboarding: state.onboarding });
+  } catch {
+    return NextResponse.json({ message: "Unable to update profile." }, { status: 500 });
+  }
 }

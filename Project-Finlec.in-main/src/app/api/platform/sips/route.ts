@@ -25,24 +25,28 @@ export async function GET() {
 }
 
 export async function PATCH(request: Request) {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.id) {
-    return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
-  }
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    }
 
-  const body = await request.json();
-  const parsed = sipStatusSchema.safeParse(body);
-  if (!parsed.success) {
-    return NextResponse.json(
-      { message: parsed.error.issues[0]?.message ?? "Invalid SIP update." },
-      { status: 400 }
-    );
-  }
+    const body = await request.json();
+    const parsed = sipStatusSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        { message: parsed.error.issues[0]?.message ?? "Invalid SIP update." },
+        { status: 400 }
+      );
+    }
 
-  const state = updateSipStatus(session.user.id, parsed.data.sipId, parsed.data.status);
-  if (!state) {
-    return NextResponse.json({ message: "SIP instruction not found." }, { status: 404 });
-  }
+    const state = updateSipStatus(session.user.id, parsed.data.sipId, parsed.data.status);
+    if (!state) {
+      return NextResponse.json({ message: "SIP instruction not found." }, { status: 404 });
+    }
 
-  return NextResponse.json({ message: "SIP status updated.", sips: state.sips, overview: state.overview });
+    return NextResponse.json({ message: "SIP status updated.", sips: state.sips, overview: state.overview });
+  } catch {
+    return NextResponse.json({ message: "Unable to update SIP." }, { status: 500 });
+  }
 }

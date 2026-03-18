@@ -613,11 +613,12 @@ export default function ExploreMutualFundsHub() {
         });
         if (!response.ok) return;
         const payload = (await response.json()) as { data?: FundSnapshot[] };
-        if (!payload?.data || !isMounted) return;
+        const snapshots = payload?.data;
+        if (!snapshots || !isMounted) return;
 
         setLiveReturns((previous) => {
           const next = { ...previous };
-          payload.data.forEach((snapshot) => {
+          snapshots.forEach((snapshot) => {
             next[snapshot.name] = snapshot;
           });
           return next;

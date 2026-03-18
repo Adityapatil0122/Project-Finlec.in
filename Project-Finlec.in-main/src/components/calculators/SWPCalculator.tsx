@@ -183,7 +183,7 @@ export default function SWPCalculator() {
                 ))}
               </Pie>
               <RechartsTooltip
-                formatter={(value: any) => formatCurrency(Number(value))}
+                formatter={(value) => formatCurrency(Number(value))}
                 contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)' }}
               />
             </PieChart>

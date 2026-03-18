@@ -12,7 +12,7 @@ type ProfileComplianceFormProps = {
 export default function ProfileComplianceForm({ profile }: ProfileComplianceFormProps) {
   const router = useRouter();
   const [dateOfBirth, setDateOfBirth] = useState(profile.dateOfBirth);
-  const [panNumber, setPanNumber] = useState("ABCDE1234F");
+  const [panNumber, setPanNumber] = useState(profile.panMasked);
   const [occupation, setOccupation] = useState(profile.occupation);
   const [annualIncomeBand, setAnnualIncomeBand] = useState(profile.annualIncomeBand);
   const [riskProfile, setRiskProfile] = useState<"LOW" | "MODERATE" | "HIGH">(profile.riskProfile);
