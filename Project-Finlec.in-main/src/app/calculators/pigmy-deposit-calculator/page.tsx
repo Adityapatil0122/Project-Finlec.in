@@ -3,7 +3,7 @@
 import MarketingShell from "@/components/MarketingShell";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ChevronRight, Coins, PiggyBank, ShieldCheck, TrendingUp, Blend } from "lucide-react";
+import { ChevronRight, Coins, ShieldCheck, TrendingUp, Blend } from "lucide-react";
 
 const stagger = {
   hidden: {},
