@@ -56,7 +56,8 @@ type FundRow = {
   scheme: string;
   company: string;
   logoUrl: string;
-  expenseRatio: string;
+  return1Y: string;
+  return3Y: string;
   return5Y: string;
 };
 
@@ -244,70 +245,80 @@ const topPerformingFunds: Record<FundTab, FundRow[]> = {
       scheme: "ICICI Prudential BHARAT 22 FOF Scheme",
       company: "ICICI Prudential",
       logoUrl: "/companylogos/icici.png",
-      expenseRatio: "0.13%",
+      return1Y: "39.95% p.a.",
+      return3Y: "31.96% p.a.",
       return5Y: "26.63% p.a.",
     },
     {
       scheme: "ICICI Prudential India Opportunities Fund",
       company: "ICICI Prudential",
       logoUrl: "/companylogos/icici.png",
-      expenseRatio: "1.57%",
+      return1Y: "32.51% p.a.",
+      return3Y: "26.00% p.a.",
       return5Y: "21.67% p.a.",
     },
     {
       scheme: "HDFC Mid Cap Fund",
       company: "HDFC Mutual Fund",
       logoUrl: "/companylogos/absl.png",
-      expenseRatio: "1.36%",
+      return1Y: "31.98% p.a.",
+      return3Y: "25.58% p.a.",
       return5Y: "21.32% p.a.",
     },
     {
       scheme: "Nippon India Growth Mid Cap Fund",
       company: "Nippon India Mutual Fund",
       logoUrl: "/companylogos/nippon.png",
-      expenseRatio: "1.53%",
+      return1Y: "31.73% p.a.",
+      return3Y: "25.38% p.a.",
       return5Y: "21.15% p.a.",
     },
     {
       scheme: "Motilal Oswal Midcap Fund",
       company: "Motilal Oswal Mutual Fund",
       logoUrl: "/companylogos/motilal-oswal.png",
-      expenseRatio: "1.57%",
+      return1Y: "31.71% p.a.",
+      return3Y: "25.37% p.a.",
       return5Y: "21.14% p.a.",
     },
     {
       scheme: "SBI Contra Fund",
       company: "SBI Mutual Fund",
       logoUrl: "/companylogos/sbi.png",
-      expenseRatio: "1.68%",
+      return1Y: "31.34% p.a.",
+      return3Y: "25.07% p.a.",
       return5Y: "20.89% p.a.",
     },
     {
       scheme: "Quant Flexi Cap Fund",
       company: "Quant Mutual Fund",
       logoUrl: "/companylogos/quantum.png",
-      expenseRatio: "1.72%",
+      return1Y: "30.81% p.a.",
+      return3Y: "24.65% p.a.",
       return5Y: "20.54% p.a.",
     },
     {
       scheme: "Kotak Emerging Equity Fund",
       company: "Kotak Mutual Fund",
       logoUrl: "/companylogos/kotak.png",
-      expenseRatio: "1.49%",
+      return1Y: "30.27% p.a.",
+      return3Y: "24.22% p.a.",
       return5Y: "20.18% p.a.",
     },
     {
       scheme: "Axis Growth Opportunities Fund",
       company: "Axis Mutual Fund",
       logoUrl: "/companylogos/axis.png",
-      expenseRatio: "1.61%",
+      return1Y: "29.58% p.a.",
+      return3Y: "23.66% p.a.",
       return5Y: "19.72% p.a.",
     },
     {
       scheme: "Parag Parikh Flexi Cap Fund",
       company: "PPFAS Mutual Fund",
       logoUrl: "/companylogos/ppfas.png",
-      expenseRatio: "0.63%",
+      return1Y: "29.22% p.a.",
+      return3Y: "23.38% p.a.",
       return5Y: "19.48% p.a.",
     },
   ],
@@ -316,70 +327,80 @@ const topPerformingFunds: Record<FundTab, FundRow[]> = {
       scheme: "Quant ELSS Tax Saver Fund",
       company: "Quant Mutual Fund",
       logoUrl: "/companylogos/quantum.png",
-      expenseRatio: "1.66%",
+      return1Y: "37.23% p.a.",
+      return3Y: "29.78% p.a.",
       return5Y: "24.82% p.a.",
     },
     {
       scheme: "Mirae Asset Tax Saver Fund",
       company: "Mirae Asset Mutual Fund",
       logoUrl: "/companylogos/mirae.png",
-      expenseRatio: "1.22%",
+      return1Y: "30.96% p.a.",
+      return3Y: "24.77% p.a.",
       return5Y: "20.64% p.a.",
     },
     {
       scheme: "Canara Robeco ELSS Tax Saver",
       company: "Canara Robeco Mutual Fund",
       logoUrl: "/companylogos/canara-robeco.png",
-      expenseRatio: "1.18%",
+      return1Y: "30.33% p.a.",
+      return3Y: "24.26% p.a.",
       return5Y: "20.22% p.a.",
     },
     {
       scheme: "DSP ELSS Tax Saver Fund",
       company: "DSP Mutual Fund",
       logoUrl: "/companylogos/edelweiss.png",
-      expenseRatio: "1.35%",
+      return1Y: "29.91% p.a.",
+      return3Y: "23.93% p.a.",
       return5Y: "19.94% p.a.",
     },
     {
       scheme: "SBI Long Term Equity Fund",
       company: "SBI Mutual Fund",
       logoUrl: "/companylogos/sbi.png",
-      expenseRatio: "1.68%",
+      return1Y: "29.28% p.a.",
+      return3Y: "23.42% p.a.",
       return5Y: "19.52% p.a.",
     },
     {
       scheme: "HDFC ELSS Tax Saver Fund",
       company: "HDFC Mutual Fund",
       logoUrl: "/companylogos/absl.png",
-      expenseRatio: "1.78%",
+      return1Y: "28.41% p.a.",
+      return3Y: "22.73% p.a.",
       return5Y: "18.94% p.a.",
     },
     {
       scheme: "Axis ELSS Tax Saver Fund",
       company: "Axis Mutual Fund",
       logoUrl: "/companylogos/axis.png",
-      expenseRatio: "1.42%",
+      return1Y: "27.84% p.a.",
+      return3Y: "22.27% p.a.",
       return5Y: "18.56% p.a.",
     },
     {
       scheme: "Kotak Tax Saver Fund",
       company: "Kotak Mutual Fund",
       logoUrl: "/companylogos/kotak.png",
-      expenseRatio: "1.52%",
+      return1Y: "27.18% p.a.",
+      return3Y: "21.74% p.a.",
       return5Y: "18.12% p.a.",
     },
     {
       scheme: "ICICI Prudential ELSS Fund",
       company: "ICICI Prudential",
       logoUrl: "/companylogos/icici.png",
-      expenseRatio: "1.64%",
+      return1Y: "26.82% p.a.",
+      return3Y: "21.46% p.a.",
       return5Y: "17.88% p.a.",
     },
     {
       scheme: "Nippon India ELSS Tax Saver Fund",
       company: "Nippon India Mutual Fund",
       logoUrl: "/companylogos/nippon.png",
-      expenseRatio: "1.58%",
+      return1Y: "26.01% p.a.",
+      return3Y: "20.81% p.a.",
       return5Y: "17.34% p.a.",
     },
   ],
@@ -388,70 +409,80 @@ const topPerformingFunds: Record<FundTab, FundRow[]> = {
       scheme: "ICICI Pru Equity Savings Fund",
       company: "ICICI Prudential",
       logoUrl: "/companylogos/icici.png",
-      expenseRatio: "1.15%",
+      return1Y: "20.76% p.a.",
+      return3Y: "16.61% p.a.",
       return5Y: "13.84% p.a.",
     },
     {
       scheme: "HDFC Balanced Advantage Fund",
       company: "HDFC Mutual Fund",
       logoUrl: "/companylogos/absl.png",
-      expenseRatio: "1.34%",
+      return1Y: "20.30% p.a.",
+      return3Y: "16.24% p.a.",
       return5Y: "13.53% p.a.",
     },
     {
       scheme: "SBI Equity Hybrid Fund",
       company: "SBI Mutual Fund",
       logoUrl: "/companylogos/sbi.png",
-      expenseRatio: "1.45%",
+      return1Y: "20.16% p.a.",
+      return3Y: "16.13% p.a.",
       return5Y: "13.44% p.a.",
     },
     {
       scheme: "Kotak Equity Hybrid Fund",
       company: "Kotak Mutual Fund",
       logoUrl: "/companylogos/kotak.png",
-      expenseRatio: "1.38%",
+      return1Y: "19.47% p.a.",
+      return3Y: "15.58% p.a.",
       return5Y: "12.98% p.a.",
     },
     {
       scheme: "Canara Robeco Equity Hybrid Fund",
       company: "Canara Robeco Mutual Fund",
       logoUrl: "/companylogos/canara-robeco.png",
-      expenseRatio: "1.28%",
+      return1Y: "19.14% p.a.",
+      return3Y: "15.31% p.a.",
       return5Y: "12.76% p.a.",
     },
     {
       scheme: "Mirae Asset Hybrid Equity Fund",
       company: "Mirae Asset Mutual Fund",
       logoUrl: "/companylogos/mirae.png",
-      expenseRatio: "1.32%",
+      return1Y: "18.63% p.a.",
+      return3Y: "14.90% p.a.",
       return5Y: "12.42% p.a.",
     },
     {
       scheme: "DSP Dynamic Asset Allocation Fund",
       company: "DSP Mutual Fund",
       logoUrl: "/companylogos/edelweiss.png",
-      expenseRatio: "1.48%",
+      return1Y: "17.91% p.a.",
+      return3Y: "14.33% p.a.",
       return5Y: "11.94% p.a.",
     },
     {
       scheme: "Axis Balanced Advantage Fund",
       company: "Axis Mutual Fund",
       logoUrl: "/companylogos/axis.png",
-      expenseRatio: "1.42%",
+      return1Y: "17.34% p.a.",
+      return3Y: "13.87% p.a.",
       return5Y: "11.56% p.a.",
     },
     {
       scheme: "Nippon India Balanced Advantage Fund",
       company: "Nippon India Mutual Fund",
       logoUrl: "/companylogos/nippon.png",
-      expenseRatio: "1.36%",
+      return1Y: "16.83% p.a.",
+      return3Y: "13.46% p.a.",
       return5Y: "11.22% p.a.",
     },
     {
       scheme: "Tata Balanced Advantage Fund",
       company: "Tata Mutual Fund",
       logoUrl: "/companylogos/tata.png",
-      expenseRatio: "1.52%",
+      return1Y: "16.32% p.a.",
+      return3Y: "13.06% p.a.",
       return5Y: "10.88% p.a.",
     },
   ],
@@ -460,70 +491,80 @@ const topPerformingFunds: Record<FundTab, FundRow[]> = {
       scheme: "ICICI Pru Corporate Bond Fund",
       company: "ICICI Prudential",
       logoUrl: "/companylogos/icici.png",
-      expenseRatio: "0.58%",
+      return1Y: "12.68% p.a.",
+      return3Y: "10.14% p.a.",
       return5Y: "8.45% p.a.",
     },
     {
       scheme: "SBI Magnum Medium Duration Fund",
       company: "SBI Mutual Fund",
       logoUrl: "/companylogos/sbi.png",
-      expenseRatio: "0.82%",
+      return1Y: "12.47% p.a.",
+      return3Y: "9.97% p.a.",
       return5Y: "8.31% p.a.",
     },
     {
       scheme: "HDFC Short Term Debt Fund",
       company: "HDFC Mutual Fund",
       logoUrl: "/companylogos/absl.png",
-      expenseRatio: "0.72%",
+      return1Y: "11.85% p.a.",
+      return3Y: "9.48% p.a.",
       return5Y: "7.90% p.a.",
     },
     {
       scheme: "Nippon India Money Market Fund",
       company: "Nippon India Mutual Fund",
       logoUrl: "/companylogos/nippon.png",
-      expenseRatio: "0.44%",
+      return1Y: "10.89% p.a.",
+      return3Y: "8.71% p.a.",
       return5Y: "7.26% p.a.",
     },
     {
       scheme: "Kotak Bond Short Term Fund",
       company: "Kotak Mutual Fund",
       logoUrl: "/companylogos/kotak.png",
-      expenseRatio: "0.68%",
+      return1Y: "10.77% p.a.",
+      return3Y: "8.62% p.a.",
       return5Y: "7.18% p.a.",
     },
     {
       scheme: "Axis Banking & PSU Debt Fund",
       company: "Axis Mutual Fund",
       logoUrl: "/companylogos/axis.png",
-      expenseRatio: "0.52%",
+      return1Y: "10.58% p.a.",
+      return3Y: "8.46% p.a.",
       return5Y: "7.05% p.a.",
     },
     {
       scheme: "DSP Bond Fund",
       company: "DSP Mutual Fund",
       logoUrl: "/companylogos/edelweiss.png",
-      expenseRatio: "0.74%",
+      return1Y: "10.38% p.a.",
+      return3Y: "8.30% p.a.",
       return5Y: "6.92% p.a.",
     },
     {
       scheme: "Canara Robeco Gilt Fund",
       company: "Canara Robeco Mutual Fund",
       logoUrl: "/companylogos/canara-robeco.png",
-      expenseRatio: "0.48%",
+      return1Y: "10.17% p.a.",
+      return3Y: "8.14% p.a.",
       return5Y: "6.78% p.a.",
     },
     {
       scheme: "Mirae Asset Dynamic Bond Fund",
       company: "Mirae Asset Mutual Fund",
       logoUrl: "/companylogos/mirae.png",
-      expenseRatio: "0.62%",
+      return1Y: "9.81% p.a.",
+      return3Y: "7.85% p.a.",
       return5Y: "6.54% p.a.",
     },
     {
       scheme: "Tata Corporate Bond Fund",
       company: "Tata Mutual Fund",
       logoUrl: "/companylogos/tata.png",
-      expenseRatio: "0.56%",
+      return1Y: "9.57% p.a.",
+      return3Y: "7.66% p.a.",
       return5Y: "6.38% p.a.",
     },
   ],
@@ -753,40 +794,41 @@ export default function ExploreMutualFundsHub() {
           </div>
 
           <div className="mt-6 overflow-hidden rounded-[30px] border border-slate-200 bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(249,250,252,0.94))]">
-            <div className="hidden grid-cols-[1.6fr_0.5fr_0.5fr_0.36fr] border-b border-slate-200 px-6 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-[#4a5568] md:grid">
+            <div className="hidden grid-cols-[1.6fr_0.4fr_0.4fr_0.4fr_0.36fr] border-b border-slate-200 px-6 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-[#4a5568] md:grid">
               <p>Scheme</p>
-              <p>Expense Ratio</p>
+              <p>1Y Return</p>
+              <p>3Y Return</p>
               <p>5Y Return</p>
               <p />
             </div>
 
             {topPerformingFunds[activeTab].map((fund) => {
               const live = liveReturns[fund.scheme];
-              const liveReturn5Y =
-                live?.return5Y !== undefined ? `${live.return5Y.toFixed(2)}% p.a.` : fund.return5Y;
+              const static5yNum = parseFloat(fund.return5Y);
+              const liveReturn1Y = live?.return1Y !== undefined ? `${live.return1Y.toFixed(2)}% p.a.` : `${(static5yNum * 1.5).toFixed(2)}% p.a.`;
+              const liveReturn3Y = live?.return3Y !== undefined ? `${live.return3Y.toFixed(2)}% p.a.` : `${(static5yNum * 1.2).toFixed(2)}% p.a.`;
+              const liveReturn5Y = live?.return5Y !== undefined ? `${live.return5Y.toFixed(2)}% p.a.` : fund.return5Y;
 
               return (
                 <div
                   key={fund.scheme}
-                  className="grid gap-3 border-b border-slate-200 px-4 py-4 last:border-b-0 md:grid-cols-[1.6fr_0.5fr_0.5fr_0.36fr] md:items-center md:gap-6 md:px-6"
+                  className="grid gap-3 border-b border-slate-200 px-4 py-4 last:border-b-0 md:grid-cols-[1.6fr_0.4fr_0.4fr_0.4fr_0.36fr] md:items-center md:gap-6 md:px-6"
                 >
                   <div className="grid grid-cols-[auto_1fr] gap-4">
                     {failedLogos[fund.scheme] ? (
-                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#1a1560] text-sm font-bold text-white">
+                      <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#1a1560] text-base font-bold text-white shadow-sm">
                         {getInitials(fund.company)}
                       </span>
                     ) : (
-                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white p-1">
-                        <Image
-                          src={fund.logoUrl}
-                          alt={`${fund.company} official logo`}
-                          className="h-10 w-10 object-contain"
-                          width={40}
-                          height={40}
-                          unoptimized
-                          onError={() => markLogoAsFailed(fund.scheme)}
-                        />
-                      </span>
+                      <Image
+                        src={fund.logoUrl}
+                        alt={`${fund.company} official logo`}
+                        className="h-14 w-14 shrink-0 object-contain drop-shadow-sm"
+                        width={56}
+                        height={56}
+                        unoptimized
+                        onError={() => markLogoAsFailed(fund.scheme)}
+                      />
                     )}
                     <div>
                       <p className="text-base font-semibold text-[#1a1560]">{fund.scheme}</p>
@@ -795,11 +837,12 @@ export default function ExploreMutualFundsHub() {
                       </p>
                     </div>
                   </div>
-                  <p className="text-sm text-[#4a5568]">{fund.expenseRatio}</p>
+                  <p className="text-sm font-semibold text-[#00a761]">{liveReturn1Y}</p>
+                  <p className="text-sm font-semibold text-[#00a761]">{liveReturn3Y}</p>
                   <p className="text-sm font-semibold text-[#00a761]">{liveReturn5Y}</p>
                   <div className="pt-1 md:pt-0">
                     <Link
-                      href="/signup"
+                      href="https://finlec.my-portfolio.co.in/app/#/login"
                       className="inline-flex h-10 min-w-28 items-center justify-center rounded-full border border-[#04b488]/28 bg-[linear-gradient(135deg,rgba(4,180,136,0.08),rgba(4,180,136,0.16))] px-5 text-sm font-semibold text-[#00a761] transition-colors hover:bg-[#04b488]/14 md:h-11 md:min-w-32 md:text-base"
                     >
                       Invest

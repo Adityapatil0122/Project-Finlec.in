@@ -2,51 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  Sparkles,
-  Layers,
-  CalendarClock,
-  MonitorSmartphone,
-  type LucideIcon,
-} from "lucide-react";
-
-type InvestmentFeature = {
-  title: string;
-  description: string;
-  stat: string;
-  icon: LucideIcon;
-};
-
-const investmentFeatures: InvestmentFeature[] = [
-  {
-    title: "Simple & Convenient",
-    description:
-      "Our mutual fund investment services are designed to be simple and convenient, making it easy for you to grow your wealth without the hassle of complex financial management.",
-    stat: "Hassle-free investing",
-    icon: Sparkles,
-  },
-  {
-    title: "All Mutual Funds",
-    description:
-      "Access a diverse range of mutual funds across various categories and sectors, allowing you to create a well-balanced and tailored investment portfolio.",
-    stat: "45+ AMCs available",
-    icon: Layers,
-  },
-  {
-    title: "Daily, Weekly, Monthly SIP",
-    description:
-      "Enjoy the Systematic Investment Plan (SIP) with options for daily, weekly, monthly contributions, helping you invest consistently and build your wealth over time.",
-    stat: "Flexible SIP frequency",
-    icon: CalendarClock,
-  },
-  {
-    title: "Easy Access",
-    description:
-      "Manage your investments effortlessly through our user-friendly platform, providing you with easy access to track, review, and adjust your mutual fund investments anytime, anywhere.",
-    stat: "Invest on the go",
-    icon: MonitorSmartphone,
-  },
-];
 
 export default function InvestmentFeatures() {
   return (
@@ -94,37 +49,6 @@ export default function InvestmentFeatures() {
             />
           </div>
         </motion.div>
-
-        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {investmentFeatures.map((feature, index) => {
-            const Icon = feature.icon;
-
-            return (
-              <motion.article
-                key={feature.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.42, delay: index * 0.06, ease: "easeOut" }}
-                whileHover={{ y: -5 }}
-                className="group finlec-card p-5 transition-all hover:-translate-y-1 hover:border-[#04b488]/35"
-              >
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#04b488]/10 text-[#04b488]">
-                  <Icon size={20} />
-                </span>
-                <h3 className="mt-4 text-lg font-semibold text-[#0f172a] font-[family-name:var(--font-sora)]">
-                  {feature.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#475569]">
-                  {feature.description}
-                </p>
-                <p className="mt-4 inline-flex rounded-full bg-[#7B4FD4]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.13em] text-[#7B4FD4]">
-                  {feature.stat}
-                </p>
-              </motion.article>
-            );
-          })}
-        </div>
       </div>
     </section>
   );

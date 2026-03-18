@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useCallback, useEffect, useRef } from "react";
 import { animate, motion, useMotionValue } from "framer-motion";
@@ -115,14 +115,14 @@ export default function PartnersMarquee() {
             {repeatedLogos.map((partner, index) => (
               <div
                 key={`${partner.file}-${index}`}
-                className="flex h-24 min-w-[180px] items-center justify-center rounded-2xl border border-slate-200 bg-white p-4"
+                className="flex items-center justify-center px-4"
               >
                 <Image
                   src={`/companylogos/${partner.file}`}
                   alt={partner.name}
-                  width={160}
-                  height={80}
-                  className="max-h-14 w-auto max-w-[130px] object-contain"
+                  width={220}
+                  height={110}
+                  className="h-16 w-auto max-w-[180px] object-contain"
                 />
               </div>
             ))}

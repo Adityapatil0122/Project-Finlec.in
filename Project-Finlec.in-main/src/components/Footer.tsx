@@ -31,7 +31,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#063d52] px-4 pb-12 pt-12 text-white sm:px-6 lg:px-8">
+    <footer className="bg-[#282185] px-4 pb-12 pt-12 text-white sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -39,7 +39,7 @@ export default function Footer() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="mx-auto max-w-7xl"
       >
-        <div className="grid gap-10 rounded-[32px] bg-[#063d52] px-8 py-10 sm:px-10 lg:grid-cols-[1.1fr_0.7fr_0.7fr_0.8fr]">
+        <div className="grid gap-10 rounded-[32px] bg-[#282185] px-8 py-10 sm:px-10 lg:grid-cols-[1.1fr_0.7fr_0.7fr_0.8fr]">
           <div>
             <Link href="/" className="inline-flex items-center rounded-lg overflow-hidden shrink-0">
               <Image
@@ -120,7 +120,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-[#21d0a3] text-[#063d52] transition-colors hover:bg-white"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-[#21d0a3] text-[#282185] transition-colors hover:bg-white"
                   >
                     <Icon size={16} />
                   </a>

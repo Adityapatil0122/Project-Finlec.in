@@ -20,9 +20,9 @@ const testimonials = [
   {
     content:
       "The SIP Step-Up planner completely changed my retirement projections. Setting up a 10% yearly increment was seamless, and the transparency is unmatched.",
-    author: "Anand V.",
-    role: "Software Engineer",
-    image: "/images/avatar_anand.png",
+    author: "Aditya Patil",
+    role: "Disciplined Investor",
+    image: "/images/adiimage.png",
   },
 ];
 

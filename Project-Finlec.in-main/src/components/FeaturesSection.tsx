@@ -1,17 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ArrowUpRight,
   CalendarClock,
   Layers,
   MonitorSmartphone,
   Sparkles,
   type LucideIcon,
 } from "lucide-react";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 type Feature = {
@@ -136,17 +133,17 @@ export default function FeaturesSection() {
           className="mb-16 text-center"
         >
           <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
-            Features
+            Platform Capabilities
           </p>
           <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
-            Everything you need for a seamless investing experience
+            Seamless features for your investing journey
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base text-[#475569] sm:text-lg">
             Explore what makes our platform the right choice to grow and manage your wealth effortlessly.
           </p>
         </motion.div>
 
-        <div className="mt-12 grid items-center gap-12 lg:grid-cols-[1fr_1.2fr]">
+        <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
           <div className="flex flex-col space-y-3">
             {features.map((feature, index) => {
               const Icon = feature.icon;
@@ -194,8 +191,13 @@ export default function FeaturesSection() {
             })}
           </div>
 
-          <div className="relative min-h-[560px] w-full overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white shadow-[0_20px_60px_-35px_rgba(15,23,42,0.38)]">
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)]" />
+          <div className="relative min-h-[420px] flex flex-col w-full overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white shadow-[0_20px_60px_-35px_rgba(15,23,42,0.38)]">
+            <motion.div 
+               className="absolute inset-0 bg-[linear-gradient(120deg,#ffffff_0%,#f0fdf4_50%,#f8fafc_100%)]"
+               animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
+               transition={{ duration: 12, ease: "linear", repeat: Infinity }}
+               style={{ backgroundSize: "200% 200%" }}
+            />
             <div
               className="pointer-events-none absolute inset-0 opacity-35"
               style={{
@@ -241,149 +243,24 @@ export default function FeaturesSection() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -10, scale: 0.98 }}
                   transition={{ duration: 0.42, ease: easeOut }}
-                  className="mt-6 space-y-4"
+                  className="mt-8 mb-6 flex flex-1 flex-col items-center justify-center space-y-8"
                 >
-                  <div className="grid gap-3 sm:grid-cols-[1.25fr_0.75fr]">
-                    <div className="rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-sm">
-                      <div className="flex items-start gap-3">
-                        <div
-                          className="flex h-12 w-12 items-center justify-center rounded-2xl"
-                          style={{ backgroundColor: `${activeFeature.accent}15`, color: activeFeature.accent }}
-                        >
-                          <ActiveIcon size={24} />
-                        </div>
-                        <div>
-                          <h4 className="text-lg font-semibold text-[#0f172a] font-[family-name:var(--font-sora)]">
-                            {activeFeature.title}
-                          </h4>
-                          <p className="mt-1 text-sm text-slate-600">{activeFeature.description}</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-sm">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-                        Execution Status
-                      </p>
-                      <p className="mt-2 text-xl font-semibold text-[#0f172a]">{activeFeature.metric}</p>
-                      <div className="mt-3 h-2 w-full rounded-full bg-slate-100">
-                        <motion.div
-                          className="h-full rounded-full"
-                          style={{ backgroundColor: activeFeature.accent }}
-                          initial={{ width: 0 }}
-                          animate={{ width: `${activeFeature.progress}%` }}
-                          transition={{ duration: 0.55, ease: easeOut }}
-                        />
-                      </div>
-                      <p className="mt-2 text-xs text-slate-500">System confidence: {activeFeature.progress}%</p>
-                    </div>
-                  </div>
-
-                  <div className="grid gap-3 lg:grid-cols-[0.92fr_1.08fr]">
-                    <div className="rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-sm">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-                        Journey Flow
-                      </p>
-                      <div className="mt-4 space-y-3">
-                        {activeFeature.journey.map((step, stepIndex) => (
-                          <div key={step} className="relative pl-6">
-                            {stepIndex < activeFeature.journey.length - 1 ? (
-                              <span className="absolute left-[8px] top-5 h-8 w-px bg-slate-200" />
-                            ) : null}
-                            <motion.span
-                              className="absolute left-0 top-1.5 h-4 w-4 rounded-full border-2 bg-white"
-                              style={{ borderColor: activeFeature.accent }}
-                              animate={{ scale: [1, 1.16, 1] }}
-                              transition={{
-                                duration: 1.3,
-                                repeat: Number.POSITIVE_INFINITY,
-                                delay: stepIndex * 0.2,
-                                ease: easeOut,
-                              }}
-                            />
-                            <p className="text-sm text-slate-600">{step}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-sm">
-                      <div className="flex items-center justify-between">
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-                          Signal Momentum
-                        </p>
-                        <span className="text-sm font-semibold" style={{ color: activeFeature.accent }}>
-                          +{Math.max(8, activeFeature.progress - 62)}%
-                        </span>
-                      </div>
-                      <svg viewBox="0 0 290 96" className="mt-3 h-24 w-full">
-                        <path d="M8 82 H282 M8 58 H282 M8 34 H282" stroke="#e2e8f0" strokeWidth="1" fill="none" />
-                        <motion.path
-                          d={activeFeature.sparklineArea}
-                          fill={activeFeature.accent}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 0.14 }}
-                          transition={{ duration: 0.45, ease: easeOut }}
-                        />
-                        <motion.path
-                          d={activeFeature.sparkline}
-                          fill="none"
-                          stroke={activeFeature.accent}
-                          strokeWidth="3"
-                          strokeLinecap="round"
-                          initial={{ pathLength: 0, opacity: 0.5 }}
-                          animate={{ pathLength: 1, opacity: 1 }}
-                          transition={{ duration: 0.8, ease: easeOut }}
-                        />
-                        <motion.circle
-                          cx="280"
-                          cy={activeFeature.sparkPointY}
-                          r="4"
-                          fill={activeFeature.accent}
-                          animate={{ r: [4, 5.6, 4], opacity: [0.85, 1, 0.85] }}
-                          transition={{ duration: 1.2, repeat: Number.POSITIVE_INFINITY, ease: easeOut }}
-                        />
-                      </svg>
-
-                      <div className="mt-2 grid grid-cols-3 gap-2 text-xs">
-                        <div className="rounded-xl bg-slate-50 px-2 py-1.5 text-slate-500">
-                          30D: <span className="font-semibold text-slate-700">+1.8%</span>
-                        </div>
-                        <div className="rounded-xl bg-slate-50 px-2 py-1.5 text-slate-500">
-                          Risk: <span className="font-semibold text-slate-700">{activeFeature.riskBand}</span>
-                        </div>
-                        <div className="rounded-xl bg-slate-50 px-2 py-1.5 text-slate-500">
-                          Goal: <span className="font-semibold text-slate-700">{activeFeature.progress}%</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid gap-3 sm:grid-cols-[1fr_0.9fr]">
-                    <div className="relative h-36 overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm">
-                      <Image src={activeFeature.image} alt={activeFeature.imageAlt} fill className="object-cover" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/38 to-transparent" />
-                      <div className="absolute bottom-3 left-3 rounded-full bg-white/85 px-3 py-1 text-xs font-semibold text-slate-700">
-                        {activeFeature.signal}
-                      </div>
-                    </div>
-
-                    <div className="rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-sm">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-                        Next Action
-                      </p>
-                      <p className="mt-2 text-sm text-slate-600">
-                        Ready to apply the latest recommendation for this capability and improve outcome stability.
-                      </p>
-                      <Link
-                        href="https://finlec.my-portfolio.co.in/app/#/login"
-                        className="mt-4 inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-sm font-semibold text-white"
-                        style={{ backgroundColor: activeFeature.accent }}
-                      >
-                        Review Plan
-                        <ArrowUpRight size={15} />
-                      </Link>
-                    </div>
+                  <div className="text-center px-4 w-full max-w-lg">
+                     <motion.div 
+                        initial={{ scale: 0.8, rotate: -5 }}
+                        animate={{ scale: [0.8, 1.05, 1], rotate: 0 }}
+                        transition={{ duration: 0.6, ease: easeOut }}
+                        className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-3xl" 
+                        style={{ backgroundColor: `${activeFeature.accent}15`, color: activeFeature.accent }}
+                     >
+                       <ActiveIcon size={40} />
+                     </motion.div>
+                     <h3 className="text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)]">
+                       {activeFeature.title}
+                     </h3>
+                     <p className="mx-auto mt-4 text-lg leading-relaxed text-slate-600">
+                       {activeFeature.description}
+                     </p>
                   </div>
                 </motion.div>
               </AnimatePresence>

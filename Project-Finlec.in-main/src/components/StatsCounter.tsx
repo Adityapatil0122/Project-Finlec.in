@@ -19,19 +19,19 @@ const stats: Stat[] = [
   },
   {
     label: "AUM",
-    value: 2,
+    value: 5,
     suffix: "Cr+",
     detail: "Assets under management",
   },
   {
     label: "SIP Count / Month",
-    value: 2000,
+    value: 1000,
     suffix: "+",
     detail: "Active monthly SIP contributions",
   },
   {
     label: "Years of Experience",
-    value: 8,
+    value: 5,
     suffix: "+",
     detail: "Trusted expertise in mutual funds",
   },
