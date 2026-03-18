@@ -43,7 +43,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="inline-flex items-center rounded-lg overflow-hidden shrink-0">
               <Image
-                src="/images/logo.jpg"
+                src="/images/finlec_Logo.png"
                 alt="Finlec"
                 width={160}
                 height={56}

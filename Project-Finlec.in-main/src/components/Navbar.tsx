@@ -120,7 +120,7 @@ export default function Navbar() {
       >
         <Link href="/" className="inline-flex items-center" aria-label="Finlec home">
           <Image
-            src="/images/logo.jpg"
+            src="/images/finlec_Logo.png"
             alt="Logo"
             width={150}
             height={50}
