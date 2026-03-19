@@ -1,0 +1,2 @@
+import shutil
+shutil.copyfile("C:/Users/adity/.gemini/antigravity/brain/02c1e0b8-46fe-44c5-bb96-44f3391af921/child_future_secure_1773740455193.png", "c:/Users/adity/Downloads/Project-Finlec.in-main/Project-Finlec.in-main/public/images/child_future_secure.png")
