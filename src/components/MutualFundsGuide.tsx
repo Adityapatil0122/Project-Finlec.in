@@ -218,7 +218,7 @@ export default function MutualFundsGuide() {
       <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-16">
         <motion.div {...fadeUp} className="text-center">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#04b488]/20 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#047a5d] shadow-sm">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
               <ShieldCheck className="h-4 w-4" />
               Beginner Guide
             </span>
@@ -470,8 +470,8 @@ export default function MutualFundsGuide() {
         <motion.div {...fadeUp} className="space-y-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#7B4FD4]">
-                Choose your path
+              <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
+                Choose Your Path
               </p>
               <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
                 SIP vs Lump Sum
@@ -500,7 +500,7 @@ export default function MutualFundsGuide() {
           </div>
 
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#04b488]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#047a5d]">
+            <div className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
               {mode === "sip" ? "SIP route" : "Lump sum route"}
             </div>
             <h3 className="text-2xl font-semibold text-[#1a1560]">
@@ -534,8 +534,8 @@ export default function MutualFundsGuide() {
 
         <motion.div {...fadeUp} className="space-y-8">
           <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#7B4FD4]">
-              How to choose
+            <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
+              How To Choose
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
               How to Start Investing
@@ -587,7 +587,7 @@ export default function MutualFundsGuide() {
 
         <motion.div {...fadeUp} className="space-y-8">
           <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#04b488]">
+            <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
               Glossary
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
@@ -681,8 +681,8 @@ export default function MutualFundsGuide() {
 
         <motion.div {...fadeUp} className="space-y-8">
           <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#7B4FD4]">
-              Risks and costs
+            <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
+              Risks And Costs
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
               Understand the trade-offs
@@ -744,7 +744,7 @@ export default function MutualFundsGuide() {
 
         <motion.div {...fadeUp} className="space-y-8">
           <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#04b488]">
+            <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
               FAQs
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
@@ -779,8 +779,8 @@ export default function MutualFundsGuide() {
           className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-slate-200 bg-white/85 p-8 text-center shadow-sm lg:flex-row lg:text-left"
         >
           <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#7B4FD4]">
-              Next steps
+            <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
+              Next Steps
             </p>
             <h3 className="text-2xl font-semibold text-[#1a1560]">
               Ready to plan your first investment?

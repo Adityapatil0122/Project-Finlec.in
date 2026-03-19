@@ -36,7 +36,7 @@ export default function PPFCalculatorPage() {
                     Public Provident Fund (PPF) is a highly popular long-term saving scheme backed by the Indian Government. Known for its safety, tax advantages, and attractive interest rates, it is an essential component of many investors&apos; portfolios, primarily serving retirement goals.
                  </p>
                  <p>
-                    A PPF calculator helps individuals estimate the long-term growth of their PPF investments over the mandatory 15-year lock-in period. Because the maximum allowable investment under Section 80C is â‚¹1.5 Lakhs per year, our calculator bounds the inputs to ensure you estimate realistic and tax-compliant returns.
+                    A PPF calculator helps you estimate the long-term growth of your PPF investments over the mandatory 15-year lock-in period. Since the maximum investment allowed under Section 80C is ₹1.5 Lakhs per year, our calculator keeps the inputs within that limit so your estimates stay realistic and tax-compliant.
                  </p>
               </div>
            </div>

@@ -26,7 +26,7 @@ const benefits = [
   {
     id: "flexibility",
     title: "Absolute Flexibility",
-    desc: "Traditional methods like Pigmy deposits are locked. Daily SIPs offer true flexibilityâ€”you can pause, modify, or withdraw money anytime without rigid banking constraints or penalties.",
+    desc: "Traditional methods like Pigmy deposits are locked. Daily SIPs offer true flexibility - you can pause, modify, or withdraw money anytime without rigid banking constraints or penalties.",
     icon: Unlock,
     color: "from-teal-400 to-emerald-500",
     textClass: "text-emerald-500",

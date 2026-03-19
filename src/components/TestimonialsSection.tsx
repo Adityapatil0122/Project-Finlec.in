@@ -37,7 +37,7 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.45, ease: "easeOut" }}
           className="text-center mb-14"
         >
-          <p className="inline-flex rounded-full bg-[#7B4FD4]/10 px-4 py-2 text-sm font-semibold text-[#7B4FD4]">
+          <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             Investor Stories
           </p>
           <h2 className="mt-4 mx-auto max-w-3xl text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">

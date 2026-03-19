@@ -23,7 +23,7 @@ export default function HomeLoanEMICalculatorPage() {
                Home Loan EMI Calculator
              </h1>
              <p className="mt-4 max-w-3xl text-lg text-[#4a5568]">
-               Calculate Equated Monthly Installment (EMI) for your Home Loan â€“ with ease.
+               Calculate Equated Monthly Installment (EMI) for your Home Loan with ease.
              </p>
            </div>
 

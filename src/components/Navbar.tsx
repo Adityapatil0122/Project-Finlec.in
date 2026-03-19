@@ -146,6 +146,19 @@ export default function Navbar() {
               </motion.div>
             ))}
 
+            <motion.div whileHover={{ y: -1 }}>
+              <Link
+                href={guideRoute}
+                className={`inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
+                  pathname === guideRoute
+                    ? "bg-[#04b488]/12 text-[#047a5d]"
+                    : "bg-white text-[#047a5d] hover:bg-[#04b488]/10"
+                }`}
+              >
+                Mutual Funds Guide
+              </Link>
+            </motion.div>
+
             <div className="group relative">
               <motion.div whileHover={{ y: -1 }}>
                 <Link
@@ -218,19 +231,6 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
-
-            <motion.div whileHover={{ y: -1 }}>
-              <Link
-                href={guideRoute}
-                className={`inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
-                  pathname === guideRoute
-                    ? "bg-[#04b488]/12 text-[#047a5d]"
-                    : "bg-white text-[#047a5d] hover:bg-[#04b488]/10"
-                }`}
-              >
-                Mutual Funds Guide
-              </Link>
-            </motion.div>
 
             <motion.div whileHover={{ y: -1 }}>
               {isAuthenticated ? (
@@ -348,19 +348,19 @@ export default function Navbar() {
               ))}
 
               <Link
-                href={exploreRoute}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block rounded-xl border border-[#7B4FD4]/30 bg-[#7B4FD4]/10 px-4 py-3 text-sm font-semibold text-[#5e36b3]"
-              >
-                Explore Mutual Funds
-              </Link>
-
-              <Link
                 href={guideRoute}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block rounded-xl border border-[#04b488]/25 bg-white px-4 py-3 text-sm font-semibold text-[#047a5d]"
               >
                 Mutual Funds Guide
+              </Link>
+
+              <Link
+                href={exploreRoute}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block rounded-xl border border-[#7B4FD4]/30 bg-[#7B4FD4]/10 px-4 py-3 text-sm font-semibold text-[#5e36b3]"
+              >
+                Explore Mutual Funds
               </Link>
 
               <div className="grid grid-cols-1 gap-3 pt-1">

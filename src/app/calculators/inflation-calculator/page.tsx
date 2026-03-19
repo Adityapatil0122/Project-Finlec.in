@@ -33,10 +33,10 @@ export default function InflationCalculatorPage() {
               <h2 className="text-2xl font-semibold text-[#1a1560] mb-4">What is an Inflation Calculator?</h2>
               <div className="space-y-4 text-[#4a5568] leading-relaxed">
                  <p>
-                    Inflation is the steady rise in the price of goods and services over time. While it might seem small year-over-year, compounding inflation significantly reduces the purchasing power of your money stored in regular saving accounts. What costs â‚¹1 Lakh today could cost â‚¹1.8 Lakhs in 10 years at a 6% inflation rate.
+                    Inflation is the steady rise in the price of goods and services over time. While it might seem small year-over-year, compounding inflation significantly reduces the purchasing power of your money stored in regular savings accounts. What costs ₹1 Lakh today could cost ₹1.8 Lakhs in 10 years at a 6% inflation rate.
                  </p>
                  <p>
-                    The free Finlec inflation calculator helps you evaluate the exact future equivalent of the money you have today. It&apos;s an indispensable tool when doing long-term financial planning for life goals like retirement, children&apos;s education, or buying a house â€” ensuring you aim for the future cost of the objective, not its current price tag.
+                    The free Finlec inflation calculator helps you estimate the future equivalent of the money you have today. It&apos;s a useful tool for long-term financial planning — whether for retirement, children&apos;s education, or buying a house — so you aim for the future cost of your goal, not its current price.
                  </p>
               </div>
            </div>

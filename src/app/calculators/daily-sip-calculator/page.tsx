@@ -49,7 +49,7 @@ export default function DailySIPCalculatorPage() {
 
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
-              <p className="inline-flex items-center rounded-full bg-[#0ea5e9]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#0ea5e9]">
+              <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
                 Daily SIP & Micro Savings Toolkit
               </p>
               <h1 className="mt-6 text-5xl font-bold leading-[1.1] text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-6xl">
@@ -105,7 +105,7 @@ export default function DailySIPCalculatorPage() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#04b488]">
+              <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
                 Why It Works
               </p>
               <h2 className="mt-4 text-4xl font-bold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)]">
@@ -135,7 +135,7 @@ export default function DailySIPCalculatorPage() {
                   <div>
                     <h3 className="text-xl font-bold text-[#1a1560]">Bulletproof Discipline</h3>
                     <p className="mt-2 text-md leading-relaxed text-[#4a5568]">
-                      You barely notice â‚¹100 or â‚¹500 leaving your account daily. This stealth savings habit ensures consistency without lifestyle shocks.
+                      You barely notice ₹100 or ₹500 leaving your account daily. This stealth savings habit ensures consistency without lifestyle shocks.
                     </p>
                   </div>
                 </div>
@@ -188,19 +188,19 @@ export default function DailySIPCalculatorPage() {
 
           <div className="space-y-6 rounded-3xl bg-white p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
             <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 border-b border-slate-100 pb-5">
-              <p className="min-w-32 text-xs font-semibold uppercase tracking-[0.2em] text-[#0ea5e9]">Why it works</p>
+              <p className="min-w-32 text-sm font-semibold text-[#0ea5e9] font-[family-name:var(--font-sora)]">Why it works</p>
               <p className="text-[#4a5568]">Automates micro-investments to remove emotional friction and average purchase costs over daily volatility.</p>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 border-b border-slate-100 pb-5">
-              <p className="min-w-32 text-xs font-semibold uppercase tracking-[0.2em] text-[#0ea5e9]">Ideal Profile</p>
+              <p className="min-w-32 text-sm font-semibold text-[#0ea5e9] font-[family-name:var(--font-sora)]">Ideal Profile</p>
               <p className="text-[#4a5568]">Perfect for entrepreneurs, freelancers, and anyone with daily income or cash flows.</p>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 border-b border-slate-100 pb-5">
-              <p className="min-w-32 text-xs font-semibold uppercase tracking-[0.2em] text-[#0ea5e9]">Horizon Profile</p>
+              <p className="min-w-32 text-sm font-semibold text-[#0ea5e9] font-[family-name:var(--font-sora)]">Horizon Profile</p>
               <p className="text-[#4a5568]">12+ months for stability; 3-5+ years recommended to maximize compounding benefits.</p>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5">
-              <p className="min-w-32 text-xs font-semibold uppercase tracking-[0.2em] text-[#0ea5e9]">How to Track</p>
+              <p className="min-w-32 text-sm font-semibold text-[#0ea5e9] font-[family-name:var(--font-sora)]">How to Track</p>
               <p className="text-[#4a5568]">Use XIRR to accurately measure annualized returns for staggered daily investments.</p>
             </div>
           </div>
@@ -212,15 +212,15 @@ export default function DailySIPCalculatorPage() {
         <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div className="order-2 lg:order-1 space-y-6 rounded-3xl bg-white p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
             <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 border-b border-slate-100 pb-5">
-              <p className="min-w-32 text-xs font-bold uppercase tracking-[0.2em] text-[#f97316]">Concept</p>
+              <p className="min-w-32 text-sm font-semibold text-[#f97316] font-[family-name:var(--font-sora)]">Concept</p>
               <p className="text-[#4a5568]">Micro-savings scheme where small amounts are collected daily or weekly, ensuring zero market risk.</p>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 border-b border-slate-100 pb-5">
-              <p className="min-w-32 text-xs font-bold uppercase tracking-[0.2em] text-[#f97316]">Core Goal</p>
+              <p className="min-w-32 text-sm font-semibold text-[#f97316] font-[family-name:var(--font-sora)]">Core Goal</p>
               <p className="text-[#4a5568]">Building basic savings habits by turning loose change into a tangible lump sum over time.</p>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5">
-              <p className="min-w-32 text-xs font-bold uppercase tracking-[0.2em] text-[#f97316]">Considerations</p>
+              <p className="min-w-32 text-sm font-semibold text-[#f97316] font-[family-name:var(--font-sora)]">Considerations</p>
               <p className="text-[#4a5568]">Lower returns than SIPs and potential agent fees; digital auto-debits are usually more efficient.</p>
             </div>
           </div>
@@ -380,7 +380,7 @@ export default function DailySIPCalculatorPage() {
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between text-center md:text-left">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#04b488]">
+              <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
                 Mutual Fund Lanes
               </p>
               <h2 className="mt-4 text-4xl font-bold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-5xl">
@@ -457,7 +457,7 @@ export default function DailySIPCalculatorPage() {
       <section id="faqs" className="bg-white px-4 py-24 sm:px-6 lg:px-8 border-y border-slate-200">
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7B4FD4]">
+            <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
               Common Questions
             </p>
             <h2 className="mt-4 text-4xl font-bold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)]">

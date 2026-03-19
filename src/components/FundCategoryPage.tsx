@@ -22,7 +22,7 @@ import type { FundCategoryInfo, SampleFund } from "@/data";
 import { getFundsByParent, companyLogo } from "@/data";
 import type { FundSnapshot } from "@/types/mfapi";
 
-/* â”€â”€ sorting â”€â”€ */
+/* ── sorting ── */
 type SortKey = "return1Y" | "return3Y" | "return5Y" | "expenseRatio";
 
 function sortFunds(funds: SampleFund[], key: SortKey, asc: boolean): SampleFund[] {
@@ -33,7 +33,7 @@ function sortFunds(funds: SampleFund[], key: SortKey, asc: boolean): SampleFund[
   });
 }
 
-/* â”€â”€ component â”€â”€ */
+/* ── component ── */
 export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
   const [sortKey, setSortKey] = useState<SortKey>("return5Y");
   const [sortAsc, setSortAsc] = useState(false);
@@ -107,7 +107,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
 
   return (
     <div className="min-h-screen">
-      {/* â”€â”€â”€ HERO BANNER â”€â”€â”€ */}
+      {/* ─── HERO BANNER ─── */}
       <section className="relative overflow-hidden px-4 pb-16 pt-14 sm:px-6 sm:pt-16 lg:px-8">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(4,180,136,0.18),transparent_30%),radial-gradient(circle_at_90%_10%,rgba(123,79,212,0.2),transparent_34%)]" />
         <div className="pointer-events-none absolute left-[8%] top-20 h-36 w-36 rounded-full bg-[#04b488]/12 blur-3xl" />
@@ -126,7 +126,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(4,180,136,0.05),rgba(123,79,212,0.05))]" />
 
             <div className="relative">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#04b488]/20 bg-[#04b488]/8 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#04b488]">
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
                 <Sparkles size={12} />
                 {data.parentCategory} Fund
               </span>
@@ -193,7 +193,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
         </div>
       </section>
 
-      {/* â”€â”€â”€ FUND TABLE â”€â”€â”€ */}
+      {/* ─── FUND TABLE ─── */}
       <section className="px-4 pb-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-6 text-2xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
@@ -303,7 +303,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
         </div>
       </section>
 
-      {/* â”€â”€â”€ INFO SECTIONS â”€â”€â”€ */}
+      {/* ─── INFO SECTIONS ─── */}
       <section className="px-4 pb-16 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-2">
           {/* What is */}
@@ -363,7 +363,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
           </InfoCard>
         </div>
 
-        {/* Taxation â€” full width */}
+        {/* Taxation — full width */}
         <div className="mx-auto mt-6 max-w-6xl">
           <InfoCard
             icon={IndianRupee}
@@ -377,7 +377,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
         </div>
       </section>
 
-      {/* â”€â”€â”€ RELATED CATEGORIES â”€â”€â”€ */}
+      {/* ─── RELATED CATEGORIES ─── */}
       {relatedFunds.length > 0 && (
         <section className="px-4 pb-20 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl">
@@ -395,7 +395,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
                     {rf.title}
                   </p>
                   <p className="mt-1 text-xs text-[#4a5568]">
-                    {rf.fundCount} funds â€¢ Avg. {rf.avgReturn}
+                    {rf.fundCount} funds &bull; Avg. {rf.avgReturn}
                   </p>
                   <div className="mt-2 flex items-center gap-2">
                     <span
@@ -418,7 +418,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
         </section>
       )}
 
-      {/* â”€â”€â”€ FAQ â”€â”€â”€ */}
+      {/* ─── FAQ ─── */}
       {data.faqs.length > 0 && (
         <section className="px-4 pb-20 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl">
@@ -475,7 +475,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
   );
 }
 
-/* â”€â”€ Helpers â”€â”€ */
+/* ── Helpers ── */
 function riskColorForLevel(level: string): string {
   if (level === "Very Low" || level === "Low") return "#04b488";
   if (level === "Moderate" || level === "Low to Moderate") return "#7B4FD4";

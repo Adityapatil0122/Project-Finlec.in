@@ -50,7 +50,7 @@ export default function PigmyDepositCalculatorPage() {
             className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]"
           >
             <motion.div variants={fadeItem}>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f97316]">
+              <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
                 Pigmy Deposit Insights
               </p>
               <h1 className="mt-4 text-4xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-5xl">
@@ -93,19 +93,19 @@ export default function PigmyDepositCalculatorPage() {
 
             <motion.div variants={fadeItem} className="space-y-6">
               <div className="border-l-2 border-[#f97316] pl-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#f97316]">Why it exists</p>
+                <p className="text-sm font-semibold text-[#f97316] font-[family-name:var(--font-sora)]">Why it exists</p>
                 <p className="mt-2 text-sm text-[#4a5568]">
                   Converts spare change into structured savings when auto-debit is not possible.
                 </p>
               </div>
               <div className="border-l-2 border-[#ef4444] pl-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#ef4444]">Next step</p>
+                <p className="text-sm font-semibold text-[#ef4444] font-[family-name:var(--font-sora)]">Next step</p>
                 <p className="mt-2 text-sm text-[#4a5568]">
                   Move to SIPs for long-term growth and predictable returns.
                 </p>
               </div>
               <div className="border-l-2 border-[#04b488] pl-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#04b488]">Track with</p>
+                <p className="text-sm font-semibold text-[#04b488] font-[family-name:var(--font-sora)]">Track with</p>
                 <p className="mt-2 text-sm text-[#4a5568]">
                   XIRR for mixed deposits and withdrawals over time.
                 </p>
@@ -143,15 +143,15 @@ export default function PigmyDepositCalculatorPage() {
 
           <motion.div variants={fadeItem} className="space-y-4 text-sm text-[#4a5568]">
             <div className="flex items-start gap-4 border-b border-slate-200 pb-4">
-              <p className="min-w-32 text-xs font-semibold uppercase tracking-[0.2em] text-[#f97316]">Best for</p>
+              <p className="min-w-32 text-sm font-semibold text-[#f97316] font-[family-name:var(--font-sora)]">Best for</p>
               <p>Cash-based savers who need frequent collection and low entry amounts.</p>
             </div>
             <div className="flex items-start gap-4 border-b border-slate-200 pb-4">
-              <p className="min-w-32 text-xs font-semibold uppercase tracking-[0.2em] text-[#f97316]">Key value</p>
+              <p className="min-w-32 text-sm font-semibold text-[#f97316] font-[family-name:var(--font-sora)]">Key value</p>
               <p>Discipline and convenience, especially when auto-debit is not available.</p>
             </div>
             <div className="flex items-start gap-4">
-              <p className="min-w-32 text-xs font-semibold uppercase tracking-[0.2em] text-[#f97316]">Watch for</p>
+              <p className="min-w-32 text-sm font-semibold text-[#f97316] font-[family-name:var(--font-sora)]">Watch for</p>
               <p>Collection charges and lower effective returns after fees.</p>
             </div>
           </motion.div>
@@ -163,8 +163,8 @@ export default function PigmyDepositCalculatorPage() {
         >
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#f97316]">
-                How it works
+              <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
+                How It Works
               </p>
               <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-4xl">
                 The pigmy deposit flow in three steps
@@ -205,8 +205,8 @@ export default function PigmyDepositCalculatorPage() {
         <motion.div {...fadeUp} className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#f97316]">
-                Before you start
+              <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
+                Before You Start
               </p>
               <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-4xl">
                 Pigmy deposit checklist
@@ -267,7 +267,7 @@ export default function PigmyDepositCalculatorPage() {
         <motion.div {...fadeUp} className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#04b488]">
+              <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
                 Next Fund Step
               </p>
               <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-4xl">
@@ -345,7 +345,7 @@ export default function PigmyDepositCalculatorPage() {
         <motion.div {...fadeUp} className="mx-auto max-w-6xl">
           <div className="flex flex-col items-start gap-4 text-left md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#04b488]">
+              <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
                 Performance Snapshot
               </p>
               <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-4xl">

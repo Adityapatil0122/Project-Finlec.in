@@ -306,9 +306,8 @@ export default function HeroCarousel() {
 
       <div className="relative w-full overflow-hidden" style={{ paddingTop: "12px" }}>
         <div
-          className="relative w-full overflow-hidden"
+          className="relative w-full overflow-hidden h-[580px] md:h-[clamp(400px,55vw,520px)]"
           style={{
-            height: "clamp(400px, 55vw, 520px)",
             backgroundImage: activeSlide.surface,
           }}
         >

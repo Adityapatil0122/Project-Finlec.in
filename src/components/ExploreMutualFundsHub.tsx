@@ -648,7 +648,7 @@ export default function ExploreMutualFundsHub() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(4,180,136,0.14),transparent_26%),radial-gradient(circle_at_86%_12%,rgba(123,79,212,0.16),transparent_30%)]" />
 
         <div className="relative mx-auto max-w-3xl text-center">
-          <p className="inline-flex items-center rounded-full border border-[#04b488]/30 bg-[linear-gradient(90deg,rgba(4,180,136,0.08),rgba(123,79,212,0.06))] px-4 py-2 text-sm font-semibold text-[#00a57d]">
+          <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             Fund Discovery Hub
           </p>
           <h1 className="mt-4 text-4xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-5xl lg:text-6xl drop-shadow-sm">
@@ -666,7 +666,7 @@ export default function ExploreMutualFundsHub() {
           <div className="border-b border-slate-200 pb-6">
             <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#04b488]">
+                <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
                   Category Breakdown
                 </p>
                 <h2 className="mt-2 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-4xl">
@@ -768,7 +768,7 @@ export default function ExploreMutualFundsHub() {
         <div className="mx-auto max-w-7xl rounded-[34px] border border-slate-200 bg-white/84 p-6 shadow-[0_24px_70px_-46px_rgba(15,23,42,0.45)] backdrop-blur-xl sm:p-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#7B4FD4]">
+              <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
                 Performance Screen
               </p>
               <h2 className="mt-2 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-4xl">

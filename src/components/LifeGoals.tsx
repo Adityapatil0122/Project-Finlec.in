@@ -31,7 +31,7 @@ const goals: Goal[] = [
   },
   {
     title: "Legacy Corpus",
-    note: "Build a financial cushion for your family&apos;s future.",
+    note: "Build a financial cushion for your family's future.",
     target: "Outcome Plan",
     icon: Flag,
   },

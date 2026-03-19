@@ -73,7 +73,7 @@ export default function HomeLoanEMICalculator() {
           />
         </div>
 
-        {/* Interest Rate Rate */}
+        {/* Interest Rate */}
         <div>
           <div className="mb-4 flex items-center justify-between">
             <label className="text-sm font-semibold text-[#4a5568]">Rate of Interest (p.a)</label>

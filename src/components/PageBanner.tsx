@@ -23,7 +23,7 @@ export default function PageBanner({
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[32px] border border-white/75 bg-white/82 p-7 shadow-[0_28px_70px_-42px_rgba(14,23,40,0.42)] backdrop-blur-xl sm:p-9">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(4,180,136,0.06),rgba(123,79,212,0.06))]" />
 
-        <p className="relative inline-flex rounded-full border border-[#04b488]/20 bg-[linear-gradient(90deg,rgba(4,180,136,0.12),rgba(123,79,212,0.1))] px-4 py-2 text-sm font-semibold text-[#00a57d]">
+        <p className="relative inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
           {badge}
         </p>
         <h1 className="relative mt-4 max-w-3xl text-4xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-5xl">
