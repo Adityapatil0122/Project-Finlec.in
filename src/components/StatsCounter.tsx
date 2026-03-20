@@ -1,7 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { animate, motion, useInView, useMotionValue, useTransform } from "framer-motion";
+import {
+  animate,
+  motion,
+  useInView,
+  useMotionValue,
+  useTransform,
+} from "framer-motion";
+import { useMobileMotion } from "@/lib/hooks/useMobileMotion";
+import { mobileFadeUp, mobileStaggerContainer } from "@/lib/motion";
 
 type Stat = {
   label: string;
@@ -83,20 +91,45 @@ function AnimatedValue({ value, suffix, start }: AnimatedValueProps) {
 }
 
 export default function StatsCounter() {
+  const { shouldAnimate, motionKey } = useMobileMotion();
   const sectionRef = useRef<HTMLElement | null>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.35 });
+  const gridMotionProps = shouldAnimate
+    ? {
+        variants: mobileStaggerContainer,
+        initial: "hidden",
+        whileInView: "show",
+        viewport: { once: true, amount: 0.25 },
+      }
+    : {};
 
   return (
-    <section ref={sectionRef} id="stats" className="bg-[#f8fafc] px-4 py-24 sm:px-6 lg:px-8">
+    <section
+      ref={sectionRef}
+      id="stats"
+      key={motionKey}
+      className="bg-[#f8fafc] px-4 py-24 sm:px-6 lg:px-8"
+    >
       <div className="mx-auto max-w-6xl">
-        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        <motion.div
+          {...gridMotionProps}
+          className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4"
+        >
           {stats.map((stat, index) => (
             <motion.article
               key={stat.label}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+              {...(shouldAnimate
+                ? { variants: mobileFadeUp }
+                : {
+                    initial: { opacity: 0, y: 24 },
+                    whileInView: { opacity: 1, y: 0 },
+                    viewport: { once: true, amount: 0.25 },
+                    transition: {
+                      duration: 0.5,
+                      delay: index * 0.1,
+                      ease: "easeOut",
+                    },
+                  })}
               className="group relative overflow-hidden rounded-2xl bg-white p-4 text-center shadow-sm hover:shadow-lg transition-shadow duration-300 sm:p-6 md:p-8"
             >
               {/* Accent top bar */}
@@ -118,7 +151,7 @@ export default function StatsCounter() {
               <p className="mt-2 text-sm text-[#64748b]">{stat.detail}</p>
             </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

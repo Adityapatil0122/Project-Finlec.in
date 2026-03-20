@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, Target, Unlock, Clock, Trophy } from "lucide-react";
+import { useMobileMotion } from "@/lib/hooks/useMobileMotion";
+import { mobileFadeUp } from "@/lib/motion";
 
 const benefits = [
   {
@@ -44,6 +46,7 @@ const benefits = [
 ];
 
 export default function AnimatedDailySipBenefits() {
+  const { shouldAnimate, motionKey } = useMobileMotion();
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -54,7 +57,18 @@ export default function AnimatedDailySipBenefits() {
   }, []);
 
   return (
-    <div className="mt-12 sm:mt-20 rounded-3xl sm:rounded-[2.5rem] bg-gradient-to-br from-[#0ea5e9]/5 to-[#7B4FD4]/5 p-4 sm:p-8 md:p-12 border border-slate-200 relative overflow-hidden bg-white/40 backdrop-blur-3xl shadow-xl shadow-slate-200/40">
+    <motion.div
+      {...(shouldAnimate
+        ? {
+            variants: mobileFadeUp,
+            initial: "hidden",
+            whileInView: "show",
+            viewport: { once: true, amount: 0.25 },
+          }
+        : {})}
+      key={motionKey}
+      className="mt-12 sm:mt-20 rounded-3xl sm:rounded-[2.5rem] bg-gradient-to-br from-[#0ea5e9]/5 to-[#7B4FD4]/5 p-4 sm:p-8 md:p-12 border border-slate-200 relative overflow-hidden bg-white/40 backdrop-blur-3xl shadow-xl shadow-slate-200/40"
+    >
       <div className="absolute -top-24 -right-24 p-8 opacity-5 pointer-events-none text-[#0ea5e9]">
         <Trophy size={360} />
       </div>
@@ -132,7 +146,7 @@ export default function AnimatedDailySipBenefits() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

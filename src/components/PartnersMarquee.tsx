@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useRef } from "react";
 import { animate, motion, useMotionValue } from "framer-motion";
 import Image from "next/image";
+import { useMobileMotion } from "@/lib/hooks/useMobileMotion";
+import { mobileFadeUp, mobileStaggerFade } from "@/lib/motion";
 
 const partnerLogos = [
   { name: "SBI Mutual Fund", file: "sbi.png" },
@@ -42,9 +44,23 @@ const repeatedLogos = [...partnerLogos, ...partnerLogos];
 const SCROLL_SPEED = 55;
 
 export default function PartnersMarquee() {
+  const { shouldAnimate, motionKey } = useMobileMotion();
   const x = useMotionValue(0);
   const trackRef = useRef<HTMLDivElement | null>(null);
   const controlsRef = useRef<ReturnType<typeof animate> | null>(null);
+  const wrapperMotionProps = shouldAnimate
+    ? {
+        variants: mobileStaggerFade,
+        initial: "hidden",
+        whileInView: "show",
+        viewport: { once: true, amount: 0.35 },
+      }
+    : {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.35 },
+        transition: { duration: 0.5, ease: "easeOut" },
+      };
 
   const startMarquee = useCallback(() => {
     const track = trackRef.current;
@@ -86,15 +102,9 @@ export default function PartnersMarquee() {
   }, [startMarquee, x]);
 
   return (
-    <section id="partners" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.35 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="mx-auto max-w-7xl"
-      >
-        <div className="mx-auto max-w-3xl text-center">
+    <section id="partners" key={motionKey} className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+      <motion.div {...wrapperMotionProps} className="mx-auto max-w-7xl">
+        <motion.div variants={mobileFadeUp} className="mx-auto max-w-3xl text-center">
           <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             AMC Network
           </p>
@@ -104,9 +114,10 @@ export default function PartnersMarquee() {
           <p className="mt-4 text-base text-[#4a5568] sm:text-lg">
             Access a wide AMC network through one platform.
           </p>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
+          variants={mobileFadeUp}
           className="mt-10 overflow-hidden rounded-3xl border border-slate-200 bg-[#f8f9fa] py-5"
           onMouseEnter={() => controlsRef.current?.stop()}
           onMouseLeave={startMarquee}
@@ -127,7 +138,7 @@ export default function PartnersMarquee() {
               </div>
             ))}
           </motion.div>
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );

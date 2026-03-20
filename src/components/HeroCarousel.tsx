@@ -4,6 +4,9 @@ import { useState, useEffect, useMemo, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { useMobileMotion } from "@/lib/hooks/useMobileMotion";
+import { mobileFadeUp } from "@/lib/motion";
 
 interface SlideData {
   id: number;
@@ -146,17 +149,17 @@ function SlideFrame({
         />
       </div>
 
-      <div className="z-[2] mx-auto flex h-full w-full max-w-7xl flex-col items-center justify-between px-4 py-8 sm:px-6 sm:py-10 md:flex-row md:px-16 md:py-0">
+      <div className="z-[2] mx-auto flex h-full w-full max-w-7xl flex-col items-center justify-between px-4 py-6 sm:px-6 sm:py-10 md:flex-row md:px-16 md:py-0">
         <div className="flex w-full flex-col items-center text-center md:w-1/2 md:items-start md:text-left">
-          <h2 className="mt-4 flex flex-col gap-1">
+          <h2 className="mt-2 flex flex-col gap-1 sm:mt-4">
             <span
-              className="text-2xl font-bold leading-tight tracking-tight text-[#1a1560] sm:text-3xl md:text-4xl lg:text-[3.5rem]"
+              className="text-[2rem] font-bold leading-tight tracking-tight text-[#1a1560] sm:text-3xl md:text-4xl lg:text-[3.5rem]"
               style={{ fontFamily: "var(--font-sora), 'Inter', sans-serif" }}
             >
               {slide.title}
             </span>
             <span
-              className="font-pacifico text-2xl leading-tight sm:text-3xl md:text-4xl lg:text-[3.5rem]"
+              className="font-pacifico text-[2rem] leading-tight sm:text-3xl md:text-4xl lg:text-[3.5rem]"
               style={{
                 color: slide.accent,
                 textShadow: "0 8px 18px rgba(255,255,255,0.55)",
@@ -166,13 +169,13 @@ function SlideFrame({
             </span>
           </h2>
 
-          <p className="mt-5 max-w-md text-base font-medium leading-relaxed text-[#4a5568] sm:text-lg">
+          <p className="mt-3 max-w-md text-sm font-medium leading-relaxed text-[#4a5568] sm:mt-5 sm:text-base md:text-lg">
             {slide.subtitle}
           </p>
 
           <Link
             href={slide.ctaLink}
-            className="mt-8 inline-block rounded-full px-8 py-3.5 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95 min-h-[48px]"
+            className="mt-5 inline-block rounded-full px-7 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95 min-h-[48px] sm:mt-8 sm:px-8 sm:py-3.5"
             style={{
               backgroundColor: slide.accent,
               boxShadow: `0 18px 36px -20px ${slide.accent}26`,
@@ -182,9 +185,9 @@ function SlideFrame({
           </Link>
         </div>
 
-        <div className="mt-6 flex w-full justify-center md:mt-0 md:w-1/2">
+        <div className="mt-4 flex w-full justify-center sm:mt-6 md:mt-0 md:w-1/2">
           <div
-            className="relative flex h-56 w-56 items-center justify-center overflow-hidden rounded-[2rem] border border-white/70 sm:h-64 sm:w-64 md:h-80 md:w-80 lg:h-[400px] lg:w-[400px]"
+            className="relative flex h-[300px] w-[300px] items-center justify-center overflow-hidden rounded-[2rem] border border-white/70 sm:h-[320px] sm:w-[320px] md:h-80 md:w-80 lg:h-[400px] lg:w-[400px]"
             style={{
               background:
                 "linear-gradient(180deg, rgba(255,255,255,0.84) 0%, rgba(255,255,255,0.56) 100%)",
@@ -206,6 +209,7 @@ function SlideFrame({
 }
 
 export default function HeroCarousel() {
+  const { shouldAnimate, motionKey } = useMobileMotion();
   const [trackIndex, setTrackIndex] = useState(1);
   const [isSnap, setIsSnap] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -304,9 +308,21 @@ export default function HeroCarousel() {
         }
       `}</style>
 
-      <div className="relative w-full overflow-hidden" style={{ paddingTop: "12px" }}>
+      <motion.div
+        {...(shouldAnimate
+          ? {
+              variants: mobileFadeUp,
+              initial: "hidden",
+              whileInView: "show",
+              viewport: { once: true, amount: 0.6 },
+            }
+          : {})}
+        key={motionKey}
+        className="relative w-full overflow-hidden"
+        style={{ paddingTop: "12px" }}
+      >
         <div
-          className="relative w-full overflow-hidden h-[520px] sm:h-[580px] md:h-[clamp(400px,55vw,520px)]"
+          className="relative w-full overflow-hidden h-[640px] sm:h-[580px] md:h-[clamp(400px,55vw,520px)]"
           style={{
             backgroundImage: activeSlide.surface,
           }}
@@ -375,7 +391,7 @@ export default function HeroCarousel() {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }

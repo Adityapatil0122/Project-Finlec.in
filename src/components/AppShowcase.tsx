@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useMobileMotion } from "@/lib/hooks/useMobileMotion";
+import { mobileFadeUp, mobileStaggerFade } from "@/lib/motion";
 
 function PhoneShell({
   children,
@@ -56,12 +58,12 @@ function Testimonial({
           <Image
             src={avatarSrc}
             alt={`${name} profile`}
-            width={40}
-            height={40}
-            className="h-10 w-10 rounded-full border border-slate-200 object-cover"
+            width={64}
+            height={64}
+            className="h-16 w-16 rounded-full border-2 border-slate-200 object-cover"
           />
         ) : (
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#04b488]/10 text-sm font-semibold text-[#0f172a]">
+          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#04b488]/10 text-sm font-semibold text-[#0f172a]">
             {initials}
           </div>
         )}
@@ -75,17 +77,29 @@ function Testimonial({
 }
 
 export default function AppShowcase() {
+  const { shouldAnimate, motionKey } = useMobileMotion();
+  const articleMotionProps = shouldAnimate
+    ? {
+        variants: mobileStaggerFade,
+        initial: "hidden",
+        whileInView: "show",
+        viewport: { once: true, amount: 0.2 },
+      }
+    : {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.2 },
+        transition: { duration: 0.5, ease: "easeOut" },
+      };
+
   return (
-    <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+    <section key={motionKey} className="bg-white px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl space-y-10">
         <motion.article
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          {...articleMotionProps}
           className="grid gap-10 finlec-card p-4 sm:p-7 lg:grid-cols-2 lg:items-center lg:p-10"
         >
-          <div>
+          <motion.div variants={mobileFadeUp}>
             <h2 className="text-2xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl">
               Plan for every goal.
             </h2>
@@ -106,10 +120,11 @@ export default function AppShowcase() {
               name="Rahul Kumar"
               subtitle="Software Engineer, Pune"
             />
-          </div>
+          </motion.div>
 
-          <PhoneShell tiltClassName="lg:-rotate-1">
-            <div className="flex h-full flex-col rounded-[2.25rem] bg-[radial-gradient(circle_at_80%_10%,#2a0f4a_0%,#17092b_60%)] p-4 text-white">
+          <motion.div variants={mobileFadeUp}>
+            <PhoneShell tiltClassName="lg:-rotate-1">
+              <div className="flex h-full flex-col rounded-[2.25rem] bg-[radial-gradient(circle_at_80%_10%,#2a0f4a_0%,#17092b_60%)] p-4 text-white">
               <div className="flex items-center justify-between text-[10px] text-white/75">
                 <p className="font-medium">9:41</p>
                 <p>5G 92%</p>
@@ -159,18 +174,16 @@ export default function AppShowcase() {
                   Start with ₹2,500
                 </button>
               </div>
-            </div>
-          </PhoneShell>
+              </div>
+            </PhoneShell>
+          </motion.div>
         </motion.article>
 
         <motion.article
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          {...articleMotionProps}
           className="grid gap-8 finlec-card p-4 sm:p-7 lg:grid-cols-2 lg:items-center lg:p-10"
         >
-          <div>
+          <motion.div variants={mobileFadeUp}>
             <h2 className="text-2xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl">
               Grow your money steadily.
             </h2>
@@ -191,10 +204,11 @@ export default function AppShowcase() {
               name="Sneha Patil"
               subtitle="Investor since 2022"
             />
-          </div>
+          </motion.div>
 
-          <PhoneShell tiltClassName="lg:rotate-1">
-            <div className="flex h-full flex-col rounded-[2.25rem] bg-white p-4">
+          <motion.div variants={mobileFadeUp}>
+            <PhoneShell tiltClassName="lg:rotate-1">
+              <div className="flex h-full flex-col rounded-[2.25rem] bg-white p-4">
               <div className="flex items-center justify-between text-[10px] text-[#4a5568]">
                 <p className="font-medium">9:41</p>
                 <p>5G 92%</p>
@@ -246,8 +260,9 @@ export default function AppShowcase() {
                   <p className="font-semibold text-[#04b488]">15.42%</p>
                 </div>
               </div>
-            </div>
-          </PhoneShell>
+              </div>
+            </PhoneShell>
+          </motion.div>
         </motion.article>
       </div>
     </section>

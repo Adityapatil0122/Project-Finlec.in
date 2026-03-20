@@ -98,6 +98,7 @@ export default function Navbar() {
   const guestLabel = "Login";
 
   return (
+    <>
     <motion.header
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -326,93 +327,146 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <AnimatePresence initial={false}>
-        {isMobileMenuOpen ? (
+    </motion.header>
+
+    <AnimatePresence>
+      {isMobileMenuOpen && (
+        <>
+          {/* Backdrop */}
           <motion.div
-            initial={{ opacity: 0, y: -10, height: 0 }}
-            animate={{ opacity: 1, y: 0, height: "auto" }}
-            exit={{ opacity: 0, y: -8, height: 0 }}
-            transition={{ duration: 0.28, ease: "easeInOut" }}
-            className="overflow-hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl lg:hidden"
+            key="backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[55] bg-black/40 backdrop-blur-sm lg:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
+          /> 
+
+          {/* Drawer panel */}
+          <motion.div
+            key="drawer"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
+            className="fixed right-0 top-0 z-[60] flex h-full w-[min(280px,78vw)] flex-col bg-white shadow-[−20px_0_60px_−10px_rgba(15,23,42,0.18)] lg:hidden"
           >
-            <div className="space-y-3 px-4 py-5 finlec-soft-grid">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-sm font-medium text-slate-700 min-h-[48px]"
-                >
-                  {link.label}
-                </Link>
-              ))}
-
-              <Link
-                href={guideRoute}
+            {/* Drawer header */}
+            <div className="flex items-center justify-between border-b border-slate-100 px-6 py-5">
+              <Image
+                src="/images/finlec_Logo.png"
+                alt="Finlec"
+                width={120}
+                height={40}
+                className="h-auto w-[110px] object-contain"
+              />
+              <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center rounded-xl border border-[#04b488]/25 bg-white px-4 py-3.5 text-sm font-semibold text-[#047a5d] min-h-[48px]"
+                aria-label="Close menu"
+                className="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-100"
               >
-                Mutual Funds Guide
-              </Link>
+                <X size={20} />
+              </button>
+            </div>
 
-              <Link
-                href={exploreRoute}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center rounded-xl border border-[#7B4FD4]/30 bg-[#7B4FD4]/10 px-4 py-3.5 text-sm font-semibold text-[#5e36b3] min-h-[48px]"
-              >
-                Explore Mutual Funds
-              </Link>
-
-              <div className="grid grid-cols-1 gap-3 pt-1">
-                {isAuthenticated ? (
-                  <div className="rounded-2xl border border-[#04b488]/20 bg-[linear-gradient(135deg,#ffffff_0%,#f3fffb_100%)] p-3 shadow-sm">
-                    <div className="flex items-center gap-3">
-                      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#04b488] to-[#7B4FD4] text-sm font-bold text-white">
-                        {userInitials}
-                      </span>
-                      <span className="flex-1 text-left">
-                        <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
-                          Signed in
-                        </span>
-                        <span className="block text-sm font-semibold text-[#0f172a]">{userLabel}</span>
-                      </span>
-                    </div>
-
-                    <div className="mt-3 grid grid-cols-2 gap-2">
-                      <Link
-                        href="/dashboard"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-center text-sm font-semibold text-slate-700"
-                      >
-                        Dashboard
-                      </Link>
-                      <Link
-                        href="/dashboard/profile"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-center text-sm font-semibold text-slate-700"
-                      >
-                        Profile
-                      </Link>
-                    </div>
-
-                    <SignOutButton
-                      className="mt-3 w-full justify-center rounded-xl border border-[#e85d5d]/20 bg-white px-4 py-3 text-[#c23b3b] hover:bg-[#fff5f5]"
-                    />
-                  </div>
-                ) : (
+            {/* Nav links */}
+            <nav className="flex-1 overflow-y-auto px-6 py-4">
+              <div className="flex flex-col">
+                {navLinks.map((link) => (
                   <Link
-                    href={guestHref}
+                    key={link.label}
+                    href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center justify-center rounded-xl border border-[#0b3d3b]/40 bg-[#0b3d3b] px-4 py-3.5 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#0f4a46] min-h-[48px]"
+                    className={`flex min-h-[52px] items-center border-b border-slate-100 py-3 text-[15px] font-medium transition-colors last:border-0 ${
+                      pathname === link.href
+                        ? "text-[#04b488]"
+                        : "text-slate-700 hover:text-[#04b488]"
+                    }`}
                   >
-                    {guestLabel}
+                    {link.label}
                   </Link>
-                )}
+                ))}
+
+                <Link
+                  href={guideRoute}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex min-h-[52px] items-center border-b border-slate-100 py-3 text-[15px] font-medium transition-colors ${
+                    pathname === guideRoute
+                      ? "text-[#04b488]"
+                      : "text-[#047a5d] hover:text-[#04b488]"
+                  }`}
+                >
+                  Mutual Funds Guide
+                </Link>
+
+                <Link
+                  href={exploreRoute}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex min-h-[52px] items-center py-3 text-[15px] font-medium transition-colors ${
+                    pathname === exploreRoute
+                      ? "text-[#7B4FD4]"
+                      : "text-[#5e36b3] hover:text-[#7B4FD4]"
+                  }`}
+                >
+                  Explore Mutual Funds
+                </Link>
               </div>
+            </nav>
+
+            {/* Auth section */}
+            <div className="border-t border-slate-100 px-6 py-5">
+              {isAuthenticated ? (
+                <div>
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#04b488] to-[#7B4FD4] text-sm font-bold text-white">
+                      {userInitials}
+                    </span>
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
+                        Signed in
+                      </p>
+                      <p className="text-sm font-semibold text-[#0f172a]">{userLabel}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col">
+                    <Link
+                      href="/dashboard"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="flex min-h-[48px] items-center gap-3 border-b border-slate-100 py-3 text-sm font-medium text-slate-700 transition-colors hover:text-[#04b488]"
+                    >
+                      <LayoutDashboard className="h-4 w-4 text-[#04b488]" />
+                      Dashboard
+                    </Link>
+                    <Link
+                      href="/dashboard/profile"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="flex min-h-[48px] items-center gap-3 py-3 text-sm font-medium text-slate-700 transition-colors hover:text-[#7B4FD4]"
+                    >
+                      <UserRound className="h-4 w-4 text-[#7B4FD4]" />
+                      Profile
+                    </Link>
+                  </div>
+
+                  <SignOutButton className="mt-3 w-full justify-center rounded-xl border border-[#e85d5d]/20 bg-white px-4 py-3 text-[#c23b3b] hover:bg-[#fff5f5]" />
+                </div>
+              ) : (
+                <Link
+                  href={guestHref}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex min-h-[52px] items-center justify-center rounded-full bg-[#0b3d3b] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0f4a46]"
+                >
+                  {guestLabel}
+                </Link>
+              )}
             </div>
           </motion.div>
-        ) : null}
-      </AnimatePresence>
-    </motion.header>
+        </>
+      )}
+    </AnimatePresence>
+    </>
   );
 }
+
+

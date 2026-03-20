@@ -3,15 +3,29 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useMobileMotion } from "@/lib/hooks/useMobileMotion";
+import { mobileFadeUp, mobileStaggerFade } from "@/lib/motion";
 
 export default function CtaSection() {
+  const { shouldAnimate, motionKey } = useMobileMotion();
+  const cardMotionProps = shouldAnimate
+    ? {
+        variants: mobileStaggerFade,
+        initial: "hidden",
+        whileInView: "show",
+        viewport: { once: true, amount: 0.3 },
+      }
+    : {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.3 },
+        transition: { duration: 0.5, ease: "easeOut" },
+      };
+
   return (
-    <section className="relative px-4 py-16 sm:px-6 lg:px-8">
+    <section key={motionKey} className="relative px-4 py-16 sm:px-6 lg:px-8">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        {...cardMotionProps}
         className="mx-auto max-w-7xl overflow-hidden rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] bg-gradient-to-br from-[#f4fbfc] to-[#e2f8f2] relative shadow-lg border border-[#04b488]/10"
       >
         {/* Abstract Background Shapes */}
@@ -36,22 +50,30 @@ export default function CtaSection() {
         </div>
 
         <div className="relative z-10 px-4 py-10 sm:py-20 sm:px-12 lg:px-16 text-center flex flex-col items-center">
-          <h3 className="mt-2 max-w-3xl text-xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-2xl md:text-3xl lg:text-4xl leading-tight">
+          <motion.h3
+            variants={mobileFadeUp}
+            className="mt-2 max-w-3xl text-xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-2xl md:text-3xl lg:text-4xl leading-tight"
+          >
             Ready to Start Your Investment{" "}
             <span className="whitespace-nowrap">Journey?</span>
-          </h3>
+          </motion.h3>
 
-          <p className="mt-6 max-w-2xl text-base text-[#4a5568] sm:text-lg leading-relaxed">
-            See how Finlec can help you plan goals, start SIPs, and invest without the usual hassle.
-          </p>
-
-          <Link
-            href="https://finlec.my-portfolio.co.in/app/#/login"
-            className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-[#04b488] px-8 py-4 text-base font-bold text-white shadow-md transition-all hover:bg-[#039e77] hover:shadow-lg hover:-translate-y-1 min-h-[52px] sm:mt-10"
+          <motion.p
+            variants={mobileFadeUp}
+            className="mt-6 max-w-2xl text-base text-[#4a5568] sm:text-lg leading-relaxed"
           >
-            Start Investing
-            <ArrowRight size={20} className="text-white" />
-          </Link>
+            See how Finlec can help you plan goals, start SIPs, and invest without the usual hassle.
+          </motion.p>
+
+          <motion.div variants={mobileFadeUp}>
+            <Link
+              href="https://finlec.my-portfolio.co.in/app/#/login"
+              className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-[#04b488] px-8 py-4 text-base font-bold text-white shadow-md transition-all hover:bg-[#039e77] hover:shadow-lg hover:-translate-y-1 min-h-[52px] sm:mt-10"
+            >
+              Start Investing
+              <ArrowRight size={20} className="text-white" />
+            </Link>
+          </motion.div>
         </div>
       </motion.div>
     </section>

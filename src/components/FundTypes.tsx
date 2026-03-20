@@ -4,6 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ShieldCheck, TrendingUp, Wallet } from "lucide-react";
+import { useMobileMotion } from "@/lib/hooks/useMobileMotion";
+import {
+  mobileFadeUp,
+  mobileStaggerContainer,
+  mobileStaggerFade,
+} from "@/lib/motion";
 
 type StrategyCard = {
   title: string;
@@ -40,40 +46,75 @@ const strategies: StrategyCard[] = [
 const strategyIcons = [TrendingUp, Wallet, ShieldCheck];
 
 export default function FundTypes() {
+  const { shouldAnimate, motionKey } = useMobileMotion();
+  const headerMotionProps = shouldAnimate
+    ? {
+        variants: mobileStaggerFade,
+        initial: "hidden",
+        whileInView: "show",
+        viewport: { once: true, amount: 0.35 },
+      }
+    : {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.3 },
+        transition: { duration: 0.5, ease: "easeOut" },
+      };
+  const gridMotionProps = shouldAnimate
+    ? {
+        variants: mobileStaggerContainer,
+        initial: "hidden",
+        whileInView: "show",
+        viewport: { once: true, amount: 0.2 },
+      }
+    : {};
+
   return (
-    <section id="strategies" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+    <section
+      id="strategies"
+      key={motionKey}
+      className="bg-white px-4 py-20 sm:px-6 lg:px-8"
+    >
       <div className="mx-auto max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mx-auto max-w-3xl text-center"
-        >
-          <h2 className="text-2xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl">
+        <motion.div {...headerMotionProps} className="mx-auto max-w-3xl text-center">
+          <motion.h2
+            variants={mobileFadeUp}
+            className="text-2xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl"
+          >
             Pick the right type of fund for your goals
-          </h2>
-          <p className="mt-4 text-base text-[#475569] sm:text-lg">
+          </motion.h2>
+          <motion.p
+            variants={mobileFadeUp}
+            className="mt-4 text-base text-[#475569] sm:text-lg"
+          >
             If you want growth, balance, or stability, these are the three main
             fund types to start with.
-          </p>
+          </motion.p>
         </motion.div>
 
-        <div className="mt-10 grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          {...gridMotionProps}
+          className="mt-10 grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {strategies.map((strategy, index) => {
             const Icon = strategyIcons[index];
+            const cardMotionProps = shouldAnimate
+              ? { variants: mobileFadeUp }
+              : {
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 },
+                  viewport: { once: true, amount: 0.25 },
+                  transition: {
+                    duration: 0.45,
+                    delay: index * 0.06,
+                    ease: "easeOut",
+                  },
+                };
 
             return (
               <Link key={strategy.title} href={strategy.href} className="block">
                 <motion.article
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  transition={{
-                    duration: 0.45,
-                    delay: index * 0.06,
-                    ease: "easeOut",
-                  }}
+                  {...cardMotionProps}
                   whileHover={{ y: -4 }}
                   className="group finlec-card overflow-hidden transition-all hover:-translate-y-1 hover:border-[#04b488]/35"
                 >
@@ -110,7 +151,7 @@ export default function FundTypes() {
               </Link>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

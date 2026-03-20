@@ -10,6 +10,12 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useMobileMotion } from "@/lib/hooks/useMobileMotion";
+import {
+  mobileFadeUp,
+  mobileStaggerContainer,
+  mobileStaggerFade,
+} from "@/lib/motion";
 
 type Feature = {
   title: string;
@@ -121,70 +127,105 @@ export default function FeaturesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeFeature = features[activeIndex];
   const ActiveIcon = activeFeature.icon;
+  const { shouldAnimate, motionKey } = useMobileMotion();
+  const headerMotionProps = shouldAnimate
+    ? {
+        variants: mobileStaggerFade,
+        initial: "hidden",
+        whileInView: "show",
+        viewport: { once: true, amount: 0.35 },
+      }
+    : {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.35 },
+        transition: { duration: 0.5, ease: "easeOut" },
+      };
+  const columnsMotionProps = shouldAnimate
+    ? {
+        variants: mobileStaggerContainer,
+        initial: "hidden",
+        whileInView: "show",
+        viewport: { once: true, amount: 0.25 },
+      }
+    : {};
 
   return (
     <section
       id="features"
+      key={motionKey}
       className="relative overflow-hidden bg-white px-4 py-20 sm:px-6 lg:px-8"
     >
       <div className="relative mx-auto max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-16 text-center"
-        >
-          <h2 className="mx-auto max-w-3xl text-2xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl">
+        <motion.div {...headerMotionProps} className="mb-16 text-center">
+          <motion.h2
+            variants={mobileFadeUp}
+            className="mx-auto max-w-3xl text-2xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl"
+          >
             Features that make Finlec different
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-[#475569] sm:text-lg">
+          </motion.h2>
+          <motion.p
+            variants={mobileFadeUp}
+            className="mx-auto mt-4 max-w-2xl text-base text-[#475569] sm:text-lg"
+          >
             Everything you need to start, track, and grow your mutual fund
             investments.
-          </p>
+          </motion.p>
         </motion.div>
 
-        <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-          <div className="flex flex-col space-y-3">
-            {features.map((feature, index) => {
-              const Icon = feature.icon;
-              const isActive = activeIndex === index;
+        <motion.div
+          {...columnsMotionProps}
+          className="mt-12 grid items-center gap-12 lg:grid-cols-2"
+        >
+          <motion.div variants={mobileFadeUp} className="flex flex-col space-y-3">
+            <motion.div
+              variants={mobileStaggerContainer}
+              className="flex flex-col space-y-3"
+            >
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
+                const isActive = activeIndex === index;
 
-              return (
-                <button
-                  key={feature.title}
-                  onClick={() => setActiveIndex(index)}
-                  className={cn(
-                    "flex items-start gap-4 rounded-2xl sm:rounded-3xl border p-4 sm:p-5 text-left transition-all duration-300",
-                    isActive
-                      ? "finlec-card border-[#04b488]/30 shadow-[0_18px_50px_-40px_rgba(4,180,136,0.4)]"
-                      : "border-transparent bg-transparent hover:border-slate-200 hover:bg-white"
-                  )}
-                >
-                  <div
+                return (
+                  <motion.button
+                    key={feature.title}
+                    variants={mobileFadeUp}
+                    onClick={() => setActiveIndex(index)}
                     className={cn(
-                      "flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl transition-colors duration-300",
+                      "flex items-start gap-4 rounded-2xl sm:rounded-3xl border p-4 sm:p-5 text-left transition-all duration-300",
                       isActive
-                        ? "bg-[#04b488] text-white"
-                        : "bg-[#04b488]/10 text-[#04b488]"
+                        ? "finlec-card border-[#04b488]/30 shadow-[0_18px_50px_-40px_rgba(4,180,136,0.4)]"
+                        : "border-transparent bg-transparent hover:border-slate-200 hover:bg-white"
                     )}
                   >
-                    <Icon size={22} />
-                  </div>
-                  <h3
-                    className={cn(
-                      "text-lg font-semibold font-[family-name:var(--font-sora)] transition-colors",
-                      isActive ? "text-[#0f172a]" : "text-[#0f172a]/70"
-                    )}
-                  >
-                    {feature.title}
-                  </h3>
-                </button>
-              );
-            })}
-          </div>
+                    <div
+                      className={cn(
+                        "flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl transition-colors duration-300",
+                        isActive
+                          ? "bg-[#04b488] text-white"
+                          : "bg-[#04b488]/10 text-[#04b488]"
+                      )}
+                    >
+                      <Icon size={22} />
+                    </div>
+                    <h3
+                      className={cn(
+                        "text-lg font-semibold font-[family-name:var(--font-sora)] transition-colors",
+                        isActive ? "text-[#0f172a]" : "text-[#0f172a]/70"
+                      )}
+                    >
+                      {feature.title}
+                    </h3>
+                  </motion.button>
+                );
+              })}
+            </motion.div>
+          </motion.div>
 
-          <div className="relative min-h-[300px] flex flex-col w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_20px_60px_-35px_rgba(15,23,42,0.38)] sm:min-h-[420px] sm:rounded-3xl md:rounded-[2.5rem]">
+          <motion.div
+            variants={mobileFadeUp}
+            className="relative min-h-[300px] flex flex-col w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_20px_60px_-35px_rgba(15,23,42,0.38)] sm:min-h-[420px] sm:rounded-3xl md:rounded-[2.5rem]"
+          >
             <motion.div
               className="absolute inset-0 bg-[linear-gradient(120deg,#ffffff_0%,#f0fdf4_50%,#f8fafc_100%)]"
               animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
@@ -261,8 +302,8 @@ export default function FeaturesSection() {
                 </motion.div>
               </AnimatePresence>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
