@@ -98,7 +98,8 @@ export default function Navbar() {
   const guestLabel = "Login";
 
   return (
-    <motion.header
+    <>
+      <motion.header
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
@@ -328,7 +329,7 @@ export default function Navbar() {
 
     </motion.header>
 
-    {/* Mobile drawer — rendered outside header so fixed positioning isn't affected by header transforms */}
+    {/* Mobile drawer - rendered outside header so fixed positioning isn't affected by header transforms */}
     <AnimatePresence>
       {isMobileMenuOpen && (
         <>
@@ -350,7 +351,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed right-0 top-0 z-[60] flex h-full w-[min(300px,82vw)] flex-col bg-white shadow-[−20px_0_60px_−10px_rgba(15,23,42,0.18)] lg:hidden"
+            className="fixed right-0 top-0 z-[60] flex h-full w-[min(300px,82vw)] flex-col bg-white shadow-[-20px_0_60px_-10px_rgba(15,23,42,0.18)] lg:hidden"
           >
             {/* Drawer header */}
             <div className="flex items-center justify-between border-b border-slate-100 px-6 py-5">
@@ -465,5 +466,6 @@ export default function Navbar() {
         </>
       )}
     </AnimatePresence>
+    </>
   );
 }
