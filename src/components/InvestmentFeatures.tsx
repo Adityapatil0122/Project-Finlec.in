@@ -15,13 +15,13 @@ export default function InvestmentFeatures() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="grid items-center gap-10 finlec-card p-6 sm:p-8 lg:grid-cols-[1fr_0.95fr]"
+          className="grid items-center gap-8 finlec-card p-4 sm:p-8 lg:grid-cols-[1fr_0.95fr]"
         >
           <div>
             <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
               Why Finlec
             </p>
-            <h2 className="mt-4 max-w-2xl text-3xl font-semibold leading-tight text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
+            <h2 className="mt-4 max-w-2xl text-2xl font-semibold leading-tight text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl">
               Invest with more clarity
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#475569] sm:text-lg">

@@ -651,7 +651,7 @@ export default function ExploreMutualFundsHub() {
           <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             Fund Discovery Hub
           </p>
-          <h1 className="mt-4 text-4xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-5xl lg:text-6xl drop-shadow-sm">
+          <h1 className="mt-4 text-2xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl lg:text-5xl drop-shadow-sm">
             Find Mutual Funds by category
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[#4a5568] sm:text-lg">
@@ -662,14 +662,14 @@ export default function ExploreMutualFundsHub() {
       </section>
 
       <section id="category-breakdown" className="px-4 pb-10 pt-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl rounded-[34px] border border-slate-200 bg-white/84 p-6 shadow-[0_24px_70px_-46px_rgba(15,23,42,0.45)] backdrop-blur-xl sm:p-8">
+        <div className="mx-auto max-w-7xl rounded-2xl border border-slate-200 bg-white/84 p-3 shadow-[0_24px_70px_-46px_rgba(15,23,42,0.45)] backdrop-blur-xl sm:rounded-3xl sm:p-6 md:rounded-[34px] md:p-8">
           <div className="border-b border-slate-200 pb-6">
             <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <div>
                 <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
                   Category Breakdown
                 </p>
-                <h2 className="mt-2 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-4xl">
+                <h2 className="mt-2 text-xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-2xl md:text-3xl lg:text-4xl">
                   {categoryCards.find((card) => card.id === activeAsset)?.title}
                 </h2>
               </div>
@@ -678,7 +678,7 @@ export default function ExploreMutualFundsHub() {
               </p>
             </div>
 
-            <div className="mt-6 grid gap-3 md:grid-cols-3">
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
               {categoryCards.map((category) => {
                 const Icon = category.icon;
                 const isActive = activeAsset === category.id;
@@ -716,9 +716,9 @@ export default function ExploreMutualFundsHub() {
                 {column.map((group) => (
                   <div
                     key={group.title}
-                    className="rounded-[26px] bg-[#f8fffe] p-5 shadow-[0_18px_40px_-34px_rgba(14,23,40,0.35)]"
+                    className="rounded-2xl sm:rounded-[26px] bg-[#f8fffe] p-4 sm:p-5 shadow-[0_18px_40px_-34px_rgba(14,23,40,0.35)]"
                   >
-                    <h3 className="text-2xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
+                    <h3 className="text-lg font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-xl md:text-2xl">
                       {group.title}
                     </h3>
                     <div className="mt-4 divide-y divide-slate-200/60">
@@ -765,13 +765,13 @@ export default function ExploreMutualFundsHub() {
       </section>
 
       <section className="px-4 pb-16 pt-2 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl rounded-[34px] border border-slate-200 bg-white/84 p-6 shadow-[0_24px_70px_-46px_rgba(15,23,42,0.45)] backdrop-blur-xl sm:p-8">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="mx-auto max-w-7xl rounded-2xl border border-slate-200 bg-white/84 p-3 shadow-[0_24px_70px_-46px_rgba(15,23,42,0.45)] backdrop-blur-xl sm:rounded-3xl sm:p-6 md:rounded-[34px] md:p-8">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
                 Performance Screen
               </p>
-              <h2 className="mt-2 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-4xl">
+              <h2 className="mt-2 text-xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-2xl md:text-3xl lg:text-4xl">
                 Top Performing Mutual Funds
               </h2>
             </div>
@@ -793,7 +793,7 @@ export default function ExploreMutualFundsHub() {
             </div>
           </div>
 
-          <div className="mt-6 overflow-hidden rounded-[30px] border border-slate-200 bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(249,250,252,0.94))]">
+          <div className="mt-6 overflow-hidden rounded-xl border border-slate-200 bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(249,250,252,0.94))] sm:rounded-2xl md:rounded-[30px]">
             <div className="hidden grid-cols-[1.6fr_0.4fr_0.4fr_0.4fr_0.36fr] border-b border-slate-200 px-6 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-[#4a5568] md:grid">
               <p>Scheme</p>
               <p className="text-center">1Y Return</p>
@@ -812,7 +812,7 @@ export default function ExploreMutualFundsHub() {
               return (
                 <div
                   key={fund.scheme}
-                  className="grid gap-3 border-b border-slate-200 px-4 py-4 last:border-b-0 md:grid-cols-[1.6fr_0.4fr_0.4fr_0.4fr_0.36fr] md:items-center md:gap-0 md:px-6"
+                  className="grid gap-3 border-b border-slate-200 px-3 py-4 last:border-b-0 sm:px-4 md:grid-cols-[1.6fr_0.4fr_0.4fr_0.4fr_0.36fr] md:items-center md:gap-0 md:px-6"
                 >
                   <div className="grid grid-cols-[auto_1fr] gap-4">
                     {failedLogos[fund.scheme] ? (
@@ -837,9 +837,18 @@ export default function ExploreMutualFundsHub() {
                       </p>
                     </div>
                   </div>
-                  <p className="text-center text-sm font-semibold text-[#00a761]">{liveReturn1Y}</p>
-                  <p className="text-center text-sm font-semibold text-[#00a761]">{liveReturn3Y}</p>
-                  <p className="text-center text-sm font-semibold text-[#00a761]">{liveReturn5Y}</p>
+                  <div className="flex items-center justify-between md:block md:text-center">
+                    <span className="text-xs text-[#4a5568] md:hidden">1Y Return</span>
+                    <p className="text-sm font-semibold text-[#00a761]">{liveReturn1Y}</p>
+                  </div>
+                  <div className="flex items-center justify-between md:block md:text-center">
+                    <span className="text-xs text-[#4a5568] md:hidden">3Y Return</span>
+                    <p className="text-sm font-semibold text-[#00a761]">{liveReturn3Y}</p>
+                  </div>
+                  <div className="flex items-center justify-between md:block md:text-center">
+                    <span className="text-xs text-[#4a5568] md:hidden">5Y Return</span>
+                    <p className="text-sm font-semibold text-[#00a761]">{liveReturn5Y}</p>
+                  </div>
                   <div className="pt-1 md:pt-0">
                     <Link
                       href="https://finlec.my-portfolio.co.in/app/#/login"

@@ -31,7 +31,7 @@ export default async function DashboardPortfolioPage() {
 
       <section className="space-y-4">
         {platform.holdings.map((holding) => (
-          <article key={holding.id} className="finlec-card p-5">
+          <article key={holding.id} className="finlec-card p-4 sm:p-5">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 <p className="text-lg font-semibold text-[#0f172a]">{holding.fundName}</p>
@@ -41,7 +41,7 @@ export default async function DashboardPortfolioPage() {
               </div>
               <StatusPill label={`${formatPercent(holding.xirr)} XIRR`} tone="green" />
             </div>
-            <div className="mt-4 grid gap-3 sm:grid-cols-5">
+            <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
               <div className="rounded-2xl bg-slate-50 p-3">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Units</p>
                 <p className="mt-1 text-sm font-semibold text-[#0f172a]">{holding.units}</p>

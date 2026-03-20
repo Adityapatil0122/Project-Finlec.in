@@ -8,20 +8,20 @@ export default async function DashboardInvestPage() {
 
   return (
     <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
-      <section className="finlec-card p-6">
+      <section className="finlec-card p-4 sm:p-6">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#04b488]">Invest module</p>
         <h2 className="mt-2 text-2xl font-semibold text-[#0f172a]">Create a purchase or SIP</h2>
         <p className="mt-2 text-sm text-slate-600">
           Use this form to place a mock order or register a SIP.
         </p>
-        <div className="mt-6 rounded-[2rem] border border-slate-200 bg-slate-50 p-5">
+        <div className="mt-6 rounded-2xl sm:rounded-[2rem] border border-slate-200 bg-slate-50 p-4 sm:p-5">
           <InvestOrderForm funds={platform.funds} />
         </div>
       </section>
 
       <section className="space-y-6">
         {platform.funds.map((fund) => (
-          <article key={fund.id} className="finlec-card p-5">
+          <article key={fund.id} className="finlec-card p-4 sm:p-5">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 <p className="text-sm font-semibold text-[#0f172a]">{fund.name}</p>

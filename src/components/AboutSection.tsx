@@ -16,7 +16,7 @@ export default function AboutSection() {
           transition={{ duration: 0.55, ease: "easeOut" }}
           className="space-y-6"
         >
-          <h2 className="max-w-2xl text-3xl font-semibold leading-tight text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
+          <h2 className="max-w-2xl text-2xl font-semibold leading-tight text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl">
             Advisory intelligence built for long-term wealth outcomes
           </h2>
           <p className="max-w-2xl text-base leading-relaxed text-[#475569] sm:text-lg">
@@ -39,7 +39,7 @@ export default function AboutSection() {
           <motion.div whileHover={{ y: -2 }} className="pt-6">
             <Link
               href="/strategies"
-              className="inline-flex items-center gap-2 rounded-2xl bg-[#04b488] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#00b286]"
+              className="inline-flex items-center gap-2 rounded-2xl bg-[#04b488] px-5 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#00b286] min-h-[48px]"
             >
               See Fund Strategies
               <ArrowUpRight size={16} />

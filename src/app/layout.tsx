@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={`${ibmPlex.className} ${ibmPlex.variable} antialiased`}>
         <SessionProvider>
           <Navbar />
-          <div className="pt-16 sm:pt-18">{children}</div>
+          <div className="pt-[74px] sm:pt-20">{children}</div>
           <Toaster
             position="top-right"
             toastOptions={{

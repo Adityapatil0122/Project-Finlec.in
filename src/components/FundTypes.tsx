@@ -50,7 +50,7 @@ export default function FundTypes() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mx-auto max-w-3xl text-center"
         >
-          <h2 className="text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
+          <h2 className="text-2xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl">
             Pick the right type of fund for your goals
           </h2>
           <p className="mt-4 text-base text-[#475569] sm:text-lg">
@@ -59,7 +59,7 @@ export default function FundTypes() {
           </p>
         </motion.div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {strategies.map((strategy, index) => {
             const Icon = strategyIcons[index];
 
@@ -84,7 +84,7 @@ export default function FundTypes() {
                     height={920}
                     className="h-56 w-full object-cover"
                   />
-                  <div className="space-y-3 p-6">
+                  <div className="space-y-3 p-4 sm:p-6">
                     <div className="flex items-center justify-between gap-3">
                       <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#04b488]/10 text-[#04b488]">
                         <Icon size={18} />

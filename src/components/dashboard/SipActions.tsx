@@ -43,7 +43,7 @@ export default function SipActions({ sipId, currentStatus }: SipActionsProps) {
           type="button"
           disabled={isPending}
           onClick={() => runUpdate("ACTIVE")}
-          className="rounded-full border border-[#04b488]/25 bg-[#04b488]/10 px-3 py-1.5 text-xs font-semibold text-[#048b6a]"
+          className="rounded-full border border-[#04b488]/25 bg-[#04b488]/10 px-3 py-1.5 text-xs font-semibold text-[#048b6a] min-h-[44px]"
         >
           Resume
         </button>
@@ -53,7 +53,7 @@ export default function SipActions({ sipId, currentStatus }: SipActionsProps) {
           type="button"
           disabled={isPending}
           onClick={() => runUpdate("PAUSED")}
-          className="rounded-full border border-amber-200 bg-amber-100 px-3 py-1.5 text-xs font-semibold text-amber-700"
+          className="rounded-full border border-amber-200 bg-amber-100 px-3 py-1.5 text-xs font-semibold text-amber-700 min-h-[44px]"
         >
           Pause
         </button>
@@ -63,7 +63,7 @@ export default function SipActions({ sipId, currentStatus }: SipActionsProps) {
           type="button"
           disabled={isPending}
           onClick={() => runUpdate("CANCELLED")}
-          className="rounded-full border border-red-200 bg-red-100 px-3 py-1.5 text-xs font-semibold text-red-700"
+          className="rounded-full border border-red-200 bg-red-100 px-3 py-1.5 text-xs font-semibold text-red-700 min-h-[44px]"
         >
           Cancel
         </button>

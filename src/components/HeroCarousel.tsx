@@ -146,17 +146,17 @@ function SlideFrame({
         />
       </div>
 
-      <div className="z-[2] mx-auto flex h-full w-full max-w-7xl flex-col items-center justify-between px-6 py-10 md:flex-row md:px-16 md:py-0">
+      <div className="z-[2] mx-auto flex h-full w-full max-w-7xl flex-col items-center justify-between px-4 py-8 sm:px-6 sm:py-10 md:flex-row md:px-16 md:py-0">
         <div className="flex w-full flex-col items-center text-center md:w-1/2 md:items-start md:text-left">
           <h2 className="mt-4 flex flex-col gap-1">
             <span
-              className="text-3xl font-bold leading-tight tracking-tight text-[#1a1560] sm:text-4xl md:text-5xl lg:text-[3.5rem]"
+              className="text-2xl font-bold leading-tight tracking-tight text-[#1a1560] sm:text-3xl md:text-4xl lg:text-[3.5rem]"
               style={{ fontFamily: "var(--font-sora), 'Inter', sans-serif" }}
             >
               {slide.title}
             </span>
             <span
-              className="font-pacifico text-3xl leading-tight sm:text-4xl md:text-5xl lg:text-[3.5rem]"
+              className="font-pacifico text-2xl leading-tight sm:text-3xl md:text-4xl lg:text-[3.5rem]"
               style={{
                 color: slide.accent,
                 textShadow: "0 8px 18px rgba(255,255,255,0.55)",
@@ -172,7 +172,7 @@ function SlideFrame({
 
           <Link
             href={slide.ctaLink}
-            className="mt-8 inline-block rounded-full px-8 py-3.5 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95"
+            className="mt-8 inline-block rounded-full px-8 py-3.5 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95 min-h-[48px]"
             style={{
               backgroundColor: slide.accent,
               boxShadow: `0 18px 36px -20px ${slide.accent}26`,
@@ -306,7 +306,7 @@ export default function HeroCarousel() {
 
       <div className="relative w-full overflow-hidden" style={{ paddingTop: "12px" }}>
         <div
-          className="relative w-full overflow-hidden h-[580px] md:h-[clamp(400px,55vw,520px)]"
+          className="relative w-full overflow-hidden h-[520px] sm:h-[580px] md:h-[clamp(400px,55vw,520px)]"
           style={{
             backgroundImage: activeSlide.surface,
           }}

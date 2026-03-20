@@ -110,7 +110,7 @@ export default function ProfileComplianceForm({ profile }: ProfileComplianceForm
       <button
         type="submit"
         disabled={isSubmitting}
-        className="inline-flex items-center rounded-2xl bg-[#04b488] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#049f78] disabled:cursor-not-allowed disabled:opacity-70"
+        className="inline-flex items-center rounded-2xl bg-[#04b488] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#049f78] disabled:cursor-not-allowed disabled:opacity-70 min-h-[48px]"
       >
         {isSubmitting ? "Saving..." : "Save profile changes"}
       </button>

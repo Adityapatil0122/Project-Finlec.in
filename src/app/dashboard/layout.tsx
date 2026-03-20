@@ -11,15 +11,15 @@ export default async function DashboardLayout({ children }: DashboardLayoutProps
   const { session, platform } = await getPlatformContext();
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(4,180,136,0.08),transparent_28%),linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] px-4 py-6 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[280px_1fr]">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(4,180,136,0.08),transparent_28%),linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] px-3 py-4 sm:px-6 sm:py-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-4 sm:gap-6 lg:grid-cols-[280px_1fr]">
         <DashboardSidebar />
 
         <main className="space-y-6">
-          <div className="finlec-card flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="finlec-card flex flex-col gap-4 p-4 sm:p-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#04b488]">Investor dashboard</p>
-              <h1 className="mt-2 text-3xl font-semibold text-[#0f172a]">
+              <h1 className="mt-2 text-2xl font-semibold text-[#0f172a] sm:text-3xl">
                 Welcome back, {session.user.name ?? "Investor"}
               </h1>
               <p className="mt-1 text-sm text-slate-600">

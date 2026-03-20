@@ -316,12 +316,12 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="rounded-xl border border-slate-200 bg-white p-2 text-slate-700 transition-colors hover:bg-slate-50 lg:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 transition-colors hover:bg-slate-50 lg:hidden"
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           >
-            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </nav>
@@ -335,13 +335,13 @@ export default function Navbar() {
             transition={{ duration: 0.28, ease: "easeInOut" }}
             className="overflow-hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl lg:hidden"
           >
-            <div className="space-y-3 px-4 py-4 finlec-soft-grid">
+            <div className="space-y-3 px-4 py-5 finlec-soft-grid">
               {navLinks.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700"
+                  className="flex items-center rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-sm font-medium text-slate-700 min-h-[48px]"
                 >
                   {link.label}
                 </Link>
@@ -350,7 +350,7 @@ export default function Navbar() {
               <Link
                 href={guideRoute}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block rounded-xl border border-[#04b488]/25 bg-white px-4 py-3 text-sm font-semibold text-[#047a5d]"
+                className="flex items-center rounded-xl border border-[#04b488]/25 bg-white px-4 py-3.5 text-sm font-semibold text-[#047a5d] min-h-[48px]"
               >
                 Mutual Funds Guide
               </Link>
@@ -358,7 +358,7 @@ export default function Navbar() {
               <Link
                 href={exploreRoute}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block rounded-xl border border-[#7B4FD4]/30 bg-[#7B4FD4]/10 px-4 py-3 text-sm font-semibold text-[#5e36b3]"
+                className="flex items-center rounded-xl border border-[#7B4FD4]/30 bg-[#7B4FD4]/10 px-4 py-3.5 text-sm font-semibold text-[#5e36b3] min-h-[48px]"
               >
                 Explore Mutual Funds
               </Link>
@@ -403,7 +403,7 @@ export default function Navbar() {
                   <Link
                     href={guestHref}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="rounded-xl border border-[#0b3d3b]/40 bg-[#0b3d3b] px-4 py-3 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#0f4a46]"
+                    className="flex items-center justify-center rounded-xl border border-[#0b3d3b]/40 bg-[#0b3d3b] px-4 py-3.5 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#0f4a46] min-h-[48px]"
                   >
                     {guestLabel}
                   </Link>

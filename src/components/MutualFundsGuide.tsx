@@ -222,25 +222,25 @@ export default function MutualFundsGuide() {
               <ShieldCheck className="h-4 w-4" />
               Beginner Guide
             </span>
-            <h1 className="mt-5 text-4xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-5xl">
+            <h1 className="mt-5 text-2xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl lg:text-5xl">
               Mutual Fund
               <span className="block">Beginner&apos;s Guide</span>
             </h1>
-            <p className="mt-4 mx-auto max-w-2xl text-lg text-slate-600">
+            <p className="mt-4 mx-auto max-w-2xl text-base sm:text-lg text-slate-600">
               Learn what mutual funds are, how they work, and how to start
               investing with confidence. Clear, practical, and beginner-first.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/calculators/sip-calculator"
-                className="inline-flex items-center gap-2 rounded-full bg-[#04b488] px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_35px_-20px_rgba(4,180,136,0.9)] transition-transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-full bg-[#04b488] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_16px_35px_-20px_rgba(4,180,136,0.9)] transition-transform hover:-translate-y-0.5 min-h-[48px]"
               >
                 Try the SIP calculator
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/explore-mutual-funds"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:border-[#7B4FD4]/40 hover:text-[#5e36b3]"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 transition-colors hover:border-[#7B4FD4]/40 hover:text-[#5e36b3] min-h-[48px]"
               >
                 Explore mutual funds
               </Link>
@@ -266,7 +266,7 @@ export default function MutualFundsGuide() {
                   variants={staggerItem}
                   key={item.title}
                   className={cn(
-                    "relative overflow-hidden rounded-[24px] border border-slate-100 bg-white p-7 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_-15px_rgba(0,0,0,0.1)]",
+                    "relative overflow-hidden rounded-2xl sm:rounded-[24px] border border-slate-100 bg-white p-4 sm:p-7 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_-15px_rgba(0,0,0,0.1)]",
                     idx === 2 && "sm:col-span-2"
                   )}
                 >
@@ -312,11 +312,11 @@ export default function MutualFundsGuide() {
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <motion.div {...fadeUp} className="space-y-6">
             <div>
-              <h2 className="text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
+              <h2 className="text-2xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-3xl">
                 What is a mutual fund?
               </h2>
             </div>
-            <p className="text-lg text-slate-600">
+            <p className="text-base sm:text-lg text-slate-600">
               A mutual fund pools money from many investors and invests it in a
               diversified basket of assets like stocks or bonds. You own units
               of the fund, and the unit price (NAV) changes with the portfolio.
@@ -358,7 +358,7 @@ export default function MutualFundsGuide() {
 
           <motion.div
             {...fadeUp}
-            className="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-[0_18px_50px_-35px_rgba(15,23,42,0.4)]"
+            className="rounded-2xl sm:rounded-3xl border border-slate-200 bg-white/85 p-4 sm:p-6 shadow-[0_18px_50px_-35px_rgba(15,23,42,0.4)]"
           >
             <div className="relative mb-5 h-56 overflow-hidden rounded-2xl">
               <Image
@@ -405,7 +405,7 @@ export default function MutualFundsGuide() {
 
         <motion.div {...fadeUp} className="space-y-8">
           <div className="text-center">
-            <h2 className="text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
+            <h2 className="text-2xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-3xl">
               Common types beginners start with
             </h2>
           </div>
@@ -421,7 +421,7 @@ export default function MutualFundsGuide() {
                 key={fund.title}
                 variants={staggerItem}
                 className={cn(
-                  "flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1 lg:flex-row lg:items-center",
+                  "flex flex-col gap-6 rounded-2xl sm:rounded-3xl border border-slate-200 bg-white/85 p-4 sm:p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1 lg:flex-row lg:items-center",
                   idx % 2 === 1 && "lg:flex-row-reverse"
                 )}
               >
@@ -473,7 +473,7 @@ export default function MutualFundsGuide() {
               <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
                 Choose Your Path
               </p>
-              <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
+              <h2 className="mt-3 text-2xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-3xl">
                 SIP vs Lump Sum
               </h2>
               <p className="mt-3 text-sm text-slate-600">
@@ -487,7 +487,7 @@ export default function MutualFundsGuide() {
                   type="button"
                   onClick={() => setMode(key)}
                   className={cn(
-                    "rounded-full px-5 py-2 text-sm font-semibold transition-colors",
+                    "rounded-full px-5 py-2.5 text-sm font-semibold transition-colors min-h-[44px]",
                     mode === key
                       ? "bg-[#04b488] text-white shadow-sm"
                       : "text-slate-600 hover:text-slate-900"
@@ -537,7 +537,7 @@ export default function MutualFundsGuide() {
             <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
               How To Choose
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
+            <h2 className="mt-3 text-2xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-3xl">
               How to Start Investing
             </h2>
             <p className="mt-3 text-sm text-slate-600">
@@ -557,7 +557,7 @@ export default function MutualFundsGuide() {
                 <motion.div
                   key={step.title}
                   variants={staggerItem}
-                  className="relative pl-24"
+                  className="relative pl-16 sm:pl-24"
                 >
                   <div className="absolute left-0 top-4 flex items-center gap-1">
                     <span className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-2xl bg-[#04b488]/12 text-sm font-semibold text-[#047a5d]">
@@ -568,7 +568,7 @@ export default function MutualFundsGuide() {
                   </div>
                   <div
                     className={cn(
-                      "rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-sm",
+                      "rounded-2xl sm:rounded-3xl border border-slate-200 bg-white/85 p-4 sm:p-6 shadow-sm",
                       idx % 2 === 1 && "bg-[#7B4FD4]/5"
                     )}
                   >
@@ -590,13 +590,13 @@ export default function MutualFundsGuide() {
             <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
               Glossary
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
+            <h2 className="mt-3 text-2xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-3xl">
               Six terms every beginner must understand before investing
             </h2>
           </div>
           <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div className="grid gap-4">
-              <div className="rounded-3xl border border-slate-200 bg-white/85 p-5 shadow-sm">
+              <div className="rounded-2xl sm:rounded-3xl border border-slate-200 bg-white/85 p-4 sm:p-5 shadow-sm">
                 <div className="relative h-40 overflow-hidden rounded-2xl bg-white p-3">
                   <Image
                     src="/images/download.webp"
@@ -615,7 +615,7 @@ export default function MutualFundsGuide() {
                 </div>
               </div>
 
-              <div className="rounded-3xl border border-slate-200 bg-white/85 p-5 shadow-sm">
+              <div className="rounded-2xl sm:rounded-3xl border border-slate-200 bg-white/85 p-4 sm:p-5 shadow-sm">
                 <div className="relative h-40 overflow-hidden rounded-2xl bg-white p-3">
                   <Image
                     src="/images/relaxedthinking.webp"
@@ -634,7 +634,7 @@ export default function MutualFundsGuide() {
                 </div>
               </div>
 
-              <div className="rounded-3xl border border-slate-200 bg-white/85 p-5 shadow-sm">
+              <div className="rounded-2xl sm:rounded-3xl border border-slate-200 bg-white/85 p-4 sm:p-5 shadow-sm">
                 <div className="relative h-40 overflow-hidden rounded-2xl bg-white p-3">
                   <Image
                     src="/images/download (1).webp"
@@ -684,7 +684,7 @@ export default function MutualFundsGuide() {
             <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
               Risks And Costs
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
+            <h2 className="mt-3 text-2xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-3xl">
               Understand the trade-offs
             </h2>
           </div>
@@ -719,7 +719,7 @@ export default function MutualFundsGuide() {
               return (
                 <div
                   key={item.title}
-                  className="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-sm"
+                  className="rounded-2xl sm:rounded-3xl border border-slate-200 bg-white/85 p-4 sm:p-6 shadow-sm"
                 >
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#7B4FD4]/12 text-[#5e36b3]">
@@ -747,7 +747,7 @@ export default function MutualFundsGuide() {
             <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
               FAQs
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)]">
+            <h2 className="mt-3 text-2xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-3xl">
               Beginner questions, answered
             </h2>
           </div>
@@ -776,7 +776,7 @@ export default function MutualFundsGuide() {
 
         <motion.div
           {...fadeUp}
-          className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-slate-200 bg-white/85 p-8 text-center shadow-sm lg:flex-row lg:text-left"
+          className="flex flex-col items-center justify-between gap-6 rounded-2xl sm:rounded-3xl border border-slate-200 bg-white/85 p-4 sm:p-6 md:p-8 text-center shadow-sm lg:flex-row lg:text-left"
         >
           <div className="space-y-2">
             <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
@@ -792,14 +792,14 @@ export default function MutualFundsGuide() {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/calculators/sip-calculator"
-              className="inline-flex items-center gap-2 rounded-full bg-[#7B4FD4] px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_35px_-20px_rgba(123,79,212,0.8)] transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full bg-[#7B4FD4] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_16px_35px_-20px_rgba(123,79,212,0.8)] transition-transform hover:-translate-y-0.5 min-h-[48px]"
             >
               Start SIP planning
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href="/calculators/lumpsum-calculator"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 hover:border-[#04b488]/40 hover:text-[#047a5d]"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 hover:border-[#04b488]/40 hover:text-[#047a5d] min-h-[48px]"
             >
               Lumpsum calculator
             </Link>

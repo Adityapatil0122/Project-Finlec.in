@@ -14,9 +14,9 @@ export default async function AdminPage() {
   return (
     <div className="min-h-screen bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl space-y-6">
-        <section className="finlec-card p-6">
+        <section className="finlec-card p-4 sm:p-6">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#04b488]">Admin operations console</p>
-          <h1 className="mt-2 text-3xl font-semibold text-[#0f172a]">Back-office dashboard</h1>
+          <h1 className="mt-2 text-2xl sm:text-3xl font-semibold text-[#0f172a]">Back-office dashboard</h1>
           <p className="mt-2 text-sm text-slate-600">
             Track KYC exceptions, mandate failures, unsettled orders, and escalations in one place.
           </p>
@@ -25,11 +25,11 @@ export default async function AdminPage() {
         <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           <div className="finlec-card p-5">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">KYC exceptions</p>
-            <p className="mt-2 text-3xl font-semibold text-[#0f172a]">{platform.adminOps.openKycExceptions}</p>
+            <p className="mt-2 text-2xl sm:text-3xl font-semibold text-[#0f172a]">{platform.adminOps.openKycExceptions}</p>
           </div>
           <div className="finlec-card p-5">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Mandate failures</p>
-            <p className="mt-2 text-3xl font-semibold text-[#0f172a]">{platform.adminOps.mandateFailures}</p>
+            <p className="mt-2 text-2xl sm:text-3xl font-semibold text-[#0f172a]">{platform.adminOps.mandateFailures}</p>
           </div>
           <div className="finlec-card p-5">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Reconciliation health</p>

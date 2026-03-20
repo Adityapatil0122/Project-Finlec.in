@@ -126,8 +126,8 @@ export default function XIRRCalculator() {
   };
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
-      <div className="flex flex-col gap-6 rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10">
+    <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
+      <div className="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:rounded-[32px] sm:p-10">
         <div>
           <p className="text-sm font-semibold text-[#4a5568]">
             Enter cash flows (negative for investments, positive for withdrawals).
@@ -141,7 +141,7 @@ export default function XIRRCalculator() {
           {cashFlows.map((flow, index) => (
             <div
               key={flow.id}
-              className="grid gap-3 rounded-2xl border border-slate-200/70 px-4 py-3 sm:grid-cols-[1fr_1fr_auto]"
+              className="grid gap-3 rounded-2xl border border-slate-200/70 px-3 py-3 sm:grid-cols-[1fr_1fr_auto] sm:px-4"
             >
               <div className="flex flex-col gap-1">
                 <label className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
@@ -182,18 +182,18 @@ export default function XIRRCalculator() {
         <button
           type="button"
           onClick={addFlow}
-          className="inline-flex w-fit items-center gap-2 rounded-full bg-[#0ea5e9] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_14px_26px_-14px_rgba(14,165,233,0.7)] transition-transform hover:-translate-y-0.5"
+          className="inline-flex w-fit items-center gap-2 rounded-full bg-[#0ea5e9] px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_26px_-14px_rgba(14,165,233,0.7)] transition-transform hover:-translate-y-0.5 min-h-[48px]"
         >
           <Plus size={16} />
           Add Cash Flow
         </button>
       </div>
 
-      <div className="flex flex-col justify-between rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10">
+      <div className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:rounded-[32px] sm:p-10">
         <div className="space-y-6">
           <div>
             <p className="text-sm font-semibold text-[#4a5568]">Estimated XIRR</p>
-            <p className="mt-2 text-4xl font-semibold text-[#1a1560]">
+            <p className="mt-2 text-3xl font-semibold text-[#1a1560] sm:text-4xl">
               {xirrValue !== null ? `${(xirrValue * 100).toFixed(2)}%` : "--"}
             </p>
             <p className="mt-2 text-xs text-[#94a3b8]">

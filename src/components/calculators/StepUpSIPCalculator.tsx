@@ -48,8 +48,8 @@ export default function StepUpSIPCalculator() {
   };
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
-      <div className="flex flex-col gap-10 rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10">
+    <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
+      <div className="flex flex-col gap-10 rounded-3xl sm:rounded-[32px] border border-slate-200 bg-white p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10">
         {/* Monthly Investment Slider */}
         <div>
           <div className="mb-4 flex items-center justify-between">
@@ -100,14 +100,14 @@ export default function StepUpSIPCalculator() {
               <p className="text-xl font-bold text-[#1a1560] mt-1">{formatCurrency(totalInvested)}</p>
            </div>
            <div className="text-right">
-              <button className="rounded-full bg-[linear-gradient(135deg,#04b488,#18d1b1)] px-8 py-3 text-sm font-semibold text-white shadow-[0_12px_24px_-12px_rgba(4,180,136,0.6)] transition-all hover:translate-y-[-1px] hover:shadow-[0_16px_32px_-12px_rgba(4,180,136,0.7)]">
+              <button className="min-h-[48px] rounded-full bg-[linear-gradient(135deg,#04b488,#18d1b1)] px-8 py-3 text-sm font-semibold text-white shadow-[0_12px_24px_-12px_rgba(4,180,136,0.6)] transition-all hover:translate-y-[-1px] hover:shadow-[0_16px_32px_-12px_rgba(4,180,136,0.7)]">
                 Start investing
               </button>
            </div>
         </div>
       </div>
 
-      <div className="flex flex-col rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10 justify-center">
+      <div className="flex flex-col rounded-3xl sm:rounded-[32px] border border-slate-200 bg-white p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10 justify-center">
          <div className="h-[240px] w-full">
             <ResponsiveContainer width="100%" height="100%">
                <PieChart>
@@ -137,7 +137,7 @@ export default function StepUpSIPCalculator() {
             </div>
             <div className="pt-5 mt-2 border-t border-slate-200 flex items-center justify-between">
                <p className="text-base font-semibold text-[#4a5568]">Total value</p>
-               <p className="text-2xl font-bold text-[#1a1560] font-[family-name:var(--font-sora)]">{formatCurrency(maturityAmount)}</p>
+               <p className="text-xl sm:text-2xl font-bold text-[#1a1560] font-[family-name:var(--font-sora)] break-all">{formatCurrency(maturityAmount)}</p>
             </div>
          </div>
       </div>

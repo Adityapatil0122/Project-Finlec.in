@@ -97,7 +97,7 @@ export default function StatsCounter() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-              className="group relative overflow-hidden rounded-2xl bg-white p-8 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
+              className="group relative overflow-hidden rounded-2xl bg-white p-4 text-center shadow-sm hover:shadow-lg transition-shadow duration-300 sm:p-6 md:p-8"
             >
               {/* Accent top bar */}
               <div
@@ -105,7 +105,7 @@ export default function StatsCounter() {
                 style={{ backgroundColor: stat.accent }}
               />
 
-              <p className="text-5xl font-bold text-[#0f172a] font-[family-name:var(--font-sora)]">
+              <p className="text-2xl font-bold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-5xl">
                 <AnimatedValue value={stat.value} suffix={stat.suffix} start={isInView} />
               </p>
 

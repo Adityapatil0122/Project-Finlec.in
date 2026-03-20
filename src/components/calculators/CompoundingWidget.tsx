@@ -151,7 +151,7 @@ export default function CompoundingWidget() {
     <div className="mx-auto max-w-7xl">
       {/* Section header */}
       <div className="mb-10 text-center">
-        <h2 className="font-[family-name:var(--font-sora)] text-3xl font-semibold text-[#1a1560] sm:text-4xl">
+        <h2 className="font-[family-name:var(--font-sora)] text-2xl font-semibold text-[#1a1560] sm:text-3xl md:text-4xl">
           Money grows on money.
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-base text-[#475569]">
@@ -161,7 +161,7 @@ export default function CompoundingWidget() {
       </div>
 
       {/* Main card */}
-      <div className="finlec-card p-6 sm:p-8">
+      <div className="finlec-card p-4 sm:p-6 md:p-8">
         {/* Trio pills */}
         <div className="mb-8 grid gap-4 sm:grid-cols-3">
           {trio.map((c) => {

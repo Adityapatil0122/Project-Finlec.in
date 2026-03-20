@@ -51,7 +51,7 @@ export default function LifeGoals() {
           <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             Goal Planning
           </p>
-          <h2 className="text-3xl font-semibold leading-tight text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
+          <h2 className="text-2xl font-semibold leading-tight text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl">
             Turn life goals into simple investment plans
           </h2>
           <p className="max-w-xl text-base leading-relaxed text-[#475569] sm:text-lg">
@@ -61,7 +61,7 @@ export default function LifeGoals() {
           <motion.a
             whileHover={{ y: -2 }}
             href="/signup"
-            className="inline-flex rounded-2xl bg-[#04b488] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#00b286]"
+            className="inline-flex rounded-2xl bg-[#04b488] px-5 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#00b286] min-h-[48px]"
           >
             Build My Plan
           </motion.a>

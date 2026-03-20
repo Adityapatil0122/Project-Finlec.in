@@ -30,8 +30,8 @@ export default function Footer() {
   return (
     <footer className="bg-[#2d2a6e] text-white/80">
       {/* Main footer */}
-      <div className="mx-auto max-w-7xl px-6 pb-10 pt-16 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.6fr_0.6fr_0.8fr]">
+      <div className="mx-auto max-w-7xl px-4 pb-10 pt-12 sm:px-6 lg:px-8">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.6fr_0.6fr_0.8fr]">
           {/* Brand column */}
           <div>
             <Link href="/" className="inline-block">
@@ -56,7 +56,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/20 text-white/60 hover:border-[#04b488] hover:text-[#04b488]"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/20 text-white/60 hover:border-[#04b488] hover:text-[#04b488]"
                   >
                     <Icon size={16} />
                   </a>
@@ -226,10 +226,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-white/40 text-center sm:text-left">
             &copy; {new Date().getFullYear()} Finlec. All rights reserved. Developed by Finlec Technologies.
           </p>
-          <div className="flex gap-6 text-xs">
+          <div className="flex flex-wrap justify-center gap-4 text-xs sm:gap-6">
             <Link href="/terms" className="text-white/40 hover:text-white">
               Terms of Use
             </Link>

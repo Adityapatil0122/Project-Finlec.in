@@ -135,7 +135,7 @@ export default function FeaturesSection() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-16 text-center"
         >
-          <h2 className="mx-auto max-w-3xl text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
+          <h2 className="mx-auto max-w-3xl text-2xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl">
             Features that make Finlec different
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base text-[#475569] sm:text-lg">
@@ -155,7 +155,7 @@ export default function FeaturesSection() {
                   key={feature.title}
                   onClick={() => setActiveIndex(index)}
                   className={cn(
-                    "flex items-start gap-4 rounded-3xl border p-5 text-left transition-all duration-300",
+                    "flex items-start gap-4 rounded-2xl sm:rounded-3xl border p-4 sm:p-5 text-left transition-all duration-300",
                     isActive
                       ? "finlec-card border-[#04b488]/30 shadow-[0_18px_50px_-40px_rgba(4,180,136,0.4)]"
                       : "border-transparent bg-transparent hover:border-slate-200 hover:bg-white"
@@ -184,7 +184,7 @@ export default function FeaturesSection() {
             })}
           </div>
 
-          <div className="relative min-h-[420px] flex flex-col w-full overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white shadow-[0_20px_60px_-35px_rgba(15,23,42,0.38)]">
+          <div className="relative min-h-[300px] flex flex-col w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_20px_60px_-35px_rgba(15,23,42,0.38)] sm:min-h-[420px] sm:rounded-3xl md:rounded-[2.5rem]">
             <motion.div
               className="absolute inset-0 bg-[linear-gradient(120deg,#ffffff_0%,#f0fdf4_50%,#f8fafc_100%)]"
               animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
@@ -211,7 +211,7 @@ export default function FeaturesSection() {
               />
             </AnimatePresence>
 
-            <div className="relative z-[2] p-6 sm:p-7">
+            <div className="relative z-[2] p-4 sm:p-7">
               <div className="flex items-center gap-3 border-b border-slate-200/80 pb-4">
                 <div className="flex gap-1.5">
                   <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
@@ -251,7 +251,7 @@ export default function FeaturesSection() {
                     >
                       <ActiveIcon size={40} />
                     </motion.div>
-                    <h3 className="text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)]">
+                    <h3 className="text-2xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl">
                       {activeFeature.title}
                     </h3>
                     <p className="mx-auto mt-4 text-lg leading-relaxed text-slate-600">

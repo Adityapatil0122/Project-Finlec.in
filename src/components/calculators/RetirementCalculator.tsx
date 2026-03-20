@@ -59,8 +59,8 @@ export default function RetirementCalculator() {
   };
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
-      <div className="flex flex-col gap-8 rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10">
+    <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
+      <div className="flex flex-col gap-8 rounded-3xl border border-slate-200 bg-white p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:rounded-[32px] sm:p-10">
         
         {/* Current Age */}
         <div>
@@ -147,19 +147,19 @@ export default function RetirementCalculator() {
         </div>
       </div>
 
-      <div className="flex flex-col rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10 justify-center">
+      <div className="flex flex-col rounded-3xl border border-slate-200 bg-white p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:rounded-[32px] sm:p-10 justify-center">
          
          <div className="space-y-6">
             <h3 className="text-xl font-bold text-[#1a1560] font-[family-name:var(--font-sora)]">Retirement Check</h3>
             
             <div className="rounded-2xl border border-[#ec4899]/20 bg-[#ec4899]/5 p-5">
                <p className="text-sm font-medium text-[#4a5568]">Monthly Expenses at Retirement (inflated)</p>
-               <p className="mt-2 text-3xl font-bold text-[#ec4899]">{formatCurrency(monthlyExpAtRetirement)}</p>
+               <p className="mt-2 text-2xl font-bold text-[#ec4899] sm:text-3xl break-all">{formatCurrency(monthlyExpAtRetirement)}</p>
             </div>
 
             <div className="pt-5 border-t border-slate-200 flex flex-col gap-2">
                <p className="text-base font-semibold text-[#4a5568]">Total Corpus Required to Retire</p>
-               <p className="text-4xl font-bold text-[#1a1560] font-[family-name:var(--font-sora)]">{formatCurrency(requiredCorpus)}</p>
+               <p className="text-2xl font-bold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-4xl break-all">{formatCurrency(requiredCorpus)}</p>
                <p className="text-xs text-[#4a5568] mt-2">Assuming {inflation}% inflation and {postRetirementReturns}% return post-retirement, until age {lifeExpectancy}.</p>
             </div>
          </div>

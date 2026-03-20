@@ -98,7 +98,7 @@ export default function PartnersMarquee() {
           <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             AMC Network
           </p>
-          <h2 className="mt-4 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-4xl">
+          <h2 className="mt-4 text-2xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl">
             Trusted by leading fund houses
           </h2>
           <p className="mt-4 text-base text-[#4a5568] sm:text-lg">
@@ -122,7 +122,7 @@ export default function PartnersMarquee() {
                   alt={partner.name}
                   width={220}
                   height={110}
-                  className="h-16 w-auto max-w-[180px] object-contain"
+                  className="h-12 w-auto max-w-[140px] object-contain sm:h-16 sm:max-w-[180px]"
                 />
               </div>
             ))}

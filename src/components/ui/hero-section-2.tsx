@@ -99,7 +99,7 @@ const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
                 <div className="pointer-events-none absolute inset-0 z-[1] h-full w-full bg-background [mask-image:radial-gradient(transparent_30%,white)]" />
 
                 {/* Left Side: Content */}
-                <div className="pointer-events-none relative z-10 flex w-full flex-col justify-end p-8 md:w-1/2 md:p-12 lg:w-3/5 lg:p-16">
+                <div className="pointer-events-none relative z-10 flex w-full flex-col justify-end p-5 sm:p-8 md:w-1/2 md:p-12 lg:w-3/5 lg:p-16">
                     {/* Main Content — vertically centered */}
                     <div className="flex flex-1 flex-col justify-center">
                         {logo && (
@@ -115,7 +115,7 @@ const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
                         )}
 
                         <motion.main variants={containerVariants}>
-                            <motion.h1 className="text-4xl font-bold leading-tight text-[#1a1560] md:text-5xl" variants={itemVariants}>
+                            <motion.h1 className="text-2xl font-bold leading-tight text-[#1a1560] sm:text-3xl md:text-4xl lg:text-5xl" variants={itemVariants}>
                                 {title}
                             </motion.h1>
                             <motion.div className="my-6 h-1 w-20 bg-[linear-gradient(135deg,#04b488,#7B4FD4)]" variants={itemVariants}></motion.div>
@@ -124,7 +124,7 @@ const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
                             </motion.p>
 
                             <motion.div variants={itemVariants} className="flex flex-col gap-6">
-                                <motion.a href={callToAction.href} className="pointer-events-auto inline-flex w-fit items-center gap-2 rounded-2xl bg-[linear-gradient(135deg,#04b488,#18d1b1)] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_20px_40px_-24px_rgba(4,180,136,0.9)] transition-all hover:translate-y-[-1px] hover:shadow-[0_24px_48px_-24px_rgba(4,180,136,0.95)]">
+                                <motion.a href={callToAction.href} className="pointer-events-auto inline-flex w-fit items-center gap-2 rounded-2xl bg-[linear-gradient(135deg,#04b488,#18d1b1)] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_20px_40px_-24px_rgba(4,180,136,0.9)] transition-all hover:translate-y-[-1px] hover:shadow-[0_24px_48px_-24px_rgba(4,180,136,0.95)] min-h-[48px]">
                                     {callToAction.text}
                                 </motion.a>
 
@@ -155,7 +155,7 @@ const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
 
                 {/* Right Side: Image with Clip Path Animation */}
                 <motion.div
-                    className="pointer-events-none relative z-10 w-full min-h-[380px] bg-cover bg-[center_15%] md:bg-center md:w-1/2 md:min-h-full lg:w-2/5"
+                    className="pointer-events-none relative z-10 w-full min-h-[280px] bg-cover bg-[center_15%] sm:min-h-[380px] md:bg-center md:w-1/2 md:min-h-full lg:w-2/5"
                     style={{
                         backgroundImage: `url(${backgroundImage})`,
                     }}

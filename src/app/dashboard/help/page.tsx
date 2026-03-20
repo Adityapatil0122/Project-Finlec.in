@@ -8,20 +8,20 @@ export default async function DashboardHelpPage() {
 
   return (
     <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
-      <section className="finlec-card p-6">
+      <section className="finlec-card p-4 sm:p-6">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#04b488]">Support desk</p>
         <h2 className="mt-2 text-2xl font-semibold text-[#0f172a]">Raise a support request</h2>
         <p className="mt-2 text-sm text-slate-600">
           Report mandate issues, KYC blockers, order problems, or general complaints in one place.
         </p>
-        <div className="mt-6 rounded-[2rem] border border-slate-200 bg-slate-50 p-5">
+        <div className="mt-6 rounded-2xl sm:rounded-[2rem] border border-slate-200 bg-slate-50 p-4 sm:p-5">
           <SupportTicketForm />
         </div>
       </section>
 
       <section className="space-y-4">
         {platform.supportTickets.map((ticket) => (
-          <article key={ticket.id} className="finlec-card p-5">
+          <article key={ticket.id} className="finlec-card p-4 sm:p-5">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 <p className="text-lg font-semibold text-[#0f172a]">{ticket.subject}</p>
@@ -40,7 +40,7 @@ export default async function DashboardHelpPage() {
           </article>
         ))}
 
-        <div className="finlec-card p-6">
+        <div className="finlec-card p-4 sm:p-6">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#7B4FD4]">Grievance note</p>
           <p className="mt-2 text-sm text-slate-600">
             This section is designed so regular support requests and complaints can later move into a formal grievance process if needed.

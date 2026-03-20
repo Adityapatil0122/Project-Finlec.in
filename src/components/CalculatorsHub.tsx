@@ -164,22 +164,22 @@ export default function CalculatorsHub() {
           <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             Financial Tools
           </p>
-          <h1 className="mt-4 text-4xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-5xl">
+          <h1 className="mt-4 text-2xl font-semibold leading-tight text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl lg:text-5xl">
             Calculators
           </h1>
-          <p className="mt-4 mx-auto max-w-2xl text-lg leading-relaxed text-[#4a5568]">
+          <p className="mt-4 mx-auto max-w-2xl text-base sm:text-lg leading-relaxed text-[#4a5568]">
             Take your Investment strategy to the next level using Finlec&apos;s online Financial planning Calculators.
           </p>
         </motion.div>
 
         {/* Filter Tabs */}
-        <div className="mb-12 flex flex-wrap justify-center gap-3">
+        <div className="mobile-scroll-x mb-10 flex gap-2 pb-2 sm:mb-12 sm:flex-wrap sm:justify-center sm:gap-3 sm:pb-0">
           {tabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={cn(
-                "relative rounded-full px-6 py-2.5 text-sm font-semibold transition-colors duration-300",
+                "relative shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors duration-300 min-h-[44px] sm:px-6",
                 activeTab === tab
                   ? "text-white"
                   : "bg-white text-slate-600 hover:bg-slate-50 border border-slate-200"
@@ -221,7 +221,7 @@ export default function CalculatorsHub() {
                   whileHover={{ y: -8, scale: 1.02, transition: { type: "spring", stiffness: 400, damping: 25 } }}
                   className="h-full"
                 >
-                  <Link href={calc.link} className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.03)] transition-all duration-300 hover:border-[#04b488]/30 hover:shadow-[0_20px_40px_-15px_rgba(4,180,136,0.15)]">
+                  <Link href={calc.link} className="group relative flex h-full flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200 bg-white p-4 sm:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.03)] transition-all duration-300 hover:border-[#04b488]/30 hover:shadow-[0_20px_40px_-15px_rgba(4,180,136,0.15)]">
                     {/* Faded background icon */}
                     <div className="absolute -right-4 -top-4 z-0 opacity-[0.03] transition-transform duration-500 group-hover:scale-110 group-hover:opacity-[0.06]">
                       <Icon size={140} style={{ color: calc.color }} />

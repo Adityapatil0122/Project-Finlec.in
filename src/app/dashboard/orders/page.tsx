@@ -19,7 +19,7 @@ export default async function DashboardOrdersPage() {
 
   return (
     <div className="space-y-6">
-      <div className="finlec-card p-6">
+      <div className="finlec-card p-4 sm:p-6">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#04b488]">Orders module</p>
         <h2 className="mt-2 text-2xl font-semibold text-[#0f172a]">Order status and history</h2>
         <p className="mt-2 text-sm text-slate-600">
@@ -29,7 +29,7 @@ export default async function DashboardOrdersPage() {
 
       <div className="space-y-4">
         {platform.orders.map((order) => (
-          <article key={order.id} className="finlec-card p-5">
+          <article key={order.id} className="finlec-card p-4 sm:p-5">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 <p className="text-lg font-semibold text-[#0f172a]">{order.fundName}</p>
@@ -39,7 +39,7 @@ export default async function DashboardOrdersPage() {
               </div>
               <StatusPill label={order.status.replace(/_/g, " ")} tone={toneByStatus[order.status]} />
             </div>
-            <div className="mt-4 grid gap-3 sm:grid-cols-4">
+            <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
               <div className="rounded-2xl bg-slate-50 p-3 text-sm text-slate-600">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Amount</p>
                 <p className="mt-1 font-semibold text-[#0f172a]">{formatCurrency(order.amount)}</p>

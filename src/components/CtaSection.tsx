@@ -12,7 +12,7 @@ export default function CtaSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#f4fbfc] to-[#e2f8f2] relative shadow-lg border border-[#04b488]/10"
+        className="mx-auto max-w-7xl overflow-hidden rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] bg-gradient-to-br from-[#f4fbfc] to-[#e2f8f2] relative shadow-lg border border-[#04b488]/10"
       >
         {/* Abstract Background Shapes */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -35,8 +35,8 @@ export default function CtaSection() {
           </svg>
         </div>
 
-        <div className="relative z-10 px-6 py-16 sm:py-20 sm:px-12 lg:px-16 text-center flex flex-col items-center">
-          <h3 className="mt-2 max-w-3xl text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-4xl md:text-5xl leading-tight">
+        <div className="relative z-10 px-4 py-10 sm:py-20 sm:px-12 lg:px-16 text-center flex flex-col items-center">
+          <h3 className="mt-2 max-w-3xl text-xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-2xl md:text-3xl lg:text-4xl leading-tight">
             Ready to Start Your Investment{" "}
             <span className="whitespace-nowrap">Journey?</span>
           </h3>
@@ -47,7 +47,7 @@ export default function CtaSection() {
 
           <Link
             href="https://finlec.my-portfolio.co.in/app/#/login"
-            className="mt-10 inline-flex items-center gap-2 rounded-2xl bg-[#04b488] px-8 py-4 text-base font-bold text-white shadow-md transition-all hover:bg-[#039e77] hover:shadow-lg hover:-translate-y-1"
+            className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-[#04b488] px-8 py-4 text-base font-bold text-white shadow-md transition-all hover:bg-[#039e77] hover:shadow-lg hover:-translate-y-1 min-h-[52px] sm:mt-10"
           >
             Start Investing
             <ArrowRight size={20} className="text-white" />

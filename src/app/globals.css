@@ -189,6 +189,54 @@
   .animate-pulse-soft {
     animation: pulse-soft 4.8s ease-in-out infinite;
   }
+
+  /* ── Mobile-first touch & readability helpers ── */
+  .mobile-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  .mobile-scroll-x {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ── Global mobile overrides (320px–768px) ── */
+@media (max-width: 767px) {
+  /* Ensure range sliders are easy to drag on touch */
+  input[type="range"] {
+    height: 8px;
+    min-height: 44px;
+    padding: 16px 0;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Ensure all interactive elements meet min touch size */
+  button,
+  a,
+  select,
+  input[type="date"],
+  input[type="number"],
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    min-height: 44px;
+  }
+
+  /* Prevent horizontal overflow on body */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Ensure tables can scroll horizontally */
+  .mobile-scroll-x {
+    scrollbar-width: thin;
+  }
 }
 
 

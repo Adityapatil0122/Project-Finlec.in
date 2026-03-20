@@ -54,14 +54,14 @@ export default function AnimatedDailySipBenefits() {
   }, []);
 
   return (
-    <div className="mt-20 rounded-[2.5rem] bg-gradient-to-br from-[#0ea5e9]/5 to-[#7B4FD4]/5 p-8 sm:p-12 border border-slate-200 relative overflow-hidden bg-white/40 backdrop-blur-3xl shadow-xl shadow-slate-200/40">
+    <div className="mt-12 sm:mt-20 rounded-3xl sm:rounded-[2.5rem] bg-gradient-to-br from-[#0ea5e9]/5 to-[#7B4FD4]/5 p-4 sm:p-8 md:p-12 border border-slate-200 relative overflow-hidden bg-white/40 backdrop-blur-3xl shadow-xl shadow-slate-200/40">
       <div className="absolute -top-24 -right-24 p-8 opacity-5 pointer-events-none text-[#0ea5e9]">
         <Trophy size={360} />
       </div>
 
       <div className="relative z-10 mx-auto max-w-5xl">
         <div className="text-center mb-12">
-          <h3 className="text-3xl font-bold text-[#1a1560] mb-4 lg:text-4xl">
+          <h3 className="text-2xl font-bold text-[#1a1560] mb-4 sm:text-3xl lg:text-4xl">
             Why Daily SIP Overpowers the Traditional World?
           </h3>
           <p className="text-lg text-[#4a5568] max-w-2xl mx-auto leading-relaxed">
@@ -97,7 +97,7 @@ export default function AnimatedDailySipBenefits() {
           </div>
 
           {/* Active Content Display */}
-          <div className="w-full lg:w-2/3 h-[320px] sm:h-[280px] lg:h-[300px] relative">
+          <div className="w-full lg:w-2/3 h-[360px] sm:h-[280px] lg:h-[300px] relative">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
@@ -105,7 +105,7 @@ export default function AnimatedDailySipBenefits() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -20, scale: 0.95 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="absolute inset-0 rounded-[2rem] bg-white border border-slate-200 shadow-2xl p-8 lg:p-12 flex flex-col justify-center overflow-hidden"
+                className="absolute inset-0 rounded-2xl sm:rounded-[2rem] bg-white border border-slate-200 shadow-2xl p-5 sm:p-8 lg:p-12 flex flex-col justify-center overflow-hidden"
               >
                 <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl ${benefits[activeIndex].color} rounded-full blur-3xl opacity-20 transform translate-x-1/3 -translate-y-1/3`} />
                 
@@ -119,11 +119,11 @@ export default function AnimatedDailySipBenefits() {
                         </div>
                       );
                     })()}
-                    <h4 className="text-3xl font-bold text-[#1a1560]">
+                    <h4 className="text-xl font-bold text-[#1a1560] sm:text-2xl lg:text-3xl">
                       {benefits[activeIndex].title}
                     </h4>
                   </div>
-                  <p className="text-[#4a5568] text-lg leading-relaxed">
+                  <p className="text-[#4a5568] text-sm leading-relaxed sm:text-base lg:text-lg">
                     {benefits[activeIndex].desc}
                   </p>
                 </div>

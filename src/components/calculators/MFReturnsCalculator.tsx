@@ -40,8 +40,8 @@ export default function MFReturnsCalculator() {
   };
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
-      <div className="flex flex-col gap-10 rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10">
+    <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
+      <div className="flex flex-col gap-10 rounded-3xl sm:rounded-[32px] border border-slate-200 bg-white p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10">
         
         {/* Total Investment Slider */}
         <div>
@@ -128,7 +128,7 @@ export default function MFReturnsCalculator() {
         </div>
       </div>
 
-      <div className="flex flex-col rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10 justify-center">
+      <div className="flex flex-col rounded-3xl sm:rounded-[32px] border border-slate-200 bg-white p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10 justify-center">
          <div className="h-[240px] w-full">
             <ResponsiveContainer width="100%" height="100%">
                <PieChart>
@@ -171,7 +171,7 @@ export default function MFReturnsCalculator() {
             </div>
             <div className="pt-5 mt-2 border-t border-slate-200 flex items-center justify-between">
                <p className="text-base font-semibold text-[#4a5568]">Total value</p>
-               <p className="text-2xl font-bold text-[#1a1560] font-[family-name:var(--font-sora)]">{formatCurrency(maturityAmount)}</p>
+               <p className="text-xl sm:text-2xl font-bold text-[#1a1560] font-[family-name:var(--font-sora)] break-all">{formatCurrency(maturityAmount)}</p>
             </div>
          </div>
       </div>

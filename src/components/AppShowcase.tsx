@@ -83,10 +83,10 @@ export default function AppShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="grid gap-10 finlec-card p-7 lg:grid-cols-2 lg:items-center lg:p-10"
+          className="grid gap-10 finlec-card p-4 sm:p-7 lg:grid-cols-2 lg:items-center lg:p-10"
         >
           <div>
-            <h2 className="text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
+            <h2 className="text-2xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl">
               Plan for every goal.
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-[#475569]">
@@ -168,10 +168,10 @@ export default function AppShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="grid gap-10 finlec-card p-7 lg:grid-cols-2 lg:items-center lg:p-10"
+          className="grid gap-8 finlec-card p-4 sm:p-7 lg:grid-cols-2 lg:items-center lg:p-10"
         >
           <div>
-            <h2 className="text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
+            <h2 className="text-2xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl">
               Grow your money steadily.
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-[#475569]">

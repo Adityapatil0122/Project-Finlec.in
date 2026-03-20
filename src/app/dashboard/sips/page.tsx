@@ -10,7 +10,7 @@ export default async function DashboardSipsPage() {
     <div className="grid gap-6 xl:grid-cols-[1fr_0.9fr]">
       <section className="space-y-4">
         {platform.sips.map((sip) => (
-          <article key={sip.id} className="finlec-card p-5">
+          <article key={sip.id} className="finlec-card p-4 sm:p-5">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 <p className="text-lg font-semibold text-[#0f172a]">{sip.fundName}</p>
@@ -41,12 +41,12 @@ export default async function DashboardSipsPage() {
         ))}
       </section>
 
-      <section className="finlec-card p-6">
+      <section className="finlec-card p-4 sm:p-6">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#04b488]">Mandate status</p>
         <h2 className="mt-2 text-2xl font-semibold text-[#0f172a]">Auto-debit setup</h2>
         <div className="mt-5 space-y-4">
           {platform.bankMandates.map((mandate) => (
-            <div key={mandate.id} className="rounded-3xl border border-slate-200 bg-slate-50 p-4">
+            <div key={mandate.id} className="rounded-2xl sm:rounded-3xl border border-slate-200 bg-slate-50 p-3 sm:p-4">
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <p className="text-sm font-semibold text-[#0f172a]">{mandate.provider}</p>

@@ -122,7 +122,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
             Back to Explore Funds
           </Link>
 
-          <div className="mt-4 overflow-hidden rounded-[28px] border border-white/75 bg-white/85 p-8 shadow-[0_24px_60px_-36px_rgba(14,23,40,0.4)] backdrop-blur-xl sm:p-10">
+          <div className="mt-4 overflow-hidden rounded-2xl border border-white/75 bg-white/85 p-3 shadow-[0_24px_60px_-36px_rgba(14,23,40,0.4)] backdrop-blur-xl sm:rounded-[28px] sm:p-6 md:p-10">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(4,180,136,0.05),rgba(123,79,212,0.05))]" />
 
             <div className="relative">
@@ -131,7 +131,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
                 {data.parentCategory} Fund
               </span>
 
-              <h1 className="mt-5 text-3xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-4xl lg:text-5xl">
+              <h1 className="mt-5 text-xl font-semibold text-[#1a1560] font-[family-name:var(--font-sora)] sm:text-2xl md:text-3xl lg:text-5xl">
                 {data.title}
               </h1>
               <p className="mt-4 max-w-3xl text-base leading-relaxed text-[#4a5568] sm:text-lg">
@@ -139,7 +139,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
               </p>
 
               {/* Stats row */}
-              <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-4 lg:grid-cols-4">
                 {[
                   {
                     icon: TrendingUp,
@@ -179,7 +179,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
                         </span>
                       </div>
                       <p
-                        className="text-2xl font-bold font-[family-name:var(--font-sora)]"
+                        className="text-xl font-bold font-[family-name:var(--font-sora)] sm:text-2xl"
                         style={{ color: s.accent }}
                       >
                         {s.value}
@@ -200,7 +200,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
             Top {data.title} Sorted by Returns
           </h2>
 
-          <div className="overflow-hidden rounded-[20px] border border-slate-200/80 bg-white/80 shadow-sm backdrop-blur-xl">
+          <div className="overflow-hidden rounded-xl border border-slate-200/80 bg-white/80 shadow-sm backdrop-blur-xl sm:rounded-2xl md:rounded-[20px]">
             {/* Table header */}
             <div className="hidden border-b border-slate-200/80 bg-[#f5f6fa] px-6 py-4 lg:grid lg:grid-cols-[1fr_100px_100px_100px_100px]">
               <span className="text-xs font-semibold uppercase tracking-wider text-[#4a5568]">
@@ -235,7 +235,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
             {sortedFunds.map((fund, i) => (
               <div
                 key={fund.scheme}
-                className={`grid items-center gap-4 px-6 py-5 transition-colors hover:bg-[#04b488]/4 lg:grid-cols-[1fr_100px_100px_100px_100px] ${i < sortedFunds.length - 1
+                className={`grid items-center gap-3 px-3 py-4 transition-colors hover:bg-[#04b488]/4 sm:gap-4 sm:px-6 sm:py-5 lg:grid-cols-[1fr_100px_100px_100px_100px] ${i < sortedFunds.length - 1
                     ? "border-b border-slate-100"
                     : ""
                   }`}
@@ -494,7 +494,7 @@ function InfoCard({
   children: React.ReactNode;
 }) {
   return (
-    <div className="rounded-[20px] border border-slate-200/80 bg-white/80 p-6 backdrop-blur-xl">
+    <div className="rounded-2xl sm:rounded-[20px] border border-slate-200/80 bg-white/80 p-4 sm:p-6 backdrop-blur-xl">
       <div className="mb-4 flex items-center gap-3">
         <span
           className="inline-flex h-9 w-9 items-center justify-center rounded-xl"

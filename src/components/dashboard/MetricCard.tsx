@@ -16,10 +16,10 @@ const accentClasses: Record<NonNullable<MetricCardProps["tone"]>, string> = {
 
 export default function MetricCard({ label, value, hint, tone = "green" }: MetricCardProps) {
   return (
-    <div className="finlec-card p-5">
+    <div className="finlec-card p-4 sm:p-5">
       <div className={cn("rounded-2xl bg-gradient-to-br px-4 py-3", accentClasses[tone])}>
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">{label}</p>
-        <p className="mt-2 text-2xl font-semibold text-[#0f172a]">{value}</p>
+        <p className="mt-2 text-xl font-semibold text-[#0f172a] sm:text-2xl break-all">{value}</p>
       </div>
       <p className="mt-3 text-sm text-slate-500">{hint}</p>
     </div>

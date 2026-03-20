@@ -69,10 +69,10 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#f3f4f6] px-4 py-10">
+    <div className="flex min-h-screen items-center justify-center bg-[#f3f4f6] px-3 py-6 sm:px-4 sm:py-10">
       <div className="w-full max-w-5xl overflow-hidden rounded-2xl bg-white shadow-2xl">
         <div className="grid lg:grid-cols-2">
-          <div className="bg-gradient-to-br from-[#04b488] via-[#00b286] to-[#7B4FD4] p-8 text-white sm:p-10">
+          <div className="bg-gradient-to-br from-[#04b488] via-[#00b286] to-[#7B4FD4] p-6 text-white sm:p-10">
             <p className="text-sm font-semibold uppercase tracking-wider text-green-100">
               Finlec
             </p>
@@ -95,8 +95,8 @@ export default function LoginPage() {
             </ul>
           </div>
 
-          <div className="p-8 sm:p-10">
-            <h2 className="text-3xl font-bold text-[#1a1560]">Welcome Back</h2>
+          <div className="p-5 sm:p-10">
+            <h2 className="text-2xl font-bold text-[#1a1560] sm:text-3xl">Welcome Back</h2>
             <p className="mt-2 text-sm text-[#4a5568]">
               Log in to continue managing your investments.
             </p>

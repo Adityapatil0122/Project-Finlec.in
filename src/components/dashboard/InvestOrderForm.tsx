@@ -137,7 +137,7 @@ export default function InvestOrderForm({ funds }: InvestOrderFormProps) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="inline-flex items-center rounded-2xl bg-[#04b488] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#049f78] disabled:cursor-not-allowed disabled:opacity-70"
+        className="inline-flex items-center rounded-2xl bg-[#04b488] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#049f78] disabled:cursor-not-allowed disabled:opacity-70 min-h-[48px]"
       >
         {isSubmitting ? "Processing..." : kind === "SIP_REGISTRATION" ? "Register SIP" : "Submit order"}
       </button>

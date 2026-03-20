@@ -40,7 +40,7 @@ export default function TestimonialsSection() {
           <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
             Investor Stories
           </p>
-          <h2 className="mt-4 mx-auto max-w-3xl text-3xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-4xl">
+          <h2 className="mt-4 mx-auto max-w-3xl text-2xl font-semibold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl">
             Stories from Finlec investors
           </h2>
           <p className="mt-4 mx-auto max-w-2xl text-base text-[#475569] sm:text-lg">
@@ -48,7 +48,7 @@ export default function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <motion.article
               key={testimonial.author}
@@ -56,7 +56,7 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.4, delay: index * 0.06, ease: "easeOut" }}
-              className="finlec-card flex h-full flex-col justify-between p-6"
+              className="finlec-card flex h-full flex-col justify-between p-4 sm:p-6"
             >
               <p className="text-sm leading-relaxed text-[#475569]">
                 &quot;{testimonial.content}&quot;
