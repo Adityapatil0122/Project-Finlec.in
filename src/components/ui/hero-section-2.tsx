@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -78,7 +78,7 @@ const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
                 opacity: 1,
                     transition: {
                     duration: 0.5,
-                    ease: "easeOut",
+                    ease: "easeOut" as const,
                 },
             },
         };
@@ -100,7 +100,7 @@ const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
 
                 {/* Left Side: Content */}
                 <div className="pointer-events-none relative z-10 flex w-full flex-col justify-end p-5 sm:p-8 md:w-1/2 md:p-12 lg:w-3/5 lg:p-16">
-                    {/* Main Content — vertically centered */}
+                    {/* Main Content � vertically centered */}
                     <div className="flex md:flex-1 flex-col justify-center">
                         {logo && (
                             <motion.header className="mb-12" variants={itemVariants}>
@@ -161,7 +161,7 @@ const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
                     }}
                     initial={{ clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }}
                     animate={{ clipPath: 'polygon(1% 0, 100% 0, 100% 100%, 0% 100%)' }}
-                    transition={{ duration: 1.2, ease: "circOut" }}
+                    transition={{ duration: 1.2, ease: "circOut" as const }}
                 >
                 </motion.div>
             </motion.section>
@@ -172,4 +172,5 @@ const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
 HeroSection.displayName = "HeroSection";
 
 export { HeroSection };
+
 

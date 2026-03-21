@@ -1,15 +1,8 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import SessionProvider from "@/components/providers/SessionProvider";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
-
-const ibmPlex = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-ibm-plex",
-});
 
 export const metadata: Metadata = {
   title: "Finlec | Mutual Fund Investing Made Simple",
@@ -24,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${ibmPlex.className} ${ibmPlex.variable} antialiased`}>
+      <body className="font-sans antialiased">
         <SessionProvider>
           <Navbar />
           <div className="pt-[74px] sm:pt-20">{children}</div>

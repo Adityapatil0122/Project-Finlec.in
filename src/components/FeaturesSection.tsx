@@ -139,7 +139,7 @@ export default function FeaturesSection() {
         initial: { opacity: 0, y: 20 },
         whileInView: { opacity: 1, y: 0 },
         viewport: { once: true, amount: 0.35 },
-        transition: { duration: 0.5, ease: "easeOut" },
+        transition: { duration: 0.5, ease: "easeOut" as const },
       };
   const columnsMotionProps = shouldAnimate
     ? {
@@ -229,7 +229,7 @@ export default function FeaturesSection() {
             <motion.div
               className="absolute inset-0 bg-[linear-gradient(120deg,#ffffff_0%,#f0fdf4_50%,#f8fafc_100%)]"
               animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
-              transition={{ duration: 12, ease: "linear", repeat: Infinity }}
+              transition={{ duration: 12, ease: "linear" as const, repeat: Infinity }}
               style={{ backgroundSize: "200% 200%" }}
             />
             <div
@@ -308,3 +308,4 @@ export default function FeaturesSection() {
     </section>
   );
 }
+

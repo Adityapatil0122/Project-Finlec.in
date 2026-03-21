@@ -58,7 +58,7 @@ export default function FundTypes() {
         initial: { opacity: 0, y: 20 },
         whileInView: { opacity: 1, y: 0 },
         viewport: { once: true, amount: 0.3 },
-        transition: { duration: 0.5, ease: "easeOut" },
+        transition: { duration: 0.5, ease: "easeOut" as const },
       };
   const gridMotionProps = shouldAnimate
     ? {
@@ -107,7 +107,7 @@ export default function FundTypes() {
                   transition: {
                     duration: 0.45,
                     delay: index * 0.06,
-                    ease: "easeOut",
+                    ease: "easeOut" as const,
                   },
                 };
 
@@ -156,3 +156,4 @@ export default function FundTypes() {
     </section>
   );
 }
+

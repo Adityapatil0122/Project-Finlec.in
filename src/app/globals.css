@@ -47,6 +47,10 @@
 
 :root {
   --radius: 0.625rem;
+  --font-ibm-plex:
+    "IBM Plex Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-geist-mono:
+    "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   --finlec-green: #04b488;
   --finlec-violet: #7b4fd4;
   --finlec-ink: #1a1560;

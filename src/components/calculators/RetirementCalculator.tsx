@@ -1,17 +1,14 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip as RechartsTooltip } from "recharts";
-
-const COLORS = ["#e2e8f0", "#ec4899"];
 
 export default function RetirementCalculator() {
   const [currentAge, setCurrentAge] = useState(30);
   const [retirementAge, setRetirementAge] = useState(60);
-  const [lifeExpectancy, setLifeExpectancy] = useState(85);
+  const lifeExpectancy = 85;
   const [monthlyExpenses, setMonthlyExpenses] = useState(50000);
-  const [inflation, setInflation] = useState(6);
-  const [postRetirementReturns, setPostRetirementReturns] = useState(8);
+  const inflation = 6;
+  const postRetirementReturns = 8;
 
   const { monthlyExpAtRetirement, requiredCorpus } = useMemo(() => {
     const yearsToRetire = Math.max(0, retirementAge - currentAge);
@@ -43,12 +40,6 @@ export default function RetirementCalculator() {
       requiredCorpus: corpus,
     };
   }, [currentAge, retirementAge, lifeExpectancy, monthlyExpenses, inflation, postRetirementReturns]);
-
-  // Just showing a simple split that doesn't mean much mathematically, but fits the UI theme
-  // We can show something like 100% Corpus
-  const data = [
-    { name: "Required Corpus", value: requiredCorpus },
-  ];
 
   const formatCurrency = (val: number) => {
     return new Intl.NumberFormat("en-IN", {

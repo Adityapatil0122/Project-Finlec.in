@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import { TrendingUp, Building2, Flag, ReceiptText, type LucideIcon } from "lucide-react";
@@ -56,7 +56,7 @@ export default function LifeGoals() {
         initial: { opacity: 0, y: 20 },
         whileInView: { opacity: 1, y: 0 },
         viewport: { once: true, amount: 0.3 },
-        transition: { duration: 0.5, ease: "easeOut" },
+        transition: { duration: 0.5, ease: "easeOut" as const },
       };
   const gridMotionProps = shouldAnimate
     ? {
@@ -115,7 +115,7 @@ export default function LifeGoals() {
                   transition: {
                     duration: 0.42,
                     delay: index * 0.05,
-                    ease: "easeOut",
+                    ease: "easeOut" as const,
                   },
                 };
 
@@ -146,4 +146,5 @@ export default function LifeGoals() {
     </section>
   );
 }
+
 

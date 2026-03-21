@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip as RechartsTooltip } from "recharts";
+import { PieChart, Pie, Cell, Tooltip as RechartsTooltip } from "recharts";
+import CalculatorChart from "./CalculatorChart";
 
 const COLORS = ["#e2e8f0", "#7B4FD4"];
 
@@ -144,7 +145,7 @@ export default function LumpsumCalculator() {
 
       <div className="flex flex-col rounded-3xl sm:rounded-[32px] border border-slate-200 bg-white p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10 justify-center">
          <div className="h-[240px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
+            <CalculatorChart>
                <PieChart>
                   <Pie
                      data={data}
@@ -161,11 +162,11 @@ export default function LumpsumCalculator() {
                      ))}
                   </Pie>
                   <RechartsTooltip 
-                     formatter={(value: number) => formatCurrency(value)}
+                     formatter={(value) => formatCurrency(Number(value ?? 0))}
                      contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)' }}
                   />
                </PieChart>
-            </ResponsiveContainer>
+            </CalculatorChart>
          </div>
          
          <div className="mt-10 space-y-5">

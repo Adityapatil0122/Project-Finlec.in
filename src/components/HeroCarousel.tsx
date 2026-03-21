@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -213,6 +213,9 @@ export default function HeroCarousel() {
   const [trackIndex, setTrackIndex] = useState(1);
   const [isSnap, setIsSnap] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+  const touchCurrentX = useRef<number | null>(null);
+  const isHorizontalSwipe = useRef(false);
 
   const trackSlides = useMemo(
     () => [slides[slides.length - 1], ...slides, slides[0]],
@@ -299,6 +302,58 @@ export default function HeroCarousel() {
     [activeIndex, isAnimating, isSnap]
   );
 
+  const handleTouchStart = useCallback(
+    (event: React.TouchEvent<HTMLDivElement>) => {
+      if (isAnimating || isSnap) return;
+      touchStartX.current = event.touches[0]?.clientX ?? null;
+      touchCurrentX.current = touchStartX.current;
+      isHorizontalSwipe.current = false;
+    },
+    [isAnimating, isSnap]
+  );
+
+  const handleTouchMove = useCallback((event: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null) return;
+
+    const nextX = event.touches[0]?.clientX ?? null;
+    if (nextX === null) return;
+
+    touchCurrentX.current = nextX;
+
+    const deltaX = nextX - touchStartX.current;
+    if (Math.abs(deltaX) > 12) {
+      isHorizontalSwipe.current = true;
+    }
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    if (
+      touchStartX.current === null ||
+      touchCurrentX.current === null ||
+      isAnimating ||
+      isSnap
+    ) {
+      touchStartX.current = null;
+      touchCurrentX.current = null;
+      isHorizontalSwipe.current = false;
+      return;
+    }
+
+    const deltaX = touchCurrentX.current - touchStartX.current;
+
+    if (Math.abs(deltaX) >= 40 && isHorizontalSwipe.current) {
+      if (deltaX < 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+
+    touchStartX.current = null;
+    touchCurrentX.current = null;
+    isHorizontalSwipe.current = false;
+  }, [isAnimating, isSnap, nextSlide, prevSlide]);
+
   return (
     <>
       <style jsx global>{`
@@ -325,7 +380,11 @@ export default function HeroCarousel() {
           className="relative w-full overflow-hidden h-[640px] sm:h-[580px] md:h-[clamp(400px,55vw,520px)]"
           style={{
             backgroundImage: activeSlide.surface,
+            touchAction: "pan-y",
           }}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           <div className="absolute inset-0 overflow-hidden">
             <div
@@ -369,25 +428,29 @@ export default function HeroCarousel() {
             <ChevronRight size={22} />
           </button>
 
-          <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2.5">
+          <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-white/72 px-2 py-1 backdrop-blur-sm sm:bottom-6 sm:gap-2">
             {slides.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => goToSlide(idx)}
                 aria-label={`Go to slide ${idx + 1}`}
-                className={`h-3 rounded-full transition-all duration-300 ${activeIndex === idx
-                  ? "w-9 shadow-md"
-                  : "w-3 bg-slate-300/80 hover:bg-slate-400/80"
-                  }`}
-                style={
-                  activeIndex === idx
-                    ? {
-                      backgroundColor: activeSlide.accent,
-                      boxShadow: `0 10px 18px -12px ${activeSlide.accent}24`,
-                    }
-                    : undefined
-                }
-              />
+                className="flex h-9 w-6 items-center justify-center rounded-full sm:h-10 sm:w-7"
+              >
+                <span
+                  className={`block rounded-full transition-all duration-300 ${activeIndex === idx
+                    ? "h-3.5 w-7 shadow-md"
+                    : "h-3.5 w-2.5 bg-slate-300/85"
+                    }`}
+                  style={
+                    activeIndex === idx
+                      ? {
+                          backgroundColor: activeSlide.accent,
+                          boxShadow: `0 10px 18px -12px ${activeSlide.accent}24`,
+                        }
+                      : undefined
+                  }
+                />
+              </button>
             ))}
           </div>
         </div>

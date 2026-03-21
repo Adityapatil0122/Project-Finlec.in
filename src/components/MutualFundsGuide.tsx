@@ -189,7 +189,7 @@ const investmentModes = {
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.55, ease: "easeOut" },
+  transition: { duration: 0.55, ease: "easeOut" as const },
   viewport: { once: true, amount: 0.2 },
 };
 
@@ -202,7 +202,7 @@ const staggerContainer = {
 
 const staggerItem = {
   hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" as const } },
 };
 
 export default function MutualFundsGuide() {
@@ -809,4 +809,5 @@ export default function MutualFundsGuide() {
     </section>
   );
 }
+
 

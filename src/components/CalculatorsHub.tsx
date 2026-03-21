@@ -4,8 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Calculator, Banknote, Briefcase, Activity, CalendarClock, CalendarDays,
-  HandCoins, Building2, Car, Home, PiggyBank, Landmark,
+  Calculator, Banknote, Briefcase, Activity, CalendarClock,
+  HandCoins, Building2, Car, Home, Landmark,
   ShieldCheck, TrendingDown, TrendingUp, Coins, SquarePercent, BarChart3
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -158,7 +158,7 @@ export default function CalculatorsHub() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" as const }}
           className="mb-12 text-center"
         >
           <p className="inline-flex rounded-full bg-[#04b488]/10 px-4 py-2 text-sm font-semibold text-[#04b488]">
@@ -203,7 +203,7 @@ export default function CalculatorsHub() {
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
           <AnimatePresence mode="popLayout">
-            {filteredCalculators.map((calc, idx) => {
+            {filteredCalculators.map((calc) => {
               const Icon = calc.icon;
 
               return (
@@ -256,4 +256,5 @@ export default function CalculatorsHub() {
     </section>
   );
 }
+
 

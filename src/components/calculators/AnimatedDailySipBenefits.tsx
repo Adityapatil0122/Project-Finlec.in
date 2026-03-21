@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -118,7 +118,7 @@ export default function AnimatedDailySipBenefits() {
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                transition={{ duration: 0.4, ease: "easeOut" as const }}
                 className="absolute inset-0 rounded-2xl sm:rounded-[2rem] bg-white border border-slate-200 shadow-2xl p-5 sm:p-8 lg:p-12 flex flex-col justify-center overflow-hidden"
               >
                 <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl ${benefits[activeIndex].color} rounded-full blur-3xl opacity-20 transform translate-x-1/3 -translate-y-1/3`} />
@@ -149,4 +149,5 @@ export default function AnimatedDailySipBenefits() {
     </motion.div>
   );
 }
+
 

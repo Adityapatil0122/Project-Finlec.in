@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip as RechartsTooltip } from "recharts";
+import { PieChart, Pie, Cell, Tooltip as RechartsTooltip } from "recharts";
+import CalculatorChart from "./CalculatorChart";
 
 const COLORS = ["#e2e8f0", "#04b488"];
 
@@ -109,16 +110,16 @@ export default function StepUpSIPCalculator() {
 
       <div className="flex flex-col rounded-3xl sm:rounded-[32px] border border-slate-200 bg-white p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10 justify-center">
          <div className="h-[240px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
+            <CalculatorChart>
                <PieChart>
                   <Pie data={data} cx="50%" cy="50%" innerRadius={70} outerRadius={95} paddingAngle={2} dataKey="value" stroke="none">
                      {data.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                      ))}
                   </Pie>
-                  <RechartsTooltip formatter={(value: number) => formatCurrency(value)} contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)' }} />
+                  <RechartsTooltip formatter={(value) => formatCurrency(Number(value ?? 0))} contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)' }} />
                </PieChart>
-            </ResponsiveContainer>
+            </CalculatorChart>
          </div>
          <div className="mt-10 space-y-5">
             <div className="flex items-center justify-between">

@@ -13,7 +13,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.55, ease: "easeOut" }}
+          transition={{ duration: 0.55, ease: "easeOut" as const }}
           className="space-y-6"
         >
           <h2 className="max-w-2xl text-2xl font-semibold leading-tight text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-4xl">
@@ -51,7 +51,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.55, delay: 0.08, ease: "easeOut" }}
+          transition={{ duration: 0.55, delay: 0.08, ease: "easeOut" as const }}
           className="relative finlec-card p-5"
         >
           <div className="relative overflow-hidden rounded-2xl">
@@ -68,3 +68,4 @@ export default function AboutSection() {
     </section>
   );
 }
+

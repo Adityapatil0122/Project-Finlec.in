@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useMobileMotion } from "@/lib/hooks/useMobileMotion";
 import {
@@ -12,14 +13,14 @@ const testimonials = [
   {
     content:
       "I was always unsure where to invest. A friend suggested Finlec, and it made things much simpler. I picked a fund, started my SIP, and stopped worrying about sales calls.",
-    author: "Rohan M.",
+    author: "Rohan Mane.",
     role: "Software Engineer, Pune",
     image: "/images/avatar_rohan.png",
   },
   {
     content:
       "What I like most is that everything is in one place. I can track my investments, compare funds, and understand what I am doing without needing to be a finance expert.",
-    author: "Priya S.",
+    author: "Priya Dhake.",
     role: "Teacher, Mumbai",
     image: "/images/avatar_priya.png",
   },
@@ -45,7 +46,7 @@ export default function TestimonialsSection() {
         initial: { opacity: 0, y: 16 },
         whileInView: { opacity: 1, y: 0 },
         viewport: { once: true, amount: 0.3 },
-        transition: { duration: 0.45, ease: "easeOut" },
+        transition: { duration: 0.45, ease: "easeOut" as const },
       };
   const gridMotionProps = shouldAnimate
     ? {
@@ -99,7 +100,7 @@ export default function TestimonialsSection() {
                     transition: {
                       duration: 0.4,
                       delay: index * 0.06,
-                      ease: "easeOut",
+                      ease: "easeOut" as const,
                     },
                   })}
               className="finlec-card flex h-full flex-col justify-between p-4 sm:p-6"
@@ -109,9 +110,11 @@ export default function TestimonialsSection() {
               </p>
               <div className="mt-6 flex items-center gap-4 border-t border-slate-200/70 pt-5">
                 <div className="h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-slate-200 sm:h-16 sm:w-16">
-                  <img
+                  <Image
                     src={testimonial.image}
                     alt={testimonial.author}
+                    width={64}
+                    height={64}
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -131,4 +134,5 @@ export default function TestimonialsSection() {
     </section>
   );
 }
+
 

@@ -457,7 +457,7 @@ export default function FundCategoryPage({ data }: { data: FundCategoryInfo }) {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25, ease: "easeInOut" }}
+                        transition={{ duration: 0.25, ease: "easeInOut" as const }}
                       >
                         <p className="px-6 pb-5 text-sm leading-relaxed text-[#4a5568]">
                           {faq.answer}
@@ -510,4 +510,5 @@ function InfoCard({
     </div>
   );
 }
+
 

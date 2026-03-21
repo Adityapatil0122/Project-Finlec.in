@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -14,7 +14,7 @@ export default function CTABanner() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        transition={{ duration: 0.5, ease: "easeOut" as const }}
         className="relative mx-auto grid max-w-7xl gap-8 overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200 finlec-surface p-4 sm:p-6 shadow-sm lg:grid-cols-[1fr_0.9fr] lg:p-8"
       >
         <div className="pointer-events-none absolute right-[-120px] top-[-120px] h-56 w-56 rounded-full bg-[#7B4FD4]/12 blur-3xl" />
@@ -101,4 +101,5 @@ export default function CTABanner() {
     </section>
   );
 }
+
 

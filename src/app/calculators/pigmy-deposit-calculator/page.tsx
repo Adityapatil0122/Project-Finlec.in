@@ -2,25 +2,25 @@
 
 import MarketingShell from "@/components/MarketingShell";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ChevronRight, Coins, PiggyBank, ShieldCheck, TrendingUp, Blend } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+import { ChevronRight, Coins, ShieldCheck, TrendingUp, Blend } from "lucide-react";
 
-const stagger = {
+const stagger: Variants = {
   hidden: {},
   show: {
     transition: { staggerChildren: 0.12 },
   },
 };
 
-const fadeItem = {
+const fadeItem: Variants = {
   hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" as const } },
 };
 
 const fadeUp = {
   initial: { opacity: 0, y: 18 },
   whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.5, ease: "easeOut" },
+  transition: { duration: 0.5, ease: "easeOut" as const },
   viewport: { once: true, amount: 0.2 },
 };
 
@@ -384,5 +384,6 @@ export default function PigmyDepositCalculatorPage() {
     </MarketingShell>
   );
 }
+
 
 

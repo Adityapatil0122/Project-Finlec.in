@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip as RechartsTooltip } from "recharts";
+import { PieChart, Pie, Cell, Tooltip as RechartsTooltip } from "recharts";
+import CalculatorChart from "./CalculatorChart";
 
 const COLORS = ["#e2e8f0", "#14b8a6"];
 
@@ -10,7 +11,7 @@ export default function CarLoanEMICalculator() {
   const [interestRate, setInterestRate] = useState(9.5);
   const [loanTenure, setLoanTenure] = useState(5);
 
-  const { emi, totalInterest, totalAmount } = useMemo(() => {
+  const { totalInterest, totalAmount } = useMemo(() => {
     const P = loanAmount;
     const r = interestRate / 12 / 100;
     const n = loanTenure * 12;
@@ -20,7 +21,6 @@ export default function CarLoanEMICalculator() {
     const totalInterest = totalAmount - P;
 
     return {
-      emi: isNaN(emi) ? 0 : emi,
       totalInterest: isNaN(totalInterest) ? 0 : totalInterest,
       totalAmount: isNaN(totalAmount) ? 0 : totalAmount,
     };
@@ -130,7 +130,7 @@ export default function CarLoanEMICalculator() {
 
       <div className="flex flex-col rounded-3xl sm:rounded-[32px] border border-slate-200 bg-white p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:p-10 justify-center">
          <div className="h-[240px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
+            <CalculatorChart>
                <PieChart>
                   <Pie
                      data={data}
@@ -147,11 +147,11 @@ export default function CarLoanEMICalculator() {
                      ))}
                   </Pie>
                   <RechartsTooltip 
-                     formatter={(value: number) => formatCurrency(value)}
+                     formatter={(value) => formatCurrency(Number(value ?? 0))}
                      contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)' }}
                   />
                </PieChart>
-            </ResponsiveContainer>
+            </CalculatorChart>
          </div>
          
          <div className="mt-10 space-y-5">

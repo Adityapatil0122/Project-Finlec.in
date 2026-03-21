@@ -59,7 +59,7 @@ export default function PartnersMarquee() {
         initial: { opacity: 0, y: 20 },
         whileInView: { opacity: 1, y: 0 },
         viewport: { once: true, amount: 0.35 },
-        transition: { duration: 0.5, ease: "easeOut" },
+        transition: { duration: 0.5, ease: "easeOut" as const },
       };
 
   const startMarquee = useCallback(() => {
@@ -79,7 +79,7 @@ export default function PartnersMarquee() {
     controlsRef.current?.stop();
     controlsRef.current = animate(x, [normalizedX, normalizedX - loopDistance], {
       duration: loopDistance / SCROLL_SPEED,
-      ease: "linear",
+      ease: "linear" as const,
       repeat: Infinity,
       repeatType: "loop",
     });
@@ -143,4 +143,5 @@ export default function PartnersMarquee() {
     </section>
   );
 }
+
 

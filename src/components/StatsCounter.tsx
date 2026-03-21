@@ -76,7 +76,7 @@ function AnimatedValue({ value, suffix, start }: AnimatedValueProps) {
 
     const controls = animate(motionValue, value, {
       duration: 1.05,
-      ease: "easeOut",
+      ease: "easeOut" as const,
     });
 
     return () => controls.stop();
@@ -92,8 +92,6 @@ function AnimatedValue({ value, suffix, start }: AnimatedValueProps) {
 
 export default function StatsCounter() {
   const { shouldAnimate, motionKey } = useMobileMotion();
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.35 });
   const gridMotionProps = shouldAnimate
     ? {
         variants: mobileStaggerContainer,
@@ -105,7 +103,6 @@ export default function StatsCounter() {
 
   return (
     <section
-      ref={sectionRef}
       id="stats"
       key={motionKey}
       className="bg-[#f8fafc] px-4 py-24 sm:px-6 lg:px-8"
@@ -116,43 +113,61 @@ export default function StatsCounter() {
           className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4"
         >
           {stats.map((stat, index) => (
-            <motion.article
+            <StatCard
               key={stat.label}
-              {...(shouldAnimate
-                ? { variants: mobileFadeUp }
-                : {
-                    initial: { opacity: 0, y: 24 },
-                    whileInView: { opacity: 1, y: 0 },
-                    viewport: { once: true, amount: 0.25 },
-                    transition: {
-                      duration: 0.5,
-                      delay: index * 0.1,
-                      ease: "easeOut",
-                    },
-                  })}
-              className="group relative overflow-hidden rounded-2xl bg-white p-4 text-center shadow-sm hover:shadow-lg transition-shadow duration-300 sm:p-6 md:p-8"
-            >
-              {/* Accent top bar */}
-              <div
-                className="absolute left-0 top-0 h-1 w-full transition-all duration-300 group-hover:h-1.5"
-                style={{ backgroundColor: stat.accent }}
-              />
-
-              <p className="text-2xl font-bold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-5xl">
-                <AnimatedValue value={stat.value} suffix={stat.suffix} start={isInView} />
-              </p>
-
-              <p
-                className="mt-3 text-sm font-semibold uppercase tracking-wider text-[#64748b]"
-              >
-                {stat.label}
-              </p>
-
-              <p className="mt-2 text-sm text-[#64748b]">{stat.detail}</p>
-            </motion.article>
+              stat={stat}
+              index={index}
+              shouldAnimate={shouldAnimate}
+            />
           ))}
         </motion.div>
       </div>
     </section>
   );
 }
+
+type StatCardProps = {
+  stat: Stat;
+  index: number;
+  shouldAnimate: boolean;
+};
+
+function StatCard({ stat, index, shouldAnimate }: StatCardProps) {
+  const cardRef = useRef<HTMLElement | null>(null);
+  const isInView = useInView(cardRef, { once: true, amount: 0.25 });
+
+  return (
+    <motion.article
+      ref={cardRef}
+      {...(shouldAnimate
+        ? { variants: mobileFadeUp }
+        : {
+            initial: { opacity: 0, y: 24 },
+            whileInView: { opacity: 1, y: 0 },
+            viewport: { once: true, amount: 0.25 },
+            transition: {
+              duration: 0.5,
+              delay: index * 0.1,
+              ease: "easeOut" as const,
+            },
+          })}
+      className="group relative overflow-hidden rounded-2xl bg-white p-4 text-center shadow-sm transition-shadow duration-300 hover:shadow-lg sm:p-6 md:p-8"
+    >
+      <div
+        className="absolute left-0 top-0 h-1 w-full transition-all duration-300 group-hover:h-1.5"
+        style={{ backgroundColor: stat.accent }}
+      />
+
+      <p className="text-2xl font-bold text-[#0f172a] font-[family-name:var(--font-sora)] sm:text-3xl md:text-5xl">
+        <AnimatedValue value={stat.value} suffix={stat.suffix} start={isInView} />
+      </p>
+
+      <p className="mt-3 text-sm font-semibold uppercase tracking-wider text-[#64748b]">
+        {stat.label}
+      </p>
+
+      <p className="mt-2 text-sm text-[#64748b]">{stat.detail}</p>
+    </motion.article>
+  );
+}
+

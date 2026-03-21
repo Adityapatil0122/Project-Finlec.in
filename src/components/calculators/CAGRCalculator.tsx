@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip as RechartsTooltip } from "recharts";
+import { PieChart, Pie, Cell, Tooltip as RechartsTooltip } from "recharts";
+import CalculatorChart from "./CalculatorChart";
 
 const COLORS = ["#e2e8f0", "#04b488"]; // Slate 200 for initial, primary for profit
 
@@ -144,7 +145,7 @@ export default function CAGRCalculator() {
          </div>
 
          <div className="h-[200px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
+            <CalculatorChart>
                <PieChart>
                   <Pie
                      data={data}
@@ -161,11 +162,11 @@ export default function CAGRCalculator() {
                      ))}
                   </Pie>
                   <RechartsTooltip
-                     formatter={(value: number) => formatCurrency(value)}
+                     formatter={(value) => formatCurrency(Number(value ?? 0))}
                      contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)' }}
                   />
                </PieChart>
-            </ResponsiveContainer>
+            </CalculatorChart>
          </div>
 
          <div className="mt-6 space-y-5">

@@ -102,7 +102,7 @@ export default function Navbar() {
       <motion.header
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
+      transition={{ duration: 0.45, ease: "easeOut" as const }}
       className={`fixed inset-x-0 top-0 z-50 transition-all ${
         isScrolled
           ? "border-b border-slate-200/80 bg-white/95 shadow-[0_12px_30px_-22px_rgba(15,23,42,0.35)] backdrop-blur-xl"
@@ -261,7 +261,7 @@ export default function Navbar() {
                         initial={{ opacity: 0, y: -8 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.18, ease: "easeOut" }}
+                        transition={{ duration: 0.18, ease: "easeOut" as const }}
                         className="absolute right-0 top-full z-[80] mt-3 w-64 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_50px_-25px_rgba(15,23,42,0.35)]"
                       >
                         <div className="border-b border-slate-100 bg-[linear-gradient(135deg,rgba(4,180,136,0.09),rgba(123,79,212,0.08))] px-4 py-4">
@@ -469,3 +469,4 @@ export default function Navbar() {
     </>
   );
 }
+

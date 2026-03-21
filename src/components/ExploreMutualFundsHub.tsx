@@ -613,11 +613,12 @@ export default function ExploreMutualFundsHub() {
         });
         if (!response.ok) return;
         const payload = (await response.json()) as { data?: FundSnapshot[] };
-        if (!payload?.data || !isMounted) return;
+        const snapshots = payload.data;
+        if (!snapshots || !isMounted) return;
 
         setLiveReturns((previous) => {
           const next = { ...previous };
-          payload.data.forEach((snapshot) => {
+          snapshots.forEach((snapshot) => {
             next[snapshot.name] = snapshot;
           });
           return next;
@@ -641,6 +642,8 @@ export default function ExploreMutualFundsHub() {
       .slice(0, 2)
       .toUpperCase();
   };
+
+  const activeSpotlight = assetSpotlights[activeAsset];
 
   return (
     <div className="relative overflow-hidden pt-2">
@@ -674,7 +677,7 @@ export default function ExploreMutualFundsHub() {
                 </h2>
               </div>
               <p className="max-w-xl text-sm leading-relaxed text-[#4a5568]">
-
+                {activeSpotlight.description}
               </p>
             </div>
 
@@ -735,7 +738,7 @@ export default function ExploreMutualFundsHub() {
                               initial={{ opacity: 0, y: 6 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true, amount: 0.5 }}
-                              transition={{ duration: 0.3, delay: index * 0.04, ease: "easeOut" }}
+                              transition={{ duration: 0.3, delay: index * 0.04, ease: "easeOut" as const }}
                               whileHover={{ y: -2, scale: 1.01 }}
                               className="group grid cursor-pointer grid-cols-[auto_1fr_auto] items-center gap-3 px-2 py-4 transition-colors hover:bg-white/70"
                             >
@@ -868,4 +871,5 @@ export default function ExploreMutualFundsHub() {
     </div>
   );
 }
+
 
