@@ -40,7 +40,7 @@ export default function Footer() {
                 alt="Finlec"
                 width={160}
                 height={56}
-                className="h-[44px] w-auto rounded-lg object-contain"
+                className="h-[44px] w-auto object-contain"
               />
             </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">

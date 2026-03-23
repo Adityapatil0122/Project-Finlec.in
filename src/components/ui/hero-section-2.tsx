@@ -155,7 +155,7 @@ const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
 
                 {/* Right Side: Image with Clip Path Animation */}
                 <motion.div
-                    className="pointer-events-none relative z-10 w-full min-h-[400px] bg-cover bg-center sm:min-h-[460px] md:w-1/2 md:min-h-full lg:w-2/5"
+                    className="pointer-events-none relative z-10 w-full min-h-[400px] bg-contain bg-center bg-no-repeat sm:min-h-[460px] md:w-1/2 md:min-h-full lg:w-2/5 lg:bg-cover"
                     style={{
                         backgroundImage: `url(${backgroundImage})`,
                     }}

@@ -9,7 +9,7 @@ export default function Hero() {
       className="relative isolate overflow-hidden px-0 pb-12 pt-4 sm:pt-4 lg:pt-4"
     >
       <HeroSection
-        className="md:min-h-[85vh]"
+        className="lg:min-h-[85vh]"
         title={
           <>
             India&apos;s Leading All-in-One{" "}

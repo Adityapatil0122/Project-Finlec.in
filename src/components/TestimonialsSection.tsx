@@ -13,14 +13,14 @@ const testimonials = [
   {
     content:
       "I was always unsure where to invest. A friend suggested Finlec, and it made things much simpler. I picked a fund, started my SIP, and stopped worrying about sales calls.",
-    author: "Rohan Mane.",
+    author: "Rohan Mane",
     role: "Software Engineer, Pune",
     image: "/images/avatar_rohan.png",
   },
   {
     content:
       "What I like most is that everything is in one place. I can track my investments, compare funds, and understand what I am doing without needing to be a finance expert.",
-    author: "Priya Dhake.",
+    author: "Priya Dhake",
     role: "Teacher, Mumbai",
     image: "/images/avatar_priya.png",
   },
